@@ -1,39 +1,46 @@
 import { Link } from 'react-router-dom'
-import { footerCta } from '../siteData'
 
 const HeaderNav = () => {
   return (
-    <header className="sticky top-4 z-40 mb-12">
-      <div className="flex items-center justify-between bg-ink px-6 py-4">
-        <Link to="/" className="text-lg font-semibold text-white">
+    <header className="absolute left-0 right-0 top-0 z-40">
+      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-[64px] py-[32px]">
+        {/* Logo - underlined style from Figma */}
+        <Link 
+          to="/" 
+          className="font-body text-[18px] font-semibold text-white underline decoration-white/80 underline-offset-4 transition hover:decoration-white"
+        >
           Patrick Lopes
         </Link>
-        <nav className="hidden items-center gap-6 text-sm font-medium text-white sm:flex">
+        
+        {/* Navigation Links */}
+        <nav className="hidden items-center gap-[24px] sm:flex">
           <a
-            href="#top"
-            className="transition-colors hover:text-primary"
+            href="#work"
+            className="font-body text-[16px] font-medium text-white transition-colors hover:text-white/80"
           >
-            Home
+            Work
           </a>
           <a
             href="#about"
-            className="transition-colors hover:text-primary"
+            className="font-body text-[16px] font-medium text-white transition-colors hover:text-white/80"
           >
             About
           </a>
           <a
             href="#resume"
-            className="transition-colors hover:text-primary"
+            className="font-body text-[16px] font-medium text-white transition-colors hover:text-white/80"
           >
             Resume
           </a>
+          
+          {/* CTA Button - rounded-[4px], bg-primary */}
+          <a
+            href="mailto:patrick@patricklopes.com"
+            className="rounded-[4px] bg-primary px-[24px] py-[8px] font-body text-[16px] font-medium text-white transition hover:bg-primary/90"
+          >
+            Lets talk
+          </a>
         </nav>
-        <a
-          href={footerCta.action.href}
-          className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-primary/90"
-        >
-          Let's Talk
-        </a>
       </div>
     </header>
   )

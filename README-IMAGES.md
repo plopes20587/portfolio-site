@@ -118,3 +118,5 @@ If you need to update image paths, check:
 - `src/components/AboutSection.tsx` - profile photo
 - `src/components/Hero.tsx` - social icons
 - `src/components/LogoMarquee.tsx` - brand logos
+
+

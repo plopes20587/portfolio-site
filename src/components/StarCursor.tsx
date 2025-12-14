@@ -1,15 +1,10 @@
-import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 const StarCursor = () => {
   const [enabled, setEnabled] = useState(false)
+  const [mousePosition, setMousePosition] = useState({ x: -40, y: -40 })
   const prefersReducedMotion = useReducedMotion()
-
-  const x = useMotionValue(-40)
-  const y = useMotionValue(-40)
-  const springX = useSpring(x, { stiffness: 120, damping: 18, mass: 0.6 })
-  const springY = useSpring(y, { stiffness: 120, damping: 18, mass: 0.6 })
-  const scale = useTransform(springX, () => (enabled ? 1 : 0))
 
   useEffect(() => {
     const checkEligibility = () => {
@@ -27,41 +22,109 @@ const StarCursor = () => {
     if (!enabled) return
 
     const move = (event: PointerEvent) => {
-      x.set(event.clientX - 14)
-      y.set(event.clientY - 14)
+      setMousePosition({ x: event.clientX, y: event.clientY })
     }
 
     window.addEventListener('pointermove', move)
     return () => window.removeEventListener('pointermove', move)
-  }, [enabled, x, y])
+  }, [enabled])
 
   if (!enabled) return null
 
   return (
-    <motion.div
-      aria-hidden
-      className="pointer-events-none fixed inset-0 z-50"
-      style={{ mixBlendMode: 'screen' }}
-    >
+    <>
+      {/* Main glowing star */}
       <motion.div
-        style={{
-          x: springX,
-          y: springY,
-          scale,
-          clipPath:
-            'polygon(50% 0%, 61% 38%, 98% 38%, 68% 59%, 79% 98%, 50% 75%, 21% 98%, 32% 59%, 2% 38%, 39% 38%)',
+        aria-hidden
+        className="pointer-events-none fixed z-50 mix-blend-screen"
+        animate={{
+          x: mousePosition.x - 10,
+          y: mousePosition.y - 10,
         }}
-        className="size-8 rounded-full bg-gradient-to-br from-accent to-lilac shadow-[0_0_40px_rgba(125,232,255,0.45)] opacity-80"
-      />
+        transition={{
+          type: "spring",
+          damping: 30,
+          stiffness: 200,
+          mass: 0.5,
+        }}
+      >
+        {/* Outer glow */}
+        <div className="relative h-5 w-5">
+          <div className="absolute inset-0 animate-pulse rounded-full bg-[#7F5AF0] opacity-60 blur-md" />
+          
+          {/* Star shape */}
+          <svg
+            className="absolute inset-0 h-full w-full"
+            viewBox="0 0 20 20"
+            fill="none"
+          >
+            {/* Horizontal line */}
+            <line
+              x1="10"
+              y1="4"
+              x2="10"
+              y2="16"
+              stroke="#7F5AF0"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+            {/* Vertical line */}
+            <line
+              x1="4"
+              y1="10"
+              x2="16"
+              y2="10"
+              stroke="#7F5AF0"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+            {/* Center glow */}
+            <circle
+              cx="10"
+              cy="10"
+              r="2"
+              fill="#7F5AF0"
+              opacity="0.8"
+            />
+          </svg>
+        </div>
+      </motion.div>
+
+      {/* Trailing particles */}
       <motion.div
-        style={{
-          x: springX,
-          y: springY,
-          scale,
+        aria-hidden
+        className="pointer-events-none fixed z-50 mix-blend-screen"
+        animate={{
+          x: mousePosition.x - 3,
+          y: mousePosition.y - 3,
         }}
-        className="absolute h-14 w-14 -translate-x-3 -translate-y-3 rounded-full bg-accent/10 blur-2xl"
-      />
-    </motion.div>
+        transition={{
+          type: "spring",
+          damping: 20,
+          stiffness: 150,
+          mass: 0.8,
+        }}
+      >
+        <div className="h-1.5 w-1.5 rounded-full bg-[#7F5AF0] opacity-40 blur-sm" />
+      </motion.div>
+
+      <motion.div
+        aria-hidden
+        className="pointer-events-none fixed z-50 mix-blend-screen"
+        animate={{
+          x: mousePosition.x - 2,
+          y: mousePosition.y - 2,
+        }}
+        transition={{
+          type: "spring",
+          damping: 15,
+          stiffness: 100,
+          mass: 1,
+        }}
+      >
+        <div className="h-1 w-1 rounded-full bg-[#9D7FF5] opacity-30 blur-sm" />
+      </motion.div>
+    </>
   )
 }
 

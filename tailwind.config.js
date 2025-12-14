@@ -19,18 +19,57 @@ export default {
           'sans-serif',
         ],
       },
+      fontSize: {
+        'h1': ['80px', { lineHeight: 1, letterSpacing: '2px', fontWeight: 400 }],
+        'h2': ['42px', { lineHeight: 1.2, letterSpacing: '1px', fontWeight: 400 }],
+        'h3': ['36px', { lineHeight: 1, letterSpacing: '0px', fontWeight: 400 }],
+        'h4': ['14px', { lineHeight: '20px', letterSpacing: '0.55px', fontWeight: 700 }],
+        'body': ['18px', { lineHeight: 1.5, letterSpacing: '0px', fontWeight: 400 }],
+      },
       colors: {
-        ink: '#18151f',
+        // Base backgrounds - from Figma design
+        ink: '#0a0a0f',
+        'ink-light': '#18151f',
         'ink-900': '#1e1e1e',
-        panel: '#18151f',
-        accent: '#7f5af0',
+        panel: '#0a0a0f',
+        
+        // Primary brand colors
         primary: '#7f5af0',
-        purple: '#804df0',
-        orange: '#ff9900',
-        green: '#009966',
-        blue: '#0066ff',
+        accent: '#7f5af0',
+        
+        // Project card colors - from Figma
+        purple: {
+          DEFAULT: '#7f5af0',
+          dark: '#541db9',
+          light: '#9d7ff5',
+        },
+        orange: {
+          DEFAULT: '#ff9900',
+          dark: '#cc7a00',
+        },
+        green: {
+          DEFAULT: '#009966',
+          dark: '#006644',
+        },
+        blue: {
+          DEFAULT: '#0066ff',
+          dark: '#0052cc',
+        },
+        
+        // Accent colors
         lilac: '#c2b7ff',
         neon: '#76ffc4',
+        pink: '#ff3cac',
+        cyan: {
+          DEFAULT: '#87f5f1',
+          300: '#87f5f1',
+        },
+        
+        // Surface colors
+        surface: {
+          card: 'rgba(255, 255, 255, 0.05)',
+          'card-border': 'rgba(255, 255, 255, 0.1)',
+        },
       },
       boxShadow: {
         glow: '0 0 40px rgba(125, 232, 255, 0.3)',
@@ -44,6 +83,7 @@ export default {
         'marquee-slow': 'marquee 20s linear infinite',
         'marquee-slower': 'marquee 26s linear infinite',
         'pulse-soft': 'pulseSoft 6s ease-in-out infinite',
+        'meteor': 'meteor 5s linear infinite',
       },
       keyframes: {
         float: {
@@ -57,6 +97,11 @@ export default {
         pulseSoft: {
           '0%, 100%': { opacity: 0.45 },
           '50%': { opacity: 0.9 },
+        },
+        meteor: {
+          '0%': { transform: 'rotate(var(--angle)) translateX(0)', opacity: '1' },
+          '70%': { opacity: '1' },
+          '100%': { transform: 'rotate(var(--angle)) translateX(-500px)', opacity: '0' },
         },
       },
     },

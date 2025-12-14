@@ -2,35 +2,76 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import type { CaseStudy } from '../siteData'
 
+// Import project thumbnail images
+import kfcThumbnail from '../assets/images/KFC Thumbnail.png'
+import photonThumbnail from '../assets/images/Photon Thumbnail.png'
+import cellebriteThumbnail from '../assets/images/Cellebrite Thumbnail.png'
+import senegenceThumbnail from '../assets/images/SeneGence Thumbnail.png'
+
 type Props = {
   study: CaseStudy
 }
 
-const projectColors: Record<string, { bg: string; text: string; imagePath: string }> = {
-  'kfc-pdp-redesign': { 
-    bg: 'bg-purple', 
-    text: 'text-purple',
-    imagePath: '/src/assets/images/projects/kfc-mockup.png'
+// Project color configurations matching Figma design
+const projectColors: Record<string, {
+  // Gradient colors for card background
+  gradientFrom: string
+  gradientTo: string
+  // Grid pattern overlay image (semi-transparent grid)
+  gridPatternUrl: string
+  // Thumbnail image
+  thumbnail: string
+}> = {
+  'kfc-pdp-redesign': {
+    gradientFrom: '#541db9',
+    gradientTo: '#7f5af0',
+    gridPatternUrl: '/images/grid-pattern.png',
+    thumbnail: kfcThumbnail,
   },
-  'photon-website': { 
-    bg: 'bg-orange', 
-    text: 'text-orange',
-    imagePath: '/src/assets/images/projects/photon-mockup.png'
+  'photon-website': {
+    gradientFrom: '#cc7a00',
+    gradientTo: '#ff9900',
+    gridPatternUrl: '/images/grid-pattern.png',
+    thumbnail: photonThumbnail,
   },
-  'cellebrite-website': { 
-    bg: 'bg-green', 
-    text: 'text-green',
-    imagePath: '/src/assets/images/projects/cellebrite-mockup.png'
+  'cellebrite-website': {
+    gradientFrom: '#006644',
+    gradientTo: '#009966',
+    gridPatternUrl: '/images/grid-pattern.png',
+    thumbnail: cellebriteThumbnail,
   },
-  'senegence-redesign': { 
-    bg: 'bg-blue', 
-    text: 'text-blue',
-    imagePath: '/src/assets/images/projects/semesence-mockup.png'
+  'medcline-redesign': {
+    gradientFrom: '#0052cc',
+    gradientTo: '#0066ff',
+    gridPatternUrl: '/images/grid-pattern.png',
+    thumbnail: senegenceThumbnail,
   },
 }
 
+// Check icon SVG component
+const CheckIcon = () => (
+  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 6L5 9L10 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+
+// External link icon SVG component
+const ExternalLinkIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6 3H3C2.44772 3 2 3.44772 2 4V13C2 13.5523 2.44772 14 3 14H12C12.5523 14 13 13.5523 13 13V10M9 2H14M14 2V7M14 2L6 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+
 const CaseStudyCard = ({ study }: Props) => {
-  const colors = projectColors[study.slug] || { bg: 'bg-primary', text: 'text-primary', imagePath: '' }
+  const colors = projectColors[study.slug] || {
+    gradientFrom: '#541db9',
+    gradientTo: '#7f5af0',
+    gridPatternUrl: '',
+    thumbnail: '',
+  }
+
+  // Format category tag - uppercase with tracking
+  const categoryTag = study.tags?.[0] || ''
 
   return (
     <motion.div
@@ -40,50 +81,109 @@ const CaseStudyCard = ({ study }: Props) => {
     >
       <Link
         to={`/case/${study.slug}`}
-        className={`group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl ${colors.bg} p-6 shadow-lg`}
+        className="group relative flex h-full flex-col overflow-hidden rounded-[24px] p-[24px] shadow-lg"
       >
-        <div className="space-y-4">
-          <div className="h-48 overflow-hidden rounded-lg bg-white/10">
-            {colors.imagePath ? (
-              <img 
-                src={colors.imagePath} 
-                alt={`${study.title} mockup`}
-                className="h-full w-full object-cover"
-                onError={(e) => {
-                  // Fallback to placeholder if image not found
-                  e.currentTarget.style.display = 'none'
-                }}
-              />
-            ) : (
-              <div className="h-full w-full flex items-center justify-center">
-                <span className="text-white/30 text-sm">Mockup Image</span>
-              </div>
-            )}
-          </div>
-          <p className="text-sm text-white/70">{study.tags?.[0] || ''}</p>
-          <h3 className="font-display text-2xl font-normal text-white">{study.title}</h3>
-          <p className="text-base leading-relaxed text-white">{study.blurb}</p>
-          {study.metrics && (
-            <ul className="space-y-2">
-              {study.metrics.map((metric, index) => (
-                <li key={index} className="flex items-start gap-2 text-sm text-white">
-                  <span className="mt-1.5 h-2 w-2 rounded-full bg-white" />
-                  <span>{metric.value}</span>
-                </li>
-              ))}
-            </ul>
-          )}
+        {/* Background with gradient and grid pattern overlay */}
+        <div className="absolute inset-0 pointer-events-none rounded-[24px]">
+          {/* Gradient background - from Figma: gradient from dark to light purple */}
+          <div 
+            className="absolute inset-0 rounded-[24px]"
+            style={{
+              background: `linear-gradient(to bottom, ${colors.gradientFrom}, ${colors.gradientTo})`,
+            }}
+          />
+          {/* Grid pattern overlay - matches Figma grid texture */}
+          <div 
+            className="absolute inset-0 opacity-50 rounded-[24px]"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: '40px 40px',
+            }}
+          />
         </div>
-        <a
-          href={`/case/${study.slug}`}
-          onClick={(e) => {
-            e.preventDefault()
-            e.stopPropagation()
-          }}
-          className={`mt-6 inline-block rounded-lg bg-white px-4 py-2 text-sm font-semibold ${colors.text} transition hover:opacity-90`}
-        >
-          View Project
-        </a>
+
+        {/* Card Content */}
+        <div className="relative z-10 flex h-full flex-col gap-[24px]">
+          {/* Project Image - centered with 104px horizontal padding per Figma */}
+          <div className="flex w-full items-center justify-center overflow-hidden px-[104px] py-0">
+            <div className="aspect-square w-full">
+              {colors.thumbnail ? (
+                <img
+                  src={colors.thumbnail}
+                  alt={`${study.title} mockup`}
+                  className="h-full w-full object-cover"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none'
+                  }}
+                />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center bg-white/10 rounded-lg">
+                  <span className="text-sm text-white/30">Mockup Image</span>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Project Content - matches Figma structure */}
+          <div className="flex h-[330px] flex-col justify-between">
+            <div className="flex flex-col gap-[24px]">
+              {/* Top Content: Category, Title, Description */}
+              <div className="flex flex-col gap-[8px]">
+                {/* Category Tag - H4 style: 14px, bold, uppercase, 0.55px tracking */}
+                {categoryTag && (
+                  <p className="font-body text-[14px] font-bold uppercase leading-[20px] tracking-[0.55px] text-white/80">
+                    {categoryTag}
+                  </p>
+                )}
+                
+                {/* Project Title - H3 style: 36px Staatliches */}
+                <h3 className="font-display text-[36px] font-normal leading-none text-white">
+                  {study.title}
+                </h3>
+                
+                {/* Description - Body style: 18px Inter */}
+                <p className="font-body text-[18px] font-normal leading-[1.5] text-white">
+                  {study.blurb}
+                </p>
+              </div>
+
+              {/* Metrics List - with checkmark icons */}
+              {study.metrics && (
+                <div className="flex flex-col gap-[8px]">
+                  {study.metrics.map((metric, index) => (
+                    <div key={index} className="flex items-center gap-[8px]">
+                      {/* Checkmark circle - 20px, bg-white/20 */}
+                      <div className="flex h-[20px] w-[20px] shrink-0 items-center justify-center rounded-full bg-white/20">
+                        <span className="text-white">
+                          <CheckIcon />
+                        </span>
+                      </div>
+                      {/* Metric text - 18px */}
+                      <span className="font-body text-[18px] font-normal leading-[1.5] text-white">
+                        {metric.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* View Project Button - white bg, black text, with icon */}
+            <button
+              className="inline-flex w-fit items-center justify-center gap-[8px] rounded-[4px] bg-white px-[24px] py-[8px] text-[18px] font-normal leading-[1.5] text-black transition hover:bg-gray-100"
+              onClick={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+              }}
+            >
+              View Project
+              <ExternalLinkIcon />
+            </button>
+          </div>
+        </div>
       </Link>
     </motion.div>
   )

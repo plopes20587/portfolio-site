@@ -54,3 +54,5 @@ To export images and icons from the Figma file, follow these steps:
 - Profile: `profile-photo.jpg`
 - Social icons: `linkedin.svg`, `dribbble.svg`, `twitter.svg`, `behance.svg`
 - Brand logos: `honeywell.svg`, `walgreens.svg`, `verizon.svg`, `cellebrite.svg`, `medcline.svg`, `kfc.svg`
+
+

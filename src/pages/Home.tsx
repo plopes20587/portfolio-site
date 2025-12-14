@@ -4,15 +4,39 @@ import WorkGrid from "../components/WorkGrid";
 import SkillsSection from "../components/SkillsSection";
 import AboutSection from "../components/AboutSection";
 import FooterCTA from "../components/FooterCTA";
+import SectionDivider from "../components/SectionDivider";
 
 const HomePage = () => {
   return (
-    <div className="space-y-20 sm:space-y-24">
+    <div className="flex flex-col">
+      {/* Hero Section - 1052px height */}
       <Hero />
+      
+      {/* Section Divider */}
+      <SectionDivider />
+      
+      {/* Company Carousel / Logo Marquee */}
       <LogoMarquee />
+      
+      {/* Section Divider */}
+      <SectionDivider />
+      
+      {/* Case Studies / Featured Projects */}
       <WorkGrid />
+      
+      {/* Section Divider */}
+      <SectionDivider />
+      
+      {/* Skills Section */}
       <SkillsSection />
+      
+      {/* Section Divider */}
+      <SectionDivider />
+      
+      {/* About Section */}
       <AboutSection />
+      
+      {/* Footer CTA */}
       <FooterCTA />
     </div>
   );

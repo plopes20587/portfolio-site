@@ -68,11 +68,11 @@ const AboutSection = () => {
               <div className="rounded-lg border border-white/10 bg-ink-900 p-4">
                 <div className="flex items-center gap-4">
                   <div className="flex h-8 w-8 items-center justify-center rounded bg-primary/20">
-                    <span className="text-primary text-sm">100+</span>
+                    <span className="text-primary text-sm">50+</span>
                   </div>
                   <div>
-                    <p className="text-lg font-semibold text-white">100+</p>
-                    <p className="text-sm text-white/70">Projects Delivered</p>
+                    <p className="text-lg font-semibold text-white">50+</p>
+                    <p className="text-sm text-white/70">Projects Completed</p>
                   </div>
                 </div>
               </div>
@@ -92,11 +92,11 @@ const AboutSection = () => {
               <div className="rounded-lg border border-white/10 bg-ink-900 p-4">
                 <div className="flex items-center gap-4">
                   <div className="flex h-8 w-8 items-center justify-center rounded bg-primary/20">
-                    <span className="text-primary text-sm">2M+</span>
+                    <span className="text-primary text-sm">25+</span>
                   </div>
                   <div>
-                    <p className="text-lg font-semibold text-white">2M+</p>
-                    <p className="text-sm text-white/70">Revenue</p>
+                    <p className="text-lg font-semibold text-white">25+</p>
+                    <p className="text-sm text-white/70">Products Launched</p>
                   </div>
                 </div>
               </div>

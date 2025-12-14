@@ -4,13 +4,13 @@ const SkillsSection = () => {
       name: 'Design Tools',
       iconPath: '/src/assets/icons/tech-stack/design-tools.svg',
       color: 'bg-purple',
-      items: ['Figma', 'Framer', 'Protopie', 'Webflow'],
+      items: ['Figma', 'Framer', 'Tailwind'],
     },
     {
       name: 'Development',
       iconPath: '/src/assets/icons/tech-stack/development.svg',
       color: 'bg-blue',
-      items: ['HTML', 'CSS', 'React', 'Javascript'],
+      items: ['HTML', 'CSS', 'React'],
     },
     {
       name: 'Research & Testing',
@@ -19,7 +19,7 @@ const SkillsSection = () => {
       items: ['User Testing', 'User Research', 'A/B Test'],
     },
     {
-      name: 'AI Stack',
+      name: 'AI Tools',
       iconPath: '/src/assets/icons/tech-stack/ai-stack.svg',
       color: 'bg-orange',
       items: ['Claude', 'ChatGPT', 'Copilot'],
@@ -34,7 +34,7 @@ const SkillsSection = () => {
             TECH STACK
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-white" style={{ fontSize: '18px', lineHeight: 1.5 }}>
-            My toolkit spans design, development, and AI—everything I use to take ideas from concept to code.
+            My custom design development and UI consulting aims to bring ideas to life from concept to code.
           </p>
         </div>
 

@@ -17,8 +17,8 @@ export const siteMeta = {
 export const heroContent = {
   title: "PRODUCT DESIGNER",
   subHeadline:
-    "Good design happens when the experiment ignites the customer's delight. With the right balance of expertise, research, and a bit of art in the early stages, the journey becomes smoother and easier to follow.",
-  primaryCta: { label: "Learn More", href: "#work" },
+    "Good design happens when the experience speaks the customer's language. With the right balance of structure, research, and a bit of AI in the early stages, the journey becomes smoother and easier to follow.",
+  primaryCta: { label: "Lets talk", href: "mailto:patrick@patricklopes.com" },
   secondaryCta: {
     label: "Get in touch",
     href: "mailto:patrick@patricklopes.com",
@@ -46,12 +46,12 @@ export const caseStudies: CaseStudy[] = [
     slug: "kfc-pdp-redesign",
     title: "KFC",
     blurb:
-      "A loyalty/pre-product MVP that makes it easier for people to customize and order their meals online.",
-    tags: ["E-commerce Platform"],
+      "A redesigned product detail page that makes it easier for people to customize and order their meals online.",
+    tags: ["E-Commerce Platform"],
     metrics: [
-      { label: "Completion", value: "20% faster user completions" },
-      { label: "Satisfaction", value: "50% higher user satisfaction" },
-      { label: "Data-driven", value: "100% data-driven UX activities/decisions" },
+      { label: "Completion", value: "20% faster task completion time" },
+      { label: "Satisfaction", value: "90% higher user satisfaction" },
+      { label: "Success", value: "88% task success rate across devices" },
     ],
     sections: [
       {
@@ -68,39 +68,39 @@ export const caseStudies: CaseStudy[] = [
     slug: "photon-website",
     title: "PHOTON",
     blurb:
-      "A headless website experience that gives users a simple way to explore Photon's services and understand their value.",
-    tags: ["Data Visualization"],
+      "A financial analytics platform that gives users a simpler way to explore financial analytics and understand their value.",
+    tags: ["Data Visualization Platform"],
     metrics: [
-      { label: "Taxonomy", value: "Cleaner, intuitive taxonomy" },
-      { label: "Alignment", value: "Stronger alignment between user needs and the business/usage." },
+      { label: "UI", value: "Cleaner, more intuitive UI" },
+      { label: "Alignment", value: "Stronger alignment between user needs and the platform" },
     ],
   },
   {
     slug: "cellebrite-website",
     title: "CELLEBRITE",
     blurb:
-      "A corporate website that helps visitors understand Cellebrite's story and find the information they need fast!",
-    tags: ["Marketing/Corporate Website"],
+      "A cybersecurity solutions website that helps visitors understand complex topics and find the information they need fast.",
+    tags: ["Web Site & UI/UX Audit"],
     metrics: [
-      { label: "Page Loads", value: "25% lower page loads" },
-      { label: "Bounce Rate", value: "21% lower bounce rate" },
+      { label: "Page Loads", value: "20% faster page loads" },
+      { label: "Bounce Rate", value: "25% lower bounce rate" },
     ],
   },
   {
-    slug: "senegence-redesign",
-    title: "SEMESENCE",
+    slug: "medcline-redesign",
+    title: "SENEGENCE",
     blurb:
-      "A seamless shopping experience that helps users discover products, learn about them, and check out with ease from any device.",
-    tags: ["E-commerce/Beauty Brand"],
+      "A seamless shopping experience that helps customers browse products, add them, and check out with ease.",
+    tags: ["E-Commerce & Conversion Redesign"],
     metrics: [
-      { label: "UX Speed", value: "20% faster UX" },
-      { label: "Revenue", value: "1.7M+ revenue" },
+      { label: "Conversion", value: "15% conversion rate" },
+      { label: "Sales", value: "37.5% sales increase" },
     ],
   },
 ];
 
 export const footerCta = {
   headline: "LET'S CONNECT",
-  body: "Feel free to reach out for any collab with, remote opportunities or to just chat about design.",
-  action: { label: "Get in touch!", href: "mailto:patrick@patricklopes.com" },
+  body: "Feel free to reach out for any collabs with, remote opportunities or to just learn about design.",
+  action: { label: "Say Hello!", href: "mailto:patrick@patricklopes.com" },
 };

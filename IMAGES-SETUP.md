@@ -87,3 +87,5 @@ Once images are exported:
 4. Verify file paths match the component imports
 
 The site will work with placeholders until images are added!
+
+

@@ -18,9 +18,10 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div id="top" className="relative min-h-screen bg-ink text-white">
       <StarCursor />
-      <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-6 pb-20 pt-10 sm:px-10">
+      {/* Full-width layout - sections handle their own max-width constraints */}
+      <div className="relative flex min-h-screen w-full flex-col">
         <HeaderNav />
-        <main className="flex-1 pb-20">{children}</main>
+        <main className="flex-1">{children}</main>
       </div>
     </div>
   )
