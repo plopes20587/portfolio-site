@@ -1,73 +1,31 @@
-# React + TypeScript + Vite
+# Portfolio Site
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio built with React, TypeScript, and Vite. It includes animated hero and starfield, case studies, rotating keywords, skills grid, and a CTA footer tailored for product design work.
 
-Currently, two official plugins are available:
+## Tech Stack
+- React + TypeScript + Vite
+- Tailwind CSS for styling
+- Framer Motion for animations
+- React Router for page routing
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
+1) Install dependencies: `npm install`
+2) Run locally: `npm run dev` then open the printed URL
+3) Type-check and build: `npm run build`
+4) Preview production build: `npm run preview`
+5) Lint: `npm run lint`
 
-## React Compiler
+## Project Structure
+- `src/` React components, pages, styling, and data
+- `src/components/` Hero, navigation, skills, marquee, case study cards, star cursor, etc.
+- `src/pages/` `Home` and `CaseStudy` routes
+- `src/siteData.ts` Content for hero, skills, projects, and footer CTA
+- `public/` Static assets served at root (brand logos live in `public/images/brands`)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Assets
+- Image and icon placeholders are wired up; see `IMAGES-SETUP.md` for required files and paths.
+- Detailed Figma export steps live in `README-IMAGES.md`.
+- Figma auto-export helper: `scripts/export-figma-images.js` (requires Figma API token).
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Deployment
+- Build output is written to `dist/`. Host the contents of that directory on any static host (GitHub Pages, Vercel, Netlify, etc.).
