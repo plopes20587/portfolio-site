@@ -107,9 +107,9 @@ const CaseStudyCard = ({ study }: Props) => {
 
         {/* Card Content */}
         <div className="relative z-10 flex h-full flex-col gap-[24px]">
-          {/* Project Image - centered with 104px horizontal padding per Figma */}
-          <div className="flex w-full items-center justify-center overflow-hidden px-[104px] py-0">
-            <div className="aspect-square w-full">
+          {/* Project Image - centered with responsive horizontal padding */}
+          <div className="flex w-full items-center justify-center overflow-hidden px-4 py-0 sm:px-8 md:px-16 lg:px-[104px]">
+            <div className="aspect-square w-full max-w-[300px] sm:max-w-none">
               {colors.thumbnail ? (
                 <img
                   src={colors.thumbnail}
@@ -128,60 +128,54 @@ const CaseStudyCard = ({ study }: Props) => {
           </div>
 
           {/* Project Content - matches Figma structure */}
-          <div className="flex h-[330px] flex-col justify-between">
-            <div className="flex flex-col gap-[24px]">
-              {/* Top Content: Category, Title, Description */}
-              <div className="flex flex-col gap-[8px]">
-                {/* Category Tag - H4 style: 14px, bold, uppercase, 0.55px tracking */}
-                {categoryTag && (
-                  <p className="font-body text-[14px] font-bold uppercase leading-[20px] tracking-[0.55px] text-white/80">
-                    {categoryTag}
-                  </p>
-                )}
-                
-                {/* Project Title - H3 style: 36px Staatliches */}
-                <h3 className="font-display text-[36px] font-normal leading-none text-white">
-                  {study.title}
-                </h3>
-                
-                {/* Description - Body style: 18px Inter */}
-                <p className="font-body text-[18px] font-normal leading-[1.5] text-white">
-                  {study.blurb}
+          <div className="flex flex-col gap-[24px]">
+            {/* Top Content: Category, Title, Description */}
+            <div className="flex flex-col gap-[8px]">
+              {/* Category Tag - H4 style: 14px, bold, uppercase, 0.55px tracking */}
+              {categoryTag && (
+                <p className="font-body text-[14px] font-bold uppercase leading-[20px] tracking-[0.55px] text-white/80">
+                  {categoryTag}
                 </p>
-              </div>
-
-              {/* Metrics List - with checkmark icons */}
-              {study.metrics && (
-                <div className="flex flex-col gap-[8px]">
-                  {study.metrics.map((metric, index) => (
-                    <div key={index} className="flex items-center gap-[8px]">
-                      {/* Checkmark circle - 20px, bg-white/20 */}
-                      <div className="flex h-[20px] w-[20px] shrink-0 items-center justify-center rounded-full bg-white/20">
-                        <span className="text-white">
-                          <CheckIcon />
-                        </span>
-                      </div>
-                      {/* Metric text - 18px */}
-                      <span className="font-body text-[18px] font-normal leading-[1.5] text-white">
-                        {metric.value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
               )}
+              
+              {/* Project Title - H3 style: 36px Staatliches */}
+              <h3 className="font-display text-[36px] font-normal leading-none text-white">
+                {study.title}
+              </h3>
+              
+              {/* Description - Body style: 18px Inter */}
+              <p className="font-body text-[18px] font-normal leading-[1.5] text-white">
+                {study.blurb}
+              </p>
             </div>
 
+            {/* Metrics List - with checkmark icons */}
+            {study.metrics && (
+              <div className="flex flex-col gap-[8px]">
+                {study.metrics.map((metric, index) => (
+                  <div key={index} className="flex items-center gap-[8px]">
+                    {/* Checkmark circle - 20px, bg-white/20 */}
+                    <div className="flex h-[20px] w-[20px] shrink-0 items-center justify-center rounded-full bg-white/20">
+                      <span className="text-white">
+                        <CheckIcon />
+                      </span>
+                    </div>
+                    {/* Metric text - 18px */}
+                    <span className="font-body text-[18px] font-normal leading-[1.5] text-white">
+                      {metric.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+
             {/* View Project Button - white bg, black text, with icon */}
-            <button
+            <span
               className="inline-flex w-fit items-center justify-center gap-[8px] rounded-[4px] bg-white px-[24px] py-[8px] text-[18px] font-normal leading-[1.5] text-black transition hover:bg-gray-100"
-              onClick={(e) => {
-                e.preventDefault()
-                e.stopPropagation()
-              }}
             >
               View Project
               <ExternalLinkIcon />
-            </button>
+            </span>
           </div>
         </div>
       </Link>

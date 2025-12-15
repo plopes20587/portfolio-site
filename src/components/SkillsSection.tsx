@@ -1,76 +1,104 @@
+// Import SVG icons from Figma
+import designToolsIcon from '../assets/icons/design-tools.svg'
+import developmentIcon from '../assets/icons/development.svg'
+import researchIcon from '../assets/icons/research.svg'
+import aiStackIcon from '../assets/icons/ai-stack.svg'
+
+type SkillCategory = {
+  name: string
+  iconSrc: string
+  iconGradient: string
+  bulletGradient: string
+  items: string[]
+}
+
 const SkillsSection = () => {
-  const techStack = [
+  const techStack: SkillCategory[] = [
     {
       name: 'Design Tools',
-      iconPath: '/src/assets/icons/tech-stack/design-tools.svg',
-      color: 'bg-purple',
-      items: ['Figma', 'Framer', 'Tailwind'],
+      iconSrc: designToolsIcon,
+      iconGradient: 'bg-gradient-to-b from-[#541db9] to-[#7f5af0]',
+      bulletGradient: 'bg-gradient-to-b from-[#7f5af0] to-[#9d7ff5]',
+      items: ['Figma', 'Framer', 'Webflow'],
     },
     {
       name: 'Development',
-      iconPath: '/src/assets/icons/tech-stack/development.svg',
-      color: 'bg-blue',
+      iconSrc: developmentIcon,
+      iconGradient: 'bg-gradient-to-br from-[#2b7fff] to-[#00b8db]',
+      bulletGradient: 'bg-gradient-to-r from-[#2b7fff] to-[#00b8db]',
       items: ['HTML', 'CSS', 'React'],
     },
     {
       name: 'Research & Testing',
-      iconPath: '/src/assets/icons/tech-stack/research.svg',
-      color: 'bg-green',
-      items: ['User Testing', 'User Research', 'A/B Test'],
+      iconSrc: researchIcon,
+      iconGradient: 'bg-gradient-to-br from-[#00c950] to-[#00bc7d]',
+      bulletGradient: 'bg-gradient-to-r from-[#00c950] to-[#00bc7d]',
+      items: ['User Testing', 'User Research', 'A/B Testing'],
     },
     {
-      name: 'AI Tools',
-      iconPath: '/src/assets/icons/tech-stack/ai-stack.svg',
-      color: 'bg-orange',
-      items: ['Claude', 'ChatGPT', 'Copilot'],
+      name: 'AI Stack',
+      iconSrc: aiStackIcon,
+      iconGradient: 'bg-gradient-to-br from-[#ff6900] to-[#fb2c36]',
+      bulletGradient: 'bg-gradient-to-r from-[#ff6900] to-[#fb2c36]',
+      items: ['Claude', 'ChatGPT', 'Cursor'],
     },
   ]
 
   return (
-    <section id="skills" className="space-y-6 px-6 py-20">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-8 text-center">
-          <h2 className="font-display text-3xl font-normal uppercase tracking-wide text-white sm:text-4xl" style={{ fontSize: '42px', lineHeight: 1.2, letterSpacing: '1px' }}>
-            TECH STACK
+    <section 
+      id="skills" 
+      className="px-6 py-16 md:px-[60px] md:py-[100px]"
+    >
+      <div className="mx-auto flex max-w-[1320px] flex-col gap-[40px]">
+        {/* Header */}
+        <div className="flex w-full flex-col items-center gap-[16px]">
+          <h2 className="font-display text-[32px] font-normal leading-[1.2] tracking-[0.42px] text-white md:text-[42px]">
+            Tech Stack
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-white" style={{ fontSize: '18px', lineHeight: 1.5 }}>
-            My custom design development and UI consulting aims to bring ideas to life from concept to code.
+          <p className="max-w-[741px] text-center font-body text-[18px] font-normal leading-[1.5] text-white">
+            My toolkit spans design, development, and AI—enabling me to bring ideas to life from concept to code
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Skills Grid - responsive: 1 col mobile, 2 cols tablet, 4 cols desktop */}
+        <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-[24px]">
           {techStack.map((stack) => (
-            <div key={stack.name} className="rounded-lg border border-white/10 bg-ink-900 p-6">
-              <div className={`mb-4 inline-block rounded-lg ${stack.color} p-3`}>
+            <div 
+              key={stack.name} 
+              className="flex flex-col gap-[16px] rounded-[16px] border border-white/10 bg-white/5 p-[25px]"
+            >
+              {/* Icon Container - 56x56 with 28x28 icon centered */}
+              <div className={`relative h-[56px] w-[56px] rounded-[14px] ${stack.iconGradient}`}>
                 <img 
-                  src={stack.iconPath} 
+                  src={stack.iconSrc} 
                   alt={`${stack.name} icon`}
-                  className="h-7 w-7"
-                  onError={(e) => {
-                    // Fallback to placeholder div if icon not found
-                    e.currentTarget.style.display = 'none'
-                    if (!e.currentTarget.nextElementSibling) {
-                      const placeholder = document.createElement('div')
-                      placeholder.className = 'h-7 w-7 rounded bg-white/20'
-                      e.currentTarget.parentElement?.appendChild(placeholder)
-                    }
-                  }}
+                  className="absolute left-[14px] top-[14px] h-[28px] w-[28px]"
                 />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-white">
+              
+              {/* Category Name */}
+              <p className="font-body text-[18px] font-normal leading-[1.5] text-white">
                 {stack.name}
-              </h3>
-              <ul className="space-y-2 text-white">
+              </p>
+              
+              {/* Skills List */}
+              <div className="flex flex-col gap-[8px]">
                 {stack.items.map((item) => (
-                  <li key={item}>{item}</li>
+                  <div key={item} className="flex h-[24px] items-center gap-[8px]">
+                    {/* Gradient Bullet */}
+                    <div className={`h-[6px] w-[6px] rounded-full ${stack.bulletGradient}`} />
+                    <p className="font-body text-[18px] font-normal leading-[1.5] text-white">
+                      {item}
+                    </p>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
         </div>
       </div>
     </section>
-  );
+  )
 }
 
 export default SkillsSection

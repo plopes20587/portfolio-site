@@ -1,4 +1,39 @@
+// Import stat icons from Figma
+import yearsExperienceIcon from '../assets/icons/years-experience.svg'
+import projectsCompletedIcon from '../assets/icons/projects-completed.svg'
+import happyClientsIcon from '../assets/icons/happy-clients.svg'
+import productsLaunchedIcon from '../assets/icons/products-launched.svg'
+
+type StatItem = {
+  iconSrc: string
+  value: string
+  label: string
+}
+
 const AboutSection = () => {
+  const stats: StatItem[] = [
+    {
+      iconSrc: yearsExperienceIcon,
+      value: '10+',
+      label: 'Years of Experience',
+    },
+    {
+      iconSrc: projectsCompletedIcon,
+      value: '50+',
+      label: 'Projects Completed',
+    },
+    {
+      iconSrc: happyClientsIcon,
+      value: '50+',
+      label: 'Happy Clients',
+    },
+    {
+      iconSrc: productsLaunchedIcon,
+      value: '25+',
+      label: 'Products Launched',
+    },
+  ]
+
   return (
     <section id="about" className="space-y-8 px-6 py-20">
       <div className="mx-auto max-w-6xl">
@@ -53,53 +88,23 @@ const AboutSection = () => {
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-lg border border-white/10 bg-ink-900 p-4">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-8 w-8 items-center justify-center rounded bg-primary/20">
-                    <span className="text-primary text-sm">10+</span>
-                  </div>
-                  <div>
-                    <p className="text-lg font-semibold text-white">10+</p>
-                    <p className="text-sm text-white/70">Years of Experience</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-lg border border-white/10 bg-ink-900 p-4">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-8 w-8 items-center justify-center rounded bg-primary/20">
-                    <span className="text-primary text-sm">50+</span>
-                  </div>
-                  <div>
-                    <p className="text-lg font-semibold text-white">50+</p>
-                    <p className="text-sm text-white/70">Projects Completed</p>
+              {stats.map((stat) => (
+                <div key={stat.label} className="rounded-lg border border-white/10 bg-ink-900 p-4">
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/20">
+                      <img 
+                        src={stat.iconSrc} 
+                        alt={stat.label}
+                        className="h-5 w-5"
+                      />
+                    </div>
+                    <div>
+                      <p className="text-lg font-semibold text-white">{stat.value}</p>
+                      <p className="text-sm text-white/70">{stat.label}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              <div className="rounded-lg border border-white/10 bg-ink-900 p-4">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-8 w-8 items-center justify-center rounded bg-primary/20">
-                    <span className="text-primary text-sm">50+</span>
-                  </div>
-                  <div>
-                    <p className="text-lg font-semibold text-white">50+</p>
-                    <p className="text-sm text-white/70">Happy Clients</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-lg border border-white/10 bg-ink-900 p-4">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-8 w-8 items-center justify-center rounded bg-primary/20">
-                    <span className="text-primary text-sm">25+</span>
-                  </div>
-                  <div>
-                    <p className="text-lg font-semibold text-white">25+</p>
-                    <p className="text-sm text-white/70">Products Launched</p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

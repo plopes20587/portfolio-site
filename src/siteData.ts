@@ -29,16 +29,16 @@ export const rotatingKeywords = [
   "Product designer",
   "UX strategist",
   "AI-driven designer",
-  "coffee enthusiast",
+  "Coffee enthusiast",
 ];
 
 export const marqueeLogos = [
-  "Honeywell",
   "Walgreens",
   "Verizon",
   "Cellebrite",
-  "MedCline",
+  "Medline",
   "KFC",
+  "SeneGence",
 ];
 
 export const caseStudies: CaseStudy[] = [
@@ -100,7 +100,7 @@ export const caseStudies: CaseStudy[] = [
 ];
 
 export const footerCta = {
-  headline: "LET'S CONNECT",
-  body: "Feel free to reach out for any collabs with, remote opportunities or to just learn about design.",
-  action: { label: "Say Hello!", href: "mailto:patrick@patricklopes.com" },
+  headline: "Let's Connect",
+  body: "Feel free to reach out for any collab work, remote opportunities or to just talk about design.",
+  action: { label: "Get in touch", href: "mailto:patrick@patricklopes.com" },
 };
