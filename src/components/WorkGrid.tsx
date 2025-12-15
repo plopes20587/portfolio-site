@@ -13,12 +13,12 @@ const WorkGrid = () => {
         </div>
         
         {/* Card Grid - 1 column mobile, 2 columns tablet+ */}
-        <div className="mt-12 grid gap-4 md:mt-[90px] md:gap-[16px] lg:grid-cols-2">
-        {caseStudies.map((study) => (
-          <div key={study.slug} className="w-full">
-            <CaseStudyCard study={study} />
-          </div>
-        ))}
+        <div className="mx-auto mt-12 grid max-w-[1050px] justify-items-center gap-[16px] md:mt-[90px] lg:grid-cols-2">
+          {caseStudies.map((study) => (
+            <div key={study.slug} className="w-full max-w-[517px]">
+              <CaseStudyCard study={study} />
+            </div>
+          ))}
         </div>
       </div>
     </section>

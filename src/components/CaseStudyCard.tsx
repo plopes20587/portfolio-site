@@ -40,7 +40,7 @@ const projectColors: Record<string, {
     gridPatternUrl: '/images/grid-pattern.png',
     thumbnail: cellebriteThumbnail,
   },
-  'medcline-redesign': {
+  'senegence-redesign': {
     gradientFrom: '#0052cc',
     gradientTo: '#0066ff',
     gridPatternUrl: '/images/grid-pattern.png',
@@ -81,7 +81,7 @@ const CaseStudyCard = ({ study }: Props) => {
     >
       <Link
         to={`/case/${study.slug}`}
-        className="group relative flex h-full flex-col overflow-hidden rounded-[24px] p-[24px] shadow-lg"
+        className="group relative flex h-full max-w-[517px] flex-col overflow-hidden rounded-[24px] p-[24px] shadow-lg"
       >
         {/* Background with gradient and grid pattern overlay */}
         <div className="absolute inset-0 pointer-events-none rounded-[24px]">

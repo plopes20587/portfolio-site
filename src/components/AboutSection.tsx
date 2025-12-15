@@ -1,3 +1,6 @@
+// Import profile photo
+import profilePhoto from '../assets/images/AboutmeImage.jpg'
+
 // Import stat icons from Figma
 import yearsExperienceIcon from '../assets/icons/years-experience.svg'
 import projectsCompletedIcon from '../assets/icons/projects-completed.svg'
@@ -43,30 +46,18 @@ const AboutSection = () => {
           </h2>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
-          <div className="overflow-hidden rounded-lg">
+        <div className="grid items-start gap-8 md:grid-cols-2">
+          {/* Profile Photo - rounded-[16px] container with max-height to match content */}
+          <div className="w-full max-h-[500px] overflow-hidden rounded-[16px]">
             <img 
-              src="/src/assets/images/profile-photo.jpg" 
-              alt="Patrick Lopes"
-              className="h-full w-full object-cover"
-              onError={(e) => {
-                // Fallback to placeholder if image not found
-                e.currentTarget.style.display = 'none'
-                if (!e.currentTarget.nextElementSibling) {
-                  const placeholder = document.createElement('div')
-                  placeholder.className = 'h-96 w-full bg-white/10 flex items-center justify-center'
-                  const text = document.createElement('span')
-                  text.className = 'text-white/30 text-sm'
-                  text.textContent = 'Profile Photo'
-                  placeholder.appendChild(text)
-                  e.currentTarget.parentElement?.appendChild(placeholder)
-                }
-              }}
+              src={profilePhoto} 
+              alt="Patrick Lopes - Senior Product Designer"
+              className="h-full w-full object-cover object-top"
             />
           </div>
 
-          <div className="space-y-6">
-            <div className="space-y-4 text-base leading-relaxed text-white" style={{ fontSize: '18px', lineHeight: 1.5 }}>
+          <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-4 text-base leading-relaxed text-white" style={{ fontSize: '18px', lineHeight: 1.5 }}>
               <p>
                 I'm a senior product designer with a focus on e-commerce and
                 digital shopping. Over the past ten years, I've worked on product
