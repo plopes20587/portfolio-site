@@ -72,12 +72,7 @@ const CaseStudyHero = ({ study }: Props) => {
 
         {/* Right - Hero Image */}
         <div className="relative">
-          <div 
-            className="overflow-hidden rounded-[24px] border border-white/10 shadow-2xl"
-            style={{
-              background: `linear-gradient(135deg, ${gradient.from}20, ${gradient.to}20)`,
-            }}
-          >
+          <div className="overflow-hidden rounded-[24px] shadow-2xl">
             {heroImage ? (
               <img
                 src={heroImage}

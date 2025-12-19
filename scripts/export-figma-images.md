@@ -56,3 +56,5 @@ To export images and icons from the Figma file, follow these steps:
 - Brand logos: `honeywell.svg`, `walgreens.svg`, `verizon.svg`, `cellebrite.svg`, `medcline.svg`, `kfc.svg`
 
 
+
+

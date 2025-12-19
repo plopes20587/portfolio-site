@@ -58,13 +58,6 @@ All components have been updated to use images from Figma. The directory structu
 - `twitter.svg`
 - `behance.svg`
 
-#### Brand Logos → `public/images/brands/`
-- `honeywell.svg`
-- `walgreens.svg`
-- `verizon.svg`
-- `cellebrite.svg`
-- `medcline.svg`
-- `kfc.svg`
 
 ## 📚 Documentation
 
@@ -87,5 +80,7 @@ Once images are exported:
 4. Verify file paths match the component imports
 
 The site will work with placeholders until images are added!
+
+
 
 
