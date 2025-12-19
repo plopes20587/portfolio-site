@@ -152,6 +152,43 @@ Good design happens when the experience speaks the customer's language. With the
 
 ---
 
+## Image Setup
+
+### Directory Structure
+- `src/assets/images/` - Project thumbnails and profile photo
+- `src/assets/icons/` - Tech stack and social icons
+- `public/images/brands/` - Brand logos for marquee
+
+### Current Images
+Project thumbnails are imported directly in components:
+- `src/assets/images/KFC Thumbnail.png`
+- `src/assets/images/Photon Thumbnail.png`
+- `src/assets/images/Cellebrite Thumbnail.png`
+- `src/assets/images/SeneGence Thumbnail.png`
+- `src/assets/images/AboutmeImage.jpg`
+
+### Adding New Images from Figma
+
+1. Open Figma: https://www.figma.com/design/2ecLusqLKZRgdqybxEGymD/Personal-Branding?node-id=1652-3545
+
+2. For each image:
+   - Select the element
+   - Right sidebar → Export section
+   - Add export setting (PNG 2x for images, SVG for icons)
+   - Click "Export [filename]"
+   - Save to the correct directory
+
+### Image Specifications
+- **Project Mockups**: PNG, 2x scale (recommended: 800-1200px width)
+- **Icons**: SVG preferred, or PNG at 2x scale
+- **Profile Photo**: JPG or PNG, high quality
+- **Brand Logos**: SVG preferred for scalability
+
+### Fallback Handling
+All components have error handling that shows placeholders if images aren't found. This allows the site to work even before all images are imported.
+
+---
+
 ## Next steps
 
 ### Remaining work
