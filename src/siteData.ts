@@ -4,6 +4,20 @@ export type ProcessStep = {
   description: string;
 };
 
+export type ImageItem = {
+  src: string;
+  alt: string;
+  caption?: string;
+};
+
+export type ImageSection = {
+  sectionLabel?: string;
+  heading?: string;
+  layout?: 'single' | 'side-by-side' | 'grid';
+  images: ImageItem[];
+  placement: 'after-problem' | 'after-process' | 'after-solution' | 'before-results';
+};
+
 export type CaseStudy = {
   slug: string;
   title: string;
@@ -14,17 +28,36 @@ export type CaseStudy = {
   // Case study detail page fields
   heroImage?: string;
   role?: string;
+  roleDescription?: string;
   client?: string;
   timeline?: string;
   platform?: string;
   industry?: string;
   overview?: string;
   challenge?: string;
+  // Discovery section
+  discoveryInputs?: string[];
+  discoveryInsights?: string[];
+  // Design approach
+  designApproach?: string;
+  designApproachPoints?: string[];
+  // Solution
   solution?: string;
+  solutionPoints?: string[];
+  // Validation
+  validation?: string;
+  // Results
   results?: string;
+  // What I learned
+  whatILearned?: string;
   researchStats?: { label: string; value: string }[];
   processTimeline?: ProcessStep[];
   galleryImages?: string[];
+  // New storytelling elements
+  tldr?: string[];
+  tldrSummary?: string;
+  pullQuote?: { quote: string; attribution?: string };
+  imageSections?: ImageSection[];
 };
 
 export const siteMeta = {
@@ -66,50 +99,109 @@ export const caseStudies: CaseStudy[] = [
     slug: "kfc-pdp-redesign",
     title: "KFC",
     blurb:
-      "A redesigned product detail page that makes it easier for people to customize and order their meals online.",
-    tags: ["E-Commerce Platform"],
+      "Redesigning the online ordering experience to make meal customization easier and less frustrating across desktop, mobile web, and app.",
+    tags: ["E-Commerce", "UX Research", "Mobile"],
     metrics: [
-      { label: "Completion", value: "20% faster task completion time" },
-      { label: "Satisfaction", value: "90% higher user satisfaction" },
-      { label: "Success", value: "88% task success rate across devices" },
-    ],
-    sections: [
-      {
-        heading: "Discovery and Insights",
-        copy: "Users felt overwhelmed by repeated customization sections. Switching between meal types caused confusion. Lack of clear feedback reduced confidence before checkout.",
-      },
-      {
-        heading: "Design Approach",
-        copy: "Focused on reducing cognitive load by simplifying structure, surfacing key choices earlier, and providing clearer feedback as users customized their meals.",
-      },
-      {
-        heading: "Validation",
-        copy: "Tested redesigned flows with users across desktop, mobile web, and app. Iterated based on feedback around labeling and layout clarity.",
-      },
-      {
-        heading: "What I Learned",
-        copy: "Small changes in structure and feedback can have a big impact on complex flows, especially when tested early across devices.",
-      },
+      { label: "Task Success", value: "88%" },
+      { label: "Faster Completion", value: "20%" },
+      { label: "User Satisfaction", value: "90%" },
     ],
     role: "Product Designer",
-    client: "Kentucky Fried Chicken",
+    roleDescription: "I led the UX design for this project from research synthesis through usability testing and iteration. I worked closely with product, engineering, and stakeholders to define the problem, explore solutions, and validate changes across desktop, mobile web, and app.",
+    client: "KFC (via Photon)",
     timeline: "6 Months",
     platform: "Desktop, Mobile Web, App",
-    industry: "B2C, Food & Beverage",
+    industry: "Food & Beverage",
     overview:
-      "Redesigning the online ordering experience to make meal customization easier across desktop, mobile web, and app. Improved task success across devices, reduced friction during meal customization, and increased confidence during checkout.",
+      "Redesigning the online ordering experience to make meal customization easier and less frustrating across desktop, mobile web, and app.",
     challenge:
-      "As customization options grew, the product detail page became harder to use. Users struggled with scrolling, repeated selections, and unclear feedback while building their orders.",
-    solution:
-      "Streamlined customization flow with clearer grouping. Reduced scrolling by tightening layout and hierarchy. Added persistent order feedback to confirm selections.",
-    results:
-      "88% task success rate across platforms. 20% reduction in task completion time. 90% of participants reported higher satisfaction.",
-    processTimeline: [
-      { phase: "01", title: "Discovery", description: "Stakeholder interviews, app store review analysis, and chatbot log review" },
-      { phase: "02", title: "Research", description: "User journey mapping, pain point identification, and competitive analysis" },
-      { phase: "03", title: "Design", description: "Wireframing, prototyping, and iterative design refinement" },
-      { phase: "04", title: "Testing", description: "Usability testing across desktop, mobile web, and app" },
-      { phase: "05", title: "Iteration", description: "Design refinement based on user feedback and metrics" },
+      "KFC's product detail page had grown more complex over time as new meal options, sides, and sauces were added. What should have been a simple customization flow became difficult to follow, especially on smaller screens. Users were scrolling too much, repeating steps, and struggling to understand what they had selected before moving to checkout. This led to confusion and drop-off during one of the most important moments in the ordering experience.",
+    // Discovery section
+    discoveryInputs: [
+      "SME interviews",
+      "App store reviews",
+      "Chatbot conversation logs",
+      "Voice of customer data",
+    ],
+    discoveryInsights: [
+      "Users felt overwhelmed by repeated customization sections",
+      "Switching between meal types caused confusion",
+      "Lack of clear feedback reduced confidence before checkout",
+    ],
+    // Design approach
+    designApproach: "The goal was not to add features, but to simplify what already existed. AI tools supported early exploration and layout variations, helping me move faster through rough concepts before refining the final designs.",
+    designApproachPoints: [
+      "Bringing key choices into view earlier",
+      "Reducing repeated actions",
+      "Grouping related options more clearly",
+      "Providing consistent feedback as users made selections",
+    ],
+    // Solution
+    solution: "The redesigned PDP introduced a clearer structure and a more predictable flow. Each change was small on its own, but together they made the experience easier to follow.",
+    solutionPoints: [
+      "A tighter layout that reduced scrolling",
+      "Clear grouping of customization options",
+      "Improved visual hierarchy to guide attention",
+      "A persistent order summary to confirm selections",
+    ],
+    // Validation
+    validation: "The redesigned flow was tested with 15 participants across desktop, mobile web, and app. Participants completed tasks such as ordering individual meals, combos, and family options. Testing uncovered minor issues around labeling and spacing, which were addressed before final delivery.",
+    // Results
+    results: "These results confirmed that simplifying structure and feedback had a meaningful impact on usability.",
+    // What I learned
+    whatILearned: "This project reinforced how quickly complexity can build up in high-traffic commerce flows. Small improvements in structure and feedback can dramatically change how confident users feel. It also highlighted the value of testing across platforms early, rather than assuming desktop patterns translate cleanly to mobile.",
+    // TL;DR
+    tldr: [
+      "Improved task success to 88% across platforms",
+      "Reduced average task completion time by 20%",
+      "Simplified a high-friction customization flow used at scale",
+    ],
+    tldrSummary: "This project focused on removing unnecessary steps and helping users feel confident as they built their order.",
+    imageSections: [
+      {
+        sectionLabel: "THE PROBLEM",
+        heading: "Before: The Original PDP",
+        layout: "single",
+        placement: "after-problem",
+        images: [
+          {
+            src: "https://cdn.prod.website-files.com/6661c4eb50f455f4ee0f7a4a/6783a11d0fda9e97f48b1a24_KFC%20Before%20Mockups.png",
+            alt: "KFC Before mobile mockups showing the original product detail page design",
+            caption: "The original PDP had the image taking over the entire mobile real estate, repetitive sauce sections, and an unnecessary footer nav",
+          },
+        ],
+      },
+      {
+        sectionLabel: "RESEARCH",
+        heading: "Journey Mapping",
+        layout: "side-by-side",
+        placement: "after-process",
+        images: [
+          {
+            src: "https://cdn.prod.website-files.com/6661c4eb50f455f4ee0f7a4a/6783a5ead6b6f6e8b5dd8b3d_KFC%20Current%20State%20Map.png",
+            alt: "Current state journey map showing user friction points",
+            caption: "Current State Journey Map - Uncovered critical friction points in customization",
+          },
+          {
+            src: "https://cdn.prod.website-files.com/6661c4eb50f455f4ee0f7a4a/6783a5ea2e32e5058dbbd7bb_KFC%20Future%20State%20Map.png",
+            alt: "Future state journey map showing the improved user flow",
+            caption: "Future State Journey Map - A seamless, intuitive process for the PDP",
+          },
+        ],
+      },
+      {
+        sectionLabel: "THE SOLUTION",
+        heading: "The Redesigned PDP",
+        layout: "single",
+        placement: "after-solution",
+        images: [
+          {
+            src: "https://cdn.prod.website-files.com/6661c4eb50f455f4ee0f7a4a/6783a11d2ed54a05cdd1e339_KFC%20Mobile%20Mockup.png",
+            alt: "KFC Mobile Mockup showing the redesigned product detail page",
+            caption: "The new PDP features clear customization steps, visible key options, and real-time feedback",
+          },
+        ],
+      },
     ],
   },
   {
@@ -159,6 +251,14 @@ export const caseStudies: CaseStudy[] = [
       { phase: "03", title: "Design System", description: "Component library and responsive pattern development" },
       { phase: "04", title: "Implementation", description: "Phased rollout with performance monitoring" },
     ],
+    tldr: [
+      "Increased conversions after launch",
+      "Generated meaningful post-launch revenue",
+      "Improved consistency across devices",
+    ],
+    pullQuote: {
+      quote: "Design systems are most effective when they directly support business growth and ongoing iteration.",
+    },
   },
   {
     slug: "cellebrite-website",
@@ -207,6 +307,14 @@ export const caseStudies: CaseStudy[] = [
       { phase: "03", title: "Design", description: "Page redesign with simplified layouts" },
       { phase: "04", title: "Launch", description: "Phased deployment with metric tracking" },
     ],
+    tldr: [
+      "Increased page views",
+      "Reduced bounce rate",
+      "Improved content clarity",
+    ],
+    pullQuote: {
+      quote: "Clear structure and content hierarchy can dramatically improve engagement without major visual changes.",
+    },
   },
   {
     slug: "photon-website",
@@ -255,6 +363,14 @@ export const caseStudies: CaseStudy[] = [
       { phase: "03", title: "Design", description: "Visual hierarchy and layout improvements" },
       { phase: "04", title: "Review", description: "Internal feedback and iterative refinement" },
     ],
+    tldr: [
+      "Improved clarity of messaging",
+      "Better alignment with brand values",
+      "Easier navigation for users",
+    ],
+    pullQuote: {
+      quote: "Balancing business goals with user needs leads to clearer, more trustworthy experiences.",
+    },
   },
 ];
 

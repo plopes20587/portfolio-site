@@ -1,9 +1,13 @@
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { caseStudies } from '../siteData'
 import CaseStudyHero from '../components/CaseStudyHero'
 import ProjectMetadata from '../components/ProjectMetadata'
 import ContentSection from '../components/ContentSection'
-import ProcessTimeline from '../components/ProcessTimeline'
+import TLDRSection from '../components/TLDRSection'
+import ProjectNavigation from '../components/ProjectNavigation'
+import MetricsGrid from '../components/MetricsGrid'
+import ImageShowcase from '../components/ImageShowcase'
+import { Link } from 'react-router-dom'
 
 // Arrow icon for back button
 const ArrowLeftIcon = () => (
@@ -13,9 +17,30 @@ const ArrowLeftIcon = () => (
   </svg>
 )
 
+// Bullet list component for reuse
+const BulletList = ({ items }: { items: string[] }) => (
+  <ul className="mt-4 flex flex-col gap-2">
+    {items.map((item, index) => (
+      <li key={index} className="flex items-start gap-3">
+        <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-primary" />
+        <span className="font-body text-[18px] leading-[1.6] text-white/80">{item}</span>
+      </li>
+    ))}
+  </ul>
+)
+
 const CaseStudyPage = () => {
   const { slug } = useParams<{ slug: string }>()
-  const study = caseStudies.find((item) => item.slug === slug)
+  const studyIndex = caseStudies.findIndex((item) => item.slug === slug)
+  const study = studyIndex !== -1 ? caseStudies[studyIndex] : null
+
+  // Get previous and next projects for navigation
+  const previousProject = studyIndex > 0 ? caseStudies[studyIndex - 1] : undefined
+  const nextProject = studyIndex < caseStudies.length - 1 ? caseStudies[studyIndex + 1] : undefined
+
+  // Helper to get image sections by placement
+  const getImageSections = (placement: string) => 
+    study?.imageSections?.filter(section => section.placement === placement) || []
 
   if (!study) {
     return (
@@ -37,16 +62,20 @@ const CaseStudyPage = () => {
 
   return (
     <div className="min-h-screen bg-ink">
-      {/* Hero Section */}
+      {/* 1. Hero Section (Overview) */}
       <CaseStudyHero study={study} />
 
       {/* Project Metadata */}
       <ProjectMetadata study={study} />
 
-      {/* Main Content */}
+      {/* 2. TL;DR Section */}
+      {study.tldr && study.tldr.length > 0 && (
+        <TLDRSection items={study.tldr} summary={study.tldrSummary} />
+      )}
+
+      {/* 3. The Problem */}
       <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
         <div className="mx-auto flex max-w-[900px] flex-col gap-16">
-          {/* The Problem */}
           {study.challenge && (
             <ContentSection heading="The Problem">
               <p>{study.challenge}</p>
@@ -55,74 +84,173 @@ const CaseStudyPage = () => {
         </div>
       </section>
 
-      {/* Design Process Timeline */}
-      {study.processTimeline && study.processTimeline.length > 0 && (
-        <ProcessTimeline steps={study.processTimeline} />
+      {/* Images after problem section */}
+      {getImageSections('after-problem').map((section, index) => (
+        <ImageShowcase
+          key={`after-problem-${index}`}
+          images={section.images}
+          layout={section.layout}
+          sectionLabel={section.sectionLabel}
+          heading={section.heading}
+        />
+      ))}
+
+      {/* 4. My Role */}
+      {study.roleDescription && (
+        <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
+          <div className="mx-auto flex max-w-[900px] flex-col gap-16">
+            <ContentSection heading="My Role">
+              <p>{study.roleDescription}</p>
+            </ContentSection>
+          </div>
+        </section>
       )}
 
-      {/* Continue Main Content */}
-      <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
-        <div className="mx-auto flex max-w-[900px] flex-col gap-16">
-          {/* Sections from data - Discovery, Design Approach, Validation, What I Learned */}
-          {study.sections && study.sections.length > 0 && (
-            <div className="flex flex-col gap-16">
-              {study.sections.map((section) => (
-                <ContentSection key={section.heading} heading={section.heading}>
-                  <p>{section.copy}</p>
-                </ContentSection>
-              ))}
-            </div>
-          )}
-
-          {/* The Solution */}
-          {study.solution && (
-            <ContentSection heading="Solution">
-              <p>{study.solution}</p>
+      {/* 5. Discovery and Key Insights */}
+      {(study.discoveryInputs || study.discoveryInsights) && (
+        <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
+          <div className="mx-auto flex max-w-[900px] flex-col gap-16">
+            <ContentSection heading="Discovery and Key Insights">
+              {study.discoveryInputs && study.discoveryInputs.length > 0 && (
+                <div className="mb-8">
+                  <h4 className="mb-4 font-body text-[14px] font-semibold uppercase tracking-wider text-primary">
+                    Inputs
+                  </h4>
+                  <BulletList items={study.discoveryInputs} />
+                </div>
+              )}
+              {study.discoveryInsights && study.discoveryInsights.length > 0 && (
+                <div>
+                  <h4 className="mb-4 font-body text-[14px] font-semibold uppercase tracking-wider text-primary">
+                    Key Insights
+                  </h4>
+                  <BulletList items={study.discoveryInsights} />
+                </div>
+              )}
             </ContentSection>
-          )}
+          </div>
+        </section>
+      )}
 
-          {/* Key Metrics - Impact */}
-          {study.metrics && study.metrics.length > 0 && (
-            <ContentSection heading="Impact">
-              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {study.metrics.map((metric) => (
-                  <div
-                    key={metric.label}
-                    className="flex flex-col items-center gap-2 rounded-[16px] border border-white/10 bg-white/5 p-6 text-center"
-                  >
-                    <p className="font-display text-[36px] text-primary">
-                      {metric.value}
-                    </p>
-                    <p className="font-body text-[14px] text-white/70">
-                      {metric.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
+      {/* Images after process/discovery section */}
+      {getImageSections('after-process').map((section, index) => (
+        <ImageShowcase
+          key={`after-process-${index}`}
+          images={section.images}
+          layout={section.layout}
+          sectionLabel={section.sectionLabel}
+          heading={section.heading}
+        />
+      ))}
+
+      {/* 6. Design Approach */}
+      {(study.designApproach || study.designApproachPoints) && (
+        <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
+          <div className="mx-auto flex max-w-[900px] flex-col gap-16">
+            <ContentSection heading="Design Approach">
+              {study.designApproach && <p className="mb-6">{study.designApproach}</p>}
+              {study.designApproachPoints && study.designApproachPoints.length > 0 && (
+                <BulletList items={study.designApproachPoints} />
+              )}
             </ContentSection>
-          )}
+          </div>
+        </section>
+      )}
 
-          {/* Results/Outcome Section */}
-          {study.results && (
-            <ContentSection heading="Results">
-              <p>{study.results}</p>
+      {/* 7. The Solution */}
+      {(study.solution || study.solutionPoints) && (
+        <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
+          <div className="mx-auto flex max-w-[900px] flex-col gap-16">
+            <ContentSection heading="The Solution">
+              {study.solution && <p className="mb-6">{study.solution}</p>}
+              {study.solutionPoints && study.solutionPoints.length > 0 && (
+                <BulletList items={study.solutionPoints} />
+              )}
             </ContentSection>
-          )}
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
 
-      {/* Back to Work */}
-      <section className="border-t border-white/10 px-6 py-16 md:px-[60px]">
-        <div className="mx-auto max-w-[900px]">
-          <Link
-            to="/#work"
-            className="inline-flex items-center gap-3 font-body text-[18px] font-medium text-primary transition hover:text-primary/80"
-          >
-            <ArrowLeftIcon />
-            Back to all projects
-          </Link>
-        </div>
-      </section>
+      {/* Images after solution section */}
+      {getImageSections('after-solution').map((section, index) => (
+        <ImageShowcase
+          key={`after-solution-${index}`}
+          images={section.images}
+          layout={section.layout}
+          sectionLabel={section.sectionLabel}
+          heading={section.heading}
+        />
+      ))}
+
+      {/* 8. Validation */}
+      {study.validation && (
+        <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
+          <div className="mx-auto flex max-w-[900px] flex-col gap-16">
+            <ContentSection heading="Validation">
+              <p>{study.validation}</p>
+            </ContentSection>
+          </div>
+        </section>
+      )}
+
+      {/* 9. Impact (Metrics) */}
+      {study.metrics && study.metrics.length > 0 && (
+        <MetricsGrid 
+          metrics={study.metrics} 
+          sectionLabel="RESULTS" 
+          heading="Impact" 
+        />
+      )}
+
+      {/* Images before results section */}
+      {getImageSections('before-results').map((section, index) => (
+        <ImageShowcase
+          key={`before-results-${index}`}
+          images={section.images}
+          layout={section.layout}
+          sectionLabel={section.sectionLabel}
+          heading={section.heading}
+        />
+      ))}
+
+      {/* Results text if provided */}
+      {study.results && (
+        <section className="px-6 py-8 md:px-[60px]">
+          <div className="mx-auto max-w-[900px]">
+            <p className="text-center font-body text-[18px] text-white/70">{study.results}</p>
+          </div>
+        </section>
+      )}
+
+      {/* 10. What I Learned */}
+      {study.whatILearned && (
+        <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
+          <div className="mx-auto flex max-w-[900px] flex-col gap-16">
+            <ContentSection heading="What I Learned">
+              <p>{study.whatILearned}</p>
+            </ContentSection>
+          </div>
+        </section>
+      )}
+
+      {/* Fallback to old sections structure for backward compatibility */}
+      {!study.discoveryInputs && !study.designApproach && study.sections && study.sections.length > 0 && (
+        <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
+          <div className="mx-auto flex max-w-[900px] flex-col gap-16">
+            {study.sections.map((section) => (
+              <ContentSection key={section.heading} heading={section.heading}>
+                <p>{section.copy}</p>
+              </ContentSection>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Project Navigation - Previous/Next */}
+      <ProjectNavigation 
+        previousProject={previousProject} 
+        nextProject={nextProject} 
+      />
     </div>
   )
 }
