@@ -62,29 +62,40 @@ const CaseStudyPage = () => {
 
   return (
     <div className="min-h-screen bg-ink">
-      {/* 1. Hero Section (Overview) */}
+      {/* 1. Overview (Hero Section) */}
       <CaseStudyHero study={study} />
 
-      {/* Project Metadata */}
+      {/* Project Metadata (Role, Client, Timeline, Platforms) */}
       <ProjectMetadata study={study} />
 
-      {/* 2. TL;DR Section */}
+      {/* 2. TL;DR */}
       {study.tldr && study.tldr.length > 0 && (
         <TLDRSection items={study.tldr} summary={study.tldrSummary} />
       )}
 
       {/* 3. The Problem */}
-      <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
-        <div className="mx-auto flex max-w-[900px] flex-col gap-16">
-          {study.challenge && (
+      {study.challenge && (
+        <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
+          <div className="mx-auto max-w-[900px]">
             <ContentSection heading="The Problem">
               <p>{study.challenge}</p>
             </ContentSection>
-          )}
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
 
-      {/* Images after problem section */}
+      {/* 4. My Role */}
+      {study.roleDescription && (
+        <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
+          <div className="mx-auto max-w-[900px]">
+            <ContentSection heading="My Role">
+              <p>{study.roleDescription}</p>
+            </ContentSection>
+          </div>
+        </section>
+      )}
+
+      {/* Images after problem/role section */}
       {getImageSections('after-problem').map((section, index) => (
         <ImageShowcase
           key={`after-problem-${index}`}
@@ -95,21 +106,10 @@ const CaseStudyPage = () => {
         />
       ))}
 
-      {/* 4. My Role */}
-      {study.roleDescription && (
-        <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
-          <div className="mx-auto flex max-w-[900px] flex-col gap-16">
-            <ContentSection heading="My Role">
-              <p>{study.roleDescription}</p>
-            </ContentSection>
-          </div>
-        </section>
-      )}
-
       {/* 5. Discovery and Key Insights */}
       {(study.discoveryInputs || study.discoveryInsights) && (
         <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
-          <div className="mx-auto flex max-w-[900px] flex-col gap-16">
+          <div className="mx-auto max-w-[900px]">
             <ContentSection heading="Discovery and Key Insights">
               {study.discoveryInputs && study.discoveryInputs.length > 0 && (
                 <div className="mb-8">
@@ -120,19 +120,24 @@ const CaseStudyPage = () => {
                 </div>
               )}
               {study.discoveryInsights && study.discoveryInsights.length > 0 && (
-                <div>
+                <div className="mb-6">
                   <h4 className="mb-4 font-body text-[14px] font-semibold uppercase tracking-wider text-primary">
                     Key Insights
                   </h4>
                   <BulletList items={study.discoveryInsights} />
                 </div>
               )}
+              {study.discoverySummary && (
+                <p className="mt-6 font-body text-[18px] leading-[1.6] text-white/80">
+                  {study.discoverySummary}
+                </p>
+              )}
             </ContentSection>
           </div>
         </section>
       )}
 
-      {/* Images after process/discovery section */}
+      {/* Images after discovery section */}
       {getImageSections('after-process').map((section, index) => (
         <ImageShowcase
           key={`after-process-${index}`}
@@ -146,9 +151,11 @@ const CaseStudyPage = () => {
       {/* 6. Design Approach */}
       {(study.designApproach || study.designApproachPoints) && (
         <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
-          <div className="mx-auto flex max-w-[900px] flex-col gap-16">
+          <div className="mx-auto max-w-[900px]">
             <ContentSection heading="Design Approach">
-              {study.designApproach && <p className="mb-6">{study.designApproach}</p>}
+              {study.designApproach && (
+                <p className="mb-6">{study.designApproach}</p>
+              )}
               {study.designApproachPoints && study.designApproachPoints.length > 0 && (
                 <BulletList items={study.designApproachPoints} />
               )}
@@ -160,9 +167,11 @@ const CaseStudyPage = () => {
       {/* 7. The Solution */}
       {(study.solution || study.solutionPoints) && (
         <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
-          <div className="mx-auto flex max-w-[900px] flex-col gap-16">
+          <div className="mx-auto max-w-[900px]">
             <ContentSection heading="The Solution">
-              {study.solution && <p className="mb-6">{study.solution}</p>}
+              {study.solution && (
+                <p className="mb-6">{study.solution}</p>
+              )}
               {study.solutionPoints && study.solutionPoints.length > 0 && (
                 <BulletList items={study.solutionPoints} />
               )}
@@ -185,7 +194,7 @@ const CaseStudyPage = () => {
       {/* 8. Validation */}
       {study.validation && (
         <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
-          <div className="mx-auto flex max-w-[900px] flex-col gap-16">
+          <div className="mx-auto max-w-[900px]">
             <ContentSection heading="Validation">
               <p>{study.validation}</p>
             </ContentSection>
@@ -202,7 +211,16 @@ const CaseStudyPage = () => {
         />
       )}
 
-      {/* Images before results section */}
+      {/* Results summary text */}
+      {study.results && (
+        <section className="px-6 py-8 md:px-[60px]">
+          <div className="mx-auto max-w-[900px]">
+            <p className="text-center font-body text-[18px] text-white/70">{study.results}</p>
+          </div>
+        </section>
+      )}
+
+      {/* Images before What I Learned */}
       {getImageSections('before-results').map((section, index) => (
         <ImageShowcase
           key={`before-results-${index}`}
@@ -213,19 +231,10 @@ const CaseStudyPage = () => {
         />
       ))}
 
-      {/* Results text if provided */}
-      {study.results && (
-        <section className="px-6 py-8 md:px-[60px]">
-          <div className="mx-auto max-w-[900px]">
-            <p className="text-center font-body text-[18px] text-white/70">{study.results}</p>
-          </div>
-        </section>
-      )}
-
       {/* 10. What I Learned */}
       {study.whatILearned && (
         <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
-          <div className="mx-auto flex max-w-[900px] flex-col gap-16">
+          <div className="mx-auto max-w-[900px]">
             <ContentSection heading="What I Learned">
               <p>{study.whatILearned}</p>
             </ContentSection>

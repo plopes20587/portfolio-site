@@ -38,6 +38,7 @@ export type CaseStudy = {
   // Discovery section
   discoveryInputs?: string[];
   discoveryInsights?: string[];
+  discoverySummary?: string;
   // Design approach
   designApproach?: string;
   designApproachPoints?: string[];
@@ -128,6 +129,7 @@ export const caseStudies: CaseStudy[] = [
       "Switching between meal types caused confusion",
       "Lack of clear feedback reduced confidence before checkout",
     ],
+    discoverySummary: "These insights helped narrow the focus from redesigning the page broadly to reducing friction during decision making.",
     // Design approach
     designApproach: "The goal was not to add features, but to simplify what already existed. AI tools supported early exploration and layout variations, helping me move faster through rough concepts before refining the final designs.",
     designApproachPoints: [
