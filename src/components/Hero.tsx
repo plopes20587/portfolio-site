@@ -40,10 +40,10 @@ const Hero = () => {
       {/* Background with gradients, starfield, and meteors */}
       <div className="absolute inset-0">
         {/* Bottom-right purple/pink/blue galaxy glow - from Figma */}
-        <div 
+      <div 
           className="absolute bottom-0 right-0 h-[660px] w-[880px] opacity-50"
-          style={{
-            background: `
+        style={{
+          background: `
               radial-gradient(ellipse 400px 300px at 70% 70%, rgba(127, 90, 240, 0.4) 0%, rgba(64, 45, 120, 0.2) 25%, transparent 50%),
               radial-gradient(ellipse 350px 280px at 80% 60%, rgba(255, 60, 172, 0.3) 0%, rgba(128, 30, 86, 0.15) 20%, transparent 40%),
               radial-gradient(ellipse 300px 250px at 60% 80%, rgba(59, 130, 246, 0.5) 0%, rgba(30, 65, 123, 0.25) 15%, transparent 45%)
@@ -93,14 +93,14 @@ const Hero = () => {
         <div className="flex flex-col gap-[40px]">
           {/* Title Section */}
           <div className="flex flex-col gap-[16px]">
-            <motion.h1
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
+        <motion.h1
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
               className="font-display text-[80px] font-normal leading-none tracking-[1.6px] text-white"
-            >
+        >
               PRODUCT DESIGNER
-            </motion.h1>
+        </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -118,15 +118,15 @@ const Hero = () => {
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
             className="flex h-[50px] items-start"
           >
-            <a
+          <a
               href="mailto:patrick@patricklopes.com"
               className="inline-flex h-full items-center justify-center gap-[8px] rounded-[4px] bg-primary px-[24px] py-[8px] text-[18px] font-normal leading-[1.5] text-white transition hover:bg-primary/90"
-            >
+          >
               Lets talk
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-            </a>
+          </a>
           </motion.div>
 
           {/* Social Links - 48x48 circles, 16px gap */}
@@ -137,9 +137,9 @@ const Hero = () => {
             className="flex h-[48px] gap-[16px]"
           >
             {socialLinks.map((social) => (
-              <a
+              <a 
                 key={social.name}
-                href={social.href}
+                href={social.href} 
                 className="flex h-[48px] w-[48px] items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:bg-white/10"
                 aria-label={social.name}
               >

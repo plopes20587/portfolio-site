@@ -18,7 +18,7 @@ const LogoMarquee = () => {
       <div className="flex w-full items-center justify-center">
         <h2 className="font-display text-[42px] font-normal leading-[1.2] tracking-[0.42px] text-white">
           Brands I've worked with
-        </h2>
+      </h2>
       </div>
       
       {/* Logo Marquee Container */}
@@ -35,7 +35,7 @@ const LogoMarquee = () => {
               key={`${logo.name}-${index}`}
               className="flex h-[98px] w-[192px] shrink-0 items-center justify-center rounded-[10px] border border-white/10 bg-white/5 px-[22px] py-[32px]"
             >
-              <img
+              <img 
                 src={logo.path}
                 alt={logo.name}
                 className="h-auto max-h-[33px] w-full object-contain"

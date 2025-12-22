@@ -41,13 +41,13 @@ const HeaderNav = () => {
         {/* Desktop Navigation Links */}
         <nav className="hidden items-center gap-[24px] md:flex">
           {navLinks.map((link) => (
-            <a
+          <a
               key={link.href}
               href={link.href}
               className="font-body text-[16px] font-medium text-white transition-colors hover:text-white/80"
-            >
+          >
               {link.label}
-            </a>
+          </a>
           ))}
           
           {/* CTA Button - rounded-[4px], bg-primary */}

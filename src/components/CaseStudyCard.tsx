@@ -13,7 +13,7 @@ type Props = {
 }
 
 // Project color configurations matching Figma design
-const projectColors: Record<string, {
+const projectColors: Record<string, { 
   // Gradient colors for card background
   gradientFrom: string
   gradientTo: string
@@ -22,25 +22,25 @@ const projectColors: Record<string, {
   // Thumbnail image
   thumbnail: string
 }> = {
-  'kfc-pdp-redesign': {
+  'kfc-pdp-redesign': { 
     gradientFrom: '#541db9',
     gradientTo: '#7f5af0',
     gridPatternUrl: '/images/grid-pattern.png',
     thumbnail: kfcThumbnail,
   },
-  'photon-website': {
+  'photon-website': { 
     gradientFrom: '#cc7a00',
     gradientTo: '#ff9900',
     gridPatternUrl: '/images/grid-pattern.png',
     thumbnail: photonThumbnail,
   },
-  'cellebrite-website': {
+  'cellebrite-website': { 
     gradientFrom: '#006644',
     gradientTo: '#009966',
     gridPatternUrl: '/images/grid-pattern.png',
     thumbnail: cellebriteThumbnail,
   },
-  'senegence-redesign': {
+  'senegence-redesign': { 
     gradientFrom: '#0052cc',
     gradientTo: '#0066ff',
     gridPatternUrl: '/images/grid-pattern.png',
@@ -63,7 +63,7 @@ const ExternalLinkIcon = () => (
 )
 
 const CaseStudyCard = ({ study }: Props) => {
-  const colors = projectColors[study.slug] || {
+  const colors = projectColors[study.slug] || { 
     gradientFrom: '#541db9',
     gradientTo: '#7f5af0',
     gridPatternUrl: '',
@@ -93,16 +93,16 @@ const CaseStudyCard = ({ study }: Props) => {
             }}
           />
           {/* Grid pattern overlay - matches Figma grid texture */}
-          <div 
+        <div 
             className="absolute inset-0 opacity-50 rounded-[24px]"
-            style={{
-              backgroundImage: `
+          style={{
+            backgroundImage: `
                 linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-              `,
-              backgroundSize: '40px 40px',
-            }}
-          />
+            `,
+            backgroundSize: '40px 40px',
+          }}
+        />
         </div>
 
         {/* Card Content */}
@@ -111,7 +111,7 @@ const CaseStudyCard = ({ study }: Props) => {
           <div className="flex w-full items-center justify-center overflow-hidden px-4 py-0 sm:px-8 md:px-16 lg:px-[104px]">
             <div className="aspect-square w-full max-w-[300px] sm:max-w-none">
               {colors.thumbnail ? (
-                <img
+                <img 
                   src={colors.thumbnail}
                   alt={`${study.title} mockup`}
                   className="h-full w-full object-cover"
@@ -125,28 +125,28 @@ const CaseStudyCard = ({ study }: Props) => {
                 </div>
               )}
             </div>
-          </div>
+            </div>
 
           {/* Project Content - matches Figma structure */}
           <div className="flex flex-col gap-[24px]">
             {/* Top Content: Category, Title, Description */}
             <div className="flex flex-col gap-[8px]">
               {/* Category Tag - H4 style: 14px, bold, uppercase, 0.55px tracking */}
-              {categoryTag && (
+            {categoryTag && (
                 <p className="font-body text-[14px] font-bold uppercase leading-[20px] tracking-[0.55px] text-white/80">
                   {categoryTag}
-                </p>
-              )}
-              
+              </p>
+            )}
+
               {/* Project Title - H3 style: 36px Staatliches */}
               <h3 className="font-display text-[36px] font-normal leading-none text-white">
-                {study.title}
-              </h3>
-              
+              {study.title}
+            </h3>
+
               {/* Description - Body style: 18px Inter */}
               <p className="font-body text-[18px] font-normal leading-[1.5] text-white">
-                {study.blurb}
-              </p>
+              {study.blurb}
+            </p>
             </div>
 
             {/* Metrics List - with checkmark icons */}

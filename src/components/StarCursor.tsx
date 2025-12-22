@@ -34,8 +34,8 @@ const StarCursor = () => {
   return (
     <>
       {/* Main glowing star */}
-      <motion.div
-        aria-hidden
+    <motion.div
+      aria-hidden
         className="pointer-events-none fixed z-50 mix-blend-screen"
         animate={{
           x: mousePosition.x - 10,
@@ -123,7 +123,7 @@ const StarCursor = () => {
         }}
       >
         <div className="h-1 w-1 rounded-full bg-[#9D7FF5] opacity-30 blur-sm" />
-      </motion.div>
+    </motion.div>
     </>
   )
 }

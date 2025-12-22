@@ -81,18 +81,18 @@ const AboutSection = () => {
             <div className="grid gap-4 sm:grid-cols-2">
               {stats.map((stat) => (
                 <div key={stat.label} className="rounded-lg border border-white/10 bg-ink-900 p-4">
-                  <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4">
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/20">
                       <img 
                         src={stat.iconSrc} 
                         alt={stat.label}
                         className="h-5 w-5"
                       />
-                    </div>
-                    <div>
+                  </div>
+                  <div>
                       <p className="text-lg font-semibold text-white">{stat.value}</p>
                       <p className="text-sm text-white/70">{stat.label}</p>
-                    </div>
+                  </div>
                   </div>
                 </div>
               ))}
