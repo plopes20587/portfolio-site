@@ -124,19 +124,19 @@ export const caseStudies: CaseStudy[] = [
       "KFC's product detail page had grown more complex over time as new meal options, sides, and sauces were added. What should have been a simple customization flow became difficult to follow, especially on smaller screens. Users were scrolling too much, repeating steps, and struggling to understand what they had selected before moving to checkout. This led to confusion and drop-off during one of the most important moments in the ordering experience.",
     problemBreakdown: [
       {
-        icon: "chart",
+        icon: "target",
         title: "Complexity Growth",
         description:
           "The product detail page became increasingly complex as new meal options, sides, and sauces were added over time, making what should have been a simple customization flow difficult to navigate.",
       },
       {
-        icon: "alert",
+        icon: "shield",
         title: "Mobile Usability",
         description:
           "The experience became especially challenging on smaller screens, where users struggled with excessive scrolling and unclear visual hierarchy.",
       },
       {
-        icon: "users",
+        icon: "lightning",
         title: "User Confusion",
         description:
           "Users were repeating steps and struggling to understand what they had selected before moving to checkout, leading to confusion and drop-off during a critical moment.",
@@ -177,7 +177,7 @@ export const caseStudies: CaseStudy[] = [
     // Validation
     validation:
       "The redesigned flow was tested with 15 participants across desktop, mobile web, and app. Participants completed tasks such as ordering individual meals, combos, and family options. Testing uncovered minor issues around labeling and spacing, which were addressed before final delivery.",
-    // Results
+    // F
     results:
       "These results confirmed that simplifying structure and feedback had a meaningful impact on usability.",
     // What I learned

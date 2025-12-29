@@ -1,82 +1,109 @@
-import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
-import type { CaseStudy } from '../siteData'
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import type { CaseStudy } from "../siteData";
 
 // Import project thumbnail images
-import kfcThumbnail from '../assets/images/KFC Thumbnail.png'
-import photonThumbnail from '../assets/images/Photon Thumbnail.png'
-import cellebriteThumbnail from '../assets/images/Cellebrite Thumbnail.png'
-import senegenceThumbnail from '../assets/images/SeneGence Thumbnail.png'
+import kfcThumbnail from "../assets/images/KFC Thumbnail.png";
+import photonThumbnail from "../assets/images/Photon Thumbnail.png";
+import cellebriteThumbnail from "../assets/images/Cellebrite Thumbnail.png";
+import senegenceThumbnail from "../assets/images/SeneGence Thumbnail.png";
 
 type Props = {
-  study: CaseStudy
-}
+  study: CaseStudy;
+};
 
 // Project color configurations matching Figma design
-const projectColors: Record<string, { 
-  // Gradient colors for card background
-  gradientFrom: string
-  gradientTo: string
-  // Grid pattern overlay image (semi-transparent grid)
-  gridPatternUrl: string
-  // Thumbnail image
-  thumbnail: string
-}> = {
-  'kfc-pdp-redesign': { 
-    gradientFrom: '#541db9',
-    gradientTo: '#7f5af0',
-    gridPatternUrl: '/images/grid-pattern.png',
+const projectColors: Record<
+  string,
+  {
+    // Gradient colors for card background
+    gradientFrom: string;
+    gradientTo: string;
+    // Grid pattern overlay image (semi-transparent grid)
+    gridPatternUrl: string;
+    // Thumbnail image
+    thumbnail: string;
+  }
+> = {
+  "kfc-pdp-redesign": {
+    gradientFrom: "#541db9",
+    gradientTo: "#7f5af0",
+    gridPatternUrl: "/images/grid-pattern.png",
     thumbnail: kfcThumbnail,
   },
-  'photon-website': { 
-    gradientFrom: '#cc7a00',
-    gradientTo: '#ff9900',
-    gridPatternUrl: '/images/grid-pattern.png',
+  "photon-website": {
+    gradientFrom: "#cc7a00",
+    gradientTo: "#ff9900",
+    gridPatternUrl: "/images/grid-pattern.png",
     thumbnail: photonThumbnail,
   },
-  'cellebrite-website': { 
-    gradientFrom: '#006644',
-    gradientTo: '#009966',
-    gridPatternUrl: '/images/grid-pattern.png',
+  "cellebrite-website": {
+    gradientFrom: "#006644",
+    gradientTo: "#009966",
+    gridPatternUrl: "/images/grid-pattern.png",
     thumbnail: cellebriteThumbnail,
   },
-  'senegence-redesign': { 
-    gradientFrom: '#0052cc',
-    gradientTo: '#0066ff',
-    gridPatternUrl: '/images/grid-pattern.png',
+  "senegence-redesign": {
+    gradientFrom: "#0052cc",
+    gradientTo: "#0066ff",
+    gridPatternUrl: "/images/grid-pattern.png",
     thumbnail: senegenceThumbnail,
   },
-}
+};
 
 // Check icon SVG component
 const CheckIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M2 6L5 9L10 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  <svg
+    width="12"
+    height="12"
+    viewBox="0 0 12 12"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M2 6L5 9L10 3"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
-)
+);
 
 // External link icon SVG component
 const ExternalLinkIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M6 3H3C2.44772 3 2 3.44772 2 4V13C2 13.5523 2.44772 14 3 14H12C12.5523 14 13 13.5523 13 13V10M9 2H14M14 2V7M14 2L6 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6 3H3C2.44772 3 2 3.44772 2 4V13C2 13.5523 2.44772 14 3 14H12C12.5523 14 13 13.5523 13 13V10M9 2H14M14 2V7M14 2L6 10"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
-)
+);
 
 const CaseStudyCard = ({ study }: Props) => {
-  const colors = projectColors[study.slug] || { 
-    gradientFrom: '#541db9',
-    gradientTo: '#7f5af0',
-    gridPatternUrl: '',
-    thumbnail: '',
-  }
+  const colors = projectColors[study.slug] || {
+    gradientFrom: "#541db9",
+    gradientTo: "#7f5af0",
+    gridPatternUrl: "",
+    thumbnail: "",
+  };
 
   // Format category tag - uppercase with tracking
-  const categoryTag = study.tags?.[0] || ''
+  const categoryTag = study.tags?.[0] || "";
 
   return (
     <motion.div
       whileHover={{ y: -6, scale: 1.01 }}
-      transition={{ type: 'spring', stiffness: 220, damping: 22 }}
+      transition={{ type: "spring", stiffness: 220, damping: 22 }}
       className="h-full"
     >
       <Link
@@ -84,25 +111,25 @@ const CaseStudyCard = ({ study }: Props) => {
         className="group relative flex h-full max-w-[517px] flex-col overflow-hidden rounded-[24px] p-[24px] shadow-lg"
       >
         {/* Background with gradient and grid pattern overlay */}
-        <div className="absolute inset-0 pointer-events-none rounded-[24px]">
+        <div className="pointer-events-none absolute inset-0 rounded-[24px]">
           {/* Gradient background - from Figma: gradient from dark to light purple */}
-          <div 
+          <div
             className="absolute inset-0 rounded-[24px]"
             style={{
               background: `linear-gradient(to bottom, ${colors.gradientFrom}, ${colors.gradientTo})`,
             }}
           />
           {/* Grid pattern overlay - matches Figma grid texture */}
-        <div 
-            className="absolute inset-0 opacity-50 rounded-[24px]"
-          style={{
-            backgroundImage: `
+          <div
+            className="absolute inset-0 rounded-[24px] opacity-50"
+            style={{
+              backgroundImage: `
                 linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
             `,
-            backgroundSize: '40px 40px',
-          }}
-        />
+              backgroundSize: "40px 40px",
+            }}
+          />
         </div>
 
         {/* Card Content */}
@@ -111,42 +138,42 @@ const CaseStudyCard = ({ study }: Props) => {
           <div className="flex w-full items-center justify-center overflow-hidden px-4 py-0 sm:px-8 md:px-16 lg:px-[104px]">
             <div className="aspect-square w-full max-w-[300px] sm:max-w-none">
               {colors.thumbnail ? (
-                <img 
+                <img
                   src={colors.thumbnail}
                   alt={`${study.title} mockup`}
                   className="h-full w-full object-cover"
                   onError={(e) => {
-                    e.currentTarget.style.display = 'none'
+                    e.currentTarget.style.display = "none";
                   }}
                 />
               ) : (
-                <div className="flex h-full w-full items-center justify-center bg-white/10 rounded-lg">
+                <div className="flex h-full w-full items-center justify-center rounded-lg bg-white/10">
                   <span className="text-sm text-white/30">Mockup Image</span>
                 </div>
               )}
             </div>
-            </div>
+          </div>
 
           {/* Project Content - matches Figma structure */}
           <div className="flex flex-col gap-[24px]">
             {/* Top Content: Category, Title, Description */}
             <div className="flex flex-col gap-[8px]">
               {/* Category Tag - H4 style: 14px, bold, uppercase, 0.55px tracking */}
-            {categoryTag && (
+              {categoryTag && (
                 <p className="font-body text-[14px] font-bold uppercase leading-[20px] tracking-[0.55px] text-white/80">
                   {categoryTag}
-              </p>
-            )}
+                </p>
+              )}
 
-              {/* Project Title - H3 style: 36px Staatliches */}
-              <h3 className="font-display text-[36px] font-normal leading-none text-white">
-              {study.title}
-            </h3>
+              {/* Project Title - H3 style: 40px Staatliches */}
+              <h3 className="font-display text-[40px] font-normal leading-none text-white">
+                {study.title}
+              </h3>
 
               {/* Description - Body style: 18px Inter */}
               <p className="font-body text-[18px] font-normal leading-[1.5] text-white">
-              {study.blurb}
-            </p>
+                {study.blurb}
+              </p>
             </div>
 
             {/* Metrics List - with checkmark icons */}
@@ -170,9 +197,7 @@ const CaseStudyCard = ({ study }: Props) => {
             )}
 
             {/* View Project Button - white bg, black text, with icon */}
-            <span
-              className="inline-flex w-fit items-center justify-center gap-[8px] rounded-[4px] bg-white px-[24px] py-[8px] text-[18px] font-normal leading-[1.5] text-black transition hover:bg-gray-100"
-            >
+            <span className="inline-flex w-fit items-center justify-center gap-[8px] rounded-[4px] bg-white px-[24px] py-[8px] text-[18px] font-normal leading-[1.5] text-black transition hover:bg-gray-100">
               View Project
               <ExternalLinkIcon />
             </span>
@@ -180,7 +205,7 @@ const CaseStudyCard = ({ study }: Props) => {
         </div>
       </Link>
     </motion.div>
-  )
-}
+  );
+};
 
-export default CaseStudyCard
+export default CaseStudyCard;

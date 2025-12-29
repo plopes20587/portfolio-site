@@ -1,6 +1,4 @@
-"use client";
-
-import { cn } from "../../lib/utils";
+import { cn } from "../lib/utils";
 
 interface MeteorsProps {
   number?: number;
@@ -33,9 +31,10 @@ export const Meteors = ({
     <>
       {Array.from({ length: number }, (_, idx) => {
         const randoms = preGeneratedRandoms[idx % preGeneratedRandoms.length];
-        const duration = randoms.durationFactor * (maxDuration - minDuration) + minDuration;
+        const duration =
+          randoms.durationFactor * (maxDuration - minDuration) + minDuration;
         const delay = randoms.delayFactor * (maxDelay - minDelay) + minDelay;
-        
+
         const style: React.CSSProperties = {
           "--angle": `${angle}deg`,
           top: -5,

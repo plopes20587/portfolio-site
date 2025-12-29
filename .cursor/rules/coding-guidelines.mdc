@@ -1,0 +1,17 @@
+---
+alwaysApply: true
+---
+
+## Coding Guidelines
+
+- Follow clean code principles
+- Prefer async/await over callbacks
+- Write comprehensive error handling
+- Include JSDoc comments for functions
+- Use meaningful variable names
+- Use semantic HTML naming convention
+- Use functional components with hooks
+- Implement proper error boundaries
+- Follow atomic design principles
+- Use React Query for data fetching
+- Maintain 80% test coverage
