@@ -38,8 +38,8 @@ export default {
         ], // Typography/Font size/Body/md: 16, lineHeight: 24
         "body-lg": [
           "20px",
-          { lineHeight: "30px", letterSpacing: "0px", fontWeight: 400 },
-        ], // Typography/Font size/Body/lg: 20
+          { lineHeight: "24px", letterSpacing: "0px", fontWeight: 400 },
+        ], // Typography/Font size/Body/lg: 20, lineHeight: 24
       },
       colors: {
         // Base backgrounds - from Figma design system
@@ -89,6 +89,13 @@ export default {
             secondary: "#ffffff", // Color/Surface/Buttons/button-secondary
           },
         },
+        // Element colors - from Figma
+        elements: {
+          pills: {
+            "secondary-background": "rgba(0, 211, 242, 0.05)", // Color/Elements/Pills/secondary-background
+            "secondary-border": "rgba(0, 211, 242, 0.25)", // Color/Elements/Pills/secondary-border
+          },
+        },
       },
       spacing: {
         // Spacing scale from Figma design system
@@ -106,6 +113,7 @@ export default {
         // Border radius from Figma design system
         none: "0", // Sizes/Border/none
         8: "8px", // Sizes/Radius/rd-8
+        14: "14px", // Used in stat cards and other components
         16: "16px", // Sizes/Radius/rd-16
       },
       boxShadow: {

@@ -3,6 +3,7 @@ import designToolsIcon from '../assets/icons/design-tools.svg'
 import developmentIcon from '../assets/icons/development.svg'
 import researchIcon from '../assets/icons/research.svg'
 import aiStackIcon from '../assets/icons/ai-stack.svg'
+import SectionWrapper from './SectionWrapper'
 
 type SkillCategory = {
   name: string
@@ -45,11 +46,8 @@ const SkillsSection = () => {
   ]
 
   return (
-    <section 
-      id="skills" 
-      className="px-6 py-16 md:px-[60px] md:py-[100px]"
-    >
-      <div className="mx-auto flex max-w-[1320px] flex-col gap-[40px]">
+    <SectionWrapper id="skills" maxWidth="1320" padding="large">
+      <div className="flex flex-col gap-[40px]">
         {/* Header */}
         <div className="flex w-full flex-col items-center gap-[16px]">
           <h2 className="font-display text-[32px] font-normal leading-[1.2] tracking-[0.42px] text-white md:text-[42px]">
@@ -97,7 +95,7 @@ const SkillsSection = () => {
           ))}
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   )
 }
 

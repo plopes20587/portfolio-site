@@ -1,10 +1,10 @@
 import type { CaseStudy } from '../siteData'
 
 // Import case study thumbnails as hero images
-import kfcThumbnail from '../assets/images/KFC Thumbnail.png'
-import photonThumbnail from '../assets/images/Photon Thumbnail.png'
-import cellebriteThumbnail from '../assets/images/Cellebrite Thumbnail.png'
-import senegenceThumbnail from '../assets/images/SeneGence Thumbnail.png'
+import kfcThumbnail from '../assets/images/kfc-pdp-redesign/KFC Thumbnail.png'
+import photonThumbnail from '../assets/images/photon-website/Photon Thumbnail.png'
+import cellebriteThumbnail from '../assets/images/cellebrite-website/Cellebrite Thumbnail.png'
+import senegenceThumbnail from '../assets/images/senegence-redesign/SeneGence Thumbnail.png'
 
 type Props = {
   study: CaseStudy

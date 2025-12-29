@@ -1,4 +1,5 @@
 import type { ProcessStep } from '../siteData'
+import SectionWrapper from './SectionWrapper'
 
 type Props = {
   steps: ProcessStep[]
@@ -8,8 +9,7 @@ const ProcessTimeline = ({ steps }: Props) => {
   if (!steps || steps.length === 0) return null
 
   return (
-    <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
-      <div className="mx-auto max-w-[1100px]">
+    <SectionWrapper maxWidth="1100" padding="large">
         {/* Section Header */}
         <div className="mb-12 text-center">
           <h2 className="font-display text-[32px] font-normal leading-[1.2] text-white md:text-[42px]">
@@ -78,8 +78,7 @@ const ProcessTimeline = ({ steps }: Props) => {
             ))}
           </div>
         </div>
-      </div>
-    </section>
+    </SectionWrapper>
   )
 }
 

@@ -7,49 +7,11 @@ import TLDRSection from "../components/TLDRSection";
 import ProjectNavigation from "../components/ProjectNavigation";
 import MetricsGrid from "../components/MetricsGrid";
 import ImageShowcase from "../components/ImageShowcase";
+import ResultsSummary from "../components/ResultsSummary";
+import SectionWrapper from "../components/SectionWrapper";
+import BulletList from "../components/BulletList";
+import { ArrowLeftIcon } from "../components/icons/ArrowIcons";
 import { Link } from "react-router-dom";
-
-// Arrow icon for back button
-const ArrowLeftIcon = () => (
-  <svg
-    width="20"
-    height="20"
-    viewBox="0 0 20 20"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M15.8333 10H4.16667"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M10 15.8333L4.16667 10L10 4.16667"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-// Bullet list component for reuse
-const BulletList = ({ items }: { items: string[] }) => (
-  <ul className="mt-4 flex flex-col gap-2">
-    {items.map((item, index) => (
-      <li key={index} className="flex items-start gap-3">
-        <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-primary" />
-        <span className="font-body text-[18px] leading-[1.6] text-white/80">
-          {item}
-        </span>
-      </li>
-    ))}
-  </ul>
-);
-
-// Import icons from assets folder
 import targetIcon from "../assets/icons/target.svg";
 import shieldIcon from "../assets/icons/shield.svg";
 import lightningIcon from "../assets/icons/lightning.svg";
@@ -106,113 +68,154 @@ const CaseStudyPage = () => {
         <TLDRSection items={study.tldr} summary={study.tldrSummary} />
       )}
 
-      {/* 3. The Problem */}
+      {/* 3. The Problem - Combined with Images */}
       {study.challenge && (
-        <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
-          <div className="mx-auto max-w-[1320px]">
-            {/* Section Label and Heading - matching Figma design */}
-            <div className="mb-12">
-              <span className="mb-4 inline-block font-body text-[14px] font-semibold uppercase tracking-[0.1em] text-primary">
-                OBSTACLES
-              </span>
-              <h2 className="font-display text-[32px] font-normal uppercase leading-[1.2] text-white md:text-[42px]">
-                THE PROBLEM
-              </h2>
-            </div>
-            {/* 3-Container Layout or Fallback to Paragraph */}
+        <section className="flex flex-col items-center justify-center px-6 py-[80px] md:px-[60px]">
+          <div className="mx-auto flex w-full max-w-[1320px] flex-col items-center gap-[48px]">
+            {/* Section Header */}
             {study.problemBreakdown && study.problemBreakdown.length > 0 ? (
-              <div className="grid gap-6 md:grid-cols-3">
-                {study.problemBreakdown.map((problem, index) => (
-                  <div
-                    key={index}
-                    className="group flex flex-col gap-4 rounded-[16px] border border-[#1D293D] bg-[#0F172B]/40 p-6 backdrop-blur-sm transition hover:border-primary/30 hover:bg-[#0F172B]/60"
-                  >
-                    {/* Icon */}
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 text-primary">
-                      {problem.icon === "target" && (
-                        <img src={targetIcon} alt="" className="h-6 w-6" />
-                      )}
-                      {problem.icon === "shield" && (
-                        <img src={shieldIcon} alt="" className="h-6 w-6" />
-                      )}
-                      {problem.icon === "lightning" && (
-                        <img src={lightningIcon} alt="" className="h-6 w-6" />
-                      )}
+              <>
+                <div className="flex w-full flex-col items-center gap-[8px]">
+                  <span className="font-body text-[32px] font-normal uppercase leading-[36px] text-primary">
+                    OBSTACLES
+                  </span>
+                  <h2 className="font-display text-[48px] font-normal leading-[52px] text-white">
+                    The problem
+                  </h2>
+                </div>
+
+                {/* Problem Cards */}
+                <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-3">
+                  {study.problemBreakdown.map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex h-[238px] flex-col gap-4 rounded-[14px] border border-[#1D293D] bg-[rgba(15,23,43,0.4)] p-6"
+                    >
+                      {/* Icon */}
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[rgba(127,90,240,0.25)] bg-[rgba(127,90,240,0.25)] text-primary">
+                        {item.icon === "target" && (
+                          <img src={targetIcon} alt="" className="h-6 w-6" />
+                        )}
+                        {item.icon === "shield" && (
+                          <img src={shieldIcon} alt="" className="h-6 w-6" />
+                        )}
+                        {item.icon === "lightning" && (
+                          <img src={lightningIcon} alt="" className="h-6 w-6" />
+                        )}
+                      </div>
+                      {/* Title */}
+                      <h3 className="font-body text-[16px] font-normal leading-[16px] tracking-[-0.3125px] text-white">
+                        {item.title}
+                      </h3>
+                      {/* Description */}
+                      <p className="font-body text-[16px] font-normal leading-[26px] tracking-[-0.3125px] text-[#c3c3c3]">
+                        {item.description}
+                      </p>
                     </div>
-                    {/* Title */}
-                    <h3 className="font-display text-[20px] font-semibold leading-[1.2] text-white">
-                      {problem.title}
-                    </h3>
-                    {/* Description */}
-                    <p className="font-body text-[16px] font-normal leading-[1.5] text-white/80">
-                      {problem.description}
-                    </p>
+                  ))}
+                </div>
+
+                {/* Images Section */}
+                {getImageSections("after-problem").map((section, index) => (
+                  <div
+                    key={`after-problem-${index}`}
+                    className="flex w-full flex-col items-start justify-center gap-6 md:flex-row md:gap-[70px]"
+                  >
+                    {section.images.map((image, imgIndex) => (
+                      <figure key={imgIndex} className="group overflow-hidden">
+                        <div className="overflow-hidden">
+                          <img
+                            src={image.src}
+                            alt={image.alt}
+                            className="h-auto w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+                            loading="lazy"
+                          />
+                        </div>
+                        {image.caption && (
+                          <figcaption className="px-6 py-4">
+                            <p className="font-body text-[14px] text-white/70">
+                              {image.caption}
+                            </p>
+                          </figcaption>
+                        )}
+                      </figure>
+                    ))}
                   </div>
                 ))}
-              </div>
+              </>
             ) : (
-              <div className="max-w-[900px]">
-                <div className="font-body text-[18px] font-normal leading-[1.6] text-white/80">
-                  <p>{study.challenge}</p>
+              <>
+                <div className="mb-12">
+                  <span className="mb-4 inline-block font-body text-[14px] font-semibold uppercase tracking-[0.1em] text-primary">
+                    OBSTACLES
+                  </span>
+                  <h2 className="font-display text-[32px] font-normal uppercase leading-[1.2] text-white md:text-[42px]">
+                    THE PROBLEM
+                  </h2>
                 </div>
-              </div>
+                <div className="max-w-[900px]">
+                  <div className="font-body text-[18px] font-normal leading-[1.6] text-white/80">
+                    <p>{study.challenge}</p>
+                  </div>
+                </div>
+              </>
             )}
           </div>
         </section>
       )}
-
       {/* 4. My Role */}
       {study.roleDescription && (
-        <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
-          <div className="mx-auto max-w-[900px]">
-            <ContentSection heading="My Role">
-              <p>{study.roleDescription}</p>
-            </ContentSection>
+        <SectionWrapper maxWidth="1320" padding="large">
+          <div className="flex flex-col items-center justify-center">
+            <div className="flex w-full flex-col items-center justify-center rounded-[14px] border border-[rgba(251,44,54,0.2)] bg-[rgba(2,6,24,0.8)] p-[48px]">
+              <div className="flex w-full max-w-[1080px] items-center gap-[32px]">
+                {/* Large question mark icon */}
+                <div className="flex h-24 w-[52.641px] shrink-0 items-center justify-center">
+                  <p className="font-display text-[96px] leading-[96px] text-[#1d293d]">
+                    ?
+                  </p>
+                </div>
+                {/* Content */}
+                <div className="flex flex-1 flex-col gap-[24px]">
+                  <h2 className="font-body text-[36px] font-normal leading-[36px] text-white">
+                    My role
+                  </h2>
+                  <p className="font-body text-[16px] font-normal leading-[24px] text-white">
+                    {study.roleDescription}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-        </section>
+        </SectionWrapper>
       )}
-
-      {/* Images after problem/role section */}
-      {getImageSections("after-problem").map((section, index) => (
-        <ImageShowcase
-          key={`after-problem-${index}`}
-          images={section.images}
-          layout={section.layout}
-          sectionLabel={section.sectionLabel}
-          heading={section.heading}
-        />
-      ))}
-
       {/* 5. Discovery and Key Insights */}
       {(study.discoveryInputs || study.discoveryInsights) && (
-        <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
-          <div className="mx-auto max-w-[900px]">
-            <ContentSection heading="Discovery and Key Insights">
-              {study.discoveryInputs && study.discoveryInputs.length > 0 && (
-                <div className="mb-8">
-                  <h4 className="mb-4 font-body text-[14px] font-semibold uppercase tracking-wider text-primary">
-                    Inputs
-                  </h4>
-                  <BulletList items={study.discoveryInputs} />
-                </div>
-              )}
-              {study.discoveryInsights &&
-                study.discoveryInsights.length > 0 && (
-                  <div className="mb-6">
-                    <h4 className="mb-4 font-body text-[14px] font-semibold uppercase tracking-wider text-primary">
-                      Key Insights
-                    </h4>
-                    <BulletList items={study.discoveryInsights} />
-                  </div>
-                )}
-              {study.discoverySummary && (
-                <p className="mt-6 font-body text-[18px] leading-[1.6] text-white/80">
-                  {study.discoverySummary}
-                </p>
-              )}
-            </ContentSection>
-          </div>
-        </section>
+        <SectionWrapper maxWidth="900" padding="large">
+          <ContentSection heading="Discovery and Key Insights">
+            {study.discoveryInputs && study.discoveryInputs.length > 0 && (
+              <div className="mb-8">
+                <h4 className="mb-4 font-body text-[14px] font-semibold uppercase tracking-wider text-primary">
+                  Inputs
+                </h4>
+                <BulletList items={study.discoveryInputs} />
+              </div>
+            )}
+            {study.discoveryInsights && study.discoveryInsights.length > 0 && (
+              <div className="mb-6">
+                <h4 className="mb-4 font-body text-[14px] font-semibold uppercase tracking-wider text-primary">
+                  Key Insights
+                </h4>
+                <BulletList items={study.discoveryInsights} />
+              </div>
+            )}
+            {study.discoverySummary && (
+              <p className="mt-6 font-body text-[18px] leading-[1.6] text-white/80">
+                {study.discoverySummary}
+              </p>
+            )}
+          </ContentSection>
+        </SectionWrapper>
       )}
 
       {/* Images after discovery section */}
@@ -228,33 +231,29 @@ const CaseStudyPage = () => {
 
       {/* 6. Design Approach */}
       {(study.designApproach || study.designApproachPoints) && (
-        <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
-          <div className="mx-auto max-w-[900px]">
-            <ContentSection heading="Design Approach">
-              {study.designApproach && (
-                <p className="mb-6">{study.designApproach}</p>
+        <SectionWrapper maxWidth="900" padding="large">
+          <ContentSection heading="Design Approach">
+            {study.designApproach && (
+              <p className="mb-6">{study.designApproach}</p>
+            )}
+            {study.designApproachPoints &&
+              study.designApproachPoints.length > 0 && (
+                <BulletList items={study.designApproachPoints} />
               )}
-              {study.designApproachPoints &&
-                study.designApproachPoints.length > 0 && (
-                  <BulletList items={study.designApproachPoints} />
-                )}
-            </ContentSection>
-          </div>
-        </section>
+          </ContentSection>
+        </SectionWrapper>
       )}
 
       {/* 7. The Solution */}
       {(study.solution || study.solutionPoints) && (
-        <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
-          <div className="mx-auto max-w-[900px]">
-            <ContentSection heading="The Solution">
-              {study.solution && <p className="mb-6">{study.solution}</p>}
-              {study.solutionPoints && study.solutionPoints.length > 0 && (
-                <BulletList items={study.solutionPoints} />
-              )}
-            </ContentSection>
-          </div>
-        </section>
+        <SectionWrapper maxWidth="900" padding="large">
+          <ContentSection heading="The Solution">
+            {study.solution && <p className="mb-6">{study.solution}</p>}
+            {study.solutionPoints && study.solutionPoints.length > 0 && (
+              <BulletList items={study.solutionPoints} />
+            )}
+          </ContentSection>
+        </SectionWrapper>
       )}
 
       {/* Images after solution section */}
@@ -270,13 +269,11 @@ const CaseStudyPage = () => {
 
       {/* 8. Validation */}
       {study.validation && (
-        <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
-          <div className="mx-auto max-w-[900px]">
-            <ContentSection heading="Validation">
-              <p>{study.validation}</p>
-            </ContentSection>
-          </div>
-        </section>
+        <SectionWrapper maxWidth="900" padding="large">
+          <ContentSection heading="Validation">
+            <p>{study.validation}</p>
+          </ContentSection>
+        </SectionWrapper>
       )}
 
       {/* 9. Impact (Metrics) */}
@@ -289,36 +286,15 @@ const CaseStudyPage = () => {
       )}
 
       {/* Results summary text */}
-      {study.results && (
-        <section className="px-6 py-8 md:px-[60px]">
-          <div className="mx-auto max-w-[900px]">
-            <p className="text-center font-body text-[18px] text-white/70">
-              {study.results}
-            </p>
-          </div>
-        </section>
-      )}
-
-      {/* Images before What I Learned */}
-      {getImageSections("before-results").map((section, index) => (
-        <ImageShowcase
-          key={`before-results-${index}`}
-          images={section.images}
-          layout={section.layout}
-          sectionLabel={section.sectionLabel}
-          heading={section.heading}
-        />
-      ))}
+      <ResultsSummary text={study.results || ""} />
 
       {/* 10. What I Learned */}
       {study.whatILearned && (
-        <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
-          <div className="mx-auto max-w-[900px]">
-            <ContentSection heading="What I Learned">
-              <p>{study.whatILearned}</p>
-            </ContentSection>
-          </div>
-        </section>
+        <SectionWrapper maxWidth="900" padding="large">
+          <ContentSection heading="What I Learned">
+            <p>{study.whatILearned}</p>
+          </ContentSection>
+        </SectionWrapper>
       )}
 
       {/* Fallback to old sections structure for backward compatibility */}
@@ -326,15 +302,15 @@ const CaseStudyPage = () => {
         !study.designApproach &&
         study.sections &&
         study.sections.length > 0 && (
-          <section className="px-6 py-16 md:px-[60px] md:py-[100px]">
-            <div className="mx-auto flex max-w-[900px] flex-col gap-16">
+          <SectionWrapper maxWidth="900" padding="large">
+            <div className="flex flex-col gap-16">
               {study.sections.map((section) => (
                 <ContentSection key={section.heading} heading={section.heading}>
                   <p>{section.copy}</p>
                 </ContentSection>
               ))}
             </div>
-          </section>
+          </SectionWrapper>
         )}
 
       {/* Project Navigation - Previous/Next */}

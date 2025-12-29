@@ -1,3 +1,6 @@
+// Import case study images
+import kfcBeforeMockups from "./assets/images/kfc-pdp-redesign/KFC Before images.png";
+
 export type ProcessStep = {
   phase: string;
   title: string;
@@ -107,9 +110,9 @@ export const caseStudies: CaseStudy[] = [
       "Redesigning the online ordering experience to make meal customization easier and less frustrating across desktop, mobile web, and app.",
     tags: ["E-Commerce", "UX Research", "Mobile"],
     metrics: [
-      { label: "Task Success", value: "88%" },
-      { label: "Faster Completion", value: "20%" },
-      { label: "User Satisfaction", value: "90%" },
+      { label: "Task Success", value: "88% task success rate across devices " },
+      { label: "Faster Completion", value: "20% faster task completion time" },
+      { label: "User Satisfaction", value: "90% higher user satisfaction" },
     ],
     role: "Product Designer",
     roleDescription:
@@ -199,7 +202,7 @@ export const caseStudies: CaseStudy[] = [
         placement: "after-problem",
         images: [
           {
-            src: "https://cdn.prod.website-files.com/6661c4eb50f455f4ee0f7a4a/6783a11d0fda9e97f48b1a24_KFC%20Before%20Mockups.png",
+            src: kfcBeforeMockups,
             alt: "KFC Before mobile mockups showing the original product detail page design",
             caption:
               "The original PDP had the image taking over the entire mobile real estate, repetitive sauce sections, and an unnecessary footer nav",

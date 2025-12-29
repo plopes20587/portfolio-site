@@ -1,4 +1,5 @@
 import type { CaseStudy } from "../siteData";
+import SectionWrapper from "./SectionWrapper";
 
 type Props = {
   study: CaseStudy;
@@ -178,25 +179,30 @@ const ProjectMetadata = ({ study }: Props) => {
   if (items.length === 0) return null;
 
   return (
-    <section className="border-y border-white/10 bg-ink-900/50 px-6 py-8 md:px-[60px]">
-      <div className="mx-auto grid max-w-[1320px] gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <SectionWrapper
+      maxWidth="1320"
+      padding="small"
+      centerContent={false}
+      className="flex items-center justify-center border-y border-white/10 bg-[rgba(15,23,43,0.4)] py-[60px]"
+    >
+      <div className="m-0 grid w-full grid-cols-[repeat(4,_minmax(0px,_1fr))] gap-[32px]">
         {items.map((item) => (
-          <div key={item.label} className="flex items-center gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/20 text-primary">
+          <div key={item.label} className="flex items-start gap-[16px]">
+            <div className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-[10px] border border-[rgba(0,211,242,0.25)] bg-[rgba(0,211,242,0.05)] text-[#38efe9]">
               {item.icon}
             </div>
-            <div className="w-full">
-              <p className="font-body text-[12px] font-medium uppercase tracking-wider text-white/50">
+            <div className="flex flex-1 flex-col gap-[4px]">
+              <p className="font-body text-[14px] font-medium uppercase leading-[20px] tracking-[0.1996px] text-[#d2d2d2]">
                 {item.label}
               </p>
-              <p className="font-body text-[16px] font-medium text-white w-full">
+              <p className="font-body text-[16px] font-medium leading-[24px] tracking-[-0.3125px] text-white">
                 {item.value}
               </p>
             </div>
           </div>
         ))}
       </div>
-    </section>
+    </SectionWrapper>
   );
 };
 
