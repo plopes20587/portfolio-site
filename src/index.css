@@ -38,6 +38,18 @@ a:hover {
   @apply bg-white/5 border border-white/5 backdrop-blur-xl;
 }
 
+@layer components {
+  /* H4 heading styles with proper specificity to override Tailwind base styles */
+  h4.heading-h4 {
+    @apply font-display text-[32px] font-normal leading-[36px];
+  }
+  
+  /* Section label H4 styling */
+  h4.section-label {
+    @apply mb-4 inline-block font-display text-[32px] font-normal uppercase leading-[36px] text-primary;
+  }
+}
+
 .grain-overlay {
   position: relative;
 }

@@ -60,13 +60,19 @@ const CloseIcon = () => (
   </svg>
 );
 
+type NavLink = {
+  href: string;
+  label: string;
+  download?: boolean;
+};
+
 const HeaderNav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navLinks = [
+  const navLinks: NavLink[] = [
     { href: "#work", label: "Work" },
     { href: "#about", label: "About" },
-    { href: "#resume", label: "Resume" },
+    { href: "/resume.pdf", label: "Resume", download: true },
   ];
 
   return (
@@ -86,6 +92,9 @@ const HeaderNav = () => {
             <a
               key={link.href}
               href={link.href}
+              download={link.download || undefined}
+              target={link.download ? "_blank" : undefined}
+              rel={link.download ? "noopener noreferrer" : undefined}
               className="font-body text-[16px] font-medium text-white transition-colors hover:text-white/80"
             >
               {link.label}
@@ -119,6 +128,9 @@ const HeaderNav = () => {
               <a
                 key={link.href}
                 href={link.href}
+                download={link.download || undefined}
+                target={link.download ? "_blank" : undefined}
+                rel={link.download ? "noopener noreferrer" : undefined}
                 onClick={() => setMobileMenuOpen(false)}
                 className="border-b border-white/10 py-4 font-body text-[18px] font-medium text-white transition-colors hover:text-white/80"
               >

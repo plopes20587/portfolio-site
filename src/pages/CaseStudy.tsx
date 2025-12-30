@@ -12,9 +12,7 @@ import SectionWrapper from "../components/SectionWrapper";
 import BulletList from "../components/BulletList";
 import { ArrowLeftIcon } from "../components/icons/ArrowIcons";
 import { Link } from "react-router-dom";
-import targetIcon from "../assets/icons/target.svg";
-import shieldIcon from "../assets/icons/shield.svg";
-import lightningIcon from "../assets/icons/lightning.svg";
+import ProblemCards from "../components/ProblemCards";
 
 const CaseStudyPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -72,48 +70,16 @@ const CaseStudyPage = () => {
       {study.challenge && (
         <section className="flex flex-col items-center justify-center px-6 py-[80px] md:px-[60px]">
           <div className="mx-auto flex w-full max-w-[1320px] flex-col items-center gap-[48px]">
-            {/* Section Header */}
+            {/* Problem Cards with Header */}
             {study.problemBreakdown && study.problemBreakdown.length > 0 ? (
               <>
-                <div className="flex w-full flex-col items-center gap-[8px]">
-                  <span className="font-body text-[32px] font-normal uppercase leading-[36px] text-primary">
-                    OBSTACLES
-                  </span>
-                  <h2 className="font-display text-[48px] font-normal leading-[52px] text-white">
-                    The problem
-                  </h2>
-                </div>
-
-                {/* Problem Cards */}
-                <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-3">
-                  {study.problemBreakdown.map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex h-[238px] flex-col gap-4 rounded-[14px] border border-[#1D293D] bg-[rgba(15,23,43,0.4)] p-6"
-                    >
-                      {/* Icon */}
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[rgba(127,90,240,0.25)] bg-[rgba(127,90,240,0.25)] text-primary">
-                        {item.icon === "target" && (
-                          <img src={targetIcon} alt="" className="h-6 w-6" />
-                        )}
-                        {item.icon === "shield" && (
-                          <img src={shieldIcon} alt="" className="h-6 w-6" />
-                        )}
-                        {item.icon === "lightning" && (
-                          <img src={lightningIcon} alt="" className="h-6 w-6" />
-                        )}
-                      </div>
-                      {/* Title */}
-                      <h3 className="font-body text-[16px] font-normal leading-[16px] tracking-[-0.3125px] text-white">
-                        {item.title}
-                      </h3>
-                      {/* Description */}
-                      <p className="font-body text-[16px] font-normal leading-[26px] tracking-[-0.3125px] text-[#c3c3c3]">
-                        {item.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                <ProblemCards
+                  items={study.problemBreakdown}
+                  sectionLabel="OBSTACLES"
+                  heading="The problem"
+                  showWrapper={false}
+                  showHeader={true}
+                />
 
                 {/* Images Section */}
                 {getImageSections("after-problem").map((section, index) => (
@@ -145,10 +111,8 @@ const CaseStudyPage = () => {
               </>
             ) : (
               <>
-                <div className="mb-12">
-                  <span className="mb-4 inline-block font-body text-[14px] font-semibold uppercase tracking-[0.1em] text-primary">
-                    OBSTACLES
-                  </span>
+                <div className="flex flex-col items-center justify-center">
+                  <h4 className="section-label">OBSTACLES</h4>
                   <h2 className="font-display text-[32px] font-normal uppercase leading-[1.2] text-white md:text-[42px]">
                     THE PROBLEM
                   </h2>
@@ -177,9 +141,7 @@ const CaseStudyPage = () => {
                 </div>
                 {/* Content */}
                 <div className="flex flex-1 flex-col gap-[24px]">
-                  <h2 className="font-body text-[36px] font-normal leading-[36px] text-white">
-                    My role
-                  </h2>
+                  <h4 className="heading-h4 text-white">My role</h4>
                   <p className="font-body text-[16px] font-normal leading-[24px] text-white">
                     {study.roleDescription}
                   </p>
@@ -195,7 +157,7 @@ const CaseStudyPage = () => {
           <ContentSection heading="Discovery and Key Insights">
             {study.discoveryInputs && study.discoveryInputs.length > 0 && (
               <div className="mb-8">
-                <h4 className="mb-4 font-body text-[14px] font-semibold uppercase tracking-wider text-primary">
+                <h4 className="tracking-0 mb-4 font-display text-[32px] font-normal uppercase leading-[36px] text-primary">
                   Inputs
                 </h4>
                 <BulletList items={study.discoveryInputs} />
@@ -203,7 +165,7 @@ const CaseStudyPage = () => {
             )}
             {study.discoveryInsights && study.discoveryInsights.length > 0 && (
               <div className="mb-6">
-                <h4 className="mb-4 font-body text-[14px] font-semibold uppercase tracking-wider text-primary">
+                <h4 className="tracking-0 mb-4 font-display text-[32px] font-normal uppercase leading-[36px] text-primary">
                   Key Insights
                 </h4>
                 <BulletList items={study.discoveryInsights} />
@@ -296,22 +258,6 @@ const CaseStudyPage = () => {
           </ContentSection>
         </SectionWrapper>
       )}
-
-      {/* Fallback to old sections structure for backward compatibility */}
-      {!study.discoveryInputs &&
-        !study.designApproach &&
-        study.sections &&
-        study.sections.length > 0 && (
-          <SectionWrapper maxWidth="900" padding="large">
-            <div className="flex flex-col gap-16">
-              {study.sections.map((section) => (
-                <ContentSection key={section.heading} heading={section.heading}>
-                  <p>{section.copy}</p>
-                </ContentSection>
-              ))}
-            </div>
-          </SectionWrapper>
-        )}
 
       {/* Project Navigation - Previous/Next */}
       <ProjectNavigation

@@ -63,6 +63,7 @@ const AboutSection = () => {
             src={profilePhoto}
             alt="Patrick Lopes - Senior Product Designer"
             className="aspect-[837/1488] h-full w-full object-cover object-top"
+            loading="lazy"
           />
         </div>
 

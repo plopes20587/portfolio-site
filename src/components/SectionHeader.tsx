@@ -17,11 +17,7 @@ const SectionHeader = ({
 }: SectionHeaderProps) => {
   return (
     <div className={`mb-12 ${className}`}>
-      {sectionLabel && (
-        <span className="mb-4 inline-block font-body text-[14px] font-semibold uppercase tracking-[0.1em] text-primary">
-          {sectionLabel}
-        </span>
-      )}
+      {sectionLabel && <h4 className="section-label">{sectionLabel}</h4>}
       <h2
         className={`font-display text-[32px] font-normal leading-[1.2] text-white md:text-[42px] ${headingClassName}`}
       >
@@ -32,4 +28,3 @@ const SectionHeader = ({
 };
 
 export default SectionHeader;
-

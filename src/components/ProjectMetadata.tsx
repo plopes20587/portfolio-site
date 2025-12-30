@@ -185,9 +185,9 @@ const ProjectMetadata = ({ study }: Props) => {
       centerContent={false}
       className="flex items-center justify-center border-y border-white/10 bg-[rgba(15,23,43,0.4)] py-[60px]"
     >
-      <div className="m-0 grid w-full grid-cols-[repeat(4,_minmax(0px,_1fr))] gap-[32px]">
+      <div className="m-0 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
         {items.map((item) => (
-          <div key={item.label} className="flex items-start gap-[16px]">
+          <div key={item.label} className="flex items-start gap-4">
             <div className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-[10px] border border-[rgba(0,211,242,0.25)] bg-[rgba(0,211,242,0.05)] text-[#38efe9]">
               {item.icon}
             </div>

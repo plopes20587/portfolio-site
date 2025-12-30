@@ -37,6 +37,7 @@ const LogoMarquee = () => {
             >
               <img
                 src={logo.path}
+                loading="lazy"
                 alt={logo.name}
                 className="h-auto max-h-[33px] w-full object-contain"
                 onError={(e) => {

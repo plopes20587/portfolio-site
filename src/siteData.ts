@@ -37,9 +37,7 @@ export type CaseStudy = {
   blurb: string;
   tags?: string[];
   metrics?: { label: string; value: string }[];
-  sections?: { heading: string; copy: string }[];
   // Case study detail page fields
-  heroImage?: string;
   role?: string;
   roleDescription?: string;
   client?: string;
@@ -65,15 +63,16 @@ export type CaseStudy = {
   results?: string;
   // What I learned
   whatILearned?: string;
-  researchStats?: { label: string; value: string }[];
   processTimeline?: ProcessStep[];
-  galleryImages?: string[];
   // New storytelling elements
   tldr?: string[];
   tldrSummary?: string;
   pullQuote?: { quote: string; attribution?: string };
   imageSections?: ImageSection[];
 };
+
+// Contact email - centralized for easy updates
+const CONTACT_EMAIL = "mailto:patrick@patricklopes.com";
 
 export const siteMeta = {
   title: "Patrick Lopes · Senior Product Designer",
@@ -86,10 +85,10 @@ export const heroContent = {
   title: "PRODUCT DESIGNER",
   subHeadline:
     "Good design happens when the experience speaks the customer's language. With the right balance of structure, research, and a bit of AI in the early stages, the journey becomes smoother and easier to follow.",
-  primaryCta: { label: "Lets talk", href: "mailto:patrick@patricklopes.com" },
+  primaryCta: { label: "Lets talk", href: CONTACT_EMAIL },
   secondaryCta: {
     label: "Get in touch",
-    href: "mailto:patrick@patricklopes.com",
+    href: CONTACT_EMAIL,
   },
 };
 
@@ -121,8 +120,6 @@ export const caseStudies: CaseStudy[] = [
     timeline: "6 Months",
     platform: "Desktop, Mobile Web, App",
     industry: "Food & Beverage",
-    overview:
-      "Redesigning the online ordering experience to make meal customization easier and less frustrating across desktop, mobile web, and app.",
     challenge:
       "KFC's product detail page had grown more complex over time as new meal options, sides, and sauces were added. What should have been a simple customization flow became difficult to follow, especially on smaller screens. Users were scrolling too much, repeating steps, and struggling to understand what they had selected before moving to checkout. This led to confusion and drop-off during one of the most important moments in the ordering experience.",
     problemBreakdown: [
@@ -180,7 +177,7 @@ export const caseStudies: CaseStudy[] = [
     // Validation
     validation:
       "The redesigned flow was tested with 15 participants across desktop, mobile web, and app. Participants completed tasks such as ordering individual meals, combos, and family options. Testing uncovered minor issues around labeling and spacing, which were addressed before final delivery.",
-    // F
+    // Results
     results:
       "These results confirmed that simplifying structure and feedback had a meaningful impact on usability.",
     // What I learned
@@ -249,43 +246,59 @@ export const caseStudies: CaseStudy[] = [
     slug: "senegence-redesign",
     title: "SENEGENCE",
     blurb:
-      "A smoother shopping experience that helps customers browse products, learn about them, and check out with less friction.",
+      "Redesigning SeneGence's e-commerce experience to improve navigation, clarity, and conversion. Increased conversions after launch, generated meaningful post-launch revenue, and improved consistency across devices.",
     tags: ["E-Commerce", "Responsive Design"],
     metrics: [
       { label: "Conversions", value: "82K conversions" },
       { label: "Revenue", value: "$7.2M in revenue" },
-    ],
-    sections: [
-      {
-        heading: "Discovery and Insights",
-        copy: "Navigation did not scale well as the catalog grew. Product information was hard to compare. Mobile experience felt fragmented.",
-      },
-      {
-        heading: "Design Approach",
-        copy: "Focused on simplifying navigation, clarifying product information, and creating a responsive system that worked across devices.",
-      },
-      {
-        heading: "Validation",
-        copy: "Reviewed designs with stakeholders and iterated based on feedback and post-launch performance.",
-      },
-      {
-        heading: "What I Learned",
-        copy: "Design systems are most effective when they directly support business growth and ongoing iteration.",
-      },
     ],
     role: "Lead Product Designer",
     client: "SeneGence International",
     timeline: "6 Months",
     platform: "E-Commerce Web & Mobile",
     industry: "Beauty & Skincare",
-    overview:
-      "Redesigning SeneGence's e-commerce experience to improve navigation, clarity, and conversion. Increased conversions after launch, generated meaningful post-launch revenue, and improved consistency across devices.",
     challenge:
       "The existing site made it difficult for customers to browse products, understand differences, and complete purchases efficiently.",
+    // Discovery section
+    discoveryInputs: [
+      "E-commerce experience audit",
+      "Analytics review",
+      "User feedback analysis",
+    ],
+    discoveryInsights: [
+      "Navigation did not scale well as the catalog grew",
+      "Product information was hard to compare",
+      "Mobile experience felt fragmented",
+    ],
+    discoverySummary:
+      "These insights highlighted the need for a more scalable navigation system and clearer product presentation.",
+    // Design approach
+    designApproach:
+      "Focused on simplifying navigation, clarifying product information, and creating a responsive system that worked across devices.",
+    designApproachPoints: [
+      "Reorganized product hierarchy and navigation",
+      "Improved product pages for clarity and scannability",
+      "Built reusable components for consistency",
+      "Created responsive patterns for cross-device experience",
+    ],
+    // Solution
     solution:
-      "Reorganized product hierarchy and navigation. Improved product pages for clarity and scannability. Built reusable components for consistency.",
+      "The redesigned experience introduced a clearer structure with improved navigation, better product presentation, and consistent components across all devices.",
+    solutionPoints: [
+      "Scalable navigation system",
+      "Improved product pages for clarity",
+      "Reusable component library",
+      "Responsive design patterns",
+    ],
+    // Validation
+    validation:
+      "Reviewed designs with stakeholders and iterated based on feedback and post-launch performance metrics.",
+    // Results
     results:
       "82K conversions within six months. $7.2M in revenue post-launch. $540K generated from the top-performing product.",
+    // What I learned
+    whatILearned:
+      "Design systems are most effective when they directly support business growth and ongoing iteration.",
     processTimeline: [
       {
         phase: "01",
@@ -323,42 +336,58 @@ export const caseStudies: CaseStudy[] = [
     slug: "cellebrite-website",
     title: "CELLEBRITE",
     blurb:
-      "A clearer and more structured website that helps visitors understand Cellebrite's tools and find the information they need faster.",
+      "Improving Cellebrite's website to make complex offerings easier to understand and navigate. Increased page views, reduced bounce rate, and improved content clarity.",
     tags: ["Website UX", "Content Structure"],
     metrics: [
       { label: "Page Views", value: "26% more page views" },
       { label: "Bounce Rate", value: "21% lower bounce rate" },
-    ],
-    sections: [
-      {
-        heading: "Discovery and Insights",
-        copy: "Users struggled to find relevant information. Content hierarchy did not match user intent. Pages felt dense and overwhelming.",
-      },
-      {
-        heading: "Design Approach",
-        copy: "Focused on simplifying structure, clarifying messaging, and improving page flow.",
-      },
-      {
-        heading: "Validation",
-        copy: "Measured engagement metrics post-launch and gathered stakeholder feedback.",
-      },
-      {
-        heading: "What I Learned",
-        copy: "Clear structure and content hierarchy can dramatically improve engagement without major visual changes.",
-      },
     ],
     role: "Senior Product Designer",
     client: "Cellebrite",
     timeline: "3 Months",
     platform: "Corporate Website",
     industry: "Digital Intelligence & Security",
-    overview:
-      "Improving Cellebrite's website to make complex offerings easier to understand and navigate. Increased page views, reduced bounce rate, and improved content clarity.",
     challenge:
       "The website had grown cluttered over time, making it hard for visitors to quickly understand the product offerings.",
+    // Discovery section
+    discoveryInputs: [
+      "Content audit",
+      "Information architecture review",
+      "User feedback analysis",
+    ],
+    discoveryInsights: [
+      "Users struggled to find relevant information",
+      "Content hierarchy did not match user intent",
+      "Pages felt dense and overwhelming",
+    ],
+    discoverySummary:
+      "These insights revealed the need for a clearer content structure and better information architecture.",
+    // Design approach
+    designApproach:
+      "Focused on simplifying structure, clarifying messaging, and improving page flow.",
+    designApproachPoints: [
+      "Reorganized content hierarchy",
+      "Simplified layouts and reduced visual noise",
+      "Created clearer paths to key information",
+      "Improved messaging clarity",
+    ],
+    // Solution
     solution:
-      "Reorganized content hierarchy. Simplified layouts and reduced visual noise. Created clearer paths to key information.",
-    results: "26% increase in page views. 62% reduction in bounce rate.",
+      "The redesigned website introduced a clearer structure with improved content hierarchy and simplified layouts that made information easier to find and understand.",
+    solutionPoints: [
+      "Reorganized content hierarchy",
+      "Simplified layouts",
+      "Reduced visual noise",
+      "Clearer paths to key information",
+    ],
+    // Validation
+    validation:
+      "Measured engagement metrics post-launch and gathered stakeholder feedback to validate improvements.",
+    // Results
+    results: "26% increase in page views. 21% lower bounce rate.",
+    // What I learned
+    whatILearned:
+      "Clear structure and content hierarchy can dramatically improve engagement without major visual changes.",
     processTimeline: [
       {
         phase: "01",
@@ -395,7 +424,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "photon-website",
     title: "PHOTON",
     blurb:
-      "A refreshed website experience that gives users a simpler way to explore Photon's services and understand their value.",
+      "Refreshing Photon's website to better communicate their services and values. Improved clarity of messaging, better alignment with brand values, and easier navigation for users.",
     tags: ["Research and UX"],
     metrics: [
       { label: "Content", value: "Clearer content hierarchy" },
@@ -404,37 +433,53 @@ export const caseStudies: CaseStudy[] = [
         value: "Stronger alignment between user needs and the brand message",
       },
     ],
-    sections: [
-      {
-        heading: "Discovery and Insights",
-        copy: "Messaging felt generic and product-heavy. Users struggled to understand what Photon offered. Navigation did not guide exploration well.",
-      },
-      {
-        heading: "Design Approach",
-        copy: "Shifted focus toward clarity, storytelling, and a more approachable structure.",
-      },
-      {
-        heading: "Validation",
-        copy: "Reviewed designs with internal teams and iterated based on feedback.",
-      },
-      {
-        heading: "What I Learned",
-        copy: "Balancing business goals with user needs leads to clearer, more trustworthy experiences.",
-      },
-    ],
     role: "Product Designer",
     client: "Photon",
     timeline: "4 Months",
     platform: "Website",
     industry: "Technology Services",
-    overview:
-      "Refreshing Photon's website to better communicate their services and values. Improved clarity of messaging, better alignment with brand values, and easier navigation for users.",
     challenge:
       "The site leaned heavily on sales messaging and lacked a clear, user-centered structure.",
+    // Discovery section
+    discoveryInputs: [
+      "Stakeholder interviews",
+      "Brand alignment review",
+      "User feedback analysis",
+    ],
+    discoveryInsights: [
+      "Messaging felt generic and product-heavy",
+      "Users struggled to understand what Photon offered",
+      "Navigation did not guide exploration well",
+    ],
+    discoverySummary:
+      "These insights highlighted the need for clearer messaging and a more user-centered approach to content and navigation.",
+    // Design approach
+    designApproach:
+      "Shifted focus toward clarity, storytelling, and a more approachable structure.",
+    designApproachPoints: [
+      "Simplified navigation and page layouts",
+      "Reworked content to focus on relationships and outcomes",
+      "Improved visual hierarchy",
+      "Created more approachable structure",
+    ],
+    // Solution
     solution:
-      "Simplified navigation and page layouts. Reworked content to focus on relationships and outcomes. Improved visual hierarchy.",
+      "The refreshed website introduced clearer messaging with improved storytelling, better navigation, and a structure that better aligned with user needs and brand values.",
+    solutionPoints: [
+      "Simplified navigation",
+      "Improved page layouts",
+      "Content focused on relationships and outcomes",
+      "Better visual hierarchy",
+    ],
+    // Validation
+    validation:
+      "Reviewed designs with internal teams and iterated based on feedback to ensure alignment with brand values and user needs.",
+    // Results
     results:
       "Improved engagement and clarity. Stronger alignment between brand and user experience.",
+    // What I learned
+    whatILearned:
+      "Balancing business goals with user needs leads to clearer, more trustworthy experiences.",
     processTimeline: [
       {
         phase: "01",
@@ -472,5 +517,5 @@ export const caseStudies: CaseStudy[] = [
 export const footerCta = {
   headline: "Let's Connect",
   body: "Feel free to reach out for any collab work, remote opportunities or to just talk about design.",
-  action: { label: "Get in touch", href: "mailto:patrick@patricklopes.com" },
+  action: { label: "Get in touch", href: CONTACT_EMAIL },
 };

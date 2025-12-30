@@ -142,6 +142,7 @@ const CaseStudyCard = ({ study }: Props) => {
                   src={colors.thumbnail}
                   alt={`${study.title} mockup`}
                   className="h-full w-full object-cover"
+                  loading="lazy"
                   onError={(e) => {
                     e.currentTarget.style.display = "none";
                   }}
