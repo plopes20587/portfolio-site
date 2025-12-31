@@ -2,7 +2,7 @@ import type { CaseStudy } from "../siteData";
 
 // Import case study thumbnails as hero images
 import kfcThumbnail from "../assets/images/kfc-pdp-redesign/KFC Thumbnail.png";
-import photonThumbnail from "../assets/images/photon-website/Photon Thumbnail.png";
+import verizonThumbnail from "../assets/images/verizon-straight-talk-7day/Verizon Thumbnail.png";
 import cellebriteThumbnail from "../assets/images/cellebrite-website/Cellebrite Thumbnail.png";
 import senegenceThumbnail from "../assets/images/senegence-redesign/SeneGence Thumbnail.png";
 
@@ -13,7 +13,7 @@ type Props = {
 // Map slugs to hero images
 const heroImages: Record<string, string> = {
   "kfc-pdp-redesign": kfcThumbnail,
-  "photon-website": photonThumbnail,
+  "verizon-straight-talk-7day": verizonThumbnail,
   "cellebrite-website": cellebriteThumbnail,
   "senegence-redesign": senegenceThumbnail,
 };
@@ -21,7 +21,7 @@ const heroImages: Record<string, string> = {
 // Project gradient colors matching the cards
 const projectGradients: Record<string, { from: string; to: string }> = {
   "kfc-pdp-redesign": { from: "#541db9", to: "#7f5af0" },
-  "photon-website": { from: "#cc7a00", to: "#ff9900" },
+  "verizon-straight-talk-7day": { from: "#E31E24", to: "#C8102E" },
   "cellebrite-website": { from: "#006644", to: "#009966" },
   "senegence-redesign": { from: "#0052cc", to: "#0066ff" },
 };

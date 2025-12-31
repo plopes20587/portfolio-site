@@ -1,12 +1,6 @@
 // Import case study images
 import kfcBeforeMockups from "./assets/images/kfc-pdp-redesign/KFC Before images.png";
 
-export type ProcessStep = {
-  phase: string;
-  title: string;
-  description: string;
-};
-
 export type ImageItem = {
   src: string;
   alt: string;
@@ -63,11 +57,9 @@ export type CaseStudy = {
   results?: string;
   // What I learned
   whatILearned?: string;
-  processTimeline?: ProcessStep[];
   // New storytelling elements
   tldr?: string[];
   tldrSummary?: string;
-  pullQuote?: { quote: string; attribution?: string };
   imageSections?: ImageSection[];
 };
 
@@ -102,6 +94,104 @@ export const marqueeLogos = [
 ];
 
 export const caseStudies: CaseStudy[] = [
+  {
+    slug: "verizon-straight-talk-7day",
+    title: "VERIZON",
+    blurb:
+      "Designing a short-term payment flexibility experience that helps prepaid customers maintain service during temporary financial gaps.",
+    tags: ["Payment Experience", "Multi-Channel", "UX Design"],
+    metrics: [
+      {
+        label: "Plan Redemptions",
+        value: "Nearly 100K plan redemptions shortly after launch",
+      },
+      {
+        label: "Unique Customers",
+        value: "Over 40K unique customers used the plan",
+      },
+      {
+        label: "Plan Mix",
+        value:
+          "The higher-tier 7-day plan accounted for the majority of redemptions",
+      },
+    ],
+    role: "Senior Product Designer",
+    roleDescription:
+      "I contributed to end-to-end experience design across plan discovery, messaging, and multi-channel flows.",
+    client: "Straight Talk (Verizon)",
+    timeline: "Multi-phase rollout",
+    platform: "Web, Mobile Web, App, IVR",
+    industry: "Telecommunications",
+    challenge:
+      "Prepaid customers experiencing short-term financial gaps had no flexible payment options. They were forced to commit to full plans or lose service, which quickly eroded trust. Additionally, eligibility rules were complex and hard to understand, and experiences differed across touchpoints, creating a fragmented customer journey.",
+    problemBreakdown: [
+      {
+        icon: "target",
+        title: "No Short-Term Option",
+        description:
+          "Customers had to commit to full plans or lose service, leaving no flexibility for temporary financial gaps.",
+      },
+      {
+        icon: "shield",
+        title: "Complex Eligibility",
+        description:
+          "Eligibility rules were hard to understand, creating confusion and barriers for customers who needed help.",
+      },
+      {
+        icon: "lightning",
+        title: "Fragmented Channels",
+        description:
+          "Experiences differed across touchpoints, creating inconsistency and confusion in the customer journey.",
+      },
+    ],
+    // Discovery section
+    discoveryInputs: [
+      "Customer research",
+      "Financial gap analysis",
+      "Channel audit",
+      "User feedback analysis",
+    ],
+    discoveryInsights: [
+      "Customers experience short-term financial gaps",
+      "Loss of service quickly erodes trust",
+      "Existing options lacked flexibility",
+    ],
+    discoverySummary:
+      "These insights revealed the need for a flexible payment solution that could help customers maintain service during temporary financial challenges while maintaining trust and clarity.",
+    // Design approach
+    designApproach:
+      "Focused on creating a clear, consistent experience across all channels that addressed customer needs with empathy and clarity.",
+    designApproachPoints: [
+      "Clear messaging",
+      "Cross-channel consistency",
+      "Lifecycle-aware design",
+    ],
+    // Solution
+    solution:
+      "The solution introduced a 7-day bridge plan that provided customers with a short-term payment flexibility option, clarified eligibility and pricing, and unified the experience across all channels.",
+    solutionPoints: [
+      "Introduced a 7-day bridge plan",
+      "Clarified eligibility and pricing",
+      "Unified experience across channels",
+    ],
+    // Validation
+    validation:
+      "The solution was validated through multi-phase rollout, measuring adoption rates, customer usage patterns, and retention signals across digital and non-digital channels.",
+    // Results
+    results:
+      "Tens of thousands of successful purchases. Strong repeat usage across customers. Improved customer retention signals.",
+    // What I learned
+    whatILearned:
+      "Designing for financial stress requires clarity, empathy, and systems thinking.",
+    tldr: [
+      "Nearly 100K plan redemptions shortly after launch",
+      "Over 40K unique customers used the plan",
+      "Strong repeat usage across customers",
+      "Majority of adoption through digital channels",
+    ],
+    tldrSummary:
+      "This project focused on providing payment flexibility during financial gaps, resulting in strong adoption and improved customer retention.",
+  },
   {
     slug: "kfc-pdp-redesign",
     title: "KFC",
@@ -299,38 +389,11 @@ export const caseStudies: CaseStudy[] = [
     // What I learned
     whatILearned:
       "Design systems are most effective when they directly support business growth and ongoing iteration.",
-    processTimeline: [
-      {
-        phase: "01",
-        title: "Audit",
-        description: "E-commerce experience audit and analytics review",
-      },
-      {
-        phase: "02",
-        title: "Strategy",
-        description:
-          "Navigation restructure and conversion optimization planning",
-      },
-      {
-        phase: "03",
-        title: "Design System",
-        description: "Component library and responsive pattern development",
-      },
-      {
-        phase: "04",
-        title: "Implementation",
-        description: "Phased rollout with performance monitoring",
-      },
-    ],
     tldr: [
       "Increased conversions after launch",
       "Generated meaningful post-launch revenue",
       "Improved consistency across devices",
     ],
-    pullQuote: {
-      quote:
-        "Design systems are most effective when they directly support business growth and ongoing iteration.",
-    },
   },
   {
     slug: "cellebrite-website",
@@ -388,129 +451,11 @@ export const caseStudies: CaseStudy[] = [
     // What I learned
     whatILearned:
       "Clear structure and content hierarchy can dramatically improve engagement without major visual changes.",
-    processTimeline: [
-      {
-        phase: "01",
-        title: "Analysis",
-        description: "Content audit and information architecture review",
-      },
-      {
-        phase: "02",
-        title: "Strategy",
-        description: "Messaging hierarchy and user flow optimization",
-      },
-      {
-        phase: "03",
-        title: "Design",
-        description: "Page redesign with simplified layouts",
-      },
-      {
-        phase: "04",
-        title: "Launch",
-        description: "Phased deployment with metric tracking",
-      },
-    ],
     tldr: [
       "Increased page views",
       "Reduced bounce rate",
       "Improved content clarity",
     ],
-    pullQuote: {
-      quote:
-        "Clear structure and content hierarchy can dramatically improve engagement without major visual changes.",
-    },
-  },
-  {
-    slug: "photon-website",
-    title: "PHOTON",
-    blurb:
-      "Refreshing Photon's website to better communicate their services and values. Improved clarity of messaging, better alignment with brand values, and easier navigation for users.",
-    tags: ["Research and UX"],
-    metrics: [
-      { label: "Content", value: "Clearer content hierarchy" },
-      {
-        label: "Alignment",
-        value: "Stronger alignment between user needs and the brand message",
-      },
-    ],
-    role: "Product Designer",
-    client: "Photon",
-    timeline: "4 Months",
-    platform: "Website",
-    industry: "Technology Services",
-    challenge:
-      "The site leaned heavily on sales messaging and lacked a clear, user-centered structure.",
-    // Discovery section
-    discoveryInputs: [
-      "Stakeholder interviews",
-      "Brand alignment review",
-      "User feedback analysis",
-    ],
-    discoveryInsights: [
-      "Messaging felt generic and product-heavy",
-      "Users struggled to understand what Photon offered",
-      "Navigation did not guide exploration well",
-    ],
-    discoverySummary:
-      "These insights highlighted the need for clearer messaging and a more user-centered approach to content and navigation.",
-    // Design approach
-    designApproach:
-      "Shifted focus toward clarity, storytelling, and a more approachable structure.",
-    designApproachPoints: [
-      "Simplified navigation and page layouts",
-      "Reworked content to focus on relationships and outcomes",
-      "Improved visual hierarchy",
-      "Created more approachable structure",
-    ],
-    // Solution
-    solution:
-      "The refreshed website introduced clearer messaging with improved storytelling, better navigation, and a structure that better aligned with user needs and brand values.",
-    solutionPoints: [
-      "Simplified navigation",
-      "Improved page layouts",
-      "Content focused on relationships and outcomes",
-      "Better visual hierarchy",
-    ],
-    // Validation
-    validation:
-      "Reviewed designs with internal teams and iterated based on feedback to ensure alignment with brand values and user needs.",
-    // Results
-    results:
-      "Improved engagement and clarity. Stronger alignment between brand and user experience.",
-    // What I learned
-    whatILearned:
-      "Balancing business goals with user needs leads to clearer, more trustworthy experiences.",
-    processTimeline: [
-      {
-        phase: "01",
-        title: "Discovery",
-        description: "Stakeholder interviews and brand alignment review",
-      },
-      {
-        phase: "02",
-        title: "Content Strategy",
-        description: "Messaging refinement and storytelling approach",
-      },
-      {
-        phase: "03",
-        title: "Design",
-        description: "Visual hierarchy and layout improvements",
-      },
-      {
-        phase: "04",
-        title: "Review",
-        description: "Internal feedback and iterative refinement",
-      },
-    ],
-    tldr: [
-      "Improved clarity of messaging",
-      "Better alignment with brand values",
-      "Easier navigation for users",
-    ],
-    pullQuote: {
-      quote:
-        "Balancing business goals with user needs leads to clearer, more trustworthy experiences.",
-    },
   },
 ];
 

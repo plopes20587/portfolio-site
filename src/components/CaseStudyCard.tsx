@@ -4,7 +4,7 @@ import type { CaseStudy } from "../siteData";
 
 // Import project thumbnail images
 import kfcThumbnail from "../assets/images/kfc-pdp-redesign/KFC Thumbnail.png";
-import photonThumbnail from "../assets/images/photon-website/Photon Thumbnail.png";
+import verizonThumbnail from "../assets/images/verizon-straight-talk-7day/Verizon Thumbnail.png";
 import cellebriteThumbnail from "../assets/images/cellebrite-website/Cellebrite Thumbnail.png";
 import senegenceThumbnail from "../assets/images/senegence-redesign/SeneGence Thumbnail.png";
 
@@ -31,11 +31,11 @@ const projectColors: Record<
     gridPatternUrl: "/images/grid-pattern.png",
     thumbnail: kfcThumbnail,
   },
-  "photon-website": {
-    gradientFrom: "#cc7a00",
-    gradientTo: "#ff9900",
+  "verizon-straight-talk-7day": {
+    gradientFrom: "#E31E24",
+    gradientTo: "#C8102E",
     gridPatternUrl: "/images/grid-pattern.png",
-    thumbnail: photonThumbnail,
+    thumbnail: verizonThumbnail,
   },
   "cellebrite-website": {
     gradientFrom: "#006644",
