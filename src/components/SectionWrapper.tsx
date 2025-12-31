@@ -23,15 +23,17 @@ const SectionWrapper = ({
     padding === "large"
       ? "px-6 py-16 md:px-[60px] md:py-[100px]"
       : "px-6 py-8 md:px-[60px]";
-  
+
   const maxWidthClass =
     maxWidth === "1320"
       ? "max-w-[1320px]"
       : maxWidth === "1100"
-      ? "max-w-[1100px]"
-      : "max-w-[900px]";
+        ? "max-w-[1100px]"
+        : "max-w-[900px]";
 
-  const containerClass = centerContent ? `mx-auto ${maxWidthClass}` : `m-0 ${maxWidthClass}`;
+  const containerClass = centerContent
+    ? `mx-auto ${maxWidthClass}`
+    : `m-0 ${maxWidthClass}`;
 
   return (
     <section id={id} className={`${paddingClass} ${className}`}>
@@ -41,4 +43,3 @@ const SectionWrapper = ({
 };
 
 export default SectionWrapper;
-

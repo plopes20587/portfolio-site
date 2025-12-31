@@ -1,4 +1,5 @@
 import type { CaseStudy } from "../siteData";
+import Tag from "./Tag";
 
 // Import case study thumbnails as hero images
 import kfcThumbnail from "../assets/images/kfc-pdp-redesign/KFC Thumbnail.png";
@@ -48,14 +49,11 @@ const CaseStudyHero = ({ study }: Props) => {
         <div className="flex flex-col gap-6">
           {/* Tags */}
           {study.tags && study.tags.length > 0 && (
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2">
               {study.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-primary/50 bg-primary/10 px-4 py-1.5 font-body text-[14px] font-medium text-primary"
-                >
+                <Tag key={tag} variant="primary">
                   {tag}
-                </span>
+                </Tag>
               ))}
             </div>
           )}

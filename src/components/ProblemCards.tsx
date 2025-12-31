@@ -51,22 +51,39 @@ const ProblemCards = ({
             height: "100%",
           }}
         >
-          {/* Icon */}
+          {/* Icon - 48x48px container with 24x24px icon */}
           <div
-            className="flex h-12 w-12 items-center justify-center rounded-full border"
+            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border"
             style={{
               borderColor: "rgba(127, 90, 240, 0.25)",
               backgroundColor: "rgba(127, 90, 240, 0.25)",
+              width: "48px",
+              height: "48px",
             }}
           >
             {item.icon === "target" && (
-              <img src={targetIcon} alt="" className="h-6 w-6" />
+              <img
+                src={targetIcon}
+                alt=""
+                className="h-6 w-6"
+                style={{ width: "24px", height: "24px" }}
+              />
             )}
             {item.icon === "shield" && (
-              <img src={shieldIcon} alt="" className="h-6 w-6" />
+              <img
+                src={shieldIcon}
+                alt=""
+                className="h-6 w-6"
+                style={{ width: "24px", height: "24px" }}
+              />
             )}
             {item.icon === "lightning" && (
-              <img src={lightningIcon} alt="" className="h-6 w-6" />
+              <img
+                src={lightningIcon}
+                alt=""
+                className="h-6 w-6"
+                style={{ width: "24px", height: "24px" }}
+              />
             )}
           </div>
           {/* Title */}
