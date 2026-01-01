@@ -188,7 +188,7 @@ const ProjectMetadata = ({ study }: Props) => {
       <div className="m-0 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
         {items.map((item) => (
           <div key={item.label} className="flex items-start gap-4">
-            <div className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-[10px] border border-[rgba(0,211,242,0.25)] bg-[rgba(0,211,242,0.05)] text-[#38efe9]">
+            <div className="metadata-icon-container">
               {item.icon}
             </div>
             <div className="flex flex-1 flex-col gap-[4px]">

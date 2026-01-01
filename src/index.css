@@ -6,6 +6,167 @@
 
 :root {
   color-scheme: dark;
+
+  /* ============================================
+     FIGMA DESIGN SYSTEM TOKENS - CSS VARIABLES
+     ============================================ */
+
+  /* --- Colors: Base Backgrounds --- */
+  --color-surface-background-default: #000000; /* Color/Surface/Background/default */
+  --color-surface-background-light: #18151f;
+  --color-surface-background-900: #1e1e1e;
+  --color-surface-panel: #0a0a0f;
+
+  /* --- Colors: Primary Brand --- */
+  --color-primary: #7f5af0; /* Color/Borders/Primary/primary, Color/Surface/Buttons/button-primary */
+  --color-accent: #7f5af0;
+
+  /* --- Colors: Project Card Colors --- */
+  --color-purple: #7f5af0;
+  --color-purple-dark: #541db9;
+  --color-purple-light: #9d7ff5;
+  --color-orange: #ff9900;
+  --color-orange-dark: #cc7a00;
+  --color-green: #009966;
+  --color-green-dark: #006644;
+  --color-blue: #0066ff;
+  --color-blue-dark: #0052cc;
+
+  /* --- Colors: Accent Colors --- */
+  --color-lilac: #c2b7ff;
+  --color-neon: #76ffc4;
+  --color-pink: #ff3cac;
+  --color-cyan: #38efe9; /* Color/Elements/Icons/cyan */
+  --color-cyan-300: #38efe9;
+  --color-electric-blue-500: #00d3f2; /* Colors/Electric Blue/500 */
+
+  /* --- Colors: Surface Colors --- */
+  --color-surface-card: rgba(255, 255, 255, 0.05);
+  --color-surface-card-border: rgba(255, 255, 255, 0.1);
+  --color-surface-button-primary: #7f5af0; /* Color/Surface/Buttons/button-primary */
+  --color-surface-button-secondary: #ffffff; /* Color/Surface/Buttons/button-secondary */
+
+  /* --- Colors: Element Colors - Pills --- */
+  --color-elements-pills-primary-background: rgba(
+    127,
+    90,
+    240,
+    0.05
+  ); /* Color/Elements/Pills/primary-background */
+  --color-elements-pills-primary-border: rgba(
+    127,
+    90,
+    240,
+    0.25
+  ); /* Color/Elements/Pills/primary-border */
+  --color-elements-pills-secondary-background: rgba(
+    0,
+    211,
+    242,
+    0.05
+  ); /* Color/Elements/Pills/secondary-background */
+  --color-elements-pills-secondary-border: rgba(
+    0,
+    211,
+    242,
+    0.25
+  ); /* Color/Elements/Pills/secondary-border */
+
+  /* --- Colors: Element Colors - Icons --- */
+  --color-elements-icons-royal-purple: #7f5af0; /* Color/Elements/Icons/royal-purple */
+  --color-elements-icons-cyan: #38efe9; /* Color/Elements/Icons/cyan */
+  --color-elements-icons-default: #ffffff; /* Color/Elements/Icons/default */
+  --color-elements-secondary: #38efe9; /* Color/Elements/secondary */
+
+  /* --- Colors: Text Colors --- */
+  --color-text-tag: #7f5af0; /* Color/Text/tag */
+  --color-text-heading: #ffffff; /* Color/Text/Heading/default */
+  --color-text-body: #ffffff; /* Color/Text/Body/default */
+  --color-text-body-300: #d2d2d2; /* Color/Text/Body/300 */
+  --color-text-body-400: #c3c3c3; /* Color/Text/Body/400 */
+  --color-text-body-500: #b4b4b4; /* Color/Text/Body/500 */
+
+  /* --- Colors: Link Colors --- */
+  --color-link-default: #38efe9; /* Color/Text/Link/default */
+
+  /* --- Colors: Royal Purple Variants --- */
+  --color-royal-purple-300: #b29cf6; /* Colors/Royal Purple/300 */
+  --color-transparent-royal-purple-25: rgba(
+    127,
+    90,
+    240,
+    0.25
+  ); /* Colors/Transparent/Royal Purple/25 */
+
+  /* --- Colors: Neutral --- */
+  --color-neutral-white: #ffffff; /* Colors/Neutral/White */
+
+  /* --- Colors: Additional Figma Tokens --- */
+  --color-subtitle: #ffd7ba; /* Colors/Subtitle */
+  --color-tertiary: #191b21; /* Colors/Tertiary */
+
+  /* --- Spacing Scale --- */
+  --spacing-none: 0; /* Sizes/Spacing/none */
+  --spacing-0: 0; /* Scale/0 */
+  --spacing-1: 1px; /* Scale/1 */
+  --spacing-4: 4px; /* Sizes/Spacing/sp-4 */
+  --spacing-8: 8px; /* Sizes/Spacing/sp-8 */
+  --spacing-12: 12px; /* Scale/12 */
+  --spacing-16: 16px; /* Sizes/Spacing/sp-16, Scale/16 */
+  --spacing-24: 24px; /* Sizes/Spacing/sp-24 */
+  --spacing-28: 28px; /* Sizes/Spacing/sp-28 */
+  --spacing-32: 32px; /* Sizes/Spacing/sp-32 */
+  --spacing-40: 40px; /* Sizes/Spacing/sp-40, Scale/40 */
+  --spacing-48: 48px; /* Sizes/Spacing/sp-48 */
+  --spacing-72: 72px; /* Sizes/Spacing/sp-72 */
+  --spacing-80: 80px; /* Sizes/Spacing/sp-80, Scale/80 */
+
+  /* --- Border Radius --- */
+  --radius-none: 0; /* Sizes/Border/none */
+  --radius-8: 8px; /* Sizes/Radius/rd-8 */
+  --radius-14: 14px; /* Used in stat cards and other components */
+  --radius-16: 16px; /* Sizes/Radius/rd-16 */
+
+  /* --- Typography: Font Families --- */
+  --font-family-display:
+    "Staatliches", "Inter", system-ui, -apple-system, sans-serif; /* Type/Font family/heading */
+  --font-family-body:
+    "Inter", system-ui, -apple-system, sans-serif; /* Type/Font family/body */
+
+  /* --- Typography: Font Sizes --- */
+  --font-size-h1: 64px; /* Typography/Font size/Heading/h1 */
+  --font-size-h2: 48px; /* Typography/Font size/Heading/h2 */
+  --font-size-h3: 40px; /* Typography/Font size/Heading/h3 */
+  --font-size-h4: 32px; /* Typography/Font size/Heading/h4 */
+  --font-size-h4-small: 14px; /* H4 Small */
+  --font-size-body: 16px; /* Typography/Font size/Body/md */
+  --font-size-body-lg: 20px; /* Typography/Font size/Body/lg */
+
+  /* --- Typography: Line Heights --- */
+  --line-height-h1: 64px;
+  --line-height-h2: 52px;
+  --line-height-h3: 44px;
+  --line-height-h4: 36px;
+  --line-height-h4-small: 20px;
+  --line-height-body: 24px;
+  --line-height-body-lg: 24px;
+
+  /* --- Typography: Letter Spacing --- */
+  --letter-spacing-h1: 0px;
+  --letter-spacing-h2: 0px;
+  --letter-spacing-h3: 0px;
+  --letter-spacing-h4: 0px;
+  --letter-spacing-h4-small: 0.55px;
+  --letter-spacing-body: 0px;
+  --letter-spacing-body-lg: 0px;
+
+  /* --- Typography: Font Weights --- */
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  /* --- Icon Sizes --- */
+  --icon-size-small: 24px;
+  --icon-size-medium: 48px;
 }
 
 html {
@@ -14,7 +175,7 @@ html {
 }
 
 body {
-  @apply min-h-screen bg-ink text-slate-100 font-body antialiased;
+  @apply min-h-screen bg-ink font-body text-slate-100 antialiased;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -35,7 +196,7 @@ a:hover {
 }
 
 .glass {
-  @apply bg-white/5 border border-white/5 backdrop-blur-xl;
+  @apply border border-white/5 bg-white/5 backdrop-blur-xl;
 }
 
 @layer components {
@@ -43,10 +204,292 @@ a:hover {
   h4.heading-h4 {
     @apply font-display text-[32px] font-normal leading-[36px];
   }
-  
+
   /* Section label H4 styling */
   h4.section-label {
     @apply mb-4 inline-block font-display text-[32px] font-normal uppercase leading-[36px] text-primary;
+  }
+
+  /* ============================================
+     SEMANTIC COMPONENT CLASSES
+     Using CSS variables from design system
+     ============================================ */
+
+  /* --- Tag Component --- */
+  .tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: var(--radius-8);
+    border: 1px solid;
+    border-style: solid;
+    padding: var(--spacing-4) var(--spacing-16);
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-body);
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .tag-primary {
+    background-color: var(--color-elements-pills-primary-background);
+    border-color: var(--color-elements-pills-primary-border);
+    color: var(--color-royal-purple-300);
+  }
+
+  .tag-secondary {
+    background-color: var(--color-elements-pills-secondary-background);
+    border-color: var(--color-elements-pills-secondary-border);
+    color: var(--color-elements-icons-cyan);
+  }
+
+  /* --- Problem Card Component --- */
+  .problem-card {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--spacing-8);
+    border-radius: var(--radius-16);
+    border: 1px solid;
+    padding: var(--spacing-24);
+    background-color: var(--color-elements-pills-primary-background);
+    border-color: var(--color-elements-pills-primary-border);
+    width: 100%;
+    height: 100%;
+  }
+
+  .problem-card-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: var(--icon-size-medium);
+    height: var(--icon-size-medium);
+    border-radius: 9999px; /* fully rounded */
+    border: 1px solid;
+    border-color: var(--color-elements-pills-primary-border);
+    background-color: var(--color-elements-pills-primary-border);
+  }
+
+  /* --- Metric Card Component --- */
+  .metric-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-16);
+    border-radius: var(--radius-16);
+    border: 1px solid;
+    padding: var(--spacing-24);
+    background-color: rgba(15, 23, 43, 0.4);
+    border-color: #1d293d;
+    backdrop-filter: blur(4px);
+    transition: all 0.2s;
+  }
+
+  .metric-card:hover {
+    border-color: rgba(127, 90, 240, 0.3);
+    background-color: rgba(15, 23, 43, 0.6);
+  }
+
+  /* --- Icon Container (Reusable) --- */
+  .icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: var(--icon-size-medium);
+    height: var(--icon-size-medium);
+    border-radius: 9999px; /* fully rounded */
+    border: 1px solid;
+    border-color: rgba(127, 90, 240, 0.3);
+    background-color: rgba(127, 90, 240, 0.1);
+    color: var(--color-primary);
+  }
+
+  .icon-container-small {
+    width: var(--icon-size-small);
+    height: var(--icon-size-small);
+  }
+
+  .icon-container-primary {
+    border-color: var(--color-elements-pills-primary-border);
+    background-color: var(--color-elements-pills-primary-border);
+  }
+
+  .icon-container-secondary {
+    border-color: var(--color-elements-pills-secondary-border);
+    background-color: var(--color-elements-pills-secondary-background);
+  }
+
+  /* --- About Section Stat Card --- */
+  .stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--spacing-8);
+    border-radius: var(--radius-14);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-16);
+    background-image: linear-gradient(
+      156.176deg,
+      rgba(127, 90, 240, 0.1) 0%,
+      rgba(157, 127, 245, 0.1) 100%
+    );
+  }
+
+  .stat-card-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: var(--radius-8);
+    padding: var(--spacing-8);
+    background-color: var(--color-elements-pills-secondary-background);
+    border: 1px solid var(--color-elements-pills-secondary-border);
+  }
+
+  /* --- Section Divider --- */
+  .section-divider-line {
+    position: absolute;
+    left: 0;
+    top: 64px;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0) 0%,
+      var(--color-transparent-royal-purple-25) 50%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  /* --- Footer CTA Button --- */
+  .footer-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    gap: var(--spacing-8);
+    border-radius: 4px;
+    background-color: var(--color-primary);
+    padding: var(--spacing-8) var(--spacing-24);
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: var(--font-size-body-lg);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+    color: var(--color-neutral-white);
+    transition: background-color 0.2s;
+  }
+
+  .footer-cta-button:hover {
+    background-color: rgba(127, 90, 240, 0.9);
+  }
+
+  /* --- Project Metadata Icon Container --- */
+  .metadata-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: 1px solid var(--color-elements-pills-secondary-border);
+    background-color: var(--color-elements-pills-secondary-background);
+    color: var(--color-elements-icons-cyan);
+  }
+
+  /* --- Icon Sizing --- */
+  .icon-small {
+    width: var(--icon-size-small);
+    height: var(--icon-size-small);
+  }
+
+  /* --- Header Navigation Button --- */
+  .nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background-color: var(--color-primary);
+    padding: var(--spacing-8) var(--spacing-24);
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: var(--font-size-body);
+    font-weight: 500;
+    color: var(--color-neutral-white);
+    transition: background-color 0.2s;
+  }
+
+  .nav-button:hover {
+    background-color: rgba(127, 90, 240, 0.9);
+  }
+
+  /* --- Social Link Container --- */
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--icon-size-medium);
+    height: var(--icon-size-medium);
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--color-neutral-white);
+    transition: background-color 0.2s;
+  }
+
+  .social-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  /* --- Logo Marquee Card --- */
+  .logo-marquee-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    height: 98px;
+    width: 192px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: var(--spacing-32) var(--spacing-22);
+  }
+
+  /* --- Bullet List Item --- */
+  .bullet-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-12);
+  }
+
+  .bullet-list-bullet {
+    margin-top: var(--spacing-8);
+    height: 8px;
+    width: 8px;
+    flex-shrink: 0;
+    border-radius: 9999px;
+    background-color: var(--color-primary);
+  }
+
+  /* --- Case Study Card Grid Pattern --- */
+  .case-study-card-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* --- TLDR Section Background --- */
+  .tldr-section-bg {
+    background: linear-gradient(
+      to right,
+      var(--color-elements-pills-primary-background),
+      rgba(127, 90, 240, 0.1),
+      var(--color-elements-pills-primary-background)
+    );
   }
 }
 

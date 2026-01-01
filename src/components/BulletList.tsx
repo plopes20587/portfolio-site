@@ -18,8 +18,8 @@ const BulletList = ({
   return (
     <ul className={`flex flex-col gap-2 ${className}`}>
       {items.map((item, index) => (
-        <li key={index} className={`flex items-start gap-3 ${itemClassName}`}>
-          <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-primary" />
+        <li key={index} className={`bullet-list-item ${itemClassName}`}>
+          <span className="bullet-list-bullet" />
           <span
             className={`font-body text-[18px] leading-[1.6] text-white/80 ${itemClassName}`}
           >
@@ -32,4 +32,3 @@ const BulletList = ({
 };
 
 export default BulletList;
-

@@ -191,7 +191,7 @@ const Hero = () => {
               <a
                 key={social.name}
                 href={social.href}
-                className="flex h-[48px] w-[48px] items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:bg-white/10"
+                className="social-link"
                 aria-label={social.name}
               >
                 <social.icon />

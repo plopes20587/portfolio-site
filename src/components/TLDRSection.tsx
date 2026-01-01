@@ -14,7 +14,7 @@ const TLDRSection = ({ items, summary }: Props) => {
       maxWidth="900"
       padding="small"
       centerContent={false}
-      className="flex items-center justify-center border-y border-white/10 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 py-[60px]"
+      className="tldr-section-bg flex items-center justify-center border-y border-white/10 py-[60px]"
     >
       <div className="flex flex-col gap-6 md:flex-row md:items-start md:gap-12">
         {/* TL;DR Label */}

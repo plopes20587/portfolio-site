@@ -31,10 +31,7 @@ const LogoMarquee = () => {
         {/* Animated marquee track */}
         <div className="flex w-max animate-marquee-slow gap-[48px]">
           {duplicatedLogos.map((logo, index) => (
-            <div
-              key={`${logo.name}-${index}`}
-              className="flex h-[98px] w-[192px] shrink-0 items-center justify-center rounded-[10px] border border-white/10 bg-white/5 px-[22px] py-[32px]"
-            >
+            <div key={`${logo.name}-${index}`} className="logo-marquee-card">
               <img
                 src={logo.path}
                 loading="lazy"

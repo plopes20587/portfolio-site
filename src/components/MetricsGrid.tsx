@@ -119,18 +119,9 @@ const MetricsGrid = ({
         {metrics.map((metric, index) => {
           const IconComponent = icons[index % icons.length];
           return (
-            <div
-              key={metric.label}
-              className="group flex flex-col gap-4 rounded-[16px] border border-[#1D293D] bg-[#0F172B]/40 p-6 backdrop-blur-sm transition hover:border-primary/30 hover:bg-[#0F172B]/60"
-            >
+            <div key={metric.label} className="metric-card">
               {/* Icon - 48x48px container with 24x24px icon */}
-              <div
-                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-primary"
-                style={{
-                  width: "48px",
-                  height: "48px",
-                }}
-              >
+              <div className="icon-container icon-container-primary">
                 <div style={{ width: "24px", height: "24px" }}>
                   <IconComponent />
                 </div>

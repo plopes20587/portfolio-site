@@ -5,158 +5,186 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: [
-          '"Staatliches"',
-          "Inter",
-          "system-ui",
-          "-apple-system",
-          "sans-serif",
-        ],
-        body: ["Inter", "system-ui", "-apple-system", "sans-serif"],
+        // Font families - references CSS variables from index.css
+        display: "var(--font-family-display)",
+        body: "var(--font-family-body)",
       },
       fontSize: {
-        // Typography from Figma design system - exact matches
+        // Typography - references CSS variables from index.css
         h1: [
-          "64px",
-          { lineHeight: "64px", letterSpacing: "0px", fontWeight: 400 },
-        ], // Typography/Font size/Heading/h1: 64, lineHeight: 64
+          "var(--font-size-h1)",
+          {
+            lineHeight: "var(--line-height-h1)",
+            letterSpacing: "var(--letter-spacing-h1)",
+            fontWeight: "var(--font-weight-normal)",
+          },
+        ],
         h2: [
-          "48px",
-          { lineHeight: "52px", letterSpacing: "0px", fontWeight: 400 },
-        ], // Typography/Font size/Heading/h2: 48, lineHeight: 52
+          "var(--font-size-h2)",
+          {
+            lineHeight: "var(--line-height-h2)",
+            letterSpacing: "var(--letter-spacing-h2)",
+            fontWeight: "var(--font-weight-normal)",
+          },
+        ],
         h3: [
-          "40px",
-          { lineHeight: "44px", letterSpacing: "0px", fontWeight: 400 },
-        ], // Typography/Font size/Heading/h3: 40, lineHeight: 44
+          "var(--font-size-h3)",
+          {
+            lineHeight: "var(--line-height-h3)",
+            letterSpacing: "var(--letter-spacing-h3)",
+            fontWeight: "var(--font-weight-normal)",
+          },
+        ],
         h4: [
-          "32px",
-          { lineHeight: "36px", letterSpacing: "0px", fontWeight: 400 },
-        ], // Typography/Font size/Heading/h4: 32, lineHeight: 36 (Staatliches)
+          "var(--font-size-h4)",
+          {
+            lineHeight: "var(--line-height-h4)",
+            letterSpacing: "var(--letter-spacing-h4)",
+            fontWeight: "var(--font-weight-normal)",
+          },
+        ],
         "h4-small": [
-          "14px",
-          { lineHeight: "20px", letterSpacing: "0.55px", fontWeight: 700 },
-        ], // H4 Small: Inter, 14px, lineHeight: 20, letterSpacing: 0.55, bold
+          "var(--font-size-h4-small)",
+          {
+            lineHeight: "var(--line-height-h4-small)",
+            letterSpacing: "var(--letter-spacing-h4-small)",
+            fontWeight: "var(--font-weight-bold)",
+          },
+        ],
         body: [
-          "16px",
-          { lineHeight: "24px", letterSpacing: "0px", fontWeight: 400 },
-        ], // Typography/Font size/Body/md: 16, lineHeight: 24
+          "var(--font-size-body)",
+          {
+            lineHeight: "var(--line-height-body)",
+            letterSpacing: "var(--letter-spacing-body)",
+            fontWeight: "var(--font-weight-normal)",
+          },
+        ],
         "body-lg": [
-          "20px",
-          { lineHeight: "24px", letterSpacing: "0px", fontWeight: 400 },
-        ], // Typography/Font size/Body/lg: 20, lineHeight: 24
+          "var(--font-size-body-lg)",
+          {
+            lineHeight: "var(--line-height-body-lg)",
+            letterSpacing: "var(--letter-spacing-body-lg)",
+            fontWeight: "var(--font-weight-normal)",
+          },
+        ],
       },
       colors: {
-        // Base backgrounds - from Figma design system
-        ink: "#000000", // Color/Surface/Background/default
-        "ink-light": "#18151f",
-        "ink-900": "#1e1e1e",
-        panel: "#0a0a0f",
+        // Base backgrounds - references CSS variables from index.css
+        ink: "var(--color-surface-background-default)",
+        "ink-light": "var(--color-surface-background-light)",
+        "ink-900": "var(--color-surface-background-900)",
+        panel: "var(--color-surface-panel)",
 
-        // Primary brand colors - from Figma
-        primary: "#7f5af0", // Color/Borders/Primary/primary, Color/Surface/Buttons/button-primary
-        accent: "#7f5af0",
+        // Primary brand colors - references CSS variables
+        primary: "var(--color-primary)",
+        accent: "var(--color-accent)",
 
-        // Project card colors - from Figma
+        // Project card colors - references CSS variables
         purple: {
-          DEFAULT: "#7f5af0",
-          dark: "#541db9",
-          light: "#9d7ff5",
+          DEFAULT: "var(--color-purple)",
+          dark: "var(--color-purple-dark)",
+          light: "var(--color-purple-light)",
         },
         orange: {
-          DEFAULT: "#ff9900",
-          dark: "#cc7a00",
+          DEFAULT: "var(--color-orange)",
+          dark: "var(--color-orange-dark)",
         },
         green: {
-          DEFAULT: "#009966",
-          dark: "#006644",
+          DEFAULT: "var(--color-green)",
+          dark: "var(--color-green-dark)",
         },
         blue: {
-          DEFAULT: "#0066ff",
-          dark: "#0052cc",
+          DEFAULT: "var(--color-blue)",
+          dark: "var(--color-blue-dark)",
         },
 
-        // Accent colors
-        lilac: "#c2b7ff",
-        neon: "#76ffc4",
-        pink: "#ff3cac",
+        // Accent colors - references CSS variables
+        lilac: "var(--color-lilac)",
+        neon: "var(--color-neon)",
+        pink: "var(--color-pink)",
         cyan: {
-          DEFAULT: "#38efe9", // Color/Elements/Icons/cyan
-          300: "#38efe9",
+          DEFAULT: "var(--color-cyan)",
+          300: "var(--color-cyan-300)",
         },
 
-        // Surface colors - from Figma
+        // Surface colors - references CSS variables
         surface: {
-          card: "rgba(255, 255, 255, 0.05)",
-          "card-border": "rgba(255, 255, 255, 0.1)",
+          card: "var(--color-surface-card)",
+          "card-border": "var(--color-surface-card-border)",
           button: {
-            primary: "#7f5af0", // Color/Surface/Buttons/button-primary
-            secondary: "#ffffff", // Color/Surface/Buttons/button-secondary
+            primary: "var(--color-surface-button-primary)",
+            secondary: "var(--color-surface-button-secondary)",
           },
         },
-        // Element colors - from Figma
+        // Element colors - references CSS variables
         elements: {
           pills: {
-            "primary-background": "rgba(127, 90, 240, 0.05)", // Color/Elements/Pills/primary-background
-            "primary-border": "rgba(127, 90, 240, 0.25)", // Color/Elements/Pills/primary-border
-            "secondary-background": "rgba(0, 211, 242, 0.05)", // Color/Elements/Pills/secondary-background
-            "secondary-border": "rgba(0, 211, 242, 0.25)", // Color/Elements/Pills/secondary-border
+            "primary-background":
+              "var(--color-elements-pills-primary-background)",
+            "primary-border": "var(--color-elements-pills-primary-border)",
+            "secondary-background":
+              "var(--color-elements-pills-secondary-background)",
+            "secondary-border": "var(--color-elements-pills-secondary-border)",
           },
           icons: {
-            "royal-purple": "#7f5af0", // Color/Elements/Icons/royal-purple
-            cyan: "#38efe9", // Color/Elements/Icons/cyan
-            default: "#ffffff", // Color/Elements/Icons/default
+            "royal-purple": "var(--color-elements-icons-royal-purple)",
+            cyan: "var(--color-elements-icons-cyan)",
+            default: "var(--color-elements-icons-default)",
           },
-          secondary: "#38efe9", // Color/Elements/secondary
+          secondary: "var(--color-elements-secondary)",
         },
-        // Text colors - from Figma
+        // Text colors - references CSS variables
         text: {
-          tag: "#7f5af0", // Color/Text/tag
-          heading: "#ffffff", // Color/Text/Heading/default
-          body: "#ffffff", // Color/Text/Body/default
-          "body-300": "#d2d2d2", // Color/Text/Body/300
-          "body-400": "#c3c3c3", // Color/Text/Body/400
-          "body-500": "#b4b4b4", // Color/Text/Body/500
+          tag: "var(--color-text-tag)",
+          heading: "var(--color-text-heading)",
+          body: "var(--color-text-body)",
+          "body-300": "var(--color-text-body-300)",
+          "body-400": "var(--color-text-body-400)",
+          "body-500": "var(--color-text-body-500)",
         },
-        // Link colors - from Figma
+        // Link colors - references CSS variables
         link: {
-          DEFAULT: "#38efe9", // Color/Text/Link/default
+          DEFAULT: "var(--color-link-default)",
         },
-        // Electric Blue - from Figma
+        // Electric Blue - references CSS variables
         "electric-blue": {
-          500: "#00d3f2", // Colors/Electric Blue/500
+          500: "var(--color-electric-blue-500)",
         },
-        // Transparent colors - from Figma
+        // Transparent colors - references CSS variables
         transparent: {
-          "royal-purple-25": "rgba(127, 90, 240, 0.25)", // Colors/Transparent/Royal Purple/25
+          "royal-purple-25": "var(--color-transparent-royal-purple-25)",
         },
-        // Additional design tokens
+        // Additional design tokens - references CSS variables
         neutral: {
-          white: "#ffffff", // Colors/Neutral/White
+          white: "var(--color-neutral-white)",
         },
+        // Additional Figma tokens - references CSS variables
+        subtitle: "var(--color-subtitle)",
+        tertiary: "var(--color-tertiary)",
       },
       spacing: {
-        // Spacing scale from Figma design system
-        none: "0", // Sizes/Spacing/none
-        0: "0", // Scale/0
-        1: "1px", // Scale/1
-        4: "4px", // Sizes/Spacing/sp-4
-        8: "8px", // Sizes/Spacing/sp-8
-        12: "12px", // Scale/12
-        16: "16px", // Sizes/Spacing/sp-16, Scale/16
-        24: "24px", // Sizes/Spacing/sp-24
-        28: "28px", // Sizes/Spacing/sp-28
-        32: "32px", // Sizes/Spacing/sp-32
-        40: "40px", // Sizes/Spacing/sp-40, Scale/40
-        48: "48px", // Sizes/Spacing/sp-48
-        72: "72px", // Sizes/Spacing/sp-72
-        80: "80px", // Sizes/Spacing/sp-80, Scale/80
+        // Spacing scale - references CSS variables from index.css
+        none: "var(--spacing-none)",
+        0: "var(--spacing-0)",
+        1: "var(--spacing-1)",
+        4: "var(--spacing-4)",
+        8: "var(--spacing-8)",
+        12: "var(--spacing-12)",
+        16: "var(--spacing-16)",
+        24: "var(--spacing-24)",
+        28: "var(--spacing-28)",
+        32: "var(--spacing-32)",
+        40: "var(--spacing-40)",
+        48: "var(--spacing-48)",
+        72: "var(--spacing-72)",
+        80: "var(--spacing-80)",
       },
       borderRadius: {
-        // Border radius from Figma design system
-        none: "0", // Sizes/Border/none
-        8: "8px", // Sizes/Radius/rd-8
-        14: "14px", // Used in stat cards and other components
-        16: "16px", // Sizes/Radius/rd-16
+        // Border radius - references CSS variables from index.css
+        none: "var(--radius-none)",
+        8: "var(--radius-8)",
+        14: "var(--radius-14)",
+        16: "var(--radius-16)",
       },
       boxShadow: {
         glow: "0 0 40px rgba(125, 232, 255, 0.3)",

@@ -102,10 +102,7 @@ const HeaderNav = () => {
           ))}
 
           {/* CTA Button - rounded-[4px], bg-primary */}
-          <a
-            href="mailto:patrick@patricklopes.com"
-            className="rounded-[4px] bg-primary px-[24px] py-[8px] font-body text-[16px] font-medium text-white transition hover:bg-primary/90"
-          >
+          <a href="mailto:patrick@patricklopes.com" className="nav-button">
             Lets talk
           </a>
         </nav>
@@ -142,7 +139,7 @@ const HeaderNav = () => {
             <a
               href="mailto:patrick@patricklopes.com"
               onClick={() => setMobileMenuOpen(false)}
-              className="mt-6 inline-flex items-center justify-center rounded-[4px] bg-primary px-[24px] py-[12px] font-body text-[16px] font-medium text-white transition hover:bg-primary/90"
+              className="nav-button mt-6"
             >
               Lets talk
             </a>

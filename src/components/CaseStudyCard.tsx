@@ -120,16 +120,7 @@ const CaseStudyCard = ({ study }: Props) => {
             }}
           />
           {/* Grid pattern overlay - matches Figma grid texture */}
-          <div
-            className="absolute inset-0 rounded-[24px] opacity-50"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-            `,
-              backgroundSize: "40px 40px",
-            }}
-          />
+          <div className="absolute inset-0 rounded-[24px] opacity-50 case-study-card-grid" />
         </div>
 
         {/* Card Content */}

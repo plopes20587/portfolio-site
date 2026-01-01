@@ -38,10 +38,10 @@ const FooterCTA = () => {
         <p className="font-body text-[18px] font-normal leading-[1.5] text-white">
           {footerCta.body}
         </p>
-        {/* Button: bg #7f5af0, h-50px, rounded-4px, px-24, py-8, gap-8 */}
+        {/* Button: bg primary, h-50px, rounded-4px, px-24, py-8, gap-8 */}
         <a
           href={footerCta.action.href}
-          className="inline-flex h-[50px] items-center justify-center gap-[8px] rounded-[4px] bg-[#7f5af0] px-[24px] py-[8px] font-body text-[18px] font-normal leading-[1.5] text-white transition hover:bg-[#7f5af0]/90"
+          className="footer-cta-button"
         >
           {footerCta.action.label}
           <ArrowIcon />

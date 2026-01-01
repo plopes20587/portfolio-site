@@ -36,53 +36,30 @@ const ProblemCards = ({
     ) : null;
 
   const cardsElement = (
-    <div
-      className="flex w-full flex-col gap-32 md:flex-row"
-      style={{ gap: "32px" }}
-    >
+    <div className="flex w-full flex-col gap-8 md:flex-row">
       {items.map((item, index) => (
-        <div
-          key={index}
-          className="flex flex-1 flex-col gap-2 rounded-16 border p-6"
-          style={{
-            borderColor: "rgba(127, 90, 240, 0.25)",
-            backgroundColor: "rgba(127, 90, 240, 0.05)",
-            width: "100%",
-            height: "100%",
-          }}
-        >
+        <div key={index} className="problem-card">
           {/* Icon - 48x48px container with 24x24px icon */}
-          <div
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border"
-            style={{
-              borderColor: "rgba(127, 90, 240, 0.25)",
-              backgroundColor: "rgba(127, 90, 240, 0.25)",
-              width: "48px",
-              height: "48px",
-            }}
-          >
+          <div className="problem-card-icon-container">
             {item.icon === "target" && (
               <img
                 src={targetIcon}
                 alt=""
-                className="h-6 w-6"
-                style={{ width: "24px", height: "24px" }}
+                className="icon-small"
               />
             )}
             {item.icon === "shield" && (
               <img
                 src={shieldIcon}
                 alt=""
-                className="h-6 w-6"
-                style={{ width: "24px", height: "24px" }}
+                className="icon-small"
               />
             )}
             {item.icon === "lightning" && (
               <img
                 src={lightningIcon}
                 alt=""
-                className="h-6 w-6"
-                style={{ width: "24px", height: "24px" }}
+                className="icon-small"
               />
             )}
           </div>

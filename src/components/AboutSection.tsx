@@ -94,25 +94,15 @@ const AboutSection = () => {
           </div>
 
           {/* Stats Grid */}
-          <div className="grid h-full w-full grid-cols-[repeat(2,_minmax(0px,_1fr))] grid-rows-[repeat(2,_fit-content(100%))] gap-[24px]">
+          <div className="grid h-full w-full grid-cols-[repeat(2,_minmax(0px,_1fr))] grid-rows-[repeat(2,_fit-content(100%))] gap-6">
             {aboutStats.map((stat) => (
               <div
                 key={stat.label}
-                className="flex h-full w-full flex-col items-start justify-center gap-2 rounded-[14px] border border-white/10 px-[16px] py-[16px]"
-                style={{
-                  gridArea: stat.gridArea,
-                  backgroundImage:
-                    "linear-gradient(156.176deg, rgba(127, 90, 240, 0.1) 0%, rgba(157, 127, 245, 0.1) 100%)",
-                }}
+                className="stat-card"
+                style={{ gridArea: stat.gridArea }}
               >
                 {/* Icon Container */}
-                <div
-                  className="flex shrink-0 items-center justify-center rounded-[8px] p-[8px]"
-                  style={{
-                    backgroundColor: "rgba(0,211,242,0.05)",
-                    border: "1px solid rgba(0,211,242,0.25)",
-                  }}
-                >
+                <div className="stat-card-icon-container">
                   <img
                     src={stat.iconSrc}
                     alt={stat.label}
