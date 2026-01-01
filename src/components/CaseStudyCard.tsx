@@ -162,8 +162,8 @@ const CaseStudyCard = ({ study }: Props) => {
                 {study.title}
               </h3>
 
-              {/* Description - Body style: 18px Inter */}
-              <p className="font-body text-[18px] font-normal leading-[1.5] text-white">
+              {/* Description - Body style: 16px Inter */}
+              <p className="font-body text-[16px] font-normal leading-[1.5] text-white">
                 {study.blurb}
               </p>
             </div>
@@ -179,8 +179,8 @@ const CaseStudyCard = ({ study }: Props) => {
                         <CheckIcon />
                       </span>
                     </div>
-                    {/* Metric text - 18px */}
-                    <span className="font-body text-[18px] font-normal leading-[1.5] text-white">
+                    {/* Metric text - 16px */}
+                    <span className="font-body text-[16px] font-normal leading-[1.5] text-white">
                       {metric.value}
                     </span>
                   </div>

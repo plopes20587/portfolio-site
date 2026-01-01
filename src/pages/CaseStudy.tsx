@@ -39,7 +39,7 @@ const CaseStudyPage = () => {
         <h1 className="font-display text-[48px] text-white">
           Case Study Not Found
         </h1>
-        <p className="font-body text-[18px] text-white/70">
+        <p className="font-body text-[16px] text-white/70">
           The case study you're looking for doesn't exist.
         </p>
         <Link
@@ -118,7 +118,7 @@ const CaseStudyPage = () => {
                   </h2>
                 </div>
                 <div className="max-w-[900px]">
-                  <div className="font-body text-[18px] font-normal leading-[1.6] text-white/80">
+                  <div className="font-body text-[16px] font-normal leading-[1.6] text-white/80">
                     <p>{study.challenge}</p>
                   </div>
                 </div>
@@ -172,7 +172,7 @@ const CaseStudyPage = () => {
               </div>
             )}
             {study.discoverySummary && (
-              <p className="mt-6 font-body text-[18px] leading-[1.6] text-white/80">
+              <p className="mt-6 font-body text-[16px] leading-[1.6] text-white/80">
                 {study.discoverySummary}
               </p>
             )}

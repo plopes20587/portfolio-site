@@ -53,7 +53,7 @@ const SkillsSection = () => {
           <h2 className="font-display text-[32px] font-normal leading-[1.2] tracking-[0.42px] text-white md:text-[42px]">
             Tech Stack
           </h2>
-          <p className="max-w-[741px] text-center font-body text-[18px] font-normal leading-[1.5] text-white">
+          <p className="max-w-[741px] text-center font-body text-[16px] font-normal leading-[1.5] text-white">
             My toolkit spans design, development, and AI—enabling me to bring ideas to life from concept to code
           </p>
         </div>
@@ -75,7 +75,7 @@ const SkillsSection = () => {
               </div>
               
               {/* Category Name */}
-              <p className="font-body text-[18px] font-normal leading-[1.5] text-white">
+              <p className="font-body text-[16px] font-normal leading-[1.5] text-white">
                 {stack.name}
               </p>
               
@@ -85,7 +85,7 @@ const SkillsSection = () => {
                   <div key={item} className="flex h-[24px] items-center gap-[8px]">
                     {/* Gradient Bullet */}
                     <div className={`h-[6px] w-[6px] rounded-full ${stack.bulletGradient}`} />
-                    <p className="font-body text-[18px] font-normal leading-[1.5] text-white">
+                    <p className="font-body text-[16px] font-normal leading-[1.5] text-white">
                       {item}
                     </p>
                   </div>

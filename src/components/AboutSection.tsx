@@ -110,7 +110,7 @@ const AboutSection = () => {
                   />
                 </div>
                 {/* Stat Value */}
-                <p className="font-body text-[20px] font-semibold leading-[24px] tracking-[0px] text-white">
+                <p className="font-body text-[16px] font-semibold leading-[24px] tracking-[0px] text-white">
                   {stat.value}
                 </p>
                 {/* Stat Label */}

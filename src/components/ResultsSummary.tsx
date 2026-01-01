@@ -19,7 +19,7 @@ const ResultsSummary = ({
 
   const textElement = (
     <p
-      className={`font-body text-[18px] text-white/70 gap-4${
+      className={`font-body text-[16px] text-white/70 gap-4${
         variant === "section" ? "text-center" : ""
       } ${className}`}
     >

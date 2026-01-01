@@ -65,7 +65,7 @@ const CaseStudyHero = ({ study }: Props) => {
 
           {/* Description with accent border */}
           <div className="border-l-4 border-primary pl-6">
-            <p className="font-body text-[18px] font-normal leading-[1.6] text-white/80">
+            <p className="font-body text-[16px] font-normal leading-[1.6] text-white/80">
               {study.blurb}
             </p>
           </div>

@@ -222,26 +222,27 @@ a:hover {
     justify-content: center;
     flex-shrink: 0;
     border-radius: var(--radius-8);
-    border: 1px solid;
+    border-width: 1px;
     border-style: solid;
     padding: var(--spacing-4) var(--spacing-16);
-    font-family: var(--font-body, "Inter", sans-serif);
+    font-family: var(--font-family-body, "Inter", sans-serif);
     font-size: var(--font-size-body);
     font-weight: var(--font-weight-normal);
     line-height: var(--line-height-body);
+    letter-spacing: var(--letter-spacing-body);
     white-space: nowrap;
     position: relative;
   }
 
-  .tag-primary {
+  .tag.tag-primary {
     background-color: var(--color-elements-pills-primary-background);
-    border-color: var(--color-elements-pills-primary-border);
+    border-color: var(--color-elements-pills-primary-border) !important;
     color: var(--color-royal-purple-300);
   }
 
-  .tag-secondary {
+  .tag.tag-secondary {
     background-color: var(--color-elements-pills-secondary-background);
-    border-color: var(--color-elements-pills-secondary-border);
+    border-color: var(--color-elements-pills-secondary-border) !important;
     color: var(--color-elements-icons-cyan);
   }
 

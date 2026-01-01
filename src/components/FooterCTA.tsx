@@ -34,8 +34,8 @@ const FooterCTA = () => {
         <h2 className="font-display text-[42px] font-normal leading-[1.2] tracking-[1px] text-white">
           {footerCta.headline}
         </h2>
-        {/* Body: Inter, 18px, weight 400, lineHeight 1.5 */}
-        <p className="font-body text-[18px] font-normal leading-[1.5] text-white">
+        {/* Body: Inter, 16px, weight 400, lineHeight 1.5 */}
+        <p className="font-body text-[16px] font-normal leading-[1.5] text-white">
           {footerCta.body}
         </p>
         {/* Button: bg primary, h-50px, rounded-4px, px-24, py-8, gap-8 */}

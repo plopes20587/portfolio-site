@@ -9,7 +9,7 @@ const ContentSection = ({ heading, children }: Props) => {
       <h2 className="font-display text-[32px] font-normal leading-[1.2] text-white md:text-[42px]">
         {heading}
       </h2>
-      <div className="flex flex-col gap-[24px] font-body text-[18px] font-normal leading-[1.6] text-white/80">
+      <div className="flex flex-col gap-[24px] font-body text-[16px] font-normal leading-[1.6] text-white/80">
         {children}
       </div>
     </div>
