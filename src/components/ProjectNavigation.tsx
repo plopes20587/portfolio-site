@@ -11,7 +11,7 @@ type Props = {
 const ProjectNavigation = ({ previousProject, nextProject }: Props) => {
   return (
     <SectionWrapper
-      maxWidth="1100"
+      maxWidth="1320"
       padding="large"
       className="border-t border-white/10 bg-ink-900/50"
     >

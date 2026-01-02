@@ -30,7 +30,7 @@ const ImageShowcase = ({
         : "flex flex-col gap-6";
 
   return (
-    <SectionWrapper maxWidth="1100" padding="large">
+    <SectionWrapper maxWidth="1320" padding="large">
       {/* Optional Section Header */}
       {(sectionLabel || heading) && heading && (
         <SectionHeader

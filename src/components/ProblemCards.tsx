@@ -36,7 +36,7 @@ const ProblemCards = ({
     ) : null;
 
   const cardsElement = (
-    <div className="flex w-full flex-col gap-8 md:flex-row">
+    <div className="flex w-full max-w-[1320px] flex-col gap-32 md:flex-row">
       {items.map((item, index) => (
         <div key={index} className="problem-card">
           {/* Icon - 48x48px container with 24x24px icon */}

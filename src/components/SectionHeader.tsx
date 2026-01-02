@@ -16,7 +16,7 @@ const SectionHeader = ({
   headingClassName = "",
 }: SectionHeaderProps) => {
   return (
-    <div className={`mb-12 ${className}`}>
+    <div className={`mb-0 ${className}`}>
       {sectionLabel && <h4 className="section-label">{sectionLabel}</h4>}
       <h2
         className={`font-display text-[32px] font-normal leading-[1.2] text-white md:text-[42px] ${headingClassName}`}

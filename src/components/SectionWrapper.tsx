@@ -36,8 +36,8 @@ const SectionWrapper = ({
     : `m-0 ${maxWidthClass}`;
 
   return (
-    <section id={id} className={`${paddingClass} ${className}`}>
-      <div className={containerClass}>{children}</div>
+    <section id={id} className={`flex flex-col items-center justify-start ${paddingClass} ${className}`}>
+      <div className={`flex flex-col gap-12 ${containerClass}`}>{children}</div>
     </section>
   );
 };

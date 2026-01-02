@@ -106,7 +106,7 @@ const MetricsGrid = ({
   if (!metrics || metrics.length === 0) return null;
 
   return (
-    <SectionWrapper maxWidth="1100" padding="large">
+    <SectionWrapper maxWidth="1320" padding="large">
       {/* Section Label and Heading */}
       <SectionHeader
         sectionLabel={sectionLabel}
@@ -115,7 +115,7 @@ const MetricsGrid = ({
       />
 
       {/* Metrics Cards Grid */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="flex flex-wrap gap-8">
         {metrics.map((metric, index) => {
           const IconComponent = icons[index % icons.length];
           return (
