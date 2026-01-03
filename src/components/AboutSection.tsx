@@ -71,13 +71,13 @@ const AboutSection = () => {
         <div className="flex flex-col gap-7">
           {/* Bio Text */}
           <div className="flex flex-col gap-4">
-            <p className="w-[592px] font-body text-[16px] font-normal leading-[24px] text-white">
+            <p className="font-body text-[16px] font-normal leading-[24px] text-white">
               I'm a senior product designer with a focus on e-commerce and
               digital shopping. Over the past ten years, I've worked on product
               pages, checkout flows, and customer journeys for brands like
               Verizon, KFC, and SeneGence.
             </p>
-            <div className="w-[590px] font-body text-[16px] font-normal leading-[24px] text-white">
+            <div className="font-body text-[16px] font-normal leading-[24px] text-white">
               <p className="mb-0">
                 I like keeping things simple. My approach usually starts with
                 understanding how people shop or move through a flow, then

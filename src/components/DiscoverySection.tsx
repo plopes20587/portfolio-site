@@ -19,22 +19,21 @@ const DiscoverySection = ({
 }: DiscoverySectionProps) => {
   if (!inputs && !insights) return null;
 
+  const headingClassName =
+    "tracking-0 mb-4 font-display text-[32px] font-normal uppercase leading-[36px] text-primary";
+
   return (
     <SectionWrapper maxWidth="900" padding="large">
       <ContentSection heading="Discovery and Key Insights">
         {inputs && inputs.length > 0 && (
           <div className="mb-8">
-            <h4 className="tracking-0 mb-4 font-display text-[32px] font-normal uppercase leading-[36px] text-primary">
-              Inputs
-            </h4>
+            <h4 className={headingClassName}>Inputs</h4>
             <BulletList items={inputs} />
           </div>
         )}
         {insights && insights.length > 0 && (
           <div className="mb-6">
-            <h4 className="tracking-0 mb-4 font-display text-[32px] font-normal uppercase leading-[36px] text-primary">
-              Key Insights
-            </h4>
+            <h4 className={headingClassName}>Key Insights</h4>
             <BulletList items={insights} />
           </div>
         )}

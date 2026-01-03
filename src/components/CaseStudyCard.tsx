@@ -7,6 +7,8 @@ import kfcThumbnail from "../assets/images/kfc-pdp-redesign/KFC Thumbnail.png";
 import verizonThumbnail from "../assets/images/verizon-straight-talk-7day/Verizon Thumbnail.png";
 import cellebriteThumbnail from "../assets/images/cellebrite-website/Cellebrite Thumbnail.png";
 import senegenceThumbnail from "../assets/images/senegence-redesign/SeneGence Thumbnail.png";
+import checkIcon from "../assets/icons/check.svg";
+import externalLinkIcon from "../assets/icons/external-link.svg";
 
 type Props = {
   study: CaseStudy;
@@ -51,43 +53,6 @@ const projectColors: Record<
   },
 };
 
-// Check icon SVG component
-const CheckIcon = () => (
-  <svg
-    width="12"
-    height="12"
-    viewBox="0 0 12 12"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M2 6L5 9L10 3"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-// External link icon SVG component
-const ExternalLinkIcon = () => (
-  <svg
-    width="16"
-    height="16"
-    viewBox="0 0 16 16"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M6 3H3C2.44772 3 2 3.44772 2 4V13C2 13.5523 2.44772 14 3 14H12C12.5523 14 13 13.5523 13 13V10M9 2H14M14 2V7M14 2L6 10"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
 
 const CaseStudyCard = ({ study }: Props) => {
   const colors = projectColors[study.slug] || {
@@ -175,9 +140,7 @@ const CaseStudyCard = ({ study }: Props) => {
                   <div key={index} className="flex items-center gap-[8px]">
                     {/* Checkmark circle - 20px, bg-white/20 */}
                     <div className="flex h-[20px] w-[20px] shrink-0 items-center justify-center rounded-full bg-white/20">
-                      <span className="text-white">
-                        <CheckIcon />
-                      </span>
+                      <img src={checkIcon} alt="" className="h-3 w-3" />
                     </div>
                     {/* Metric text - 16px */}
                     <span className="font-body text-[16px] font-normal leading-[1.5] text-white">
@@ -191,7 +154,7 @@ const CaseStudyCard = ({ study }: Props) => {
             {/* View Project Button - white bg, black text, with icon */}
             <span className="inline-flex w-fit items-center justify-center gap-[8px] rounded-[4px] bg-white px-[24px] py-[8px] text-[18px] font-normal leading-[1.5] text-black transition hover:bg-gray-100">
               View Project
-              <ExternalLinkIcon />
+              <img src={externalLinkIcon} alt="" className="h-4 w-4" />
             </span>
           </div>
         </div>

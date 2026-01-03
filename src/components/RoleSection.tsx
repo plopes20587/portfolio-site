@@ -4,6 +4,13 @@ type RoleSectionProps = {
   roleDescription: string;
 };
 
+// Question mark icon styling constants
+const QUESTION_MARK_SIZE = "text-[96px]";
+const QUESTION_MARK_LINE_HEIGHT = "leading-[96px]";
+const QUESTION_MARK_CONTAINER_HEIGHT = "h-24";
+const QUESTION_MARK_CONTAINER_WIDTH = "w-[52.641px]";
+const QUESTION_MARK_COLOR = "text-[#1d293d]";
+
 /**
  * Component for displaying the "My Role" section in case studies
  * Features unique styling with question mark icon and special border/background
@@ -15,8 +22,12 @@ const RoleSection = ({ roleDescription }: RoleSectionProps) => {
         <div className="flex w-full flex-col items-center justify-center rounded-[14px] border border-[rgba(251,44,54,0.2)] bg-[rgba(2,6,24,0.8)] p-[48px]">
           <div className="flex w-full max-w-[1080px] items-center gap-[32px]">
             {/* Large question mark icon */}
-            <div className="flex h-24 w-[52.641px] shrink-0 items-center justify-center">
-              <p className="font-display text-[96px] leading-[96px] text-[#1d293d]">
+            <div
+              className={`flex ${QUESTION_MARK_CONTAINER_HEIGHT} ${QUESTION_MARK_CONTAINER_WIDTH} shrink-0 items-center justify-center`}
+            >
+              <p
+                className={`font-display ${QUESTION_MARK_SIZE} ${QUESTION_MARK_LINE_HEIGHT} ${QUESTION_MARK_COLOR}`}
+              >
                 ?
               </p>
             </div>

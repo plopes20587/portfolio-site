@@ -18,7 +18,7 @@ const BulletList = ({
   return (
     <ul className={`flex flex-col gap-2 ${className}`}>
       {items.map((item, index) => (
-        <li key={index} className={`bullet-list-item ${itemClassName}`}>
+        <li key={`item-${index}`} className={`bullet-list-item ${itemClassName}`}>
           <span className="bullet-list-bullet" />
           <span
             className={`font-body text-[16px] leading-[1.6] text-white/80 ${itemClassName}`}

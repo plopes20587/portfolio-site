@@ -1,9 +1,9 @@
-type Props = {
+type ContentSectionProps = {
   heading: string
   children: React.ReactNode
 }
 
-const ContentSection = ({ heading, children }: Props) => {
+const ContentSection = ({ heading, children }: ContentSectionProps) => {
   return (
     <div className="flex flex-col gap-4">
       <h2 className="font-display text-[32px] font-normal leading-[1.2] text-white md:text-[42px]">

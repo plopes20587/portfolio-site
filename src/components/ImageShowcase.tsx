@@ -7,7 +7,7 @@ type ImageItem = {
   caption?: string;
 };
 
-type Props = {
+type ImageShowcaseProps = {
   images: ImageItem[];
   layout?: "single" | "side-by-side" | "grid";
   sectionLabel?: string;
@@ -19,7 +19,7 @@ const ImageShowcase = ({
   layout = "single",
   sectionLabel,
   heading,
-}: Props) => {
+}: ImageShowcaseProps) => {
   if (!images || images.length === 0) return null;
 
   const gridClass =
@@ -32,7 +32,7 @@ const ImageShowcase = ({
   return (
     <SectionWrapper maxWidth="1320" padding="large">
       {/* Optional Section Header */}
-      {(sectionLabel || heading) && heading && (
+      {heading && (
         <SectionHeader
           sectionLabel={sectionLabel}
           heading={heading}
@@ -44,7 +44,7 @@ const ImageShowcase = ({
       <div className={gridClass}>
         {images.map((image, index) => (
           <figure
-            key={index}
+            key={`${image.src}-${index}`}
             className="group overflow-hidden rounded-[16px] border border-white/10 bg-white/5"
           >
             <div className="overflow-hidden">

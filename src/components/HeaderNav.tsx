@@ -1,64 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
-// Hamburger menu icon
-const MenuIcon = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M3 12H21"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M3 6H21"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M3 18H21"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-// Close icon
-const CloseIcon = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M18 6L6 18"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M6 6L18 18"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
+import menuIcon from "../assets/icons/menu.svg";
+import closeIcon from "../assets/icons/close.svg";
 
 type NavLink = {
   href: string;
@@ -113,7 +56,11 @@ const HeaderNav = () => {
           className="flex h-10 w-10 items-center justify-center text-white md:hidden"
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
-          {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
+          <img 
+            src={mobileMenuOpen ? closeIcon : menuIcon} 
+            alt="" 
+            className="h-6 w-6" 
+          />
         </button>
       </div>
 

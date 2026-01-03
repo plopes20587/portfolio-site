@@ -1,12 +1,12 @@
 import SectionWrapper from "./SectionWrapper";
 import BulletList from "./BulletList";
 
-type Props = {
+type TLDRSectionProps = {
   items: string[];
   summary?: string;
 };
 
-const TLDRSection = ({ items, summary }: Props) => {
+const TLDRSection = ({ items, summary }: TLDRSectionProps) => {
   if (!items || items.length === 0) return null;
 
   return (

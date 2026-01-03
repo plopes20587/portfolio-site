@@ -17,12 +17,10 @@ const ResultsSummary = ({
 }: ResultsSummaryProps) => {
   if (!text) return null;
 
+  const baseClassName = "font-body text-[16px] text-white/70";
+  const variantClassName = variant === "section" ? "text-center" : "";
   const textElement = (
-    <p
-      className={`font-body text-[16px] text-white/70 gap-4${
-        variant === "section" ? "text-center" : ""
-      } ${className}`}
-    >
+    <p className={`${baseClassName} ${variantClassName} ${className}`.trim()}>
       {text}
     </p>
   );

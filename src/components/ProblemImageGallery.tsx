@@ -17,8 +17,8 @@ const ProblemImageGallery = ({ images }: ProblemImageGalleryProps) => {
 
   return (
     <div className="flex w-full flex-col items-start justify-center gap-6 md:flex-row md:gap-[70px]">
-      {images.map((image, imgIndex) => (
-        <figure key={imgIndex} className="group overflow-hidden">
+      {images.map((image, index) => (
+        <figure key={`${image.src}-${index}`} className="group overflow-hidden">
           <div className="overflow-hidden">
             <img
               src={image.src}
