@@ -182,7 +182,7 @@ export const caseStudies: CaseStudy[] = [
       "Tens of thousands of successful purchases. Strong repeat usage across customers. Improved customer retention signals.",
     // What I learned
     whatILearned:
-      "Designing for financial stress requires clarity, empathy, and systems thinking.",
+      "This project highlighted the importance of designing with empathy during moments of financial stress. Clear messaging and flexible options can build trust even when customers are facing challenges.It also reinforced how lifecycle and systems thinking are critical when designing experiences that span multiple channels and touchpoints.",
     tldr: [
       "Nearly 100K plan redemptions shortly after launch",
       "Over 40K unique customers used the plan",

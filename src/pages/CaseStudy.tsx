@@ -5,7 +5,6 @@ import ProjectMetadata from "../components/ProjectMetadata";
 import ContentSection from "../components/ContentSection";
 import TLDRSection from "../components/TLDRSection";
 import ProjectNavigation from "../components/ProjectNavigation";
-import MetricsGrid from "../components/MetricsGrid";
 import ImageShowcase from "../components/ImageShowcase";
 import ResultsSummary from "../components/ResultsSummary";
 import SectionWrapper from "../components/SectionWrapper";
@@ -13,6 +12,10 @@ import BulletList from "../components/BulletList";
 import { ArrowLeftIcon } from "../components/icons/ArrowIcons";
 import { Link } from "react-router-dom";
 import ProblemCards from "../components/ProblemCards";
+import ProblemImageGallery from "../components/ProblemImageGallery";
+import SectionHeader from "../components/SectionHeader";
+import RoleSection from "../components/RoleSection";
+import DiscoverySection from "../components/DiscoverySection";
 
 const CaseStudyPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -44,7 +47,7 @@ const CaseStudyPage = () => {
         </p>
         <Link
           to="/#work"
-          className="inline-flex items-center gap-2 rounded-[4px] bg-primary px-6 py-3 font-body text-[16px] font-medium text-white transition hover:bg-primary/90"
+          className="hover:bg-primary/90 inline-flex items-center gap-2 rounded-[4px] bg-primary px-6 py-3 font-body text-[16px] font-medium text-white transition"
         >
           <ArrowLeftIcon />
           Back to Work
@@ -68,8 +71,12 @@ const CaseStudyPage = () => {
 
       {/* 3. The Problem - Combined with Images */}
       {study.challenge && (
-        <section className="flex flex-col items-center justify-center px-6 py-[80px] md:px-[60px]">
-          <div className="mx-auto flex w-full max-w-[1320px] flex-col items-center gap-[48px]">
+        <SectionWrapper
+          maxWidth="1320"
+          customPadding="px-6 py-[80px] md:px-[60px]"
+          className="justify-center"
+        >
+          <div className="flex flex-col gap-[48px]">
             {/* Problem Cards with Header */}
             {study.problemBreakdown && study.problemBreakdown.length > 0 ? (
               <>
@@ -83,40 +90,20 @@ const CaseStudyPage = () => {
 
                 {/* Images Section */}
                 {getImageSections("after-problem").map((section, index) => (
-                  <div
+                  <ProblemImageGallery
                     key={`after-problem-${index}`}
-                    className="flex w-full flex-col items-start justify-center gap-6 md:flex-row md:gap-[70px]"
-                  >
-                    {section.images.map((image, imgIndex) => (
-                      <figure key={imgIndex} className="group overflow-hidden">
-                        <div className="overflow-hidden">
-                          <img
-                            src={image.src}
-                            alt={image.alt}
-                            className="h-auto w-full object-cover transition duration-300 group-hover:scale-[1.02]"
-                            loading="lazy"
-                          />
-                        </div>
-                        {image.caption && (
-                          <figcaption className="px-6 py-4">
-                            <p className="font-body text-[14px] text-white/70">
-                              {image.caption}
-                            </p>
-                          </figcaption>
-                        )}
-                      </figure>
-                    ))}
-                  </div>
+                    images={section.images}
+                  />
                 ))}
               </>
             ) : (
               <>
-                <div className="flex flex-col items-center justify-center">
-                  <h4 className="section-label">OBSTACLES</h4>
-                  <h2 className="font-display text-[32px] font-normal uppercase leading-[1.2] text-white md:text-[42px]">
-                    THE PROBLEM
-                  </h2>
-                </div>
+                <SectionHeader
+                  sectionLabel="OBSTACLES"
+                  heading="THE PROBLEM"
+                  className="text-center"
+                  headingClassName="uppercase"
+                />
                 <div className="max-w-[900px]">
                   <div className="font-body text-[16px] font-normal leading-[1.6] text-white/80">
                     <p>{study.challenge}</p>
@@ -125,59 +112,19 @@ const CaseStudyPage = () => {
               </>
             )}
           </div>
-        </section>
+        </SectionWrapper>
       )}
       {/* 4. My Role */}
       {study.roleDescription && (
-        <SectionWrapper maxWidth="1320" padding="large">
-          <div className="flex flex-col items-center justify-center">
-            <div className="flex w-full flex-col items-center justify-center rounded-[14px] border border-[rgba(251,44,54,0.2)] bg-[rgba(2,6,24,0.8)] p-[48px]">
-              <div className="flex w-full max-w-[1080px] items-center gap-[32px]">
-                {/* Large question mark icon */}
-                <div className="flex h-24 w-[52.641px] shrink-0 items-center justify-center">
-                  <p className="font-display text-[96px] leading-[96px] text-[#1d293d]">
-                    ?
-                  </p>
-                </div>
-                {/* Content */}
-                <div className="flex flex-1 flex-col gap-[24px]">
-                  <h4 className="heading-h4 text-white">My role</h4>
-                  <p className="font-body text-[16px] font-normal leading-[24px] text-white">
-                    {study.roleDescription}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SectionWrapper>
+        <RoleSection roleDescription={study.roleDescription} />
       )}
       {/* 5. Discovery and Key Insights */}
       {(study.discoveryInputs || study.discoveryInsights) && (
-        <SectionWrapper maxWidth="900" padding="large">
-          <ContentSection heading="Discovery and Key Insights">
-            {study.discoveryInputs && study.discoveryInputs.length > 0 && (
-              <div className="mb-8">
-                <h4 className="tracking-0 mb-4 font-display text-[32px] font-normal uppercase leading-[36px] text-primary">
-                  Inputs
-                </h4>
-                <BulletList items={study.discoveryInputs} />
-              </div>
-            )}
-            {study.discoveryInsights && study.discoveryInsights.length > 0 && (
-              <div className="mb-6">
-                <h4 className="tracking-0 mb-4 font-display text-[32px] font-normal uppercase leading-[36px] text-primary">
-                  Key Insights
-                </h4>
-                <BulletList items={study.discoveryInsights} />
-              </div>
-            )}
-            {study.discoverySummary && (
-              <p className="mt-6 font-body text-[16px] leading-[1.6] text-white/80">
-                {study.discoverySummary}
-              </p>
-            )}
-          </ContentSection>
-        </SectionWrapper>
+        <DiscoverySection
+          inputs={study.discoveryInputs}
+          insights={study.discoveryInsights}
+          summary={study.discoverySummary}
+        />
       )}
 
       {/* Images after discovery section */}
@@ -240,8 +187,9 @@ const CaseStudyPage = () => {
 
       {/* 9. Impact (Metrics) */}
       {study.metrics && study.metrics.length > 0 && (
-        <MetricsGrid
-          metrics={study.metrics}
+        <ProblemCards
+          items={study.metrics}
+          variant="metric"
           sectionLabel="RESULTS"
           heading="Impact"
         />

@@ -35,7 +35,7 @@ const CaseStudyHero = ({ study }: Props) => {
   };
 
   return (
-    <section className="relative z-0 min-h-[600px] overflow-hidden bg-ink px-6 pt-32 pb-16 md:px-[60px] md:pt-[100px] md:pb-[100px]">
+    <section className="relative z-0 min-h-[600px] overflow-hidden bg-ink px-6 pb-16 pt-32 md:px-[60px] md:pb-[100px] md:pt-[100px]">
       {/* Background gradient accent */}
       <div
         className="pointer-events-none absolute right-0 top-0 h-full w-1/2 opacity-20"
@@ -46,7 +46,7 @@ const CaseStudyHero = ({ study }: Props) => {
 
       <div className="relative z-0 mx-auto grid max-w-[1320px] gap-12 lg:grid-cols-2 lg:items-center">
         {/* Left Content - First on mobile, left on desktop */}
-        <div className="flex flex-col gap-6 order-1 lg:order-1">
+        <div className="order-1 flex flex-col gap-6 lg:order-1">
           {/* Tags */}
           {study.tags && study.tags.length > 0 && (
             <div className="flex flex-wrap gap-2">
