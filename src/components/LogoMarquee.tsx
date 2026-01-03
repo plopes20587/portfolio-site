@@ -1,3 +1,6 @@
+import { SECTION_HEADING_WITH_TRACKING } from '../lib/styles'
+import { handleImageErrorTextFallback } from '../lib/imageUtils'
+
 // Company logos from Figma design
 const logos = [
   { name: "SeneGence", path: "/images/brands/senegence.png" },
@@ -16,7 +19,7 @@ const LogoMarquee = () => {
     <section className="px-0 py-[100px]">
       {/* Section Title - centered, H2 style from Figma */}
       <div className="flex w-full items-center justify-center">
-        <h2 className="font-display text-[32px] font-normal leading-[1.2] tracking-[0.42px] text-white md:text-[42px]">
+        <h2 className={SECTION_HEADING_WITH_TRACKING}>
           Brands I've worked with
         </h2>
       </div>
@@ -37,14 +40,7 @@ const LogoMarquee = () => {
                 loading="lazy"
                 alt={logo.name}
                 className="h-auto max-h-[33px] w-full object-contain"
-                onError={(e) => {
-                  // Fallback to text if logo not found
-                  e.currentTarget.style.display = "none";
-                  const text = document.createElement("span");
-                  text.className = "text-sm font-medium text-white/80";
-                  text.textContent = logo.name;
-                  e.currentTarget.parentElement?.appendChild(text);
-                }}
+                onError={(e) => handleImageErrorTextFallback(e, logo.name)}
               />
             </div>
           ))}

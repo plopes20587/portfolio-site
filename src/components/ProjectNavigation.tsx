@@ -3,12 +3,12 @@ import type { CaseStudy } from "../siteData";
 import SectionWrapper from "./SectionWrapper";
 import { ArrowLeftIcon, ArrowRightIcon } from "./icons/ArrowIcons";
 
-type Props = {
+type ProjectNavigationProps = {
   previousProject?: CaseStudy;
   nextProject?: CaseStudy;
 };
 
-const ProjectNavigation = ({ previousProject, nextProject }: Props) => {
+const ProjectNavigation = ({ previousProject, nextProject }: ProjectNavigationProps) => {
   return (
     <SectionWrapper
       maxWidth="1320"

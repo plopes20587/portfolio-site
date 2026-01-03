@@ -1,6 +1,7 @@
 import SectionWrapper from "./SectionWrapper";
 import ContentSection from "./ContentSection";
 import BulletList from "./BulletList";
+import { hasItems, hasValue } from "../lib/helpers";
 
 type DiscoverySectionProps = {
   inputs?: string[];
@@ -25,19 +26,19 @@ const DiscoverySection = ({
   return (
     <SectionWrapper maxWidth="900" padding="large">
       <ContentSection heading="Discovery and Key Insights">
-        {inputs && inputs.length > 0 && (
+        {hasItems(inputs) && (
           <div className="mb-8">
             <h4 className={headingClassName}>Inputs</h4>
             <BulletList items={inputs} />
           </div>
         )}
-        {insights && insights.length > 0 && (
+        {hasItems(insights) && (
           <div className="mb-6">
             <h4 className={headingClassName}>Key Insights</h4>
             <BulletList items={insights} />
           </div>
         )}
-        {summary && (
+        {hasValue(summary) && (
           <p className="mt-6 font-body text-[16px] leading-[1.6] text-white/80">
             {summary}
           </p>

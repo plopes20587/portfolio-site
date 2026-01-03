@@ -1,66 +1,17 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import type { CaseStudy } from "../siteData";
-
-// Import project thumbnail images
-import kfcThumbnail from "../assets/images/kfc-pdp-redesign/KFC Thumbnail.png";
-import verizonThumbnail from "../assets/images/verizon-straight-talk-7day/Verizon Thumbnail.png";
-import cellebriteThumbnail from "../assets/images/cellebrite-website/Cellebrite Thumbnail.png";
-import senegenceThumbnail from "../assets/images/senegence-redesign/SeneGence Thumbnail.png";
+import { getProjectConfig } from "../lib/projectConfig";
+import { handleImageErrorHide } from "../lib/imageUtils";
 import checkIcon from "../assets/icons/check.svg";
 import externalLinkIcon from "../assets/icons/external-link.svg";
 
-type Props = {
+type CaseStudyCardProps = {
   study: CaseStudy;
 };
 
-// Project color configurations matching Figma design
-const projectColors: Record<
-  string,
-  {
-    // Gradient colors for card background
-    gradientFrom: string;
-    gradientTo: string;
-    // Grid pattern overlay image (semi-transparent grid)
-    gridPatternUrl: string;
-    // Thumbnail image
-    thumbnail: string;
-  }
-> = {
-  "kfc-pdp-redesign": {
-    gradientFrom: "#541db9",
-    gradientTo: "#7f5af0",
-    gridPatternUrl: "/images/grid-pattern.png",
-    thumbnail: kfcThumbnail,
-  },
-  "verizon-straight-talk-7day": {
-    gradientFrom: "#E31E24",
-    gradientTo: "#C8102E",
-    gridPatternUrl: "/images/grid-pattern.png",
-    thumbnail: verizonThumbnail,
-  },
-  "cellebrite-website": {
-    gradientFrom: "#006644",
-    gradientTo: "#009966",
-    gridPatternUrl: "/images/grid-pattern.png",
-    thumbnail: cellebriteThumbnail,
-  },
-  "senegence-redesign": {
-    gradientFrom: "#0052cc",
-    gradientTo: "#0066ff",
-    gridPatternUrl: "/images/grid-pattern.png",
-    thumbnail: senegenceThumbnail,
-  },
-};
-
-
-const CaseStudyCard = ({ study }: Props) => {
-  const colors = projectColors[study.slug] || {
-    gradientFrom: "#541db9",
-    gradientTo: "#7f5af0",
-    gridPatternUrl: "",
-    thumbnail: "",
-  };
+const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
+  const config = getProjectConfig(study.slug);
 
   // Format category tag - uppercase with tracking
   const categoryTag = study.tags?.[0] || "";
@@ -81,7 +32,7 @@ const CaseStudyCard = ({ study }: Props) => {
           <div
             className="absolute inset-0 rounded-[24px]"
             style={{
-              background: `linear-gradient(to bottom, ${colors.gradientFrom}, ${colors.gradientTo})`,
+              background: `linear-gradient(to bottom, ${config.gradientFrom}, ${config.gradientTo})`,
             }}
           />
           {/* Grid pattern overlay - matches Figma grid texture */}
@@ -93,15 +44,13 @@ const CaseStudyCard = ({ study }: Props) => {
           {/* Project Image - centered with responsive horizontal padding */}
           <div className="flex w-full items-center justify-center overflow-hidden px-4 py-0 sm:px-8 md:px-16 lg:px-[104px]">
             <div className="aspect-square w-full max-w-[300px] sm:max-w-none">
-              {colors.thumbnail ? (
+              {config.thumbnail ? (
                 <img
-                  src={colors.thumbnail}
+                  src={config.thumbnail}
                   alt={`${study.title} mockup`}
                   className="h-full w-full object-cover"
                   loading="lazy"
-                  onError={(e) => {
-                    e.currentTarget.style.display = "none";
-                  }}
+                  onError={handleImageErrorHide}
                 />
               ) : (
                 <div className="flex h-full w-full items-center justify-center rounded-lg bg-white/10">

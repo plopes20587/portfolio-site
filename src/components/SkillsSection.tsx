@@ -4,6 +4,7 @@ import developmentIcon from '../assets/icons/development.svg'
 import researchIcon from '../assets/icons/research.svg'
 import aiStackIcon from '../assets/icons/ai-stack.svg'
 import SectionWrapper from './SectionWrapper'
+import { SECTION_HEADING_WITH_TRACKING } from '../lib/styles'
 
 type SkillCategory = {
   name: string
@@ -50,7 +51,7 @@ const SkillsSection = () => {
       <div className="flex flex-col gap-[40px]">
         {/* Header */}
         <div className="flex w-full flex-col items-center gap-[16px]">
-          <h2 className="font-display text-[32px] font-normal leading-[1.2] tracking-[0.42px] text-white md:text-[42px]">
+          <h2 className={SECTION_HEADING_WITH_TRACKING}>
             Tech Stack
           </h2>
           <p className="max-w-[741px] text-center font-body text-[16px] font-normal leading-[1.5] text-white">

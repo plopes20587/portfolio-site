@@ -1,5 +1,7 @@
+import React from "react";
 import { useParams } from "react-router-dom";
 import { caseStudies } from "../siteData";
+import { hasItems, hasValue, hasAny } from "../lib/helpers";
 import CaseStudyHero from "../components/CaseStudyHero";
 import ProjectMetadata from "../components/ProjectMetadata";
 import ContentSection from "../components/ContentSection";
@@ -9,8 +11,7 @@ import ImageShowcase from "../components/ImageShowcase";
 import ResultsSummary from "../components/ResultsSummary";
 import SectionWrapper from "../components/SectionWrapper";
 import BulletList from "../components/BulletList";
-import { ArrowLeftIcon } from "../components/icons/ArrowIcons";
-import { Link } from "react-router-dom";
+import NotFound from "../components/NotFound";
 import ProblemCards from "../components/ProblemCards";
 import ProblemImageGallery from "../components/ProblemImageGallery";
 import SectionHeader from "../components/SectionHeader";
@@ -36,24 +37,29 @@ const CaseStudyPage = () => {
       (section) => section.placement === placement,
     ) || [];
 
+  // Helper to render image sections by placement
+  const renderImageSections = (placement: string) => {
+    const sections = getImageSections(placement);
+    return sections.map((section, index) => (
+      <ImageShowcase
+        key={`${placement}-${index}`}
+        images={section.images}
+        layout={section.layout}
+        sectionLabel={section.sectionLabel}
+        heading={section.heading}
+      />
+    ));
+  };
+
+  // Helper to render a standard content section with wrapper
+  const renderContentSection = (heading: string, content: React.ReactNode) => (
+    <SectionWrapper maxWidth="900" padding="large">
+      <ContentSection heading={heading}>{content}</ContentSection>
+    </SectionWrapper>
+  );
+
   if (!study) {
-    return (
-      <div className="flex min-h-screen flex-col items-center justify-center gap-6 bg-ink px-6">
-        <h1 className="font-display text-[48px] text-white">
-          Case Study Not Found
-        </h1>
-        <p className="font-body text-[16px] text-white/70">
-          The case study you're looking for doesn't exist.
-        </p>
-        <Link
-          to="/#work"
-          className="hover:bg-primary/90 inline-flex items-center gap-2 rounded-[4px] bg-primary px-6 py-3 font-body text-[16px] font-medium text-white transition"
-        >
-          <ArrowLeftIcon />
-          Back to Work
-        </Link>
-      </div>
-    );
+    return <NotFound />;
   }
 
   return (
@@ -65,12 +71,12 @@ const CaseStudyPage = () => {
       <ProjectMetadata study={study} />
 
       {/* 2. TL;DR */}
-      {study.tldr && study.tldr.length > 0 && (
+      {hasItems(study.tldr) && (
         <TLDRSection items={study.tldr} summary={study.tldrSummary} />
       )}
 
       {/* 3. The Problem - Combined with Images */}
-      {study.challenge && (
+      {hasValue(study.challenge) && (
         <SectionWrapper
           maxWidth="1320"
           customPadding="px-6 py-[80px] md:px-[60px]"
@@ -78,7 +84,7 @@ const CaseStudyPage = () => {
         >
           <div className="flex flex-col gap-[48px]">
             {/* Problem Cards with Header */}
-            {study.problemBreakdown && study.problemBreakdown.length > 0 ? (
+            {hasItems(study.problemBreakdown) ? (
               <>
                 <ProblemCards
                   items={study.problemBreakdown}
@@ -115,11 +121,11 @@ const CaseStudyPage = () => {
         </SectionWrapper>
       )}
       {/* 4. My Role */}
-      {study.roleDescription && (
+      {hasValue(study.roleDescription) && (
         <RoleSection roleDescription={study.roleDescription} />
       )}
       {/* 5. Discovery and Key Insights */}
-      {(study.discoveryInputs || study.discoveryInsights) && (
+      {hasAny(study.discoveryInputs, study.discoveryInsights) && (
         <DiscoverySection
           inputs={study.discoveryInputs}
           insights={study.discoveryInsights}
@@ -128,65 +134,45 @@ const CaseStudyPage = () => {
       )}
 
       {/* Images after discovery section */}
-      {getImageSections("after-process").map((section, index) => (
-        <ImageShowcase
-          key={`after-process-${index}`}
-          images={section.images}
-          layout={section.layout}
-          sectionLabel={section.sectionLabel}
-          heading={section.heading}
-        />
-      ))}
+      {renderImageSections("after-process")}
 
       {/* 6. Design Approach */}
-      {(study.designApproach || study.designApproachPoints) && (
-        <SectionWrapper maxWidth="900" padding="large">
-          <ContentSection heading="Design Approach">
-            {study.designApproach && (
+      {hasAny(study.designApproach, study.designApproachPoints) &&
+        renderContentSection(
+          "Design Approach",
+          <>
+            {hasValue(study.designApproach) && (
               <p className="mb-6">{study.designApproach}</p>
             )}
-            {study.designApproachPoints &&
-              study.designApproachPoints.length > 0 && (
-                <BulletList items={study.designApproachPoints} />
-              )}
-          </ContentSection>
-        </SectionWrapper>
-      )}
+            {hasItems(study.designApproachPoints) && (
+              <BulletList items={study.designApproachPoints} />
+            )}
+          </>,
+        )}
 
       {/* 7. The Solution */}
-      {(study.solution || study.solutionPoints) && (
-        <SectionWrapper maxWidth="900" padding="large">
-          <ContentSection heading="The Solution">
-            {study.solution && <p className="mb-6">{study.solution}</p>}
-            {study.solutionPoints && study.solutionPoints.length > 0 && (
+      {hasAny(study.solution, study.solutionPoints) &&
+        renderContentSection(
+          "The Solution",
+          <>
+            {hasValue(study.solution) && (
+              <p className="mb-6">{study.solution}</p>
+            )}
+            {hasItems(study.solutionPoints) && (
               <BulletList items={study.solutionPoints} />
             )}
-          </ContentSection>
-        </SectionWrapper>
-      )}
+          </>,
+        )}
 
       {/* Images after solution section */}
-      {getImageSections("after-solution").map((section, index) => (
-        <ImageShowcase
-          key={`after-solution-${index}`}
-          images={section.images}
-          layout={section.layout}
-          sectionLabel={section.sectionLabel}
-          heading={section.heading}
-        />
-      ))}
+      {renderImageSections("after-solution")}
 
       {/* 8. Validation */}
-      {study.validation && (
-        <SectionWrapper maxWidth="900" padding="large">
-          <ContentSection heading="Validation">
-            <p>{study.validation}</p>
-          </ContentSection>
-        </SectionWrapper>
-      )}
+      {hasValue(study.validation) &&
+        renderContentSection("Validation", <p>{study.validation}</p>)}
 
       {/* 9. Impact (Metrics) */}
-      {study.metrics && study.metrics.length > 0 && (
+      {hasItems(study.metrics) && (
         <ProblemCards
           items={study.metrics}
           variant="metric"
@@ -199,13 +185,8 @@ const CaseStudyPage = () => {
       <ResultsSummary text={study.results || ""} />
 
       {/* 10. What I Learned */}
-      {study.whatILearned && (
-        <SectionWrapper maxWidth="900" padding="large">
-          <ContentSection heading="What I Learned">
-            <p>{study.whatILearned}</p>
-          </ContentSection>
-        </SectionWrapper>
-      )}
+      {hasValue(study.whatILearned) &&
+        renderContentSection("What I Learned", <p>{study.whatILearned}</p>)}
 
       {/* Project Navigation - Previous/Next */}
       <ProjectNavigation

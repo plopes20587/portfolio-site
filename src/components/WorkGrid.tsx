@@ -1,13 +1,14 @@
 import CaseStudyCard from './CaseStudyCard'
 import { caseStudies } from '../siteData'
 import SectionWrapper from './SectionWrapper'
+import { SECTION_HEADING_WITH_TRACKING } from '../lib/styles'
 
 const WorkGrid = () => {
   return (
     <SectionWrapper id="work" maxWidth="1320" padding="large">
       {/* Section Title - centered, H2 style from Figma */}
       <div className="flex w-full items-center justify-center">
-        <h2 className="font-display text-[32px] font-normal leading-[1.2] tracking-[0.42px] text-white md:text-[42px]">
+        <h2 className={SECTION_HEADING_WITH_TRACKING}>
           FEATURED PROJECTS
         </h2>
       </div>

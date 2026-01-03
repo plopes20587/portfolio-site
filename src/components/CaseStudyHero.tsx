@@ -1,38 +1,15 @@
 import type { CaseStudy } from "../siteData";
 import Tag from "./Tag";
+import { getProjectThumbnail, getProjectGradient } from "../lib/projectConfig";
+import { hasItems } from "../lib/helpers";
 
-// Import case study thumbnails as hero images
-import kfcThumbnail from "../assets/images/kfc-pdp-redesign/KFC Thumbnail.png";
-import verizonThumbnail from "../assets/images/verizon-straight-talk-7day/Verizon Thumbnail.png";
-import cellebriteThumbnail from "../assets/images/cellebrite-website/Cellebrite Thumbnail.png";
-import senegenceThumbnail from "../assets/images/senegence-redesign/SeneGence Thumbnail.png";
-
-type Props = {
+type CaseStudyHeroProps = {
   study: CaseStudy;
 };
 
-// Map slugs to hero images
-const heroImages: Record<string, string> = {
-  "kfc-pdp-redesign": kfcThumbnail,
-  "verizon-straight-talk-7day": verizonThumbnail,
-  "cellebrite-website": cellebriteThumbnail,
-  "senegence-redesign": senegenceThumbnail,
-};
-
-// Project gradient colors matching the cards
-const projectGradients: Record<string, { from: string; to: string }> = {
-  "kfc-pdp-redesign": { from: "#541db9", to: "#7f5af0" },
-  "verizon-straight-talk-7day": { from: "#E31E24", to: "#C8102E" },
-  "cellebrite-website": { from: "#006644", to: "#009966" },
-  "senegence-redesign": { from: "#0052cc", to: "#0066ff" },
-};
-
-const CaseStudyHero = ({ study }: Props) => {
-  const heroImage = heroImages[study.slug] || "";
-  const gradient = projectGradients[study.slug] || {
-    from: "#541db9",
-    to: "#7f5af0",
-  };
+const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
+  const heroImage = getProjectThumbnail(study.slug);
+  const gradient = getProjectGradient(study.slug);
 
   return (
     <section className="relative z-0 min-h-[600px] overflow-hidden bg-ink px-6 pb-16 pt-32 md:px-[60px] md:pb-[100px] md:pt-[100px]">
@@ -48,7 +25,7 @@ const CaseStudyHero = ({ study }: Props) => {
         {/* Left Content - First on mobile, left on desktop */}
         <div className="order-1 flex flex-col gap-6 lg:order-1">
           {/* Tags */}
-          {study.tags && study.tags.length > 0 && (
+          {hasItems(study.tags) && (
             <div className="flex flex-wrap gap-2">
               {study.tags.map((tag) => (
                 <Tag key={tag} variant="primary">
