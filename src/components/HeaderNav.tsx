@@ -44,8 +44,8 @@ const HeaderNav = () => {
             </a>
           ))}
 
-          {/* CTA Button - rounded-[4px], bg-primary */}
-          <a href="mailto:patrick@patricklopes.com" className="nav-button">
+          {/* CTA Button - using Figma design system */}
+          <a href="mailto:patrick@patricklopes.com" className="button-primary">
             Lets talk
           </a>
         </nav>
@@ -86,7 +86,7 @@ const HeaderNav = () => {
             <a
               href="mailto:patrick@patricklopes.com"
               onClick={() => setMobileMenuOpen(false)}
-              className="nav-button mt-6"
+              className="button-primary mt-6"
             >
               Lets talk
             </a>

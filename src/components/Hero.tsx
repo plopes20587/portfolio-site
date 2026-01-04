@@ -93,7 +93,7 @@ const Hero = () => {
             </motion.p>
           </div>
 
-          {/* CTA Button - height 50px, rounded-[4px], bg-primary */}
+          {/* CTA Button - using Figma design system */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -102,7 +102,7 @@ const Hero = () => {
           >
             <a
               href="mailto:patrick@patricklopes.com"
-              className="inline-flex h-full items-center justify-center gap-[8px] rounded-[4px] bg-primary px-[24px] py-[8px] text-[18px] font-normal leading-[1.5] text-white transition hover:bg-primary/90"
+              className="button-primary h-[50px]"
             >
               Lets talk
               <svg

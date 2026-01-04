@@ -24,7 +24,7 @@ const NotFound = ({
       <p className="font-body text-[16px] text-white/70">{message}</p>
       <Link
         to={backLink}
-        className="hover:bg-primary/90 inline-flex items-center gap-2 rounded-[4px] bg-primary px-6 py-3 font-body text-[16px] font-medium text-white transition"
+        className="button-primary"
       >
         <ArrowLeftIcon />
         {backLabel}

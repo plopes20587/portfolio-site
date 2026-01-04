@@ -13,10 +13,10 @@ const FooterCTA = () => {
         <p className="font-body text-[16px] font-normal leading-[1.5] text-white">
           {footerCta.body}
         </p>
-        {/* Button: bg primary, h-50px, rounded-4px, px-24, py-8, gap-8 */}
+        {/* Button: using Figma design system */}
         <a
           href={footerCta.action.href}
-          className="footer-cta-button"
+          className="button-primary"
         >
           {footerCta.action.label}
           <img src={arrowRightIcon} alt="" className="h-4 w-4" />
