@@ -1,5 +1,4 @@
 import { footerCta } from "../siteData";
-import arrowRightIcon from "../assets/icons/arrow-right.svg";
 
 const FooterCTA = () => {
   return (
@@ -19,7 +18,6 @@ const FooterCTA = () => {
           className="button-primary"
         >
           {footerCta.action.label}
-          <img src={arrowRightIcon} alt="" className="h-4 w-4" />
         </a>
       </div>
     </footer>

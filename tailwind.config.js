@@ -114,6 +114,7 @@ export default {
           button: {
             primary: "var(--color-surface-button-primary)",
             secondary: "var(--color-surface-button-secondary)",
+            "secondary-hover": "var(--color-surface-button-secondary-hover)",
           },
         },
         // Element colors - references CSS variables
