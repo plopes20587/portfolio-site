@@ -36,15 +36,13 @@ const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
           )}
 
           {/* Title */}
-          <h1 className="font-display text-[48px] font-normal leading-[1.1] text-white md:text-[64px]">
+          <h1 className="font-display text-h2 font-normal text-white md:text-h1">
             {study.title}
           </h1>
 
           {/* Description with accent border */}
           <div className="border-l-4 border-primary pl-6">
-            <p className="font-body text-[16px] font-normal leading-[1.6] text-white/80">
-              {study.blurb}
-            </p>
+            <p className="font-body text-body text-white/80">{study.blurb}</p>
           </div>
         </div>
 
@@ -60,7 +58,7 @@ const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
                 fetchPriority="high"
               />
             ) : (
-              <div className="flex h-[400px] items-center justify-center bg-white/5">
+              <div className="flex h-[400px] items-center justify-center bg-surface-card">
                 <span className="text-white/30">Project Image</span>
               </div>
             )}

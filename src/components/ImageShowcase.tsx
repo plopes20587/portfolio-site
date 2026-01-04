@@ -45,7 +45,7 @@ const ImageShowcase = ({
         {images.map((image, index) => (
           <figure
             key={`${image.src}-${index}`}
-            className="group overflow-hidden rounded-[16px] border border-white/10 bg-white/5"
+            className="group overflow-hidden rounded-[16px] border border-white/10 bg-surface-card"
           >
             <div className="overflow-hidden">
               <img
@@ -57,7 +57,7 @@ const ImageShowcase = ({
             </div>
             {image.caption && (
               <figcaption className="border-t border-white/10 bg-ink-900/50 px-6 py-4">
-                <p className="font-body text-[14px] text-white/70">
+                <p className="font-body text-h4-small text-white/70">
                   {image.caption}
                 </p>
               </figcaption>

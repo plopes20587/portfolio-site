@@ -45,7 +45,7 @@ const ProblemCards = ({
     showHeader && sectionLabel && heading ? (
       <div className="flex w-full flex-col items-center gap-2">
         <h4 className="section-label">{sectionLabel}</h4>
-        <h2 className="font-display text-h2 font-normal leading-[52px] text-white">
+        <h2 className="font-display text-h2 font-normal text-white">
           {heading}
         </h2>
       </div>
@@ -85,12 +85,8 @@ const ProblemCards = ({
               <div className="icon-container icon-container-primary">
                 <img src={iconSrc!} alt="" className="icon-small" />
               </div>
-              <p className="font-display text-[24px] leading-[1.2] text-white">
-                {metric.value}
-              </p>
-              <p className="font-body text-[16px] leading-[1.5] text-white/60">
-                {metric.label}
-              </p>
+              <p className="font-display text-body-lg">{metric.label}</p>
+              <p className="font-body text-body">{metric.value}</p>
             </div>
           );
         }
@@ -101,10 +97,10 @@ const ProblemCards = ({
             <div className="problem-card-icon-container">
               {iconSrc && <img src={iconSrc} alt="" className="icon-small" />}
             </div>
-            <h3 className="font-body text-body-lg font-semibold text-white">
+            <h3 className="font-body text-body-lg font-semibold">
               {problemItem.title}
             </h3>
-            <p className="font-body text-body font-normal text-white">
+            <p className="font-body text-body font-normal">
               {problemItem.description}
             </p>
           </div>

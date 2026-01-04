@@ -138,6 +138,7 @@ export default {
           tag: "var(--color-text-tag)",
           heading: "var(--color-text-heading)",
           body: "var(--color-text-body)",
+          "body-black": "var(--color-text-body-black)",
           "body-300": "var(--color-text-body-300)",
           "body-400": "var(--color-text-body-400)",
           "body-500": "var(--color-text-body-500)",

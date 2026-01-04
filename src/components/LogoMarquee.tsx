@@ -1,4 +1,4 @@
-import { SECTION_HEADING_WITH_TRACKING } from '../lib/styles'
+import { SECTION_HEADING_BASE } from '../lib/styles'
 import { handleImageErrorTextFallback } from '../lib/imageUtils'
 
 // Company logos from Figma design
@@ -19,7 +19,7 @@ const LogoMarquee = () => {
     <section className="px-0 py-[100px]">
       {/* Section Title - centered, H2 style from Figma */}
       <div className="flex w-full items-center justify-center">
-        <h2 className={SECTION_HEADING_WITH_TRACKING}>
+        <h2 className={SECTION_HEADING_BASE}>
           Brands I've worked with
         </h2>
       </div>

@@ -96,101 +96,103 @@ export const marqueeLogos = [
 export const caseStudies: CaseStudy[] = [
   {
     slug: "verizon-straight-talk-7day",
-    title: "VERIZON",
+    title: "Straight Talk 7-day Bridge Plan",
     blurb:
       "Designing a short-term payment flexibility experience that helps prepaid customers maintain service during temporary financial gaps.",
     tags: ["Payment Experience", "Multi-Channel", "UX Design"],
     metrics: [
       {
         label: "Plan Redemptions",
-        value: "Nearly 100K plan redemptions shortly after launch",
-      },
-      {
-        label: "Unique Customers",
-        value: "Over 40K unique customers used the plan",
-      },
-      {
-        label: "Plan Mix",
         value:
-          "The higher-tier 7-day plan accounted for the majority of redemptions",
+          "Tens of thousands of customers redeemed the 7-day plan after launch",
+      },
+      {
+        label: "Repeat Usage",
+        value:
+          "A significant portion of users returned to purchase the plan multiple times",
+      },
+      {
+        label: "Channel Performance",
+        value:
+          "Digital and customer-facing channels accounted for the majority of usage",
       },
     ],
     role: "Senior Product Designer",
     roleDescription:
-      "I contributed to end-to-end experience design across plan discovery, messaging, and multi-channel flows.",
-    client: "Straight Talk (Verizon)",
-    timeline: "Multi-phase rollout",
-    platform: "Web, Mobile Web, App, IVR",
+      "I worked as a product designer on the Verizon Value team, contributing to the end-to-end experience for the Straight Talk 7-day Bridge Plan. My work focused on plan discovery, messaging clarity, and flow design across multiple customer touchpoints, in close collaboration with product, engineering, CX, analytics, and legal partners.",
+    client: "Straight Talk (Verizon Value Organization)",
+    timeline: "4 months",
+    platform: "Web, Mobile Web, App",
     industry: "Telecommunications",
     challenge:
-      "Prepaid customers experiencing short-term financial gaps had no flexible payment options. They were forced to commit to full plans or lose service, which quickly eroded trust. Additionally, eligibility rules were complex and hard to understand, and experiences differed across touchpoints, creating a fragmented customer journey.",
+      "Prepaid customers who missed a refill date had limited options to stay connected, even when they were willing to pay for short-term access. Together, these issues increased frustration and risked long-term customer loss during short-term financial hardship.",
     problemBreakdown: [
       {
         icon: "target",
-        title: "No Short-Term Option",
+        title: "Lack of Short-Term Flexibility",
         description:
-          "Customers had to commit to full plans or lose service, leaving no flexibility for temporary financial gaps.",
+          "Customers could not easily purchase a smaller plan to bridge the gap between refill dates, forcing them into full monthly commitments or service suspension.",
       },
       {
         icon: "shield",
-        title: "Complex Eligibility",
+        title: "Unclear Plan Eligibility and Messaging",
         description:
-          "Eligibility rules were hard to understand, creating confusion and barriers for customers who needed help.",
+          "Rules around eligibility, pricing, and renewal were complex and difficult to communicate clearly across channels.",
       },
       {
         icon: "lightning",
-        title: "Fragmented Channels",
+        title: "Fragmented Customer Journeys",
         description:
-          "Experiences differed across touchpoints, creating inconsistency and confusion in the customer journey.",
+          "The experience differed depending on how a customer entered the flow, whether through web, app, IVR, or care, leading to confusion and drop-off.",
       },
     ],
     // Discovery section
     discoveryInputs: [
-      "Customer research",
-      "Financial gap analysis",
-      "Channel audit",
-      "User feedback analysis",
+      "Customer service and care insights",
+      "Lifecycle and suspension data",
+      "Stakeholder workshops across CX, product, and analytics",
+      "Existing refill and reactivation flows",
     ],
     discoveryInsights: [
-      "Customers experience short-term financial gaps",
-      "Loss of service quickly erodes trust",
-      "Existing options lacked flexibility",
+      "Customers often face short-term financial gaps rather than long-term churn intent",
+      "Losing service creates frustration and erodes trust quickly",
+      "Existing options did not clearly communicate flexibility or next steps",
     ],
     discoverySummary:
-      "These insights revealed the need for a flexible payment solution that could help customers maintain service during temporary financial challenges while maintaining trust and clarity.",
+      "These insights reframed the problem from preventing churn to supporting customers during a temporary moment of need.",
     // Design approach
     designApproach:
-      "Focused on creating a clear, consistent experience across all channels that addressed customer needs with empathy and clarity.",
+      "The goal was to introduce flexibility without adding complexity. AI tools supported early flow exploration and content iteration, helping teams move quickly while aligning on clarity and consistency.",
     designApproachPoints: [
-      "Clear messaging",
-      "Cross-channel consistency",
-      "Lifecycle-aware design",
+      "Designing clear plan messaging that set the right expectations",
+      "Supporting consistent experiences across channels",
+      "Making eligibility and next steps easy to understand",
+      "Balancing customer needs with operational and legal constraints",
     ],
     // Solution
     solution:
-      "The solution introduced a 7-day bridge plan that provided customers with a short-term payment flexibility option, clarified eligibility and pricing, and unified the experience across all channels.",
+      "The 7-day Bridge Plan introduced a short-term option that allowed eligible customers to maintain service without committing to a full monthly plan. Each design decision directly addressed a core problem identified earlier. Together, these changes created a more supportive and predictable experience during a sensitive moment in the customer lifecycle.",
     solutionPoints: [
-      "Introduced a 7-day bridge plan",
-      "Clarified eligibility and pricing",
-      "Unified experience across channels",
+      "A Clear Short-Term Plan Option: The 7-day plan gave customers an affordable, time-bound option to stay connected during a temporary gap",
+      "Straightforward Eligibility and Pricing Messaging: Plan details were clearly communicated so customers understood who qualified, how pricing worked, and how the plan could be renewed",
+      "Consistent Cross-Channel Experience: The plan was supported across digital and assisted channels, allowing customers to access it in the moment and through the path most convenient to them",
     ],
     // Validation
     validation:
-      "The solution was validated through multi-phase rollout, measuring adoption rates, customer usage patterns, and retention signals across digital and non-digital channels.",
+      "Post-launch performance and customer behavior were closely monitored in partnership with analytics and CX teams. Usage patterns, repeat purchases, and channel performance were used to validate whether the experience met both customer and business goals.",
     // Results
     results:
-      "Tens of thousands of successful purchases. Strong repeat usage across customers. Improved customer retention signals.",
+      "These results showed that short-term flexibility met a real customer need while helping maintain long-term subscriber relationships.",
     // What I learned
     whatILearned:
-      "This project highlighted the importance of designing with empathy during moments of financial stress. Clear messaging and flexible options can build trust even when customers are facing challenges.It also reinforced how lifecycle and systems thinking are critical when designing experiences that span multiple channels and touchpoints.",
+      "This project highlighted the importance of designing with empathy during moments of financial stress. Clear messaging and flexible options can build trust even when customers are facing challenges. It also reinforced how lifecycle and systems thinking are critical when designing experiences that span multiple channels and touchpoints.",
     tldr: [
-      "Nearly 100K plan redemptions shortly after launch",
-      "Over 40K unique customers used the plan",
-      "Strong repeat usage across customers",
-      "Majority of adoption through digital channels",
+      "Tens of thousands of customers used the 7-day plan shortly after launch",
+      "High repeat usage showed the plan solved an ongoing need",
+      "Most redemptions occurred through customer-facing digital channels",
     ],
     tldrSummary:
-      "This project focused on providing payment flexibility during financial gaps, resulting in strong adoption and improved customer retention.",
+      "This project focused on helping customers stay connected while protecting long-term subscriber value.",
   },
   {
     slug: "kfc-pdp-redesign",

@@ -111,7 +111,7 @@ const CaseStudyPage = () => {
                   headingClassName="uppercase"
                 />
                 <div className="max-w-[900px]">
-                  <div className="font-body text-[16px] font-normal leading-[1.6] text-white/80">
+                  <div className="font-body text-body text-white/80">
                     <p>{study.challenge}</p>
                   </div>
                 </div>

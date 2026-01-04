@@ -50,7 +50,7 @@ const StarCursor = () => {
       >
         {/* Outer glow */}
         <div className="relative h-5 w-5">
-          <div className="absolute inset-0 animate-pulse rounded-full bg-[#7F5AF0] opacity-60 blur-md" />
+          <div className="absolute inset-0 animate-pulse rounded-full bg-primary opacity-60 blur-md" />
           
           {/* Star shape */}
           <svg
@@ -64,7 +64,7 @@ const StarCursor = () => {
               y1="4"
               x2="10"
               y2="16"
-              stroke="#7F5AF0"
+              stroke="var(--color-primary)"
               strokeWidth="1.5"
               strokeLinecap="round"
             />
@@ -74,7 +74,7 @@ const StarCursor = () => {
               y1="10"
               x2="16"
               y2="10"
-              stroke="#7F5AF0"
+              stroke="var(--color-primary)"
               strokeWidth="1.5"
               strokeLinecap="round"
             />
@@ -83,7 +83,7 @@ const StarCursor = () => {
               cx="10"
               cy="10"
               r="2"
-              fill="#7F5AF0"
+              fill="var(--color-primary)"
               opacity="0.8"
             />
           </svg>
@@ -105,7 +105,7 @@ const StarCursor = () => {
           mass: 0.8,
         }}
       >
-        <div className="h-1.5 w-1.5 rounded-full bg-[#7F5AF0] opacity-40 blur-sm" />
+        <div className="h-1.5 w-1.5 rounded-full bg-primary opacity-40 blur-sm" />
       </motion.div>
 
       <motion.div
@@ -122,7 +122,7 @@ const StarCursor = () => {
           mass: 1,
         }}
       >
-        <div className="h-1 w-1 rounded-full bg-[#9D7FF5] opacity-30 blur-sm" />
+        <div className="h-1 w-1 rounded-full bg-purple-light opacity-30 blur-sm" />
     </motion.div>
     </>
   )

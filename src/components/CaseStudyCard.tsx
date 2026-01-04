@@ -36,7 +36,7 @@ const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
             }}
           />
           {/* Grid pattern overlay - matches Figma grid texture */}
-          <div className="absolute inset-0 rounded-[24px] opacity-50 case-study-card-grid" />
+          <div className="case-study-card-grid absolute inset-0 rounded-[24px] opacity-50" />
         </div>
 
         {/* Card Content */}
@@ -53,7 +53,7 @@ const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
                   onError={handleImageErrorHide}
                 />
               ) : (
-                <div className="flex h-full w-full items-center justify-center rounded-lg bg-white/10">
+                <div className="flex h-full w-full items-center justify-center rounded-lg bg-surface-card-border">
                   <span className="text-sm text-white/30">Mockup Image</span>
                 </div>
               )}
@@ -66,20 +66,18 @@ const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
             <div className="flex flex-col gap-[8px]">
               {/* Category Tag - H4 style: 14px, bold, uppercase, 0.55px tracking */}
               {categoryTag && (
-                <p className="font-body text-[14px] font-bold uppercase leading-[20px] tracking-[0.55px] text-white/80">
+                <p className="font-body text-h4-small font-bold uppercase text-white/80">
                   {categoryTag}
                 </p>
               )}
 
               {/* Project Title - H3 style: 40px Staatliches */}
-              <h3 className="font-display text-[40px] font-normal leading-none text-white">
+              <h3 className="font-display text-h3 font-normal leading-none text-white">
                 {study.title}
               </h3>
 
               {/* Description - Body style: 16px Inter */}
-              <p className="font-body text-[16px] font-normal leading-[1.5] text-white">
-                {study.blurb}
-              </p>
+              <p className="font-body text-body text-white">{study.blurb}</p>
             </div>
 
             {/* Metrics List - with checkmark icons */}
@@ -92,7 +90,7 @@ const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
                       <img src={checkIcon} alt="" className="h-3 w-3" />
                     </div>
                     {/* Metric text - 16px */}
-                    <span className="font-body text-[16px] font-normal leading-[1.5] text-white">
+                    <span className="font-body text-body text-white">
                       {metric.value}
                     </span>
                   </div>
@@ -101,7 +99,7 @@ const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
             )}
 
             {/* View Project Button - white bg, black text, with icon */}
-            <span className="inline-flex w-fit items-center justify-center gap-[8px] rounded-[4px] bg-white px-[24px] py-[8px] text-[18px] font-normal leading-[1.5] text-black transition hover:bg-gray-100">
+            <span className="text-body-black inline-flex w-fit items-center justify-center gap-[8px] rounded-[4px] bg-white px-[24px] py-[8px] text-body font-normal transition hover:bg-gray-100">
               View Project
               <img src={externalLinkIcon} alt="" className="h-4 w-4" />
             </span>

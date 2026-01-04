@@ -29,7 +29,7 @@ const ProblemImageGallery = ({ images }: ProblemImageGalleryProps) => {
           </div>
           {image.caption && (
             <figcaption className="px-6 py-4">
-              <p className="font-body text-[14px] text-white/70">
+              <p className="font-body text-h4-small text-white/70">
                 {image.caption}
               </p>
             </figcaption>

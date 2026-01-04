@@ -21,7 +21,7 @@ const DiscoverySection = ({
   if (!inputs && !insights) return null;
 
   const headingClassName =
-    "tracking-0 mb-4 font-display text-[32px] font-normal uppercase leading-[36px] text-primary";
+    "mb-4 font-display text-h4 font-normal uppercase text-primary";
 
   return (
     <SectionWrapper maxWidth="900" padding="large">
@@ -39,9 +39,7 @@ const DiscoverySection = ({
           </div>
         )}
         {hasValue(summary) && (
-          <p className="mt-6 font-body text-[16px] leading-[1.6] text-white/80">
-            {summary}
-          </p>
+          <p className="mt-6 font-body text-body text-white/80">{summary}</p>
         )}
       </ContentSection>
     </SectionWrapper>

@@ -17,7 +17,7 @@ const ResultsSummary = ({
 }: ResultsSummaryProps) => {
   if (!text) return null;
 
-  const baseClassName = "font-body text-[16px] text-white/70";
+  const baseClassName = "font-body text-body text-white/70";
   const variantClassName = variant === "section" ? "text-center" : "";
   const textElement = (
     <p className={`${baseClassName} ${variantClassName} ${className}`.trim()}>

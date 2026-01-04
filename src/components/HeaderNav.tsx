@@ -24,7 +24,7 @@ const HeaderNav = () => {
         {/* Logo - underlined style from Figma */}
         <Link
           to="/"
-          className="font-body text-[18px] font-semibold text-white underline decoration-white/80 underline-offset-4 transition hover:decoration-white"
+          className="font-body text-body font-semibold text-white underline decoration-white/80 underline-offset-4 transition hover:decoration-white"
         >
           Patrick Lopes
         </Link>
@@ -38,7 +38,7 @@ const HeaderNav = () => {
               download={link.download || undefined}
               target={link.download ? "_blank" : undefined}
               rel={link.download ? "noopener noreferrer" : undefined}
-              className="font-body text-[16px] font-medium text-white transition-colors hover:text-white/80"
+              className="font-body text-body font-medium text-white transition-colors hover:text-white/80"
             >
               {link.label}
             </a>
@@ -56,17 +56,17 @@ const HeaderNav = () => {
           className="flex h-10 w-10 items-center justify-center text-white md:hidden"
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
-          <img 
-            src={mobileMenuOpen ? closeIcon : menuIcon} 
-            alt="" 
-            className="h-6 w-6" 
+          <img
+            src={mobileMenuOpen ? closeIcon : menuIcon}
+            alt=""
+            className="h-6 w-6"
           />
         </button>
       </div>
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="absolute left-0 right-0 top-full border-t border-white/10 bg-ink/95 backdrop-blur-md md:hidden">
+        <div className="bg-ink/95 absolute left-0 right-0 top-full border-t border-white/10 backdrop-blur-md md:hidden">
           <nav className="flex flex-col px-6 py-6 md:px-[64px]">
             {navLinks.map((link) => (
               <a
@@ -76,7 +76,7 @@ const HeaderNav = () => {
                 target={link.download ? "_blank" : undefined}
                 rel={link.download ? "noopener noreferrer" : undefined}
                 onClick={() => setMobileMenuOpen(false)}
-                className="border-b border-white/10 py-4 font-body text-[18px] font-medium text-white transition-colors hover:text-white/80"
+                className="border-b border-white/10 py-4 font-body text-body font-medium text-white transition-colors hover:text-white/80"
               >
                 {link.label}
               </a>
