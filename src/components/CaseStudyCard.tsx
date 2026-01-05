@@ -40,7 +40,7 @@ const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
         </div>
 
         {/* Card Content */}
-        <div className="relative z-10 flex h-full flex-col gap-[24px]">
+        <div className="relative z-10 flex h-full flex-col gap-0">
           {/* Project Image - centered with responsive horizontal padding */}
           <div className="flex w-full items-center justify-center overflow-hidden px-4 py-0 sm:px-8 md:px-16 lg:px-[104px]">
             <div className="aspect-square w-full max-w-[300px] sm:max-w-none">
@@ -48,7 +48,7 @@ const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
                 <img
                   src={config.thumbnail}
                   alt={`${study.title} mockup`}
-                  className="h-full w-full object-cover"
+                  className="h-[fit-content] w-full object-cover"
                   loading="lazy"
                   onError={handleImageErrorHide}
                 />
