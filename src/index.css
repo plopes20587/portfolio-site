@@ -101,6 +101,14 @@
     0.25
   ); /* Colors/Transparent/Royal Purple/25 */
 
+  /* --- Colors: Borders --- */
+  --color-borders-primary-default: rgba(
+    127,
+    90,
+    240,
+    0.25
+  ); /* Color/Borders/Primary/default */
+
   /* --- Colors: Neutral --- */
   --color-neutral-white: #ffffff; /* Colors/Neutral/White */
 

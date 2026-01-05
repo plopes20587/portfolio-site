@@ -19,7 +19,7 @@ const RoleSection = ({ roleDescription }: RoleSectionProps) => {
   return (
     <SectionWrapper maxWidth="1320" padding="large">
       <div className="flex flex-col items-center justify-center">
-        <div className="flex w-full flex-col items-center justify-center rounded-[14px] border border-[rgba(251,44,54,0.2)] bg-[rgba(2,6,24,0.8)] p-[48px]">
+        <div className="flex w-full flex-col items-center justify-center rounded-[14px] border border-[var(--color-borders-primary-default)] bg-[rgba(2,6,24,0.8)] p-[48px]">
           <div className="flex w-full max-w-[1080px] items-center gap-[32px]">
             {/* Large question mark icon */}
             <div
