@@ -48,7 +48,7 @@ const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
 
         {/* Right - Hero Image - Second on mobile, right on desktop */}
         <div className="relative order-2 lg:order-2">
-          <div className="overflow-hidden rounded-[24px] shadow-2xl">
+          <div className="overflow-hidden rounded-[12px] shadow-2xl">
             {heroImage ? (
               <img
                 src={heroImage}

@@ -1,6 +1,6 @@
 // Import project thumbnail images
 import kfcThumbnail from "../assets/images/kfc-pdp-redesign/KFC Thumbnail.png";
-import verizonThumbnail from "../assets/images/verizon-straight-talk-7day/Verizon Thumbnail.png";
+import verizonThumbnail from "../assets/images/verizon-straight-talk-7day/ST-thumbnail.jpg";
 import cellebriteThumbnail from "../assets/images/cellebrite-website/Cellebrite Thumbnail.png";
 import senegenceThumbnail from "../assets/images/senegence-redesign/SeneGence Thumbnail.png";
 
