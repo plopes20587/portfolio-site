@@ -1,5 +1,4 @@
 import { footerCta } from "../siteData";
-import arrowRightIcon from "../assets/icons/arrow-right.svg";
 
 const FooterCTA = () => {
   return (
@@ -14,7 +13,6 @@ const FooterCTA = () => {
         {/* Button: using Figma design system */}
         <a href={footerCta.action.href} className="button-primary">
           {footerCta.action.label}
-          <img src={arrowRightIcon} alt="" className="h-4 w-4" />
         </a>
       </div>
     </footer>
