@@ -98,10 +98,10 @@ const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
               </div>
             )}
 
-            {/* View Project Button - secondary button style from Figma */}
-            <span className="button-secondary">
+            {/* View Project Button - white bg, black text, with icon */}
+            <span className="text-body-black inline-flex w-fit items-center justify-center gap-[8px] rounded-[4px] bg-white px-[24px] py-[8px] text-body font-normal transition hover:bg-gray-100">
               View Project
-              <img src={externalLinkIcon} alt="" />
+              <img src={externalLinkIcon} alt="" className="h-4 w-4" />
             </span>
           </div>
         </div>

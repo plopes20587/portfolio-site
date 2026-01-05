@@ -47,8 +47,8 @@ export const projectConfigs: Record<string, ProjectConfig> = {
     thumbnail: verizonThumbnail,
   },
   "cellebrite-website": {
-    gradientFrom: "#006644",
-    gradientTo: "#009966",
+    gradientFrom: "#ffbe51",
+    gradientTo: "#b44d08",
     gridPatternUrl: "/images/grid-pattern.png",
     thumbnail: cellebriteThumbnail,
   },
@@ -82,4 +82,6 @@ export const getProjectGradient = (slug: string): { from: string; to: string } =
   const config = getProjectConfig(slug);
   return { from: config.gradientFrom, to: config.gradientTo };
 };
+
+
 

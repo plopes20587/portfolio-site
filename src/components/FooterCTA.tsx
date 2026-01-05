@@ -1,4 +1,5 @@
 import { footerCta } from "../siteData";
+import arrowRightIcon from "../assets/icons/arrow-right.svg";
 
 const FooterCTA = () => {
   return (
@@ -9,15 +10,11 @@ const FooterCTA = () => {
           {footerCta.headline}
         </h2>
         {/* Body: Inter, 16px, weight 400, lineHeight 1.5 */}
-        <p className="font-body text-body text-white">
-          {footerCta.body}
-        </p>
+        <p className="font-body text-body text-white">{footerCta.body}</p>
         {/* Button: using Figma design system */}
-        <a
-          href={footerCta.action.href}
-          className="button-primary"
-        >
+        <a href={footerCta.action.href} className="button-primary">
           {footerCta.action.label}
+          <img src={arrowRightIcon} alt="" className="h-4 w-4" />
         </a>
       </div>
     </footer>

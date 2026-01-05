@@ -96,25 +96,22 @@ export const marqueeLogos = [
 export const caseStudies: CaseStudy[] = [
   {
     slug: "verizon-straight-talk-7day",
-    title: "Straight Talk 7-day Bridge Plan",
+    title: "Verizon",
     blurb:
       "Designing a short-term payment flexibility experience that helps prepaid customers maintain service during temporary financial gaps.",
-    tags: ["Payment Experience", "Multi-Channel", "UX Design"],
+    tags: ["Telecom", "B2C", "Prepaid Mobile", "Account & Billing"],
     metrics: [
       {
         label: "Plan Redemptions",
-        value:
-          "Tens of thousands of customers redeemed the 7-day plan after launch",
+        value: "100K redemptions in first few months",
       },
       {
         label: "Repeat Usage",
-        value:
-          "A significant portion of users returned to purchase the plan multiple times",
+        value: "40K+ unique customers",
       },
       {
-        label: "Channel Performance",
-        value:
-          "Digital and customer-facing channels accounted for the majority of usage",
+        label: "Plan Performance",
+        value: "7-day plan drove majority of redemptions",
       },
     ],
     role: "Senior Product Designer",
@@ -199,7 +196,7 @@ export const caseStudies: CaseStudy[] = [
     title: "KFC",
     blurb:
       "Redesigning the online ordering experience to make meal customization easier and less frustrating across desktop, mobile web, and app.",
-    tags: ["E-Commerce", "UX Research", "Mobile"],
+    tags: ["E-Commerce", "Food & Beverage", "B2C"],
     metrics: [
       { label: "Task Success", value: "88% task success rate across devices " },
       { label: "Faster Completion", value: "20% faster task completion time" },
@@ -338,11 +335,11 @@ export const caseStudies: CaseStudy[] = [
     slug: "senegence-redesign",
     title: "SENEGENCE",
     blurb:
-      "Redesigning SeneGence's e-commerce experience to improve navigation, clarity, and conversion. Increased conversions after launch, generated meaningful post-launch revenue, and improved consistency across devices.",
-    tags: ["E-Commerce", "Responsive Design"],
+      "Redesigning SeneGence’s e-commerce experience to make it easier for customers to browse products, understand what they’re buying, and complete purchases with less friction.",
+    tags: ["Retail", "E-Commerce", "Beauty & Cosmetics", "Product Discovery"],
     metrics: [
-      { label: "Conversions", value: "82K conversions" },
-      { label: "Revenue", value: "$7.2M in revenue" },
+      { label: "Conversions", value: "Over 82K conversions within 6 months" },
+      { label: "Revenue", value: "$7.2M in revenue impact post launch" },
     ],
     role: "Lead Product Designer",
     client: "SeneGence International",
@@ -401,8 +398,8 @@ export const caseStudies: CaseStudy[] = [
     slug: "cellebrite-website",
     title: "CELLEBRITE",
     blurb:
-      "Improving Cellebrite's website to make complex offerings easier to understand and navigate. Increased page views, reduced bounce rate, and improved content clarity.",
-    tags: ["Website UX", "Content Structure"],
+      "Improving Cellebrite's website to make complex offerings easier to understand and navigate.",
+    tags: ["Public Safety & Forensics", "Technology Services", "B2B"],
     metrics: [
       { label: "Page Views", value: "26% more page views" },
       { label: "Bounce Rate", value: "21% lower bounce rate" },
