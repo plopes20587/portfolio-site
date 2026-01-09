@@ -24,31 +24,32 @@ const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
     >
       <Link
         to={`/case/${study.slug}`}
-        className="group relative flex h-full max-w-[517px] flex-col overflow-hidden rounded-[24px] p-[24px] shadow-lg"
+        className="case-study-card group relative flex h-full max-w-[517px] flex-col overflow-hidden rounded-[24px] shadow-lg"
+        style={
+          {
+            "--case-study-gradient-from": config.gradientFrom,
+            "--case-study-gradient-to": config.gradientTo,
+          } as React.CSSProperties
+        }
       >
         {/* Background with gradient and grid pattern overlay */}
         <div className="pointer-events-none absolute inset-0 rounded-[24px]">
           {/* Gradient background - from Figma: gradient from dark to light purple */}
-          <div
-            className="absolute inset-0 rounded-[24px]"
-            style={{
-              background: `linear-gradient(to bottom, ${config.gradientFrom}, ${config.gradientTo})`,
-            }}
-          />
+          <div className="case-study-card-gradient absolute inset-0 rounded-[24px]" />
           {/* Grid pattern overlay - matches Figma grid texture */}
           <div className="case-study-card-grid absolute inset-0 rounded-[24px] opacity-50" />
         </div>
 
         {/* Card Content */}
-        <div className="relative z-10 flex h-full flex-col gap-0">
-          {/* Project Image - centered with responsive horizontal padding */}
-          <div className="flex w-full items-center justify-center overflow-hidden px-4 py-0 sm:px-8 md:px-16 lg:px-[104px]">
-            <div className="aspect-square w-full max-w-[300px] sm:max-w-none">
+        <div className="relative z-10 flex h-full flex-col">
+          {/* Project Image - centered with horizontal padding matching Figma */}
+          <div className="flex w-full items-center justify-center overflow-hidden px-[104px] py-0">
+            <div className="aspect-square w-full">
               {config.thumbnail ? (
                 <img
                   src={config.thumbnail}
                   alt={`${study.title} mockup`}
-                  className="h-[fit-content] w-full object-cover"
+                  className="h-full w-full object-contain"
                   loading="lazy"
                   onError={handleImageErrorHide}
                 />
@@ -61,42 +62,48 @@ const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
           </div>
 
           {/* Project Content - matches Figma structure */}
-          <div className="flex flex-col gap-[24px]">
-            {/* Top Content: Category, Title, Description */}
-            <div className="flex flex-col gap-[8px]">
-              {/* Category Tag - H4 style: 14px, bold, uppercase, 0.55px tracking */}
-              {categoryTag && (
-                <p className="font-body text-h4-small font-bold uppercase text-white/80">
-                  {categoryTag}
-                </p>
-              )}
+          <div className="flex h-[324px] flex-col justify-between">
+            {/* Project Container - groups TopContent and ListItems with gap-24 */}
+            <div className="case-study-card-project-container gap-6">
+              {/* Top Content: Category, Title, Description */}
+              <div className="case-study-card-top-content gap-2">
+                {/* Category Tag - H4 style: 14px, bold, uppercase */}
+                {categoryTag && (
+                  <p className="case-study-card-category">{categoryTag}</p>
+                )}
 
-              {/* Project Title - H3 style: 40px Staatliches */}
-              <h3 className="font-display text-h3 font-normal leading-none text-white">
-                {study.title}
-              </h3>
+                {/* Project Title - H3 style: 40px Staatliches */}
+                <h3 className="case-study-card-title">{study.title}</h3>
 
-              {/* Description - Body style: 16px Inter */}
-              <p className="font-body text-body text-white">{study.blurb}</p>
-            </div>
-
-            {/* Metrics List - with checkmark icons */}
-            {study.metrics && (
-              <div className="flex flex-col gap-[8px]">
-                {study.metrics.map((metric, index) => (
-                  <div key={index} className="flex items-center gap-[8px]">
-                    {/* Checkmark circle - 20px, bg-white/20 */}
-                    <div className="flex h-[20px] w-[20px] shrink-0 items-center justify-center rounded-full bg-white/20">
-                      <img src={checkIcon} alt="" className="h-3 w-3" />
-                    </div>
-                    {/* Metric text - 16px */}
-                    <span className="font-body text-body text-white">
-                      {metric.value}
-                    </span>
-                  </div>
-                ))}
+                {/* Description - Body style: 16px Inter */}
+                <p className="case-study-card-description">{study.blurb}</p>
               </div>
-            )}
+
+              {/* Metrics List - with checkmark icons */}
+              {study.metrics && (
+                <div className="case-study-card-metrics-list gap-2">
+                  {study.metrics.map((metric, index) => (
+                    <div
+                      key={index}
+                      className="case-study-card-metric-item gap-2"
+                    >
+                      {/* Checkmark circle - 20px, bg-white/20 */}
+                      <div className="case-study-card-checkmark">
+                        <img
+                          src={checkIcon}
+                          alt=""
+                          className="case-study-card-checkmark-icon"
+                        />
+                      </div>
+                      {/* Metric text - 16px */}
+                      <span className="case-study-card-metric-text">
+                        {metric.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {/* View Project Button - secondary button style from Figma */}
             <span className="button-secondary">

@@ -24,7 +24,7 @@ const HeaderNav = () => {
         {/* Logo - underlined style from Figma */}
         <Link
           to="/"
-          className="font-body text-body font-semibold text-white underline decoration-white/80 underline-offset-4 transition hover:decoration-white"
+          className="font-body text-body font-semibold underline decoration-white/80 underline-offset-4 transition hover:decoration-white"
         >
           Patrick Lopes
         </Link>
@@ -38,7 +38,7 @@ const HeaderNav = () => {
               download={link.download || undefined}
               target={link.download ? "_blank" : undefined}
               rel={link.download ? "noopener noreferrer" : undefined}
-              className="font-body text-body font-medium text-white transition-colors hover:text-white/80"
+              className="font-body text-body font-medium transition-colors hover:text-white/80"
             >
               {link.label}
             </a>
@@ -53,7 +53,7 @@ const HeaderNav = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="flex h-10 w-10 items-center justify-center text-white md:hidden"
+          className="flex h-10 w-10 items-center justify-center md:hidden"
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
           <img
@@ -76,7 +76,7 @@ const HeaderNav = () => {
                 target={link.download ? "_blank" : undefined}
                 rel={link.download ? "noopener noreferrer" : undefined}
                 onClick={() => setMobileMenuOpen(false)}
-                className="border-b border-white/10 py-4 font-body text-body font-medium text-white transition-colors hover:text-white/80"
+                className="border-b border-white/10 py-4 font-body text-body font-medium transition-colors hover:text-white/80"
               >
                 {link.label}
               </a>

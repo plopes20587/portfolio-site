@@ -29,7 +29,6 @@ const TLDRSection = ({ items, summary }: TLDRSectionProps) => {
           <BulletList
             items={items}
             className="gap-3"
-            itemClassName="text-white"
           />
           {summary && (
             <p className="font-body text-body text-white/70">{summary}</p>

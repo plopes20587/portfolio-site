@@ -77,7 +77,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="font-display text-h1 font-normal leading-none text-white"
+              className="font-display text-h1 font-normal leading-none"
             >
               PRODUCT DESIGNER
             </motion.h1>
@@ -85,7 +85,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-              className="max-w-[792px] font-body text-body text-white"
+              className="max-w-[792px] font-body text-body"
             >
               Good design happens when the experience speaks the customer's
               language. With the right balance of structure, research, and a bit
@@ -140,7 +140,7 @@ const Hero = () => {
             opacity: { duration: 0.6, delay: 0.5 },
             y: { duration: 2, repeat: Infinity, ease: "easeInOut" },
           }}
-          className="flex h-[32px] w-[32px] items-center justify-center text-white"
+          className="flex h-[32px] w-[32px] items-center justify-center"
         >
           <svg
             width="32"

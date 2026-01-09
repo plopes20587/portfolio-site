@@ -31,7 +31,7 @@ const ProjectNavigation = ({
                 Previous
               </span>
             </div>
-            <h3 className="font-display text-h3 text-white transition group-hover:text-primary">
+            <h3 className="font-display text-h3 transition group-hover:text-primary">
               {previousProject.title}
             </h3>
             <p className="line-clamp-2 font-body text-body text-white/60">
@@ -52,7 +52,7 @@ const ProjectNavigation = ({
               <span className="font-body text-h4-small uppercase">Next</span>
               <ArrowRightIcon />
             </div>
-            <h3 className="font-display text-h3 text-white transition group-hover:text-primary">
+            <h3 className="font-display text-h3 transition group-hover:text-primary">
               {nextProject.title}
             </h3>
             <p className="line-clamp-2 font-body text-body text-white/60">

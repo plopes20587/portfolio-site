@@ -36,7 +36,7 @@ const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
           )}
 
           {/* Title */}
-          <h1 className="font-display text-h2 font-normal text-white md:text-h1">
+          <h1 className="font-display text-h2 font-normal md:text-h1">
             {study.title}
           </h1>
 

@@ -33,8 +33,8 @@ const RoleSection = ({ roleDescription }: RoleSectionProps) => {
             </div>
             {/* Content */}
             <div className="flex flex-1 flex-col gap-[24px]">
-              <h4 className="heading-h4 text-white">My role</h4>
-              <p className="font-body text-body text-white">
+              <h4>My role</h4>
+              <p className="font-body text-body">
                 {roleDescription}
               </p>
             </div>

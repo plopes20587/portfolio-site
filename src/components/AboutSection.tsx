@@ -50,7 +50,7 @@ const AboutSection = () => {
     >
       {/* Section Header */}
       <div className="mb-12 text-center">
-        <h2 className="font-display text-h2 font-normal text-white">
+        <h2 className="font-display text-h2 font-normal">
           a bit About me
         </h2>
       </div>
@@ -71,13 +71,13 @@ const AboutSection = () => {
         <div className="flex flex-col gap-7">
           {/* Bio Text */}
           <div className="flex flex-col gap-4">
-            <p className="font-body text-body text-white">
+            <p className="font-body text-body">
               I'm a senior product designer with a focus on e-commerce and
               digital shopping. Over the past ten years, I've worked on product
               pages, checkout flows, and customer journeys for brands like
               Verizon, KFC, and SeneGence.
             </p>
-            <div className="font-body text-body text-white">
+            <div className="font-body text-body">
               <p className="mb-0">
                 I like keeping things simple. My approach usually starts with
                 understanding how people shop or move through a flow, then
@@ -110,11 +110,11 @@ const AboutSection = () => {
                   />
                 </div>
                 {/* Stat Value */}
-                <p className="font-body text-body font-semibold text-white">
+                <p className="font-body text-body font-semibold">
                   {stat.value}
                 </p>
                 {/* Stat Label */}
-                <p className="text-nowrap font-body text-body text-white">
+                <p className="text-nowrap font-body text-body">
                   {stat.label}
                 </p>
               </div>

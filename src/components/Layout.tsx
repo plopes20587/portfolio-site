@@ -10,7 +10,7 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div id="top" className="relative min-h-screen bg-ink text-white">
+    <div id="top" className="relative min-h-screen bg-ink">
       <SEO />
       <Analytics />
       <StarCursor />

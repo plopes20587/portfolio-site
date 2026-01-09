@@ -52,7 +52,7 @@ const SkillsSection = () => {
         {/* Header */}
         <div className="flex w-full flex-col items-center gap-[16px]">
           <h2 className={SECTION_HEADING_BASE}>Tech Stack</h2>
-          <p className="max-w-[741px] text-center font-body text-body text-white">
+          <p className="max-w-[741px] text-center font-body text-body">
             My toolkit spans design, development, and AI—enabling me to bring
             ideas to life from concept to code
           </p>
@@ -77,7 +77,7 @@ const SkillsSection = () => {
               </div>
 
               {/* Category Name */}
-              <p className="font-body text-body text-white">{stack.name}</p>
+              <p className="font-body text-body">{stack.name}</p>
 
               {/* Skills List */}
               <div className="flex flex-col gap-[8px]">
@@ -90,7 +90,7 @@ const SkillsSection = () => {
                     <div
                       className={`h-[6px] w-[6px] rounded-full ${stack.bulletGradient}`}
                     />
-                    <p className="font-body text-body text-white">{item}</p>
+                    <p className="font-body text-body">{item}</p>
                   </div>
                 ))}
               </div>

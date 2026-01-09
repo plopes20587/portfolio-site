@@ -45,7 +45,7 @@ const ProblemCards = ({
     showHeader && sectionLabel && heading ? (
       <div className="flex w-full flex-col items-center gap-2">
         <h4 className="section-label">{sectionLabel}</h4>
-        <h2 className="font-display text-h2 font-normal text-white">
+        <h2 className="font-display text-h2 font-normal">
           {heading}
         </h2>
       </div>

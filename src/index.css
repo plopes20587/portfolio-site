@@ -124,6 +124,7 @@
   --spacing-8: 8px; /* Sizes/Spacing/sp-8 */
   --spacing-12: 12px; /* Scale/12 */
   --spacing-16: 16px; /* Sizes/Spacing/sp-16, Scale/16 */
+  --spacing-20: 20px; /* Used for checkmark circles and similar elements */
   --spacing-24: 24px; /* Sizes/Spacing/sp-24 */
   --spacing-28: 28px; /* Sizes/Spacing/sp-28 */
   --spacing-32: 32px; /* Sizes/Spacing/sp-32 */
@@ -186,19 +187,94 @@ html {
 }
 
 body {
-  @apply min-h-screen bg-ink font-body text-slate-100 antialiased;
+  @apply min-h-screen bg-ink font-body antialiased;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--color-text-body);
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================
+   BASE SEMANTIC HTML ELEMENT STYLES
+   Using CSS variables for typography and spacing
+   ============================================ */
+
+h1 {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-h1);
+  font-weight: var(--font-weight-normal);
+  letter-spacing: var(--letter-spacing-h1);
+  color: var(--color-text-heading);
+  margin: 0;
+}
+
+h2 {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-h2);
+  font-weight: var(--font-weight-normal);
+  letter-spacing: var(--letter-spacing-h2);
+  color: var(--color-text-heading);
+  margin: 0;
+}
+
+h3 {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-h3);
+  font-weight: var(--font-weight-normal);
+  letter-spacing: var(--letter-spacing-h3);
+  color: var(--color-text-heading);
+  margin: 0;
+}
+
+h4 {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+  font-weight: var(--font-weight-normal);
+  letter-spacing: var(--letter-spacing-h4);
+  color: var(--color-text-heading);
+  margin: 0;
+}
+
+p {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  font-weight: var(--font-weight-normal);
+  letter-spacing: var(--letter-spacing-body);
+  color: var(--color-text-body);
+  margin: 0;
+}
+
+span {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
 }
 
 a {
   @apply transition-colors duration-200;
+  color: inherit;
 }
 
 a:hover {
   @apply text-accent;
+}
+
+button {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 ::selection {
@@ -211,14 +287,12 @@ a:hover {
 }
 
 @layer components {
-  /* H4 heading styles with proper specificity to override Tailwind base styles */
-  h4.heading-h4 {
-    @apply font-display text-[32px] font-normal leading-[36px];
-  }
-
   /* Section label H4 styling */
   h4.section-label {
-    @apply mb-4 inline-block font-display text-[32px] font-normal uppercase leading-[36px] text-primary;
+    margin-bottom: var(--spacing-16);
+    display: inline-block;
+    text-transform: uppercase;
+    color: var(--color-primary);
   }
 
   /* ============================================
@@ -236,9 +310,7 @@ a:hover {
     border-width: 1px;
     border-style: solid;
     padding: var(--spacing-4) var(--spacing-16);
-    font-family: var(--font-family-body, "Inter", sans-serif);
     font-size: var(--font-size-body);
-    font-weight: var(--font-weight-normal);
     line-height: var(--line-height-body);
     letter-spacing: var(--letter-spacing-body);
     white-space: nowrap;
@@ -400,9 +472,7 @@ a:hover {
     border-radius: var(--radius-8);
     background-color: var(--color-surface-button-primary);
     padding: var(--spacing-8) var(--spacing-24);
-    font-family: var(--font-family-body, "Inter", sans-serif);
     font-size: var(--font-size-body);
-    font-weight: var(--font-weight-normal);
     line-height: var(--line-height-body);
     color: var(--color-text-body);
     transition: background-color 0.2s ease-in-out;
@@ -428,8 +498,8 @@ a:hover {
 
   /* --- Primary Button Icon Styling --- */
   .button-primary svg {
-    width: 16px;
-    height: 16px;
+    width: var(--spacing-16);
+    height: var(--spacing-16);
     flex-shrink: 0;
   }
 
@@ -443,9 +513,7 @@ a:hover {
     border-radius: var(--radius-8);
     background-color: var(--color-surface-button-secondary);
     padding: var(--spacing-8) var(--spacing-24);
-    font-family: var(--font-family-body, "Inter", sans-serif);
     font-size: var(--font-size-body);
-    font-weight: var(--font-weight-normal);
     line-height: var(--line-height-body);
     color: var(--color-text-body-black);
     transition: background-color 0.2s ease-in-out;
@@ -472,8 +540,8 @@ a:hover {
   /* --- Secondary Button Icon Styling --- */
   .button-secondary img,
   .button-secondary svg {
-    width: 16px;
-    height: 16px;
+    width: var(--spacing-16);
+    height: var(--spacing-16);
     flex-shrink: 0;
   }
 
@@ -497,10 +565,8 @@ a:hover {
     border-radius: var(--radius-8);
     background-color: var(--color-surface-button-primary);
     padding: var(--spacing-8) var(--spacing-24);
-    font-family: var(--font-family-body, "Inter", sans-serif);
     font-size: var(--font-size-body-lg);
-    font-weight: var(--font-weight-normal);
-    line-height: 1.5;
+    line-height: var(--line-height-body-lg);
     color: var(--color-text-body);
     transition: background-color 0.2s ease-in-out;
   }
@@ -537,7 +603,6 @@ a:hover {
     border-radius: 4px;
     background-color: var(--color-primary);
     padding: var(--spacing-8) var(--spacing-24);
-    font-family: var(--font-body, "Inter", sans-serif);
     font-size: var(--font-size-body);
     font-weight: 500;
     color: var(--color-neutral-white);
@@ -589,8 +654,8 @@ a:hover {
 
   .bullet-list-bullet {
     margin-top: var(--spacing-8);
-    height: 8px;
-    width: 8px;
+    height: var(--spacing-8);
+    width: var(--spacing-8);
     flex-shrink: 0;
     border-radius: 9999px;
     background-color: var(--color-primary);
@@ -602,6 +667,77 @@ a:hover {
       linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
     background-size: 40px 40px;
+  }
+
+  /* --- Case Study Card Component --- */
+  .case-study-card {
+    padding: var(--spacing-24);
+  }
+
+  .case-study-card-project-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .case-study-card-top-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .case-study-card-category {
+    font-size: var(--font-size-h4-small);
+    line-height: var(--line-height-h4-small);
+    color: var(--color-text-body);
+    opacity: 0.8;
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+  }
+
+  .case-study-card-title {
+    color: var(--color-text-heading);
+  }
+
+  .case-study-card-description {
+    color: var(--color-text-body);
+  }
+
+  .case-study-card-metrics-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .case-study-card-metric-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .case-study-card-metric-text {
+    color: var(--color-text-body);
+  }
+
+  .case-study-card-checkmark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: var(--spacing-20);
+    height: var(--spacing-20);
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .case-study-card-checkmark-icon {
+    width: var(--spacing-12);
+    height: var(--spacing-12);
+  }
+
+  /* Case Study Card Gradient Background */
+  .case-study-card-gradient {
+    background: linear-gradient(
+      to bottom,
+      var(--case-study-gradient-from, #541db9),
+      var(--case-study-gradient-to, #7f5af0)
+    );
   }
 
   /* --- TLDR Section Background --- */

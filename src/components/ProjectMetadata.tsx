@@ -43,7 +43,7 @@ const ProjectMetadata = ({ study }: ProjectMetadataProps) => {
               <p className="text-body-300 font-body text-h4-small font-medium uppercase">
                 {item.label}
               </p>
-              <p className="font-body text-body font-medium text-white">
+              <p className="font-body text-body font-medium">
                 {item.value}
               </p>
             </div>

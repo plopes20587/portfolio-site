@@ -13,7 +13,7 @@ function App() {
         <Suspense
           fallback={
             <div className="flex min-h-screen items-center justify-center bg-ink">
-              <div className="text-white">Loading...</div>
+              <div>Loading...</div>
             </div>
           }
         >

@@ -7,4 +7,4 @@
  * Used for H2 headings in sections (32px mobile, 48px desktop)
  */
 export const SECTION_HEADING_BASE =
-  "font-display text-h4 font-normal text-white md:text-h2";
+  "font-display text-h4 font-normal md:text-h2";
