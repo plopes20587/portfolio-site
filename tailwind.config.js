@@ -148,6 +148,10 @@ export default {
         link: {
           DEFAULT: "var(--color-link-default)",
         },
+        // Border colors - references CSS variables
+        borders: {
+          "primary-default": "var(--color-borders-primary-default)",
+        },
         // Electric Blue - references CSS variables
         "electric-blue": {
           500: "var(--color-electric-blue-500)",

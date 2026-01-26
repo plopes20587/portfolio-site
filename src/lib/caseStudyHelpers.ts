@@ -16,12 +16,3 @@ export const getImageSections = (
   );
 };
 
-/**
- * Render image sections by placement
- * Helper function for case study pages
- * @param sections - Array of image sections to render
- * @returns Array of React elements (to be used with map)
- */
-export const renderImageSections = (sections: ImageSection[]) => {
-  return sections;
-};

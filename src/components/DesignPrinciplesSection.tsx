@@ -54,17 +54,17 @@ const DesignPrinciplesSection = ({
 
   return (
     <SectionWrapper maxWidth="1320" padding="large">
-      <div className="flex w-full flex-col gap-[var(--spacing-48)]">
+      <div className="flex w-full flex-col gap-48">
         {/* Section Header - max-width 650px, gap 8px */}
-        <div className="flex max-w-[650px] flex-col gap-[var(--spacing-8)]">
+        <div className="flex max-w-[650px] flex-col gap-8">
           <h2>Design principles</h2>
-          <p className="text-[length:var(--font-size-body)] leading-[var(--line-height-body)]">
+          <p className="text-body">
             {description}
           </p>
         </div>
 
         {/* Principles Grid - 2x2 layout, 32px gap */}
-        <div className="grid w-full grid-cols-1 gap-[var(--spacing-32)] md:grid-cols-2">
+        <div className="grid w-full grid-cols-1 gap-32 md:grid-cols-2">
           {principles.map((principle, index) => {
             const iconSrc = getIconSrc(principle.icon);
             return (
@@ -84,11 +84,11 @@ const DesignPrinciplesSection = ({
                 )}
 
                 {/* Text Content - 8px gap between title and description */}
-                <div className="flex flex-1 flex-col gap-[var(--spacing-8)]">
-                  <p className="text-[length:var(--font-size-body-lg)] font-semibold leading-[var(--line-height-body)]">
+                <div className="flex flex-1 flex-col gap-8">
+                  <p className="text-body-lg font-semibold">
                     {principle.title}
                   </p>
-                  <p className="text-[length:var(--font-size-body)] leading-[var(--line-height-body)]">
+                  <p className="text-body">
                     {principle.description}
                   </p>
                 </div>

@@ -20,19 +20,19 @@ const RoleSection = ({
   return (
     <SectionWrapper
       maxWidth="1320"
-      customPadding="px-6 py-[var(--spacing-80)] md:px-[60px]"
+      customPadding="px-6 py-80 md:px-[60px]"
     >
       <div className="flex w-full items-center justify-center">
         <div
-          className={`flex w-full max-w-[1094px] flex-col items-center gap-[var(--spacing-32)] ${hasContributions ? "lg:flex-row lg:items-stretch" : ""}`}
+          className={`flex w-full max-w-[1094px] flex-col items-center gap-32 ${hasContributions ? "lg:flex-row lg:items-stretch" : ""}`}
         >
           {/* Left Column - My Role Content */}
-          <div className="flex min-h-px min-w-px flex-1 flex-col gap-[var(--spacing-32)]">
-            <div className="flex w-full flex-col gap-[var(--spacing-8)]">
-              <h3 className="font-display text-h3 leading-[var(--line-height-h3)] text-[var(--color-text-heading)]">
+          <div className="flex min-h-px min-w-px flex-1 flex-col gap-32">
+            <div className="flex w-full flex-col gap-8">
+              <h3 className="font-display text-h3 text-text-heading">
                 My role
               </h3>
-              <p className="min-w-full font-body text-body font-normal leading-[var(--line-height-body)] text-[var(--color-text-body)]">
+              <p className="min-w-full font-body text-body font-normal text-text-body">
                 {roleDescription}
               </p>
             </div>
@@ -41,14 +41,14 @@ const RoleSection = ({
           {/* Right Column - Core Contributions Card */}
           {hasContributions && (
             <div
-              className="flex min-h-px min-w-px flex-1 flex-col gap-[var(--spacing-24)] overflow-clip rounded-[var(--radius-16)] border p-[33px]"
+              className="flex min-h-px min-w-px flex-1 flex-col gap-24 overflow-clip rounded-16 border p-[33px]"
               style={{
                 backgroundColor: "var(--color-tldr-section-bg)",
                 borderColor: "var(--color-tldr-section-border)",
               }}
             >
               {/* Heading with lightbulb icon */}
-              <div className="flex items-center gap-[var(--spacing-8)]">
+              <div className="flex items-center gap-8">
                 <div className="flex h-[20px] w-[20px] shrink-0 items-center justify-center">
                   <svg
                     width="20"
@@ -73,7 +73,7 @@ const RoleSection = ({
                     />
                   </svg>
                 </div>
-                <p className="font-body text-body-lg font-semibold leading-[var(--line-height-body)] text-[var(--color-text-body)]">
+                <p className="font-body text-body-lg font-semibold text-text-body">
                   Core Contributions
                 </p>
               </div>
@@ -83,7 +83,7 @@ const RoleSection = ({
                 {coreContributions.map((contribution, index) => (
                   <div
                     key={`contribution-${index}`}
-                    className="flex w-full items-center gap-[var(--spacing-8)]"
+                    className="flex w-full items-center gap-8"
                   >
                     {/* Cyan checkmark circle */}
                     <div
@@ -100,7 +100,7 @@ const RoleSection = ({
                         }}
                       />
                     </div>
-                    <p className="min-h-px min-w-px flex-1 font-body text-body font-normal leading-[var(--line-height-body)] text-[var(--color-text-body)]">
+                    <p className="min-h-px min-w-px flex-1 font-body text-body font-normal text-text-body">
                       {contribution}
                     </p>
                   </div>

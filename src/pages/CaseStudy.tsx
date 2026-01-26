@@ -109,9 +109,7 @@ const CaseStudyPage = () => {
       )}
 
       {/* 8. Design Principles */}
-      {hasItems(study.designPrinciples) && (
-        <DesignPrinciplesSection principles={study.designPrinciples} />
-      )}
+      <DesignPrinciplesSection principles={study.designPrinciples || []} />
 
       {/* 9. The Solution - New card-based layout */}
       {hasItems(study.solutionCards) && (

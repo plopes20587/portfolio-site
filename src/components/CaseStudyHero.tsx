@@ -30,7 +30,7 @@ const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
         <div className="order-1 flex flex-col gap-6 lg:order-1">
           {/* Primary Card Container matching Figma node 1870:1423 */}
           <div
-            className="flex w-full flex-col gap-[var(--spacing-8)] rounded-[var(--radius-16)] border p-[var(--spacing-24)]"
+            className="flex w-full flex-col gap-8 rounded-16 border p-24"
             style={{
               backgroundColor: "var(--color-elements-pills-primary-background)",
               borderColor: "var(--color-elements-pills-primary-border)",
@@ -38,10 +38,10 @@ const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
             }}
           >
             {/* Top section with tags and title */}
-            <div className="flex w-full flex-col gap-[var(--spacing-8)]">
+            <div className="flex w-full flex-col gap-8">
               {/* Tags - Secondary (cyan) style */}
               {hasItems(study.tags) && (
-                <div className="flex flex-wrap gap-[var(--spacing-8)]">
+                <div className="flex flex-wrap gap-8">
                   {study.tags.map((tag) => (
                     <div key={tag} className="tag tag-secondary">
                       {tag}
@@ -51,19 +51,19 @@ const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
               )}
 
               {/* Title */}
-              <h1 className="w-full font-display text-h2 font-normal leading-[var(--line-height-h1)] text-[var(--color-text-heading)] md:text-h1">
+              <h1 className="w-full font-display text-h2 font-normal text-text-heading md:text-h1">
                 {study.title}
               </h1>
             </div>
 
             {/* Description with left cyan border accent */}
             <div
-              className="flex w-full items-center justify-between border-l-2 px-[var(--spacing-16)]"
+              className="flex w-full items-center justify-between border-l-2 px-16"
               style={{
                 borderColor: "var(--color-elements-secondary)",
               }}
             >
-              <p className="min-h-px min-w-px flex-1 font-body text-body font-normal leading-[var(--line-height-body)] text-[var(--color-text-body)]">
+              <p className="min-h-px min-w-px flex-1 font-body text-body font-normal text-text-body">
                 {study.blurb}
               </p>
             </div>

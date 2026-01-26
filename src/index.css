@@ -371,9 +371,10 @@ button {
   }
 
   /* --- Problem Card Component --- */
+  /* Matches Figma node 1822:1996 */
   .problem-card {
     display: flex;
-    flex: 1 1 100%;
+    flex: 0 1 100%;
     flex-direction: column;
     gap: var(--spacing-8);
     border-radius: var(--radius-16);
@@ -388,8 +389,7 @@ button {
 
   @media (min-width: 768px) {
     .problem-card {
-      flex: 1 1 300px;
-      width: auto;
+      flex: 0 1 346px;
       max-width: 346px;
     }
   }
@@ -408,9 +408,10 @@ button {
   }
 
   /* --- Metric Card Component --- */
+  /* Matches Figma node 1822:1996 */
   .metric-card {
     display: flex;
-    flex: 1 1 100%;
+    flex: 0 1 100%;
     flex-direction: column;
     gap: var(--spacing-8);
     border-radius: var(--radius-16);
@@ -425,10 +426,8 @@ button {
 
   @media (min-width: 768px) {
     .metric-card {
-      flex: 1 1 300px;
-      width: auto;
+      flex: 0 1 419px;
       max-width: 419px;
-      align-self: stretch;
     }
   }
 

@@ -45,22 +45,22 @@ const SolutionSection = ({
 
   return (
     <SectionWrapper maxWidth="1320" padding="large">
-      <div className="flex w-full flex-col items-center gap-[var(--spacing-48)]">
+      <div className="flex w-full flex-col items-center gap-48">
         {/* Section Header - Centered */}
-        <div className="flex max-w-[646px] flex-col items-center gap-[var(--spacing-8)] text-center">
-          <p className="font-display text-[length:var(--font-size-h4)] uppercase leading-[var(--line-height-h3)] text-accent">
+        <div className="flex max-w-[646px] flex-col items-center gap-8 text-center">
+          <p className="font-display text-h4 uppercase text-accent">
             Outcome
           </p>
           <h2 className="tracking-[0.48px]">The Solution</h2>
           {description && (
-            <p className="text-[length:var(--font-size-body)] leading-[var(--line-height-body)]">
+            <p className="text-body">
               {description}
             </p>
           )}
         </div>
 
         {/* Solution Cards - 3 columns */}
-        <div className="flex w-full flex-col items-center justify-center gap-[var(--spacing-32)] md:flex-row">
+        <div className="flex w-full flex-col items-center justify-center gap-32 md:flex-row">
           {cards.map((card, index) => {
             const iconSrc = solutionIcons[card.icon];
             return (
@@ -76,10 +76,10 @@ const SolutionSection = ({
                   </div>
                 )}
                 {/* Card Content */}
-                <p className="text-[length:var(--font-size-body-lg)] font-semibold leading-[var(--line-height-body)]">
+                <p className="text-body-lg font-semibold">
                   {card.title}
                 </p>
-                <p className="text-[length:var(--font-size-body)] leading-[var(--line-height-body)]">
+                <p className="text-body">
                   {card.description}
                 </p>
               </div>
@@ -89,9 +89,9 @@ const SolutionSection = ({
 
         {/* Image Showcase */}
         {image && image.images.length > 0 && (
-          <div className="flex w-full flex-col items-center gap-[var(--spacing-48)]">
+          <div className="flex w-full flex-col items-center gap-48">
             {/* Image Container */}
-            <div className="overflow-hidden rounded-[var(--radius-16)] border border-[var(--color-elements-pills-secondary-border)]">
+            <div className="overflow-hidden rounded-16 border border-elements-pills-secondary-border">
               <img
                 src={image.images[0].src}
                 alt={image.images[0].alt}
@@ -101,13 +101,13 @@ const SolutionSection = ({
 
             {/* Metrics Row */}
             {metrics && metrics.length > 0 && (
-              <div className="flex w-full flex-col items-center justify-center gap-[var(--spacing-32)] md:flex-row">
+              <div className="flex w-full flex-col items-center justify-center gap-32 md:flex-row">
                 {metrics.map((metric, index) => (
                   <div key={`metric-${index}`} className="solution-metric">
-                    <p className="text-[length:var(--font-size-h4)] font-bold leading-[var(--line-height-body)]">
+                    <p className="text-h4 font-bold">
                       {metric.value}
                     </p>
-                    <p className="text-[length:var(--font-size-body)] leading-[var(--line-height-body)] text-[var(--color-text-body-500)]">
+                    <p className="text-body text-text-body-500">
                       {metric.label}
                     </p>
                   </div>

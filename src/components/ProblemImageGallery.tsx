@@ -17,11 +17,11 @@ const ProblemImageGallery = ({ images }: ProblemImageGalleryProps) => {
   if (!images || images.length === 0) return null;
 
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-[var(--spacing-48)]">
+    <div className="flex w-full flex-col items-center justify-center gap-48">
       {images.map((image, index) => (
         <figure
           key={`${image.src}-${index}`}
-          className="flex w-full flex-col items-center gap-[var(--spacing-24)]"
+          className="flex w-full flex-col items-center gap-24"
         >
           {/* Image container - full width for annotated mockups */}
           <div className="flex w-full items-center justify-center">
@@ -35,7 +35,7 @@ const ProblemImageGallery = ({ images }: ProblemImageGalleryProps) => {
           {/* Caption centered below image */}
           {image.caption && (
             <figcaption className="max-w-[800px] text-center">
-              <p className="font-body text-body font-normal leading-[var(--line-height-body)] text-white/70">
+              <p className="font-body text-body font-normal text-white/70">
                 {image.caption}
               </p>
             </figcaption>

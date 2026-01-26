@@ -48,9 +48,9 @@ const SkillsSection = () => {
 
   return (
     <SectionWrapper id="skills" maxWidth="1320" padding="large">
-      <div className="flex flex-col gap-[40px]">
+      <div className="flex flex-col gap-40">
         {/* Header */}
-        <div className="flex w-full flex-col items-center gap-[16px]">
+        <div className="flex w-full flex-col items-center gap-16">
           <h2 className={SECTION_HEADING_BASE}>Tech Stack</h2>
           <p className="max-w-[741px] text-center font-body text-body">
             My toolkit spans design, development, and AI—enabling me to bring
@@ -59,11 +59,11 @@ const SkillsSection = () => {
         </div>
 
         {/* Skills Grid - responsive: 1 col mobile, 2 cols tablet, 4 cols desktop */}
-        <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-[24px]">
+        <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-24">
           {techStack.map((stack) => (
             <div
               key={stack.name}
-              className="flex flex-col gap-[16px] rounded-[16px] border border-white/10 bg-surface-card p-[25px]"
+              className="flex flex-col gap-16 rounded-16 border border-white/10 bg-surface-card p-[25px]"
             >
               {/* Icon Container - 56x56 with 28x28 icon centered */}
               <div
@@ -80,11 +80,11 @@ const SkillsSection = () => {
               <p className="font-body text-body">{stack.name}</p>
 
               {/* Skills List */}
-              <div className="flex flex-col gap-[8px]">
+              <div className="flex flex-col gap-8">
                 {stack.items.map((item) => (
                   <div
                     key={item}
-                    className="flex h-[24px] items-center gap-[8px]"
+                    className="flex h-[24px] items-center gap-8"
                   >
                     {/* Gradient Bullet */}
                     <div

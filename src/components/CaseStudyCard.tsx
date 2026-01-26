@@ -62,7 +62,7 @@ const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
           </div>
 
           {/* Project Content - matches Figma structure */}
-          <div className="flex h-[324px] flex-col justify-between">
+          <div className="flex flex-1 flex-col justify-between gap-[40px]">
             {/* Project Container - groups TopContent and ListItems with gap-24 */}
             <div className="case-study-card-project-container gap-6">
               {/* Top Content: Category, Title, Description */}
