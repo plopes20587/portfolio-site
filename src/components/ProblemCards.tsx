@@ -18,13 +18,7 @@ type ProblemCardsProps = {
   showHeader?: boolean;
 };
 
-// Icon mappings
-const problemIcons: Record<"target" | "shield" | "lightning", string> = {
-  target: targetIcon,
-  shield: shieldIcon,
-  lightning: lightningIcon,
-};
-
+// Icon mappings for metrics
 const metricIcons = [targetIcon, shieldIcon, lightningIcon, targetIcon];
 
 /**
@@ -41,49 +35,41 @@ const ProblemCards = ({
 }: ProblemCardsProps) => {
   if (!items || items.length === 0) return null;
 
+  /**
+   * Section header matching Figma node 1867:1247
+   * - Centered layout with 8px gap
+   * - Label: h4 size, uppercase, primary/accent color
+   * - Heading: h2 size, white
+   */
   const headerElement =
     showHeader && sectionLabel && heading ? (
-      <div className="flex w-full flex-col items-center gap-2">
-        <h4 className="section-label">{sectionLabel}</h4>
-        <h2 className="font-display text-h2 font-normal">
+      <div className="flex w-[650px] max-w-full flex-col items-center gap-[var(--spacing-8)] text-center">
+        <p className="font-display text-[length:var(--font-size-h4)] uppercase leading-[var(--line-height-h4)] tracking-[var(--letter-spacing-h4)] text-accent">
+          {sectionLabel}
+        </p>
+        <h2 className="font-display text-[length:var(--font-size-h2)] font-normal leading-[var(--line-height-h2)] tracking-[var(--letter-spacing-h2)] text-white">
           {heading}
         </h2>
       </div>
     ) : null;
 
   const containerClassName =
-    "flex w-full flex-col gap-8 md:flex-row md:items-stretch md:gap-16 lg:gap-32";
+    "flex w-full flex-col gap-[var(--spacing-32)] md:flex-row md:items-stretch md:justify-center";
 
-  const getIconSrc = (
-    item: ProblemBreakdownItem | Metric,
-    index: number,
-  ): string | null => {
-    if (variant === "metric") {
-      return metricIcons[index % metricIcons.length];
-    }
-    const problemItem = item as ProblemBreakdownItem;
-    const iconKey = problemItem.icon;
-    if (
-      iconKey === "target" ||
-      iconKey === "shield" ||
-      iconKey === "lightning"
-    ) {
-      return problemIcons[iconKey];
-    }
-    return null;
+  const getMetricIconSrc = (index: number): string => {
+    return metricIcons[index % metricIcons.length];
   };
 
   const cardsElement = (
     <div className={containerClassName}>
       {items.map((item, index) => {
-        const iconSrc = getIconSrc(item, index);
-
         if (variant === "metric") {
           const metric = item as Metric;
+          const iconSrc = getMetricIconSrc(index);
           return (
             <div key={metric.label} className="metric-card">
               <div className="icon-container icon-container-primary">
-                <img src={iconSrc!} alt="" className="icon-small" />
+                <img src={iconSrc} alt="" className="icon-small" />
               </div>
               <p className="font-display text-body-lg">{metric.label}</p>
               <p className="font-body text-body">{metric.value}</p>
@@ -94,13 +80,10 @@ const ProblemCards = ({
         const problemItem = item as ProblemBreakdownItem;
         return (
           <div key={`${problemItem.title}-${index}`} className="problem-card">
-            <div className="problem-card-icon-container">
-              {iconSrc && <img src={iconSrc} alt="" className="icon-small" />}
-            </div>
-            <h3 className="font-body text-body-lg font-semibold">
+            <p className="min-w-full font-body text-body-lg font-semibold leading-[var(--line-height-body)] text-[var(--color-text-body)]">
               {problemItem.title}
-            </h3>
-            <p className="font-body text-body font-normal">
+            </p>
+            <p className="min-w-full font-body text-body font-normal leading-[var(--line-height-body)] text-[var(--color-text-body)]">
               {problemItem.description}
             </p>
           </div>

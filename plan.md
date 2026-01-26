@@ -79,6 +79,21 @@ Recruiters and hiring managers reviewing a senior product designer for e-commerc
 - [x] Added meteor animation keyframes
 - [x] Fixed all linter errors
 
+#### CSS Architecture & Design System Refactoring
+
+- [x] Added base semantic HTML element styles (h1-h4, p, span) using CSS variables
+- [x] Removed redundant typography properties from custom classes
+- [x] Removed redundant spacing from CSS classes, using Tailwind utilities where appropriate
+- [x] Replaced hardcoded spacing values with CSS variables (added --spacing-20)
+- [x] Removed redundant h4.heading-h4 class, simplified h4.section-label
+- [x] Removed all text-white Tailwind classes from semantic HTML elements
+- [x] Updated body and base element styles to use CSS variables for white text
+- [x] Added base styles for buttons and anchors to ensure proper color inheritance
+- [x] All body text now uses white CSS variable by default through base styles
+- [x] CaseStudyCard component styled to match Figma design specifications
+- [x] Converted inline styles to CSS classes using CSS variables
+- [x] Consolidated duplicate spacing patterns across components
+
 ---
 
 ## Brand positioning and tone
@@ -220,15 +235,15 @@ All components have error handling that shows placeholders if images aren't foun
 
 ### Remaining work
 
-- [ ] Build individual case study pages
-- [ ] Implement About page content
+- [x] Build individual case study pages
+- [x] Implement About page content
 - [ ] Add Resume/CV page or download link
 - [ ] Mobile responsive refinements
-- [ ] SEO optimization (meta tags, OpenGraph)
+- [x] SEO optimization (meta tags, OpenGraph)
 - [ ] Performance optimization
 - [ ] Deploy to Render
 - [ ] Connect custom domain
-- [ ] Add analytics
+- [x] Add analytics
 
 ---
 

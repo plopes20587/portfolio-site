@@ -1,5 +1,4 @@
 import type { CaseStudy } from "../siteData";
-import Tag from "./Tag";
 import { getProjectThumbnail, getProjectGradient } from "../lib/projectConfig";
 import { hasItems } from "../lib/helpers";
 
@@ -7,6 +6,11 @@ type CaseStudyHeroProps = {
   study: CaseStudy;
 };
 
+/**
+ * Case Study Hero Component
+ * Displays project overview card on left and overlapping phone mockups on right
+ * Matches Figma design node 1870:1423 with purple card, cyan tags, and left-bordered description
+ */
 const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
   const heroImage = getProjectThumbnail(study.slug);
   const gradient = getProjectGradient(study.slug);
@@ -22,47 +26,75 @@ const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
       />
 
       <div className="relative z-0 mx-auto grid max-w-[1320px] gap-12 lg:grid-cols-2 lg:items-center">
-        {/* Left Content - First on mobile, left on desktop */}
+        {/* Left Content - Primary Card - First on mobile, left on desktop */}
         <div className="order-1 flex flex-col gap-6 lg:order-1">
-          {/* Tags */}
-          {hasItems(study.tags) && (
-            <div className="flex flex-wrap gap-2">
-              {study.tags.map((tag) => (
-                <Tag key={tag} variant="primary">
-                  {tag}
-                </Tag>
-              ))}
+          {/* Primary Card Container matching Figma node 1870:1423 */}
+          <div
+            className="flex w-full flex-col gap-[var(--spacing-8)] rounded-[var(--radius-16)] border p-[var(--spacing-24)]"
+            style={{
+              backgroundColor: "var(--color-elements-pills-primary-background)",
+              borderColor: "var(--color-elements-pills-primary-border)",
+              borderWidth: "1px",
+            }}
+          >
+            {/* Top section with tags and title */}
+            <div className="flex w-full flex-col gap-[var(--spacing-8)]">
+              {/* Tags - Secondary (cyan) style */}
+              {hasItems(study.tags) && (
+                <div className="flex flex-wrap gap-[var(--spacing-8)]">
+                  {study.tags.map((tag) => (
+                    <div key={tag} className="tag tag-secondary">
+                      {tag}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Title */}
+              <h1 className="w-full font-display text-h2 font-normal leading-[var(--line-height-h1)] text-[var(--color-text-heading)] md:text-h1">
+                {study.title}
+              </h1>
             </div>
-          )}
 
-          {/* Title */}
-          <h1 className="font-display text-h2 font-normal md:text-h1">
-            {study.title}
-          </h1>
-
-          {/* Description with accent border */}
-          <div className="border-l-4 border-primary pl-6">
-            <p className="font-body text-body text-white/80">{study.blurb}</p>
+            {/* Description with left cyan border accent */}
+            <div
+              className="flex w-full items-center justify-between border-l-2 px-[var(--spacing-16)]"
+              style={{
+                borderColor: "var(--color-elements-secondary)",
+              }}
+            >
+              <p className="min-h-px min-w-px flex-1 font-body text-body font-normal leading-[var(--line-height-body)] text-[var(--color-text-body)]">
+                {study.blurb}
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Right - Hero Image - Second on mobile, right on desktop */}
-        <div className="relative order-2 lg:order-2">
-          <div className="overflow-hidden rounded-[12px] shadow-2xl">
-            {heroImage ? (
-              <img
-                src={heroImage}
-                alt={`${study.title} project preview`}
-                className="h-full w-full object-cover"
-                loading="eager"
-                fetchPriority="high"
-              />
-            ) : (
-              <div className="flex h-[400px] items-center justify-center bg-surface-card">
-                <span className="text-white/30">Project Image</span>
+        {/* Right - Phone Mockups - Second on mobile, right on desktop */}
+        <div className="relative order-2 flex items-center justify-center lg:order-2">
+          {heroImage ? (
+            <div className="relative w-full max-w-[600px]">
+              {/* Phone Mockups - Image already contains two overlapping phones */}
+              <div
+                className="relative w-full"
+                style={{
+                  filter: "drop-shadow(0 25px 50px rgba(0, 0, 0, 0.4))",
+                }}
+              >
+                <img
+                  src={heroImage}
+                  alt={`${study.title} project preview - phone mockups`}
+                  className="h-auto w-full object-contain"
+                  loading="eager"
+                  fetchPriority="high"
+                />
               </div>
-            )}
-          </div>
+            </div>
+          ) : (
+            <div className="flex h-[400px] items-center justify-center bg-surface-card">
+              <span className="text-white/30">Project Image</span>
+            </div>
+          )}
         </div>
       </div>
     </section>

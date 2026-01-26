@@ -2,6 +2,7 @@ type SectionWrapperProps = {
   children: React.ReactNode;
   maxWidth?: "900" | "1100" | "1320";
   padding?: "small" | "large";
+  customPadding?: string;
   className?: string;
   id?: string;
   centerContent?: boolean;
@@ -15,12 +16,14 @@ const SectionWrapper = ({
   children,
   maxWidth = "1320",
   padding = "large",
+  customPadding,
   className = "",
   id,
   centerContent = true,
 }: SectionWrapperProps) => {
-  const paddingClass =
-    padding === "large"
+  const paddingClass = customPadding
+    ? customPadding
+    : padding === "large"
       ? "px-6 py-16 md:px-[60px] md:py-[100px]"
       : "px-6 py-8 md:px-[60px]";
 

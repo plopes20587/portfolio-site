@@ -9,27 +9,33 @@ type ProblemImageGalleryProps = {
 };
 
 /**
- * Component for displaying images after the problem section
- * Uses a specific layout that differs from ImageShowcase
+ * Component for displaying annotated images after the problem section
+ * Matches Figma design node 1902:1003 with phone mockups and callout annotations
+ * Images should include annotations baked in for complex callout designs
  */
 const ProblemImageGallery = ({ images }: ProblemImageGalleryProps) => {
   if (!images || images.length === 0) return null;
 
   return (
-    <div className="flex w-full flex-col items-start justify-center gap-6 md:flex-row md:gap-[70px]">
+    <div className="flex w-full flex-col items-center justify-center gap-[var(--spacing-48)]">
       {images.map((image, index) => (
-        <figure key={`${image.src}-${index}`} className="group overflow-hidden">
-          <div className="overflow-hidden">
+        <figure
+          key={`${image.src}-${index}`}
+          className="flex w-full flex-col items-center gap-[var(--spacing-24)]"
+        >
+          {/* Image container - full width for annotated mockups */}
+          <div className="flex w-full items-center justify-center">
             <img
               src={image.src}
               alt={image.alt}
-              className="h-auto w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+              className="h-auto max-w-full object-contain"
               loading="lazy"
             />
           </div>
+          {/* Caption centered below image */}
           {image.caption && (
-            <figcaption className="px-6 py-4">
-              <p className="font-body text-h4-small text-white/70">
+            <figcaption className="max-w-[800px] text-center">
+              <p className="font-body text-body font-normal leading-[var(--line-height-body)] text-white/70">
                 {image.caption}
               </p>
             </figcaption>

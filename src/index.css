@@ -115,6 +115,39 @@
   /* --- Colors: Additional Figma Tokens --- */
   --color-subtitle: #ffd7ba; /* Colors/Subtitle */
   --color-tertiary: #191b21; /* Colors/Tertiary */
+  --color-tldr-section-bg: rgba(15, 23, 43, 0.4); /* TL;DR section background */
+  --color-tldr-section-border: #1d293d; /* TL;DR section border */
+  --color-role-card-bg: rgba(
+    2,
+    6,
+    24,
+    0.8
+  ); /* Background for role/challenge cards */
+  --color-question-mark: #1d293d; /* Question mark icon color */
+  --color-hero-card-bg: rgba(
+    2,
+    6,
+    24,
+    0.8
+  ); /* Background for hero case study card */
+  --color-hero-card-border: rgba(
+    0,
+    211,
+    242,
+    0.4
+  ); /* Blue-purple border/glow for hero card */
+  --color-hero-tag-bg: rgba(
+    25,
+    27,
+    33,
+    0.8
+  ); /* Dark gray background for tags in hero card */
+  --color-hero-tag-border: rgba(
+    0,
+    211,
+    242,
+    0.4
+  ); /* Blue-purple border for tags in hero card */
 
   /* --- Spacing Scale --- */
   --spacing-none: 0; /* Sizes/Spacing/none */
@@ -132,12 +165,14 @@
   --spacing-48: 48px; /* Sizes/Spacing/sp-48 */
   --spacing-72: 72px; /* Sizes/Spacing/sp-72 */
   --spacing-80: 80px; /* Sizes/Spacing/sp-80, Scale/80 */
+  --spacing-22: 22px; /* Additional spacing value */
 
   /* --- Border Radius --- */
   --radius-none: 0; /* Sizes/Border/none */
   --radius-8: 8px; /* Sizes/Radius/rd-8 */
   --radius-14: 14px; /* Used in stat cards and other components */
   --radius-16: 16px; /* Sizes/Radius/rd-16 */
+  --radius-24: 24px; /* Sizes/Radius/rd-24 */
 
   /* --- Typography: Font Families --- */
   --font-family-display:
@@ -179,6 +214,12 @@
   /* --- Icon Sizes --- */
   --icon-size-small: 24px;
   --icon-size-medium: 48px;
+  --icon-size-question-mark: 96px; /* Question mark icon size */
+  --icon-size-question-mark-line-height: 96px; /* Question mark line height */
+
+  /* --- Special Dimensions --- */
+  --question-mark-container-width: 52.641px; /* Question mark container width */
+  --question-mark-container-height: 96px; /* Question mark container height (h-24 = 96px) */
 }
 
 html {
@@ -338,17 +379,18 @@ button {
     border-radius: var(--radius-16);
     border: 1px solid;
     padding: var(--spacing-24);
-    background-color: var(--color-elements-pills-primary-background);
-    border-color: var(--color-elements-pills-primary-border);
+    background-color: var(--color-elements-pills-secondary-background);
+    border-color: var(--color-elements-pills-secondary-border);
     width: 100%;
     min-width: 0;
+    align-self: stretch;
   }
 
   @media (min-width: 768px) {
     .problem-card {
       flex: 1 1 300px;
       width: auto;
-      max-width: 419px;
+      max-width: 346px;
     }
   }
 
@@ -595,6 +637,102 @@ button {
     height: var(--icon-size-small);
   }
 
+  /* --- Design Principles Card --- */
+  .design-principle-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-16);
+    border-radius: var(--radius-16);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-24);
+    background-color: var(--color-surface-card);
+  }
+
+  /* --- Design Principles Card (Secondary/Cyan variant) --- */
+  /* Matches Figma node 2006:8692 - horizontal layout with cyan accents */
+  .design-principle-card-secondary {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px; /* Figma: gap-[20px] */
+    border-radius: var(--radius-16);
+    border: 1px solid var(--color-elements-pills-secondary-border);
+    padding: 25px; /* Figma: pt-[25px] px-[25px] */
+    background-color: rgba(
+      15,
+      23,
+      43,
+      0.4
+    ); /* Figma: bg-[rgba(15,23,43,0.4)] */
+  }
+
+  /* --- Design Principles Icon Container (Secondary/Cyan) --- */
+  /* Matches Figma node 2008:8452 */
+  .design-principle-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px; /* Figma: size-[40px] */
+    height: 40px;
+    border-radius: var(--radius-8);
+    background-color: var(
+      --color-elements-pills-secondary-border
+    ); /* Figma: bg-[var(--color/color/borders/secondary/default)] */
+  }
+
+  /* --- Solution Section Card --- */
+  /* Matches Figma node 2001:8497 */
+  .solution-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-8);
+    padding: var(--spacing-24);
+    border-radius: var(--radius-16);
+    border: 1px solid var(--color-elements-pills-secondary-border);
+    background-color: var(--color-elements-pills-secondary-background);
+    width: 100%;
+    max-width: 343px;
+    height: 100%;
+  }
+
+  /* --- Solution Section Card Icon Wrapper --- */
+  /* Matches Figma node I2001:8497;2001:8445 */
+  .solution-card-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px;
+    border-radius: var(--radius-8);
+    border: 1px solid var(--color-elements-pills-secondary-border);
+    background-color: var(--color-elements-pills-secondary-background);
+  }
+
+  /* --- Solution Section Metric --- */
+  /* Matches Figma node 1867:1302 */
+  .solution-metric {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-8);
+    padding-top: 25px;
+    border-top: 1px solid #1d293d;
+    width: 100%;
+    max-width: 373px;
+  }
+
+  /* --- Core Contributions Card --- */
+  .core-contributions-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-16);
+    border-radius: var(--radius-14);
+    border: 1px solid var(--color-borders-primary-default);
+    padding: var(--spacing-48);
+    background-color: rgba(2, 6, 24, 0.8);
+  }
+
   /* --- Header Navigation Button --- */
   .nav-button {
     display: inline-flex;
@@ -642,7 +780,7 @@ button {
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background-color: rgba(255, 255, 255, 0.05);
-    padding: var(--spacing-32) var(--spacing-22);
+    padding: var(--spacing-32) var(--spacing-24);
   }
 
   /* --- Bullet List Item --- */

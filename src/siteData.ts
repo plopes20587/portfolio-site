@@ -1,5 +1,6 @@
 // Import case study images
 import kfcBeforeMockups from "./assets/images/kfc-pdp-redesign/KFC Before images.png";
+import kfcAfterSolution from "./assets/images/kfc-pdp-redesign/KFC after-solution.jpg";
 
 export type ImageItem = {
   src: string;
@@ -25,6 +26,18 @@ export type ProblemBreakdownItem = {
   description: string;
 };
 
+export type DesignPrinciple = {
+  icon: string;
+  title: string;
+  description: string;
+};
+
+export type SolutionCard = {
+  icon: "target" | "shield" | "lightning";
+  title: string;
+  description: string;
+};
+
 export type CaseStudy = {
   slug: string;
   title: string;
@@ -34,6 +47,7 @@ export type CaseStudy = {
   // Case study detail page fields
   role?: string;
   roleDescription?: string;
+  coreContributions?: string[];
   client?: string;
   timeline?: string;
   platform?: string;
@@ -41,25 +55,16 @@ export type CaseStudy = {
   overview?: string;
   challenge?: string;
   problemBreakdown?: ProblemBreakdownItem[];
-  // Discovery section
-  discoveryInputs?: string[];
-  discoveryInsights?: string[];
-  discoverySummary?: string;
-  // Design approach
-  designApproach?: string;
-  designApproachPoints?: string[];
+  // Design principles
+  designPrinciples?: DesignPrinciple[];
   // Solution
   solution?: string;
   solutionPoints?: string[];
-  // Validation
-  validation?: string;
+  solutionCards?: SolutionCard[];
   // Results
   results?: string;
-  // What I learned
-  whatILearned?: string;
   // New storytelling elements
   tldr?: string[];
-  tldrSummary?: string;
   imageSections?: ImageSection[];
 };
 
@@ -102,21 +107,27 @@ export const caseStudies: CaseStudy[] = [
     tags: ["Telecom", "B2C", "Prepaid Mobile", "Account & Billing"],
     metrics: [
       {
-        label: "Plan Redemptions",
-        value: "100K redemptions in first few months",
+        label: "redemptions in first few months",
+        value: "100K",
       },
       {
-        label: "Repeat Usage",
-        value: "40K+ unique customers",
+        label: "unique customers with repeat usage",
+        value: "40K+",
       },
       {
-        label: "Plan Performance",
-        value: "7-day plan drove majority of redemptions",
+        label: "of redemptions from 7-day plan",
+        value: "majority",
       },
     ],
     role: "Senior Product Designer",
     roleDescription:
       "I worked as a product designer on the Verizon Value team, contributing to the end-to-end experience for the Straight Talk 7-day Bridge Plan. My work focused on plan discovery, messaging clarity, and flow design across multiple customer touchpoints, in close collaboration with product, engineering, CX, analytics, and legal partners.",
+    coreContributions: [
+      "Designing clear plan messaging that set the right expectations",
+      "Supporting consistent experiences across channels",
+      "Making eligibility and next steps easy to understand",
+      "Balancing customer needs with operational and legal constraints",
+    ],
     client: "Straight Talk (Verizon Value Organization)",
     timeline: "4 months",
     platform: "Web, Mobile Web, App",
@@ -143,74 +154,75 @@ export const caseStudies: CaseStudy[] = [
           "The experience differed depending on how a customer entered the flow, whether through web, app, IVR, or care, leading to confusion and drop-off.",
       },
     ],
-    // Discovery section
-    discoveryInputs: [
-      "Customer service and care insights",
-      "Lifecycle and suspension data",
-      "Stakeholder workshops across CX, product, and analytics",
-      "Existing refill and reactivation flows",
-    ],
-    discoveryInsights: [
-      "Customers often face short-term financial gaps rather than long-term churn intent",
-      "Losing service creates frustration and erodes trust quickly",
-      "Existing options did not clearly communicate flexibility or next steps",
-    ],
-    discoverySummary:
-      "These insights reframed the problem from preventing churn to supporting customers during a temporary moment of need.",
-    // Design approach
-    designApproach:
-      "The goal was to introduce flexibility without adding complexity. AI tools supported early flow exploration and content iteration, helping teams move quickly while aligning on clarity and consistency.",
-    designApproachPoints: [
-      "Designing clear plan messaging that set the right expectations",
-      "Supporting consistent experiences across channels",
-      "Making eligibility and next steps easy to understand",
-      "Balancing customer needs with operational and legal constraints",
-    ],
     // Solution
     solution:
-      "The 7-day Bridge Plan introduced a short-term option that allowed eligible customers to maintain service without committing to a full monthly plan. Each design decision directly addressed a core problem identified earlier. Together, these changes created a more supportive and predictable experience during a sensitive moment in the customer lifecycle.",
-    solutionPoints: [
-      "A Clear Short-Term Plan Option: The 7-day plan gave customers an affordable, time-bound option to stay connected during a temporary gap",
-      "Straightforward Eligibility and Pricing Messaging: Plan details were clearly communicated so customers understood who qualified, how pricing worked, and how the plan could be renewed",
-      "Consistent Cross-Channel Experience: The plan was supported across digital and assisted channels, allowing customers to access it in the moment and through the path most convenient to them",
+      "The 7-day Bridge Plan introduced a short-term option that allowed eligible customers to maintain service without committing to a full monthly plan. Each design decision directly addressed a core problem identified earlier.",
+    solutionCards: [
+      {
+        icon: "target",
+        title: "A Clear Short-Term Plan Option",
+        description:
+          "The 7-day plan gave customers an affordable, time-bound option to stay connected during a temporary gap.",
+      },
+      {
+        icon: "shield",
+        title: "Straightforward Eligibility Messaging",
+        description:
+          "Plan details were clearly communicated so customers understood who qualified and how pricing worked.",
+      },
+      {
+        icon: "lightning",
+        title: "Consistent Cross-Channel Experience",
+        description:
+          "The plan was supported across digital and assisted channels, allowing customers to access it conveniently.",
+      },
     ],
-    // Validation
-    validation:
-      "Post-launch performance and customer behavior were closely monitored in partnership with analytics and CX teams. Usage patterns, repeat purchases, and channel performance were used to validate whether the experience met both customer and business goals.",
     // Results
     results:
       "These results showed that short-term flexibility met a real customer need while helping maintain long-term subscriber relationships.",
-    // What I learned
-    whatILearned:
-      "This project highlighted the importance of designing with empathy during moments of financial stress. Clear messaging and flexible options can build trust even when customers are facing challenges. It also reinforced how lifecycle and systems thinking are critical when designing experiences that span multiple channels and touchpoints.",
     tldr: [
       "Tens of thousands of customers used the 7-day plan shortly after launch",
       "High repeat usage showed the plan solved an ongoing need",
       "Most redemptions occurred through customer-facing digital channels",
     ],
-    tldrSummary:
-      "This project focused on helping customers stay connected while protecting long-term subscriber value.",
   },
   {
     slug: "kfc-pdp-redesign",
     title: "KFC",
     blurb:
-      "Redesigning the online ordering experience to make meal customization easier and less frustrating across desktop, mobile web, and app.",
+      "As KFC’s digital menu expanded, the product detail page became a bottleneck in the ordering flow. Small usability issues compounded at scale, slowing decision-making and creating uncertainty right before checkout. This work focused on simplifying that moment without disrupting familiar patterns or existing systems.",
     tags: ["E-Commerce", "Food & Beverage", "B2C"],
     metrics: [
-      { label: "Task Success", value: "88% task success rate across devices " },
-      { label: "Faster Completion", value: "20% faster task completion time" },
-      { label: "User Satisfaction", value: "90% higher user satisfaction" },
+      {
+        label: "task success rate across all platforms",
+        value: "88%",
+      },
+      {
+        label: "reduction in average task completion time",
+        value: "20%",
+      },
+      {
+        label: "of participants reported higher satisfaction",
+        value: "90%",
+      },
     ],
     role: "Product Designer",
     roleDescription:
-      "I led the UX design for this project from research synthesis through usability testing and iteration. I worked closely with product, engineering, and stakeholders to define the problem, explore solutions, and validate changes across desktop, mobile web, and app.",
+      "I owned the UX design for the product detail page redesign end-to-end, from framing the problem through defining the solution and validating it through usability testing. I worked closely with product managers, engineers, and stakeholders to align on priorities, navigate technical constraints, and make tradeoffs that balanced customer needs with business goals across desktop, mobile web, and app.",
+    coreContributions: [
+      "Bringing key decisions into view earlier in the flow",
+      "Reducing repeated actions and redundant sections",
+      "Grouping related options to make choices easier to scan",
+      "Providing clearer feedback as users made selections",
+    ],
     client: "KFC (via Photon)",
-    timeline: "6 Months",
+    timeline: "6 months",
     platform: "Desktop, Mobile Web, App",
     industry: "Food & Beverage",
+    overview:
+      "As KFC's digital menu expanded, the product detail page became a bottleneck in the ordering flow. Small usability issues compounded at scale, slowing decision-making and creating uncertainty right before checkout. This work focused on simplifying that moment without disrupting familiar patterns or existing systems.",
     challenge:
-      "KFC's product detail page had grown more complex over time as new meal options, sides, and sauces were added. What should have been a simple customization flow became difficult to follow, especially on smaller screens. Users were scrolling too much, repeating steps, and struggling to understand what they had selected before moving to checkout. This led to confusion and drop-off during one of the most important moments in the ordering experience.",
+      "New meal options and customization made the product detail page harder to use when customers needed clarity. Feedback highlighted three issues that slowed decision-making.",
     problemBreakdown: [
       {
         icon: "target",
@@ -231,55 +243,65 @@ export const caseStudies: CaseStudy[] = [
           "Users were repeating steps and struggling to understand what they had selected before moving to checkout, leading to confusion and drop-off during a critical moment.",
       },
     ],
-    // Discovery section
-    discoveryInputs: [
-      "SME interviews",
-      "App store reviews",
-      "Chatbot conversation logs",
-      "Voice of customer data",
-    ],
-    discoveryInsights: [
-      "Users felt overwhelmed by repeated customization sections",
-      "Switching between meal types caused confusion",
-      "Lack of clear feedback reduced confidence before checkout",
-    ],
-    discoverySummary:
-      "These insights helped narrow the focus from redesigning the page broadly to reducing friction during decision making.",
-    // Design approach
-    designApproach:
-      "The goal was not to add features, but to simplify what already existed. AI tools supported early exploration and layout variations, helping me move faster through rough concepts before refining the final designs.",
-    designApproachPoints: [
-      "Bringing key choices into view earlier",
-      "Reducing repeated actions",
-      "Grouping related options more clearly",
-      "Providing consistent feedback as users made selections",
+    // Design principles
+    designPrinciples: [
+      {
+        icon: "sparkle-cursor",
+        title: "Reduce decision friction",
+        description:
+          "Streamlining user flows to minimize cognitive load and hesitation at critical interaction points.",
+      },
+      {
+        icon: "arrow-up-circle",
+        title: "Surface key choices earlier",
+        description:
+          "Prioritizing primary actions and essential data to reduce time-to-value for operators.",
+      },
+      {
+        icon: "layout-grid",
+        title: "Preserve familiar patterns",
+        description:
+          "Leveraging established mental models to flatten the learning curve for experienced users.",
+      },
+      {
+        icon: "mobile",
+        title: "Optimize for mobile first",
+        description:
+          "Ensuring critical command functions are accessible and responsive on portable field devices.",
+      },
     ],
     // Solution
     solution:
-      "The redesigned PDP introduced a clearer structure and a more predictable flow. Each change was small on its own, but together they made the experience easier to follow.",
-    solutionPoints: [
-      "A tighter layout that reduced scrolling",
-      "Clear grouping of customization options",
-      "Improved visual hierarchy to guide attention",
-      "A persistent order summary to confirm selections",
+      "Instead of introducing new features, the solution focused on a targeted set of changes designed to remove friction while maintaining consistency with existing patterns.",
+    solutionCards: [
+      {
+        icon: "target",
+        title: "A More Balanced Mobile Layout",
+        description:
+          "The layout improved by reducing image dominance and highlighting details.",
+      },
+      {
+        icon: "shield",
+        title: "Simplified Customization in One Place",
+        description:
+          "Customization options are now clearer, enabling users to select without repeating steps.",
+      },
+      {
+        icon: "lightning",
+        title: "Clearer Feedback While Ordering",
+        description:
+          "A stronger visual hierarchy improved feedback, making it easier for users to review selections before checkout.",
+      },
     ],
-    // Validation
-    validation:
-      "The redesigned flow was tested with 15 participants across desktop, mobile web, and app. Participants completed tasks such as ordering individual meals, combos, and family options. Testing uncovered minor issues around labeling and spacing, which were addressed before final delivery.",
     // Results
     results:
-      "These results confirmed that simplifying structure and feedback had a meaningful impact on usability.",
-    // What I learned
-    whatILearned:
-      "This project reinforced how quickly complexity can build up in high-traffic commerce flows. Small improvements in structure and feedback can dramatically change how confident users feel. It also highlighted the value of testing across platforms early, rather than assuming desktop patterns translate cleanly to mobile.",
+      "88 percent task success rate across all platforms. 20 percent reduction in average task completion time. 90 percent of participants reported higher satisfaction.",
     // TL;DR
     tldr: [
       "Improved task success to 88% across platforms",
       "Reduced average task completion time by 20%",
       "Simplified a high-friction customization flow used at scale",
     ],
-    tldrSummary:
-      "This project focused on removing unnecessary steps and helping users feel confident as they built their order.",
     imageSections: [
       {
         sectionLabel: "THE PROBLEM",
@@ -296,33 +318,13 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
       {
-        sectionLabel: "RESEARCH",
-        heading: "Journey Mapping",
-        layout: "side-by-side",
-        placement: "after-process",
-        images: [
-          {
-            src: "https://cdn.prod.website-files.com/6661c4eb50f455f4ee0f7a4a/6783a5ead6b6f6e8b5dd8b3d_KFC%20Current%20State%20Map.png",
-            alt: "Current state journey map showing user friction points",
-            caption:
-              "Current State Journey Map - Uncovered critical friction points in customization",
-          },
-          {
-            src: "https://cdn.prod.website-files.com/6661c4eb50f455f4ee0f7a4a/6783a5ea2e32e5058dbbd7bb_KFC%20Future%20State%20Map.png",
-            alt: "Future state journey map showing the improved user flow",
-            caption:
-              "Future State Journey Map - A seamless, intuitive process for the PDP",
-          },
-        ],
-      },
-      {
         sectionLabel: "THE SOLUTION",
         heading: "The Redesigned PDP",
         layout: "single",
         placement: "after-solution",
         images: [
           {
-            src: "https://cdn.prod.website-files.com/6661c4eb50f455f4ee0f7a4a/6783a11d2ed54a05cdd1e339_KFC%20Mobile%20Mockup.png",
+            src: kfcAfterSolution,
             alt: "KFC Mobile Mockup showing the redesigned product detail page",
             caption:
               "The new PDP features clear customization steps, visible key options, and real-time feedback",
@@ -338,56 +340,71 @@ export const caseStudies: CaseStudy[] = [
       "Redesigning SeneGence’s e-commerce experience to make it easier for customers to browse products, understand what they’re buying, and complete purchases with less friction.",
     tags: ["Retail", "E-Commerce", "Beauty & Cosmetics", "Product Discovery"],
     metrics: [
-      { label: "Conversions", value: "Over 82K conversions within 6 months" },
-      { label: "Revenue", value: "$7.2M in revenue impact post launch" },
+      { label: "conversions within 6 months", value: "82K" },
+      { label: "in revenue impact post launch", value: "$7.2M" },
+      { label: "from top-performing product", value: "$540K" },
     ],
     role: "Lead Product Designer",
+    roleDescription:
+      "I led the product design for SeneGence's e-commerce redesign, focusing on improving product discovery, streamlining the purchase flow, and creating a consistent design system. I collaborated with stakeholders, developers, and the marketing team to deliver a responsive experience that drove measurable business results.",
+    coreContributions: [
+      "Reorganized product hierarchy and navigation",
+      "Improved product pages for clarity and scannability",
+      "Built reusable components for consistency",
+      "Created responsive patterns for cross-device experience",
+    ],
     client: "SeneGence International",
     timeline: "6 Months",
     platform: "E-Commerce Web & Mobile",
     industry: "Beauty & Skincare",
     challenge:
       "The existing site made it difficult for customers to browse products, understand differences, and complete purchases efficiently.",
-    // Discovery section
-    discoveryInputs: [
-      "E-commerce experience audit",
-      "Analytics review",
-      "User feedback analysis",
-    ],
-    discoveryInsights: [
-      "Navigation did not scale well as the catalog grew",
-      "Product information was hard to compare",
-      "Mobile experience felt fragmented",
-    ],
-    discoverySummary:
-      "These insights highlighted the need for a more scalable navigation system and clearer product presentation.",
-    // Design approach
-    designApproach:
-      "Focused on simplifying navigation, clarifying product information, and creating a responsive system that worked across devices.",
-    designApproachPoints: [
-      "Reorganized product hierarchy and navigation",
-      "Improved product pages for clarity and scannability",
-      "Built reusable components for consistency",
-      "Created responsive patterns for cross-device experience",
+    problemBreakdown: [
+      {
+        icon: "target",
+        title: "Difficult Product Discovery",
+        description:
+          "Customers struggled to find products due to poor navigation structure and overwhelming category pages.",
+      },
+      {
+        icon: "shield",
+        title: "Unclear Product Information",
+        description:
+          "Product pages lacked clear differentiation, making it hard for customers to understand what they were buying.",
+      },
+      {
+        icon: "lightning",
+        title: "Inconsistent Experience",
+        description:
+          "The site lacked visual consistency across pages, creating friction and reducing trust during the purchase flow.",
+      },
     ],
     // Solution
     solution:
       "The redesigned experience introduced a clearer structure with improved navigation, better product presentation, and consistent components across all devices.",
-    solutionPoints: [
-      "Scalable navigation system",
-      "Improved product pages for clarity",
-      "Reusable component library",
-      "Responsive design patterns",
+    solutionCards: [
+      {
+        icon: "target",
+        title: "Scalable Navigation System",
+        description:
+          "A reorganized product hierarchy that makes browsing intuitive and helps customers find what they need quickly.",
+      },
+      {
+        icon: "shield",
+        title: "Improved Product Pages",
+        description:
+          "Clearer product presentation with better imagery, descriptions, and comparison features.",
+      },
+      {
+        icon: "lightning",
+        title: "Reusable Component Library",
+        description:
+          "A consistent design system that ensures visual coherence and speeds up future development.",
+      },
     ],
-    // Validation
-    validation:
-      "Reviewed designs with stakeholders and iterated based on feedback and post-launch performance metrics.",
     // Results
     results:
       "82K conversions within six months. $7.2M in revenue post-launch. $540K generated from the top-performing product.",
-    // What I learned
-    whatILearned:
-      "Design systems are most effective when they directly support business growth and ongoing iteration.",
     tldr: [
       "Increased conversions after launch",
       "Generated meaningful post-launch revenue",
@@ -401,59 +418,74 @@ export const caseStudies: CaseStudy[] = [
       "Improving Cellebrite's website to make complex offerings easier to understand and navigate.",
     tags: ["Public Safety & Forensics", "Technology Services", "B2B"],
     metrics: [
-      { label: "Page Views", value: "26% more page views" },
-      { label: "Bounce Rate", value: "21% lower bounce rate" },
+      { label: "increase in page views", value: "26%" },
+      { label: "reduction in bounce rate", value: "21%" },
+      { label: "improvement in engagement", value: "significant" },
     ],
     role: "Senior Product Designer",
+    roleDescription:
+      "I led the redesign of Cellebrite's corporate website, focusing on simplifying complex product information and improving the overall user experience. I worked with product marketing, content strategists, and developers to create a clearer, more navigable site structure.",
+    coreContributions: [
+      "Reorganized content hierarchy for clarity",
+      "Simplified layouts and reduced visual noise",
+      "Created clearer paths to key information",
+      "Improved messaging clarity across pages",
+    ],
     client: "Cellebrite",
     timeline: "3 Months",
     platform: "Corporate Website",
     industry: "Digital Intelligence & Security",
     challenge:
       "The website had grown cluttered over time, making it hard for visitors to quickly understand the product offerings.",
-    // Discovery section
-    discoveryInputs: [
-      "Content audit",
-      "Information architecture review",
-      "User feedback analysis",
-    ],
-    discoveryInsights: [
-      "Users struggled to find relevant information",
-      "Content hierarchy did not match user intent",
-      "Pages felt dense and overwhelming",
-    ],
-    discoverySummary:
-      "These insights revealed the need for a clearer content structure and better information architecture.",
-    // Design approach
-    designApproach:
-      "Focused on simplifying structure, clarifying messaging, and improving page flow.",
-    designApproachPoints: [
-      "Reorganized content hierarchy",
-      "Simplified layouts and reduced visual noise",
-      "Created clearer paths to key information",
-      "Improved messaging clarity",
+    problemBreakdown: [
+      {
+        icon: "target",
+        title: "Cluttered Information Architecture",
+        description:
+          "Years of content additions had created a confusing site structure that made it difficult for visitors to find what they needed.",
+      },
+      {
+        icon: "shield",
+        title: "Complex Product Messaging",
+        description:
+          "Technical product descriptions were difficult to understand, causing visitors to leave before grasping the value proposition.",
+      },
+      {
+        icon: "lightning",
+        title: "Poor Visual Hierarchy",
+        description:
+          "Pages lacked clear focal points and call-to-actions, leading to high bounce rates and low engagement.",
+      },
     ],
     // Solution
     solution:
       "The redesigned website introduced a clearer structure with improved content hierarchy and simplified layouts that made information easier to find and understand.",
-    solutionPoints: [
-      "Reorganized content hierarchy",
-      "Simplified layouts",
-      "Reduced visual noise",
-      "Clearer paths to key information",
+    solutionCards: [
+      {
+        icon: "target",
+        title: "Reorganized Content Hierarchy",
+        description:
+          "A streamlined site structure that guides visitors to relevant information quickly and intuitively.",
+      },
+      {
+        icon: "shield",
+        title: "Simplified Page Layouts",
+        description:
+          "Cleaner designs with reduced visual noise that help visitors focus on key messages.",
+      },
+      {
+        icon: "lightning",
+        title: "Clearer Paths to Information",
+        description:
+          "Improved navigation and CTAs that make it easy for visitors to find what they need.",
+      },
     ],
-    // Validation
-    validation:
-      "Measured engagement metrics post-launch and gathered stakeholder feedback to validate improvements.",
     // Results
     results: "26% increase in page views. 21% lower bounce rate.",
-    // What I learned
-    whatILearned:
-      "Clear structure and content hierarchy can dramatically improve engagement without major visual changes.",
     tldr: [
-      "Increased page views",
-      "Reduced bounce rate",
-      "Improved content clarity",
+      "Increased page views by 26%",
+      "Reduced bounce rate by 21%",
+      "Improved content clarity and navigation",
     ],
   },
 ];
