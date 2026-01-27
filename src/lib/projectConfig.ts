@@ -41,8 +41,8 @@ export const projectConfigs: Record<string, ProjectConfig> = {
     thumbnail: kfcThumbnail,
   },
   "verizon-straight-talk-7day": {
-    gradientFrom: "#E31E24",
-    gradientTo: "#C8102E",
+    gradientFrom: "#00D084",
+    gradientTo: "#00B875",
     gridPatternUrl: "/images/grid-pattern.png",
     thumbnail: verizonThumbnail,
   },
@@ -53,8 +53,8 @@ export const projectConfigs: Record<string, ProjectConfig> = {
     thumbnail: cellebriteThumbnail,
   },
   "senegence-redesign": {
-    gradientFrom: "#0052cc",
-    gradientTo: "#0066ff",
+    gradientFrom: "#29B6EF",
+    gradientTo: "#19B4E6",
     gridPatternUrl: "/images/grid-pattern.png",
     thumbnail: senegenceThumbnail,
   },

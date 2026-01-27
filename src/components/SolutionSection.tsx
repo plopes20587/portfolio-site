@@ -48,19 +48,13 @@ const SolutionSection = ({
       <div className="flex w-full flex-col items-center gap-48">
         {/* Section Header - Centered */}
         <div className="flex max-w-[646px] flex-col items-center gap-8 text-center">
-          <p className="font-display text-h4 uppercase text-accent">
-            Outcome
-          </p>
+          <p className="font-display text-h4 uppercase text-accent">Outcome</p>
           <h2 className="tracking-[0.48px]">The Solution</h2>
-          {description && (
-            <p className="text-body">
-              {description}
-            </p>
-          )}
+          {description && <p className="text-body">{description}</p>}
         </div>
 
         {/* Solution Cards - 3 columns */}
-        <div className="flex w-full flex-col items-center justify-center gap-32 md:flex-row">
+        <div className="grid w-full grid-cols-1 gap-32 md:grid-cols-3 md:justify-items-center">
           {cards.map((card, index) => {
             const iconSrc = solutionIcons[card.icon];
             return (
@@ -76,12 +70,8 @@ const SolutionSection = ({
                   </div>
                 )}
                 {/* Card Content */}
-                <p className="text-body-lg font-semibold">
-                  {card.title}
-                </p>
-                <p className="text-body">
-                  {card.description}
-                </p>
+                <p className="text-body-lg font-semibold">{card.title}</p>
+                <p className="text-body">{card.description}</p>
               </div>
             );
           })}
@@ -104,9 +94,7 @@ const SolutionSection = ({
               <div className="flex w-full flex-col items-center justify-center gap-32 md:flex-row">
                 {metrics.map((metric, index) => (
                   <div key={`metric-${index}`} className="solution-metric">
-                    <p className="text-h4 font-bold">
-                      {metric.value}
-                    </p>
+                    <p className="text-h4 font-bold">{metric.value}</p>
                     <p className="text-body text-text-body-500">
                       {metric.label}
                     </p>

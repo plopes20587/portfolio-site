@@ -94,7 +94,7 @@ export const caseStudies: CaseStudy[] = [
   {
     // 1. Hero Section
     slug: "verizon-straight-talk-7day",
-    title: "Straight Talk 7-Day Bridge Plan",
+    title: "Straight Talk",
     blurb:
       "Introducing short-term payment flexibility for prepaid customers facing temporary financial gaps, helping them maintain service without committing to a full monthly plan.",
     tags: ["Telecom", "B2C", "Prepaid Mobile", "Account & Billing"],

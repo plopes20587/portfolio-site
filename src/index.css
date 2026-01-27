@@ -371,9 +371,10 @@ button {
   }
 
   /* --- Problem Card Component --- */
-  /* Matches Figma node 1822:1996 */
+  /* Matches Figma node 1822:1996 and 1652:3693 */
   .problem-card {
     display: flex;
+    position: relative;
     flex: 0 1 100%;
     flex-direction: column;
     gap: var(--spacing-8);
@@ -385,6 +386,23 @@ button {
     width: 100%;
     min-width: 0;
     align-self: stretch;
+  }
+
+  /* Problem Card Gradient Background (when project colors are provided) */
+  .problem-card-gradient {
+    background: linear-gradient(
+      to bottom,
+      var(--problem-card-gradient-from, transparent),
+      var(--problem-card-gradient-to, transparent)
+    );
+  }
+
+  /* Problem Card Grid Pattern */
+  .problem-card-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 
   @media (min-width: 768px) {
@@ -684,6 +702,7 @@ button {
   /* Matches Figma node 2001:8497 */
   .solution-card {
     display: flex;
+    position: relative;
     flex-direction: column;
     align-items: flex-start;
     gap: var(--spacing-8);
@@ -694,6 +713,29 @@ button {
     width: 100%;
     max-width: 343px;
     height: 100%;
+  }
+
+  /* Solution Card with gradient background (when project colors are provided) */
+  .solution-card[style*="--solution-card-gradient-from"] {
+    background: linear-gradient(
+      to bottom,
+      var(--solution-card-gradient-from),
+      var(--solution-card-gradient-to)
+    );
+  }
+
+  /* Solution Card Grid Pattern (when gradient is applied) */
+  .solution-card[style*="--solution-card-gradient-from"]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-16);
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.5;
+    pointer-events: none;
   }
 
   /* --- Solution Section Card Icon Wrapper --- */
