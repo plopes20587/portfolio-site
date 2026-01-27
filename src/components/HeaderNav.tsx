@@ -15,7 +15,7 @@ const HeaderNav = () => {
   const navLinks: NavLink[] = [
     { href: "#work", label: "Work" },
     { href: "#about", label: "About" },
-    { href: "/resume.pdf", label: "Resume", download: true },
+    { href: "/Patrick%20Lopes%20Resume.pdf", label: "Resume", download: true },
   ];
 
   return (
