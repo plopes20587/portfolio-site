@@ -157,8 +157,18 @@ All components have error handling that shows placeholders if images aren't foun
 - [ ] Add Resume/CV page or download link
 - [ ] Mobile responsive refinements
 - [ ] Performance optimization
-- [ ] Deploy to Render
+- [x] Deploy to Render (deployed, SPA routing fix applied)
 - [ ] Connect custom domain
+
+---
+
+## Completed updates
+
+### Icon consolidation (completed)
+- Centralized all icons in `src/assets/icons/index.ts`
+- Removed individual icon component wrappers
+- Icons now exported as React components using a shared SVG wrapper
+- Simplified imports across the codebase
 
 ---
 
@@ -180,4 +190,4 @@ All components have error handling that shows placeholders if images aren't foun
 - [x] Logo marquee loops seamlessly
 - [x] Section dividers match Figma design
 - [x] Case study pages functional
-- [ ] Site builds and deploys on Render
+- [x] Site builds and deploys on Render
