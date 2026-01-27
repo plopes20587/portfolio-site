@@ -24,8 +24,8 @@ const SectionWrapper = ({
   const paddingClass = customPadding
     ? customPadding
     : padding === "large"
-      ? "px-6 py-16 md:px-[60px] md:py-[100px]"
-      : "px-6 py-8 md:px-[60px]";
+      ? "px-24 py-80 md:px-60"
+      : "px-24 py-80 md:px-60";
 
   const maxWidthClass =
     maxWidth === "1320"
@@ -43,7 +43,7 @@ const SectionWrapper = ({
       id={id}
       className={`flex flex-col items-center justify-start ${paddingClass} ${className}`}
     >
-      <div className={`flex w-full flex-col gap-12 ${containerClass}`}>
+      <div className={`flex w-full flex-col gap-48 ${containerClass}`}>
         {children}
       </div>
     </section>

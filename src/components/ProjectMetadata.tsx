@@ -29,9 +29,9 @@ const ProjectMetadata = ({ study }: ProjectMetadataProps) => {
   return (
     <SectionWrapper
       maxWidth="1320"
-      padding="small"
+      customPadding="px-24 py-80 md:px-60"
       centerContent={false}
-      className="flex items-center justify-center border-y border-surface-card-border bg-[rgba(15,23,43,0.4)] py-60"
+      className="flex items-center justify-center border-y border-surface-card-border bg-[rgba(15,23,43,0.4)]"
     >
       <div className="m-0 grid w-full grid-cols-1 gap-8 gap-x-32 md:grid-cols-2 lg:grid-cols-4">
         {items.map((item) => (
@@ -43,9 +43,7 @@ const ProjectMetadata = ({ study }: ProjectMetadataProps) => {
               <p className="text-body-300 font-body text-h4-small font-medium uppercase">
                 {item.label}
               </p>
-              <p className="font-body text-body font-medium">
-                {item.value}
-              </p>
+              <p className="font-body text-body font-medium">{item.value}</p>
             </div>
           </div>
         ))}

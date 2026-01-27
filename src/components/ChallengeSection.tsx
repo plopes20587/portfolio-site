@@ -16,7 +16,7 @@ const ChallengeSection = ({ challenge }: ChallengeSectionProps) => {
           className="flex w-full flex-col items-center justify-center rounded-[14px] border border-borders-primary-default p-48"
           style={{ backgroundColor: "var(--color-role-card-bg)" }}
         >
-          <div className="flex w-full max-w-[1080px] items-center gap-32">
+          <div className="flex w-full max-w-[1080px] items-center gap-48">
             {/* Large question mark icon */}
             <div
               className="flex shrink-0 items-center justify-center"

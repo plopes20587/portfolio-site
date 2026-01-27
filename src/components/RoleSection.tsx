@@ -20,14 +20,14 @@ const RoleSection = ({
   return (
     <SectionWrapper
       maxWidth="1320"
-      customPadding="px-6 py-80 md:px-[60px]"
+      customPadding="px-6 py-80 md:px-60"
     >
       <div className="flex w-full items-center justify-center">
         <div
-          className={`flex w-full max-w-[1094px] flex-col items-center gap-32 ${hasContributions ? "lg:flex-row lg:items-stretch" : ""}`}
+          className={`flex w-full max-w-[1094px] flex-col items-center gap-48 ${hasContributions ? "lg:flex-row lg:items-stretch" : ""}`}
         >
           {/* Left Column - My Role Content */}
-          <div className="flex min-h-px min-w-px flex-1 flex-col gap-32">
+          <div className="flex min-h-px min-w-px flex-1 flex-col gap-48">
             <div className="flex w-full flex-col gap-8">
               <h3 className="font-display text-h3 text-text-heading">
                 My role

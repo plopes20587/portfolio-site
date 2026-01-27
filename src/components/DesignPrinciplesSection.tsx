@@ -64,7 +64,7 @@ const DesignPrinciplesSection = ({
         </div>
 
         {/* Principles Grid - 2x2 layout, 32px gap */}
-        <div className="grid w-full grid-cols-1 gap-32 md:grid-cols-2">
+        <div className="grid w-full grid-cols-1 gap-48 md:grid-cols-2">
           {principles.map((principle, index) => {
             const iconSrc = getIconSrc(principle.icon);
             return (

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { caseStudies } from "../siteData";
-import { hasItems, hasValue, hasAny } from "../lib/helpers";
+import { hasItems, hasValue } from "../lib/helpers";
 import CaseStudyHero from "../components/CaseStudyHero";
 import ProjectMetadata from "../components/ProjectMetadata";
 import ContentSection from "../components/ContentSection";
@@ -9,7 +9,6 @@ import TLDRSection from "../components/TLDRSection";
 import ProjectNavigation from "../components/ProjectNavigation";
 import ImageShowcase from "../components/ImageShowcase";
 import SectionWrapper from "../components/SectionWrapper";
-import BulletList from "../components/BulletList";
 import NotFound from "../components/NotFound";
 import ProblemImageGallery from "../components/ProblemImageGallery";
 import RoleSection from "../components/RoleSection";
@@ -124,7 +123,7 @@ const CaseStudyPage = () => {
                   className="solution-card group"
                 >
                   {/* Card Content */}
-                  <p className="text-body-lg font-semibold text-text-body transition-colors duration-300 group-hover:text-accent">
+                  <p className="text-body-lg font-semibold text-text-body transition-colors duration-300">
                     {item.title}
                   </p>
                   <p className="text-body text-text-body">{item.description}</p>
@@ -158,28 +157,22 @@ const CaseStudyPage = () => {
           description={study.solution}
           cards={study.solutionCards}
           image={getImageSections(study, "after-solution")[0]}
-          metrics={study.metrics}
+          metrics={study.solutionMetrics}
         />
       )}
 
       {/* 9b. The Solution - Legacy bullet list layout (for case studies without solutionCards) */}
-      {!hasItems(study.solutionCards) &&
-        hasAny(study.solution, study.solutionPoints) && (
-          <>
-            <SectionWrapper maxWidth="900" padding="large">
-              <ContentSection heading="The Solution">
-                {hasValue(study.solution) && (
-                  <p className="mb-6">{study.solution}</p>
-                )}
-                {hasItems(study.solutionPoints) && (
-                  <BulletList items={study.solutionPoints} />
-                )}
-              </ContentSection>
-            </SectionWrapper>
-            {/* Images after solution section */}
-            {renderImageSections("after-solution")}
-          </>
-        )}
+      {!hasItems(study.solutionCards) && hasValue(study.solution) && (
+        <>
+          <SectionWrapper maxWidth="900" padding="large">
+            <ContentSection heading="The Solution">
+              <p className="mb-6">{study.solution}</p>
+            </ContentSection>
+          </SectionWrapper>
+          {/* Images after solution section */}
+          {renderImageSections("after-solution")}
+        </>
+      )}
 
       {/* Project Navigation - Previous/Next */}
       <ProjectNavigation

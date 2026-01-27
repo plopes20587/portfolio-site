@@ -17,7 +17,7 @@ const Layout = ({ children }: LayoutProps) => {
       {/* Full-width layout - sections handle their own max-width constraints */}
       <div className="relative flex min-h-screen w-full flex-col">
         <HeaderNav />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pt-[100px]">{children}</main>
       </div>
     </div>
   );

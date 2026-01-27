@@ -78,7 +78,7 @@ const SolutionSection = ({
 
         {/* Image Showcase */}
         {image && image.images.length > 0 && (
-          <div className="flex w-full flex-col items-center gap-48">
+          <div className="flex w-full flex-col items-center gap-12 md:gap-16">
             {/* Image Container */}
             <div className="overflow-hidden rounded-16 border border-elements-pills-secondary-border">
               <img
@@ -87,20 +87,20 @@ const SolutionSection = ({
                 className="h-auto max-h-[860px] w-full max-w-[1146px] object-cover"
               />
             </div>
+          </div>
+        )}
 
-            {/* Metrics Row */}
-            {metrics && metrics.length > 0 && (
-              <div className="flex w-full flex-col items-center justify-center gap-32 md:flex-row">
-                {metrics.map((metric, index) => (
-                  <div key={`metric-${index}`} className="solution-metric">
-                    <p className="text-h4 font-bold">{metric.value}</p>
-                    <p className="text-body text-text-body-500">
-                      {metric.label}
-                    </p>
-                  </div>
-                ))}
+        {/* Metrics Row - Display independently of image */}
+        {metrics && metrics.length > 0 && (
+          <div className="flex w-full flex-col items-center justify-center gap-32 md:flex-row">
+            {metrics.map((metric, index) => (
+              <div key={`metric-${index}`} className="solution-metric">
+                <p className="text-h4 font-bold">{metric.value}</p>
+                <p className="text-body text-text-body-500">
+                  {metric.label}
+                </p>
               </div>
-            )}
+            ))}
           </div>
         )}
       </div>

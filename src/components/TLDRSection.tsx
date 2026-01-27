@@ -12,7 +12,7 @@ const TLDRSection = ({ items }: TLDRSectionProps) => {
 
   return (
     <section
-      className="flex w-full flex-col items-center justify-center px-1 py-40"
+      className="flex w-full flex-col items-center justify-center px-1 py-80"
       style={{
         backgroundColor: "var(--color-tldr-section-bg)",
         borderTop: "1px solid var(--color-tldr-section-border)",

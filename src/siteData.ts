@@ -52,8 +52,6 @@ export type CaseStudy = {
   client?: string;
   timeline?: string;
   platform?: string;
-  industry?: string;
-  overview?: string;
 
   // 3. TL;DR
   tldr?: string[];
@@ -73,11 +71,8 @@ export type CaseStudy = {
 
   // 8. The Solution
   solution?: string;
-  solutionPoints?: string[];
   solutionCards?: SolutionCard[];
-
-  // 9. Results
-  results?: string;
+  solutionMetrics?: { label: string; value: string }[];
 };
 
 // Contact email - centralized for easy updates
@@ -97,7 +92,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Straight Talk",
     blurb:
       "Introducing short-term payment flexibility for prepaid customers facing temporary financial gaps, helping them maintain service without committing to a full monthly plan.",
-    tags: ["Telecom", "B2C", "Prepaid Mobile", "Account & Billing"],
+    tags: ["Telecom", "B2C", "Prepaid Mobile"],
     metrics: [
       {
         label: "bridge plan redemptions shortly after launch",
@@ -118,15 +113,12 @@ export const caseStudies: CaseStudy[] = [
     client: "Straight Talk (Verizon Value Organization)",
     timeline: "Multi-phase rollout",
     platform: "Web, Mobile Web, App, IVR",
-    industry: "Telecommunications",
-    overview:
-      "Prepaid customers who miss a refill date often face temporary financial gaps rather than long-term churn intent. Prior to the 7-day Bridge Plan, customers had limited options to stay connected during these short interruptions, leading to frustration, service loss, and increased risk of disengagement. This work focused on introducing short-term payment flexibility without adding complexity or breaking existing systems.",
 
     // 3. TL;DR
     tldr: [
       "Nearly 100K bridge plan redemptions shortly after launch",
       "Over 40K unique customers used the plan, with strong repeat usage",
-      "Customers purchased ~2.3 bridge plans on average, indicating repeat usage and ongoing need",
+      "Customers purchased ~2.3 bridge plans on average, indicating ongoing need",
     ],
 
     // 4. My Role + Core Contributions
@@ -212,10 +204,20 @@ export const caseStudies: CaseStudy[] = [
           "The experience was designed to work across digital and assisted channels, allowing customers to access the plan through the path most convenient to them.",
       },
     ],
-
-    // 9. Results
-    results:
-      "Tens of thousands of successful bridge plan purchases shortly after launch. Strong repeat usage, indicating ongoing customer need. Digital and customer-facing channels drove the majority of adoption. These outcomes demonstrated that short-term flexibility can reduce service disruption while supporting long-term subscriber retention.",
+    solutionMetrics: [
+      {
+        label: "bridge plan redemptions shortly after launch",
+        value: "100k+",
+      },
+      {
+        label: "unique customers used the plan, with strong repeat usage",
+        value: "40k+",
+      },
+      {
+        label: "bridge plans purchased on average",
+        value: "2.3",
+      },
+    ],
   },
   {
     // 1. Hero Section
@@ -227,7 +229,7 @@ export const caseStudies: CaseStudy[] = [
     metrics: [
       {
         label: "task success rate across all platforms",
-        value: "88% task success rate across all platforms",
+        value: "88% task success rate",
       },
       {
         label: "reduction in average task completion time",
@@ -274,9 +276,6 @@ export const caseStudies: CaseStudy[] = [
     client: "KFC (via Photon)",
     timeline: "6 months",
     platform: "Desktop, Mobile Web, App",
-    industry: "Food & Beverage",
-    overview:
-      "Simplifying the product detail page to reduce friction in the ordering flow, making customization faster and clearer without disrupting familiar patterns.",
 
     // 3. TL;DR
     tldr: [
@@ -372,10 +371,20 @@ export const caseStudies: CaseStudy[] = [
           "A stronger visual hierarchy improved feedback, making it easier for users to review selections before checkout.",
       },
     ],
-
-    // 9. Results
-    results:
-      "88 percent task success rate across all platforms. 20 percent reduction in average task completion time. 90 percent of participants reported higher satisfaction.",
+    solutionMetrics: [
+      {
+        label: "task rate success across all platforms",
+        value: "88%",
+      },
+      {
+        label: "reduction in average task completion time",
+        value: "20%",
+      },
+      {
+        label: "of participants reported higher satisfaction",
+        value: "90%",
+      },
+    ],
   },
   {
     // 1. Hero Section
@@ -383,7 +392,7 @@ export const caseStudies: CaseStudy[] = [
     title: "SENEGENCE",
     blurb:
       "Redesigning the e-commerce experience to improve product discovery, clarify product information, and streamline the purchase flow.",
-    tags: ["Retail", "E-Commerce", "Beauty & Cosmetics", "Product Discovery"],
+    tags: ["Retail", "E-Commerce", "Beauty & Cosmetics"],
     metrics: [
       { label: "conversions within 6 months", value: "82K conversions" },
       { label: "in revenue impact post launch", value: "$7.2M in revenue" },
@@ -398,7 +407,6 @@ export const caseStudies: CaseStudy[] = [
     client: "SeneGence International",
     timeline: "6 Months",
     platform: "E-Commerce Web & Mobile",
-    industry: "Beauty & Skincare",
 
     // 3. TL;DR
     tldr: [
@@ -469,10 +477,14 @@ export const caseStudies: CaseStudy[] = [
           "A consistent design system that ensures visual coherence and speeds up future development.",
       },
     ],
-
-    // 9. Results
-    results:
-      "82K conversions within six months. $7.2M in revenue post-launch. $540K generated from the top-performing product.",
+    solutionMetrics: [
+      { label: "conversions within 6 months", value: "82K" },
+      { label: "in revenue impact post launch", value: "$7.2M" },
+      {
+        label: "from the top-performing product",
+        value: "$540K ",
+      },
+    ],
   },
   {
     // 1. Hero Section
@@ -480,7 +492,7 @@ export const caseStudies: CaseStudy[] = [
     title: "CELLEBRITE",
     blurb:
       "Improving Cellebrite's website to make complex offerings easier to understand and navigate.",
-    tags: ["Public Safety & Forensics", "Technology Services", "B2B"],
+    tags: ["Public Safety & Forensics", "B2B"],
     metrics: [
       { label: "increase in page views", value: "26% increase in page views" },
       {
@@ -498,7 +510,6 @@ export const caseStudies: CaseStudy[] = [
     client: "Cellebrite",
     timeline: "3 Months",
     platform: "Corporate Website",
-    industry: "Digital Intelligence & Security",
 
     // 3. TL;DR
     tldr: [
@@ -569,9 +580,13 @@ export const caseStudies: CaseStudy[] = [
           "Improved navigation and CTAs that make it easy for visitors to find what they need.",
       },
     ],
-
-    // 9. Results
-    results: "26% increase in page views. 21% lower bounce rate.",
+    solutionMetrics: [
+      { label: "increase in page views", value: "26%" },
+      {
+        label: "reduction in bounce rate",
+        value: "21%",
+      },
+    ],
   },
 ];
 
