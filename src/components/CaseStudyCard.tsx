@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import type { CaseStudy } from "../siteData";
 import { getProjectConfig } from "../lib/projectConfig";
 import { handleImageErrorHide } from "../lib/imageUtils";
-import { CheckIcon } from "./icons/CheckIcon";
-import externalLinkIcon from "../assets/icons/external-link.svg";
+import { icons } from "../lib/iconMappings";
 
 type CaseStudyCardProps = {
   study: CaseStudy;
@@ -87,10 +86,8 @@ const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
                       key={index}
                       className="case-study-card-metric-item gap-2"
                     >
-                      {/* Checkmark circle - 20px, bg-white/20 */}
-                      <div className="case-study-card-checkmark">
-                        <CheckIcon className="text-white" size="sm" />
-                      </div>
+                      {/* Checkmark icon */}
+                      <img src={icons.selected} alt="" className="h-5 w-5" />
                       {/* Metric text - 16px */}
                       <span className="case-study-card-metric-text">
                         {metric.value}
@@ -104,7 +101,7 @@ const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
             {/* View Project Button - secondary button style from Figma */}
             <span className="button-secondary">
               View Project
-              <img src={externalLinkIcon} alt="" />
+              <img src={icons["external-link"]} alt="" />
             </span>
           </div>
         </div>

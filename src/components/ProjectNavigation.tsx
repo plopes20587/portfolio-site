@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import type { CaseStudy } from "../siteData";
 import SectionWrapper from "./SectionWrapper";
-import { ArrowLeftIcon, ArrowRightIcon } from "./icons/ArrowIcons";
+import { icons } from "../lib/iconMappings";
 
 type ProjectNavigationProps = {
   previousProject?: CaseStudy;
@@ -26,7 +26,7 @@ const ProjectNavigation = ({
             className="hover:border-primary/30 group flex flex-col gap-2 rounded-16 border border-surface-card-border bg-surface-card p-6 transition hover:bg-white/[0.08]"
           >
             <div className="flex items-center gap-2 text-text-body/50">
-              <ArrowLeftIcon />
+              <img src={icons["arrow-left"]} alt="" className="h-5 w-5" />
               <span className="text-h4-small uppercase">
                 Previous
               </span>
@@ -50,7 +50,7 @@ const ProjectNavigation = ({
           >
             <div className="flex items-center justify-end gap-2 text-text-body/50">
               <span className="text-h4-small uppercase">Next</span>
-              <ArrowRightIcon />
+              <img src={icons["arrow-right"]} alt="" className="h-5 w-5" />
             </div>
             <h3 className="transition group-hover:text-primary">
               {nextProject.title}

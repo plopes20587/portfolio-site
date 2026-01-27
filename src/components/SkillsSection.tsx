@@ -1,8 +1,4 @@
-// Import SVG icons from Figma
-import designToolsIcon from "../assets/icons/design-tools.svg";
-import developmentIcon from "../assets/icons/development.svg";
-import researchIcon from "../assets/icons/research.svg";
-import aiStackIcon from "../assets/icons/ai-stack.svg";
+import { icons } from "../lib/iconMappings";
 import SectionWrapper from "./SectionWrapper";
 import { SECTION_HEADING_BASE } from "../lib/styles";
 
@@ -18,28 +14,28 @@ const SkillsSection = () => {
   const techStack: SkillCategory[] = [
     {
       name: "Design Tools",
-      iconSrc: designToolsIcon,
+      iconSrc: icons["design-tools"],
       iconGradient: "bg-gradient-to-b from-[#541db9] to-[#7f5af0]",
       bulletGradient: "bg-gradient-to-b from-[#7f5af0] to-[#9d7ff5]",
       items: ["Figma", "Framer", "Webflow"],
     },
     {
       name: "Development",
-      iconSrc: developmentIcon,
+      iconSrc: icons.development,
       iconGradient: "bg-gradient-to-br from-[#2b7fff] to-[#00b8db]",
       bulletGradient: "bg-gradient-to-r from-[#2b7fff] to-[#00b8db]",
       items: ["HTML", "CSS", "React"],
     },
     {
       name: "Research & Testing",
-      iconSrc: researchIcon,
+      iconSrc: icons.research,
       iconGradient: "bg-gradient-to-br from-[#00c950] to-[#00bc7d]",
       bulletGradient: "bg-gradient-to-r from-[#00c950] to-[#00bc7d]",
       items: ["User Testing", "User Research", "A/B Testing"],
     },
     {
       name: "AI Stack",
-      iconSrc: aiStackIcon,
+      iconSrc: icons["ai-stack"],
       iconGradient: "bg-gradient-to-br from-[#ff6900] to-[#fb2c36]",
       bulletGradient: "bg-gradient-to-r from-[#ff6900] to-[#fb2c36]",
       items: ["Claude", "ChatGPT", "Cursor"],

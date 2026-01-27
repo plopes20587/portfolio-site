@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeftIcon } from "./icons/ArrowIcons";
+import { icons } from "../lib/iconMappings";
 
 type NotFoundProps = {
   title?: string;
@@ -26,7 +26,7 @@ const NotFound = ({
         to={backLink}
         className="button-primary"
       >
-        <ArrowLeftIcon />
+        <img src={icons["arrow-left"]} alt="" className="h-5 w-5" />
         {backLabel}
       </Link>
     </div>

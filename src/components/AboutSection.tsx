@@ -1,9 +1,5 @@
-// Import assets
 import profilePhoto from "../assets/images/AboutmeImage.jpg";
-import yearsExperienceIcon from "../assets/icons/years-experience.svg";
-import projectsCompletedIcon from "../assets/icons/projects-completed.svg";
-import happyClientsIcon from "../assets/icons/happy-clients.svg";
-import productsLaunchedIcon from "../assets/icons/products-launched.svg";
+import { icons } from "../lib/iconMappings";
 import SectionWrapper from "./SectionWrapper";
 
 type AboutStat = {
@@ -16,25 +12,25 @@ type AboutStat = {
 const AboutSection = () => {
   const aboutStats: AboutStat[] = [
     {
-      iconSrc: yearsExperienceIcon,
+      iconSrc: icons["years-experience"],
       value: "12+",
       label: "Years of Experience",
       gridArea: "1 / 1",
     },
     {
-      iconSrc: projectsCompletedIcon,
+      iconSrc: icons["projects-completed"],
       value: "150+",
       label: "Projects Delivered",
       gridArea: "1 / 2",
     },
     {
-      iconSrc: happyClientsIcon,
+      iconSrc: icons["happy-clients"],
       value: "50+",
       label: "Happy Clients",
       gridArea: "2 / 1",
     },
     {
-      iconSrc: productsLaunchedIcon,
+      iconSrc: icons["products-launched"],
       value: "20+",
       label: "Products Launched",
       gridArea: "2 / 2",

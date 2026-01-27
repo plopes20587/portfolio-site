@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import menuIcon from "../assets/icons/menu.svg";
-import closeIcon from "../assets/icons/close.svg";
+import { icons } from "../lib/iconMappings";
 import logo from "../assets/images/logo.png";
 
 type NavLink = {
@@ -55,7 +54,7 @@ const HeaderNav = () => {
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
           <img
-            src={mobileMenuOpen ? closeIcon : menuIcon}
+            src={mobileMenuOpen ? icons.close : icons.menu}
             alt=""
             className="h-6 w-6"
           />

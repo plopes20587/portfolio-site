@@ -1,4 +1,4 @@
-import { CheckIcon } from "./icons/CheckIcon";
+import { icons } from "../lib/iconMappings";
 
 type BulletStyle = "dot" | "checkmark";
 type BulletColor = "primary" | "cyan";
@@ -32,17 +32,8 @@ const BulletList = ({
 
   const renderBullet = () => {
     if (bulletStyle === "checkmark") {
-      const bgColorClass =
-        bulletColor === "cyan" ? "bg-cyan-bg-10" : "bg-elements-pills-primary-background";
-      const textColorClass =
-        bulletColor === "cyan" ? "text-cyan" : "text-primary";
-
       return (
-        <div
-          className={`flex h-[24px] w-[24px] shrink-0 items-center justify-center rounded-full ${bgColorClass}`}
-        >
-          <CheckIcon className={textColorClass} size="md" />
-        </div>
+        <img src={icons.selected} alt="" className="h-6 w-6 shrink-0" />
       );
     }
 

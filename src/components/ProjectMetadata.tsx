@@ -1,9 +1,6 @@
 import type { CaseStudy } from "../siteData";
 import SectionWrapper from "./SectionWrapper";
-import roleIcon from "../assets/icons/role.svg";
-import clientIcon from "../assets/icons/client.svg";
-import timelineIcon from "../assets/icons/timeline.svg";
-import platformIcon from "../assets/icons/platform.svg";
+import { icons } from "../lib/iconMappings";
 
 type ProjectMetadataProps = {
   study: CaseStudy;
@@ -11,10 +8,10 @@ type ProjectMetadataProps = {
 
 const ProjectMetadata = ({ study }: ProjectMetadataProps) => {
   const iconMap = {
-    Role: roleIcon,
-    Client: clientIcon,
-    Timeline: timelineIcon,
-    Platform: platformIcon,
+    Role: icons.role,
+    Client: icons.client,
+    Timeline: icons.timeline,
+    Platform: icons.platform,
   };
 
   const items = [

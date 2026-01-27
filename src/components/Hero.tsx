@@ -1,18 +1,26 @@
 import { motion } from "framer-motion";
 import HeroStarfieldCanvas from "./HeroStarfieldCanvas";
 import Meteors from "./meteors";
-import linkedinIcon from "../assets/icons/linkedin.svg";
-import instagramIcon from "../assets/icons/instagram.svg";
-import githubIcon from "../assets/icons/github.svg";
-import emailIcon from "../assets/icons/email.svg";
-import { ArrowRightIcon } from "./icons/ArrowIcons";
+import { icons } from "../lib/iconMappings";
 
 const Hero = () => {
   const socialLinks = [
-    { name: "LinkedIn", iconSrc: linkedinIcon, href: "#" },
-    { name: "Instagram", iconSrc: instagramIcon, href: "#" },
-    { name: "Github", iconSrc: githubIcon, href: "#" },
-    { name: "Email", iconSrc: emailIcon, href: "mailto:design@patlopes.com" },
+    {
+      name: "LinkedIn",
+      iconSrc: icons.linkedin,
+      href: "https://www.linkedin.com/in/patlopes/",
+    },
+    {
+      name: "Instagram",
+      iconSrc: icons.instagram,
+      href: "https://www.instagram.com/designby_pat",
+    },
+    {
+      name: "Github",
+      iconSrc: icons.github,
+      href: "https://github.com/plopes20587",
+    },
+    { name: "Email", iconSrc: icons.email, href: "mailto:design@patlopes.com" },
   ];
 
   return (
@@ -106,7 +114,7 @@ const Hero = () => {
               className="button-primary h-[50px]"
             >
               Lets talk
-              <ArrowRightIcon />
+              <img src={icons["arrow-right"]} alt="" className="h-5 w-5" />
             </a>
           </motion.div>
 
