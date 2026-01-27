@@ -44,7 +44,7 @@ const SolutionSection = ({
         </div>
 
         {/* Solution Cards - 3 columns, centered on all screen sizes */}
-        <div className="grid w-full grid-cols-1 justify-items-center gap-32 md:grid-cols-3">
+        <div className="flex w-full flex-col gap-32 md:flex-row md:items-stretch">
           {cards.map((card, index) => {
             const iconSrc = getIconSrc(card.icon);
             return (

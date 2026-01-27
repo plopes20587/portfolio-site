@@ -712,29 +712,21 @@ button {
   }
 
   /* --- Solution Section Card --- */
-  /* Matches Figma node 2001:8497 */
-  /* Mobile: full-width, Desktop: max-width 343px */
+  /* Matches Figma node 1867:1252 */
+  /* Responsive flex-based width, stretches to container height via align-items: stretch */
   .solution-card {
     display: flex;
     position: relative;
+    flex: 1 1 0%;
     flex-direction: column;
     align-items: flex-start;
+    align-self: stretch;
     gap: var(--spacing-8);
     padding: var(--spacing-24);
     border-radius: var(--radius-16);
     border: 1px solid var(--color-elements-pills-secondary-border);
     background-color: var(--color-elements-pills-secondary-background);
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
     transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
-
-  @media (min-width: 768px) {
-    .solution-card {
-      max-width: 343px;
-    }
   }
 
   .solution-card:hover {

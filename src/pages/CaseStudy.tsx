@@ -104,8 +104,8 @@ const CaseStudyPage = () => {
               <h2>The problem</h2>
             </motion.div>
 
-            {/* Problem Cards - centered on all screen sizes */}
-            <div className="grid w-full grid-cols-1 justify-items-center gap-24 md:grid-cols-3">
+            {/* Problem Cards - flex layout with equal heights */}
+            <div className="flex w-full flex-col gap-32 md:flex-row md:items-stretch">
               {study.problemBreakdown.map((item, index) => (
                 <motion.div
                   key={`${item.title}-${index}`}
@@ -117,8 +117,7 @@ const CaseStudyPage = () => {
                     delay: index * 0.1,
                     ease: "easeOut",
                   }}
-                  whileHover={{ y: -4, scale: 1.02 }}
-                  className="solution-card group"
+                  className="solution-card"
                 >
                   {/* Card Content */}
                   <p className="text-body-lg font-semibold">{item.title}</p>
