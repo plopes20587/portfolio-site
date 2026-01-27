@@ -57,7 +57,7 @@ const ImageShowcase = ({
             </div>
             {image.caption && (
               <figcaption className="border-t border-white/10 bg-ink-900/50 px-6 py-4">
-                <p className="font-body text-h4-small text-white/70">
+                <p className="text-h4-small text-white/70">
                   {image.caption}
                 </p>
               </figcaption>

@@ -24,7 +24,7 @@ const HeaderNav = () => {
         {/* Logo - underlined style from Figma */}
         <Link
           to="/"
-          className="font-body text-body font-semibold underline decoration-white/80 underline-offset-4 transition hover:decoration-white"
+          className="font-semibold underline decoration-white/80 underline-offset-4 transition hover:decoration-white"
         >
           Patrick Lopes
         </Link>
@@ -38,7 +38,7 @@ const HeaderNav = () => {
               download={link.download || undefined}
               target={link.download ? "_blank" : undefined}
               rel={link.download ? "noopener noreferrer" : undefined}
-              className="font-body text-body font-medium transition-colors hover:text-white/80"
+              className="font-medium transition-colors hover:text-white/80"
             >
               {link.label}
             </a>
@@ -76,7 +76,7 @@ const HeaderNav = () => {
                 target={link.download ? "_blank" : undefined}
                 rel={link.download ? "noopener noreferrer" : undefined}
                 onClick={() => setMobileMenuOpen(false)}
-                className="border-b border-surface-card-border py-4 font-body text-body font-medium text-text-body transition-colors hover:text-text-body/80"
+                className="border-b border-surface-card-border py-4 font-medium transition-colors hover:text-white/80"
               >
                 {link.label}
               </a>

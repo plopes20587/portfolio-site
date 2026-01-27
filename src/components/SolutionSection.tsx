@@ -43,8 +43,8 @@ const SolutionSection = ({
           {description && <p className="text-body">{description}</p>}
         </div>
 
-        {/* Solution Cards - 3 columns */}
-        <div className="grid w-full grid-cols-1 gap-32 md:grid-cols-3 md:justify-items-center">
+        {/* Solution Cards - 3 columns, centered on all screen sizes */}
+        <div className="grid w-full grid-cols-1 justify-items-center gap-32 md:grid-cols-3">
           {cards.map((card, index) => {
             const iconSrc = getIconSrc(card.icon);
             return (
@@ -61,7 +61,7 @@ const SolutionSection = ({
                 )}
                 {/* Card Content */}
                 <p className="text-body-lg font-semibold">{card.title}</p>
-                <p className="text-body">{card.description}</p>
+                <p>{card.description}</p>
               </div>
             );
           })}
@@ -87,9 +87,7 @@ const SolutionSection = ({
             {metrics.map((metric, index) => (
               <div key={`metric-${index}`} className="solution-metric">
                 <p className="text-h4 font-bold">{metric.value}</p>
-                <p className="text-body text-text-body-500">
-                  {metric.label}
-                </p>
+                <p className="text-text-body-500">{metric.label}</p>
               </div>
             ))}
           </div>

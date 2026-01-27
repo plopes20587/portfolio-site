@@ -27,14 +27,14 @@ const ProjectNavigation = ({
           >
             <div className="flex items-center gap-2 text-text-body/50">
               <ArrowLeftIcon />
-              <span className="font-body text-h4-small uppercase">
+              <span className="text-h4-small uppercase">
                 Previous
               </span>
             </div>
-            <h3 className="font-display text-h3 text-text-body transition group-hover:text-primary">
+            <h3 className="transition group-hover:text-primary">
               {previousProject.title}
             </h3>
-            <p className="line-clamp-2 font-body text-body text-text-body/60">
+            <p className="line-clamp-2 text-white/60">
               {previousProject.blurb}
             </p>
           </Link>
@@ -49,13 +49,13 @@ const ProjectNavigation = ({
             className="hover:border-primary/30 group flex flex-col gap-2 rounded-16 border border-surface-card-border bg-surface-card p-6 text-right transition hover:bg-white/[0.08]"
           >
             <div className="flex items-center justify-end gap-2 text-text-body/50">
-              <span className="font-body text-h4-small uppercase">Next</span>
+              <span className="text-h4-small uppercase">Next</span>
               <ArrowRightIcon />
             </div>
-            <h3 className="font-display text-h3 text-text-body transition group-hover:text-primary">
+            <h3 className="transition group-hover:text-primary">
               {nextProject.title}
             </h3>
-            <p className="line-clamp-2 font-body text-body text-text-body/60">
+            <p className="line-clamp-2 text-white/60">
               {nextProject.blurb}
             </p>
           </Link>

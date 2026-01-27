@@ -29,12 +29,8 @@ const RoleSection = ({
           {/* Left Column - My Role Content */}
           <div className="flex min-h-px min-w-px flex-1 flex-col gap-48">
             <div className="flex w-full flex-col gap-8">
-              <h3 className="font-display text-h3 text-text-heading">
-                My role
-              </h3>
-              <p className="min-w-full font-body text-body font-normal text-text-body">
-                {roleDescription}
-              </p>
+              <h3>My role</h3>
+              <p className="min-w-full">{roleDescription}</p>
             </div>
           </div>
 
@@ -73,9 +69,7 @@ const RoleSection = ({
                     />
                   </svg>
                 </div>
-                <p className="font-body text-body-lg font-semibold text-text-body">
-                  Core Contributions
-                </p>
+                <p className="text-body-lg font-semibold">Core Contributions</p>
               </div>
 
               {/* Contributions List */}

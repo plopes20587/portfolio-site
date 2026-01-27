@@ -101,13 +101,11 @@ const CaseStudyPage = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="flex w-[650px] max-w-full flex-col items-center gap-8 text-center"
             >
-              <h2 className="font-display text-h2 font-normal text-text-body transition-colors duration-300 hover:text-accent">
-                The problem
-              </h2>
+              <h2>The problem</h2>
             </motion.div>
 
-            {/* Problem Cards */}
-            <div className="grid w-full grid-cols-1 gap-24 md:grid-cols-3 md:justify-items-center">
+            {/* Problem Cards - centered on all screen sizes */}
+            <div className="grid w-full grid-cols-1 justify-items-center gap-24 md:grid-cols-3">
               {study.problemBreakdown.map((item, index) => (
                 <motion.div
                   key={`${item.title}-${index}`}
@@ -123,10 +121,8 @@ const CaseStudyPage = () => {
                   className="solution-card group"
                 >
                   {/* Card Content */}
-                  <p className="text-body-lg font-semibold text-text-body transition-colors duration-300">
-                    {item.title}
-                  </p>
-                  <p className="text-body text-text-body">{item.description}</p>
+                  <p className="text-body-lg font-semibold">{item.title}</p>
+                  <p>{item.description}</p>
                 </motion.div>
               ))}
             </div>

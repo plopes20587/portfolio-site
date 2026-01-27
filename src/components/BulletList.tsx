@@ -65,7 +65,7 @@ const BulletList = ({
           className={`flex items-start gap-8 ${itemClassName}`}
         >
           {renderBullet()}
-          <span className="font-body text-body text-white/80">{item}</span>
+          <span className="text-white/80">{item}</span>
         </li>
       ))}
     </ul>

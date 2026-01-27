@@ -39,7 +39,7 @@ const ChallengeSection = ({ challenge }: ChallengeSectionProps) => {
             {/* Content */}
             <div className="flex flex-1 flex-col gap-24">
               <h4>THE CHALLENGE</h4>
-              <p className="font-body text-body">{challenge}</p>
+              <p>{challenge}</p>
             </div>
           </div>
         </div>

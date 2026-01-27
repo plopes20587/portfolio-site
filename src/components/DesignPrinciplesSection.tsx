@@ -32,9 +32,7 @@ const DesignPrinciplesSection = ({
         {/* Section Header - max-width 650px, gap 8px */}
         <div className="flex max-w-[650px] flex-col gap-8">
           <h2>Design principles</h2>
-          <p className="text-body">
-            {description}
-          </p>
+          <p>{description}</p>
         </div>
 
         {/* Principles Grid - 2x2 layout, 32px gap */}
@@ -59,12 +57,8 @@ const DesignPrinciplesSection = ({
 
                 {/* Text Content - 8px gap between title and description */}
                 <div className="flex flex-1 flex-col gap-8">
-                  <p className="text-body-lg font-semibold">
-                    {principle.title}
-                  </p>
-                  <p className="text-body">
-                    {principle.description}
-                  </p>
+                  <p className="text-body-lg font-semibold">{principle.title}</p>
+                  <p>{principle.description}</p>
                 </div>
               </div>
             );

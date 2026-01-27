@@ -20,8 +20,8 @@ const NotFound = ({
 }: NotFoundProps) => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-6 bg-ink px-6">
-      <h1 className="font-display text-h2">{title}</h1>
-      <p className="font-body text-body text-white/70">{message}</p>
+      <h1 className="text-h2">{title}</h1>
+      <p className="text-white/70">{message}</p>
       <Link
         to={backLink}
         className="button-primary"

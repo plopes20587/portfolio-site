@@ -1,5 +1,6 @@
 // Import case study images
-import kfcBeforeMockups from "./assets/images/kfc-pdp-redesign/KFC Before images.png";
+import kfcBeforeImage1 from "./assets/images/kfc-pdp-redesign/kfcBeforeImage.png";
+import kfcBeforeImage2 from "./assets/images/kfc-pdp-redesign/kfcBeforeImage2.png";
 import kfcAfterSolution from "./assets/images/kfc-pdp-redesign/KFC after-solution.jpg";
 
 export type ImageItem = {
@@ -244,14 +245,16 @@ export const caseStudies: CaseStudy[] = [
       {
         sectionLabel: "THE PROBLEM",
         heading: "Before: The Original PDP",
-        layout: "single",
+        layout: "side-by-side",
         placement: "after-problem",
         images: [
           {
-            src: kfcBeforeMockups,
-            alt: "KFC Before mobile mockups showing the original product detail page design",
-            caption:
-              "The original PDP had the image taking over the entire mobile real estate, repetitive sauce sections, and an unnecessary footer nav",
+            src: kfcBeforeImage1,
+            alt: "KFC mobile view showing image taking over entire screen real estate",
+          },
+          {
+            src: kfcBeforeImage2,
+            alt: "KFC mobile view showing repetitive sauce selection sections",
           },
         ],
       },
@@ -302,21 +305,21 @@ export const caseStudies: CaseStudy[] = [
     problemBreakdown: [
       {
         icon: "target",
-        title: "Complexity Growth",
+        title: "Overwhelming Layout on Mobile",
         description:
-          "The product detail page became increasingly complex as new meal options, sides, and sauces were added over time, making what should have been a simple customization flow difficult to navigate.",
+          "The layout improved by reducing image dominance and highlighting details.",
       },
       {
         icon: "shield",
-        title: "Mobile Usability",
+        title: "Fragmented Customization Flow",
         description:
-          "The experience became especially challenging on smaller screens, where users struggled with excessive scrolling and unclear visual hierarchy.",
+          "Sauce customization options were limited to one, making the flow confusing.",
       },
       {
         icon: "lightning",
-        title: "User Confusion",
+        title: "Unclear Feedback Before Checkout",
         description:
-          "Users were repeating steps and struggling to understand what they had selected before moving to checkout, leading to confusion and drop-off during a critical moment.",
+          "Users struggled to understand their selections before checkout, causing confusion and drop-off.",
       },
     ],
 

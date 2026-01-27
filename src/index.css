@@ -713,6 +713,7 @@ button {
 
   /* --- Solution Section Card --- */
   /* Matches Figma node 2001:8497 */
+  /* Mobile: full-width, Desktop: max-width 343px */
   .solution-card {
     display: flex;
     position: relative;
@@ -724,10 +725,16 @@ button {
     border: 1px solid var(--color-elements-pills-secondary-border);
     background-color: var(--color-elements-pills-secondary-background);
     width: 100%;
-    max-width: 343px;
+    max-width: 100%;
     height: 100%;
     transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+  }
+
+  @media (min-width: 768px) {
+    .solution-card {
+      max-width: 343px;
+    }
   }
 
   .solution-card:hover {
@@ -773,6 +780,7 @@ button {
 
   /* --- Solution Section Metric --- */
   /* Matches Figma node 1867:1302 */
+  /* Mobile: full-width, Desktop: max-width 373px */
   .solution-metric {
     display: flex;
     flex-direction: column;
@@ -781,7 +789,13 @@ button {
     padding-top: 25px;
     border-top: 1px solid #1d293d;
     width: 100%;
-    max-width: 373px;
+    max-width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .solution-metric {
+      max-width: 373px;
+    }
   }
 
   /* --- Core Contributions Card --- */

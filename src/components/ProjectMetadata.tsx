@@ -40,10 +40,10 @@ const ProjectMetadata = ({ study }: ProjectMetadataProps) => {
               <img src={item.iconSrc} alt="" className="icon-small" />
             </div>
             <div className="flex flex-1 flex-col gap-4">
-              <p className="text-body-300 font-body text-h4-small font-medium uppercase">
+              <p className="text-h4-small font-medium uppercase text-text-body-300">
                 {item.label}
               </p>
-              <p className="font-body text-body font-medium">{item.value}</p>
+              <p className="font-medium">{item.value}</p>
             </div>
           </div>
         ))}
