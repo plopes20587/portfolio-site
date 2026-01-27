@@ -163,9 +163,12 @@
   --spacing-32: 32px; /* Sizes/Spacing/sp-32 */
   --spacing-40: 40px; /* Sizes/Spacing/sp-40, Scale/40 */
   --spacing-48: 48px; /* Sizes/Spacing/sp-48 */
+  --spacing-60: 60px; /* Common section padding */
+  --spacing-64: 64px; /* Common section padding */
   --spacing-72: 72px; /* Sizes/Spacing/sp-72 */
   --spacing-80: 80px; /* Sizes/Spacing/sp-80, Scale/80 */
-  --spacing-22: 22px; /* Additional spacing value */
+  --spacing-100: 100px; /* Common section padding */
+  --spacing-104: 104px; /* Common section padding */
 
   /* --- Border Radius --- */
   --radius-none: 0; /* Sizes/Border/none */
@@ -713,6 +716,14 @@ button {
     width: 100%;
     max-width: 343px;
     height: 100%;
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  .solution-card:hover {
+    border-color: var(--color-elements-icons-cyan);
+    background-color: rgba(0, 211, 242, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 211, 242, 0.15);
   }
 
   /* Solution Card with gradient background (when project colors are provided) */

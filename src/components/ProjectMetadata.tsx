@@ -31,15 +31,15 @@ const ProjectMetadata = ({ study }: ProjectMetadataProps) => {
       maxWidth="1320"
       padding="small"
       centerContent={false}
-      className="flex items-center justify-center border-y border-white/10 bg-[rgba(15,23,43,0.4)] py-[60px]"
+      className="flex items-center justify-center border-y border-surface-card-border bg-[rgba(15,23,43,0.4)] py-60"
     >
-      <div className="m-0 grid w-full grid-cols-1 gap-8 gap-x-[32px] md:grid-cols-2 lg:grid-cols-4">
+      <div className="m-0 grid w-full grid-cols-1 gap-8 gap-x-32 md:grid-cols-2 lg:grid-cols-4">
         {items.map((item) => (
-          <div key={item.label} className="flex items-start gap-[16px]">
+          <div key={item.label} className="flex items-start gap-16">
             <div className="metadata-icon-container">
               <img src={item.iconSrc} alt="" className="icon-small" />
             </div>
-            <div className="flex flex-1 flex-col gap-[4px]">
+            <div className="flex flex-1 flex-col gap-4">
               <p className="text-body-300 font-body text-h4-small font-medium uppercase">
                 {item.label}
               </p>

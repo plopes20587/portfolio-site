@@ -48,7 +48,6 @@ const SolutionSection = ({
       <div className="flex w-full flex-col items-center gap-48">
         {/* Section Header - Centered */}
         <div className="flex max-w-[646px] flex-col items-center gap-8 text-center">
-          <p className="font-display text-h4 uppercase text-accent">Outcome</p>
           <h2 className="tracking-[0.48px]">The Solution</h2>
           {description && <p className="text-body">{description}</p>}
         </div>

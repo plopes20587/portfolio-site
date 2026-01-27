@@ -16,7 +16,7 @@ const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
   const gradient = getProjectGradient(study.slug);
 
   return (
-    <section className="relative z-0 min-h-[600px] overflow-hidden bg-ink px-6 pb-16 pt-32 md:px-[60px] md:pb-[100px] md:pt-[100px]">
+    <section className="relative z-0 min-h-[600px] overflow-hidden bg-ink px-24 pb-16 pt-32 md:px-60 md:pb-100 md:pt-100">
       {/* Background gradient accent */}
       <div
         className="pointer-events-none absolute right-0 top-0 h-full w-1/2 opacity-20"
@@ -32,8 +32,8 @@ const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
           <div
             className="flex w-full flex-col gap-8 rounded-16 border p-24"
             style={{
-              backgroundColor: "var(--color-elements-pills-primary-background)",
-              borderColor: "var(--color-elements-pills-primary-border)",
+              backgroundColor: "var(--color-hero-card-bg)",
+              borderColor: "var(--color-hero-card-border)",
               borderWidth: "1px",
             }}
           >
@@ -92,7 +92,7 @@ const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
             </div>
           ) : (
             <div className="flex h-[400px] items-center justify-center bg-surface-card">
-              <span className="text-white/30">Project Image</span>
+              <span className="text-text-body/30">Project Image</span>
             </div>
           )}
         </div>

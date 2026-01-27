@@ -63,7 +63,7 @@ const SkillsSection = () => {
           {techStack.map((stack) => (
             <div
               key={stack.name}
-              className="flex flex-col gap-16 rounded-16 border border-white/10 bg-surface-card p-[25px]"
+              className="flex flex-col gap-16 rounded-16 border border-surface-card-border bg-surface-card p-24"
             >
               {/* Icon Container - 56x56 with 28x28 icon centered */}
               <div

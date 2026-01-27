@@ -2,8 +2,8 @@ import { footerCta } from "../siteData";
 
 const FooterCTA = () => {
   return (
-    <footer className="border-t border-white/10 bg-ink px-[60px] py-[100px]">
-      <div className="flex w-full flex-col items-center gap-[16px] text-center">
+    <footer className="border-t border-surface-card-border bg-ink px-60 py-100">
+      <div className="flex w-full flex-col items-center gap-16 text-center">
         {/* H2: Staatliches, 42px, weight 400, lineHeight 1.2, letterSpacing 1px */}
         <h2 className="font-display text-h2 font-normal">
           {footerCta.headline}

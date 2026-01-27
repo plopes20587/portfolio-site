@@ -182,8 +182,12 @@ export default {
         32: "var(--spacing-32)",
         40: "var(--spacing-40)",
         48: "var(--spacing-48)",
+        60: "var(--spacing-60)",
+        64: "var(--spacing-64)",
         72: "var(--spacing-72)",
         80: "var(--spacing-80)",
+        100: "var(--spacing-100)",
+        104: "var(--spacing-104)",
       },
       borderRadius: {
         // Border radius - references CSS variables from index.css
@@ -191,6 +195,7 @@ export default {
         8: "var(--radius-8)",
         14: "var(--radius-14)",
         16: "var(--radius-16)",
+        24: "var(--radius-24)",
       },
       boxShadow: {
         glow: "0 0 40px rgba(125, 232, 255, 0.3)",

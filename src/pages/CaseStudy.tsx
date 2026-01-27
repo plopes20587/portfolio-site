@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 import { caseStudies } from "../siteData";
 import { hasItems, hasValue, hasAny } from "../lib/helpers";
 import CaseStudyHero from "../components/CaseStudyHero";
@@ -16,9 +17,6 @@ import ChallengeSection from "../components/ChallengeSection";
 import DesignPrinciplesSection from "../components/DesignPrinciplesSection";
 import SolutionSection from "../components/SolutionSection";
 import { getImageSections } from "../lib/caseStudyHelpers";
-import targetIcon from "../assets/icons/target.svg";
-import shieldIcon from "../assets/icons/shield.svg";
-import lightningIcon from "../assets/icons/lightning.svg";
 
 const CaseStudyPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -86,60 +84,68 @@ const CaseStudyPage = () => {
       {hasItems(study.problemBreakdown) && (
         <SectionWrapper
           maxWidth="1320"
-          customPadding="px-6 py-[80px] md:px-[60px]"
+          padding="large"
           className="justify-center"
         >
-          <div className="flex flex-col items-center justify-start gap-[48px]">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col items-center justify-start gap-48"
+          >
             {/* Problem Section Header */}
-            <div className="flex w-[650px] max-w-full flex-col items-center gap-8 text-center">
-              <p className="font-display text-h4 uppercase text-accent">
-                OBSTACLES
-              </p>
-              <h2 className="font-display text-h2 font-normal text-white">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex w-[650px] max-w-full flex-col items-center gap-8 text-center"
+            >
+              <h2 className="font-display text-h2 font-normal text-text-body transition-colors duration-300 hover:text-accent">
                 The problem
               </h2>
-            </div>
+            </motion.div>
 
             {/* Problem Cards */}
             <div className="grid w-full grid-cols-1 gap-24 md:grid-cols-3 md:justify-items-center">
-              {study.problemBreakdown.map((item, index) => {
-                // Icon mappings
-                const iconMap: Record<string, string> = {
-                  target: targetIcon,
-                  shield: shieldIcon,
-                  lightning: lightningIcon,
-                };
-                const iconSrc = iconMap[item.icon];
-
-                return (
-                  <div key={`${item.title}-${index}`} className="solution-card">
-                    {/* Icon Wrapper */}
-                    {iconSrc && (
-                      <div className="solution-card-icon-wrapper">
-                        <img
-                          src={iconSrc}
-                          alt=""
-                          className="h-[var(--icon-size-small)] w-[var(--icon-size-small)]"
-                        />
-                      </div>
-                    )}
-                    {/* Card Content */}
-                    <p className="text-body-lg font-semibold">{item.title}</p>
-                    <p className="text-body">{item.description}</p>
-                  </div>
-                );
-              })}
+              {study.problemBreakdown.map((item, index) => (
+                <motion.div
+                  key={`${item.title}-${index}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.1,
+                    ease: "easeOut",
+                  }}
+                  whileHover={{ y: -4, scale: 1.02 }}
+                  className="solution-card group"
+                >
+                  {/* Card Content */}
+                  <p className="text-body-lg font-semibold text-text-body transition-colors duration-300 group-hover:text-accent">
+                    {item.title}
+                  </p>
+                  <p className="text-body text-text-body">{item.description}</p>
+                </motion.div>
+              ))}
             </div>
 
             {/* Images Section */}
             {study &&
               getImageSections(study, "after-problem").map((section, index) => (
-                <ProblemImageGallery
+                <motion.div
                   key={`after-problem-${index}`}
-                  images={section.images}
-                />
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  <ProblemImageGallery images={section.images} />
+                </motion.div>
               ))}
-          </div>
+          </motion.div>
         </SectionWrapper>
       )}
 

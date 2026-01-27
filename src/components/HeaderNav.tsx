@@ -20,7 +20,7 @@ const HeaderNav = () => {
 
   return (
     <header className="absolute left-0 right-0 top-0 z-40">
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-[64px] py-[32px]">
+      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-64 py-32">
         {/* Logo - underlined style from Figma */}
         <Link
           to="/"
@@ -30,7 +30,7 @@ const HeaderNav = () => {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden items-center gap-[24px] md:flex">
+        <nav className="hidden items-center gap-24 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -66,8 +66,8 @@ const HeaderNav = () => {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="bg-ink/95 absolute left-0 right-0 top-full border-t border-white/10 backdrop-blur-md md:hidden">
-          <nav className="flex flex-col px-6 py-6 md:px-[64px]">
+        <div className="bg-ink/95 absolute left-0 right-0 top-full border-t border-surface-card-border backdrop-blur-md md:hidden">
+          <nav className="flex flex-col px-24 py-24 md:px-64">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -76,7 +76,7 @@ const HeaderNav = () => {
                 target={link.download ? "_blank" : undefined}
                 rel={link.download ? "noopener noreferrer" : undefined}
                 onClick={() => setMobileMenuOpen(false)}
-                className="border-b border-white/10 py-4 font-body text-body font-medium transition-colors hover:text-white/80"
+                className="border-b border-surface-card-border py-4 font-body text-body font-medium text-text-body transition-colors hover:text-text-body/80"
               >
                 {link.label}
               </a>
