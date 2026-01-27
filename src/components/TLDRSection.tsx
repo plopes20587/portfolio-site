@@ -1,3 +1,5 @@
+import BulletList from "./BulletList";
+
 type TLDRSectionProps = {
   items: string[];
 };
@@ -38,20 +40,12 @@ const TLDRSection = ({ items }: TLDRSectionProps) => {
             </div>
 
             {/* Bullet List with cyan bullets */}
-            <div className="flex flex-col gap-8">
-              {items.map((item, index) => (
-                <div
-                  key={`tldr-item-${index}`}
-                  className="flex items-center gap-8"
-                >
-                  {/* Cyan bullet - 8x8 circle */}
-                  <div className="h-[8px] w-[8px] shrink-0 rounded-full bg-cyan" />
-                  <p className="font-body text-body font-normal text-text-body">
-                    {item}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <BulletList
+              items={items}
+              bulletStyle="dot"
+              bulletColor="cyan"
+              gap="gap-8"
+            />
           </div>
         </div>
       </div>

@@ -117,6 +117,8 @@
   --color-tertiary: #191b21; /* Colors/Tertiary */
   --color-tldr-section-bg: rgba(15, 23, 43, 0.4); /* TL;DR section background */
   --color-tldr-section-border: #1d293d; /* TL;DR section border */
+  --color-metadata-bg: rgba(15, 23, 43, 0.4); /* Metadata section background */
+  --color-cyan-bg-10: rgba(0, 184, 219, 0.1); /* Cyan transparent 10% for icon backgrounds */
   --color-role-card-bg: rgba(
     2,
     6,
@@ -400,7 +402,15 @@ button {
     );
   }
 
-  /* Problem Card Grid Pattern */
+  /* Shared Grid Pattern Overlay - reusable across components */
+  .grid-pattern-overlay {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Problem Card Grid Pattern - extends grid-pattern-overlay */
   .problem-card-grid {
     background-image:
       linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
@@ -851,7 +861,7 @@ button {
     background-color: var(--color-primary);
   }
 
-  /* --- Case Study Card Grid Pattern --- */
+  /* --- Case Study Card Grid Pattern - extends grid-pattern-overlay --- */
   .case-study-card-grid {
     background-image:
       linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),

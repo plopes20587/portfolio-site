@@ -1,33 +1,11 @@
 import SectionWrapper from "./SectionWrapper";
 import type { DesignPrinciple } from "../siteData";
-// Figma design principle icons (cyan stroke color #38EFE9)
-import sparkleCursorIcon from "../assets/icons/sparkle-cursor.svg";
-import arrowUpCircleIcon from "../assets/icons/arrow-up-circle.svg";
-import layoutGridIcon from "../assets/icons/layout-grid.svg";
-import mobileIcon from "../assets/icons/mobile.svg";
-// Legacy icons for backward compatibility
-import targetIcon from "../assets/icons/target.svg";
-import shieldIcon from "../assets/icons/shield.svg";
-import lightningIcon from "../assets/icons/lightning.svg";
+import { getIconSrc } from "../lib/iconMappings";
 
 type DesignPrinciplesSectionProps = {
   principles: DesignPrinciple[];
   /** Optional description text below the heading */
   description?: string;
-};
-
-// Icon mappings for design principles
-// Maps icon names from siteData to imported SVG assets
-const principleIcons: Record<string, string> = {
-  // New Figma icons for design principles
-  "sparkle-cursor": sparkleCursorIcon,
-  "arrow-up-circle": arrowUpCircleIcon,
-  "layout-grid": layoutGridIcon,
-  mobile: mobileIcon,
-  // Legacy icons (for backward compatibility)
-  target: targetIcon,
-  shield: shieldIcon,
-  lightning: lightningIcon,
 };
 
 /**
@@ -47,10 +25,6 @@ const DesignPrinciplesSection = ({
   description = "Rather than redesigning the page wholesale, I anchored the work around a small set of principles that guided every decision.",
 }: DesignPrinciplesSectionProps) => {
   if (!principles || principles.length === 0) return null;
-
-  const getIconSrc = (iconName: string): string | null => {
-    return principleIcons[iconName] || null;
-  };
 
   return (
     <SectionWrapper maxWidth="1320" padding="large">

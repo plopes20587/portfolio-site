@@ -1,8 +1,6 @@
 import SectionWrapper from "./SectionWrapper";
 import type { SolutionCard, ImageSection } from "../siteData";
-import targetIcon from "../assets/icons/target.svg";
-import shieldIcon from "../assets/icons/shield.svg";
-import lightningIcon from "../assets/icons/lightning.svg";
+import { getIconSrc } from "../lib/iconMappings";
 
 type Metric = {
   label: string;
@@ -18,13 +16,6 @@ type SolutionSectionProps = {
   image?: ImageSection;
   /** Metrics to display at the bottom */
   metrics?: Metric[];
-};
-
-// Icon mappings for solution cards
-const solutionIcons: Record<string, string> = {
-  target: targetIcon,
-  shield: shieldIcon,
-  lightning: lightningIcon,
 };
 
 /**
@@ -55,7 +46,7 @@ const SolutionSection = ({
         {/* Solution Cards - 3 columns */}
         <div className="grid w-full grid-cols-1 gap-32 md:grid-cols-3 md:justify-items-center">
           {cards.map((card, index) => {
-            const iconSrc = solutionIcons[card.icon];
+            const iconSrc = getIconSrc(card.icon);
             return (
               <div key={`solution-card-${index}`} className="solution-card">
                 {/* Icon Wrapper */}

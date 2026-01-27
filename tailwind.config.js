@@ -105,7 +105,9 @@ export default {
         cyan: {
           DEFAULT: "var(--color-cyan)",
           300: "var(--color-cyan-300)",
+          "bg-10": "var(--color-cyan-bg-10)",
         },
+        "metadata-bg": "var(--color-metadata-bg)",
 
         // Surface colors - references CSS variables
         surface: {

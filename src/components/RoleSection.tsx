@@ -1,5 +1,5 @@
 import SectionWrapper from "./SectionWrapper";
-import checkIcon from "../assets/icons/check.svg";
+import BulletList from "./BulletList";
 
 type RoleSectionProps = {
   roleDescription: string;
@@ -79,33 +79,12 @@ const RoleSection = ({
               </div>
 
               {/* Contributions List */}
-              <div className="flex flex-col gap-[20px]">
-                {coreContributions.map((contribution, index) => (
-                  <div
-                    key={`contribution-${index}`}
-                    className="flex w-full items-center gap-8"
-                  >
-                    {/* Cyan checkmark circle */}
-                    <div
-                      className="flex h-[24px] w-[24px] shrink-0 items-center justify-center rounded-full"
-                      style={{ backgroundColor: "rgba(0, 184, 219, 0.1)" }}
-                    >
-                      <img
-                        src={checkIcon}
-                        alt=""
-                        className="h-[16px] w-[16px]"
-                        style={{
-                          filter:
-                            "brightness(0) saturate(100%) invert(77%) sepia(52%) saturate(1000%) hue-rotate(130deg) brightness(95%) contrast(90%)",
-                        }}
-                      />
-                    </div>
-                    <p className="min-h-px min-w-px flex-1 font-body text-body font-normal text-text-body">
-                      {contribution}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              <BulletList
+                items={coreContributions}
+                bulletStyle="checkmark"
+                bulletColor="cyan"
+                gap="gap-[20px]"
+              />
             </div>
           )}
         </div>

@@ -31,7 +31,7 @@ const ProjectMetadata = ({ study }: ProjectMetadataProps) => {
       maxWidth="1320"
       customPadding="px-24 py-80 md:px-60"
       centerContent={false}
-      className="flex items-center justify-center border-y border-surface-card-border bg-[rgba(15,23,43,0.4)]"
+      className="flex items-center justify-center border-y border-surface-card-border bg-metadata-bg"
     >
       <div className="m-0 grid w-full grid-cols-1 gap-8 gap-x-32 md:grid-cols-2 lg:grid-cols-4">
         {items.map((item) => (

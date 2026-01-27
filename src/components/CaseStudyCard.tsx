@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import type { CaseStudy } from "../siteData";
 import { getProjectConfig } from "../lib/projectConfig";
 import { handleImageErrorHide } from "../lib/imageUtils";
-import checkIcon from "../assets/icons/check.svg";
+import { CheckIcon } from "./icons/CheckIcon";
 import externalLinkIcon from "../assets/icons/external-link.svg";
 
 type CaseStudyCardProps = {
@@ -89,11 +89,7 @@ const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
                     >
                       {/* Checkmark circle - 20px, bg-white/20 */}
                       <div className="case-study-card-checkmark">
-                        <img
-                          src={checkIcon}
-                          alt=""
-                          className="case-study-card-checkmark-icon"
-                        />
+                        <CheckIcon className="text-white" size="sm" />
                       </div>
                       {/* Metric text - 16px */}
                       <span className="case-study-card-metric-text">

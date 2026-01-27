@@ -25,7 +25,7 @@ const SectionWrapper = ({
     ? customPadding
     : padding === "large"
       ? "px-24 py-80 md:px-60"
-      : "px-24 py-80 md:px-60";
+      : "px-16 py-48 md:px-40";
 
   const maxWidthClass =
     maxWidth === "1320"
