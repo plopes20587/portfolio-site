@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import menuIcon from "../assets/icons/menu.svg";
 import closeIcon from "../assets/icons/close.svg";
+import logo from "../assets/images/logo.png";
 
 type NavLink = {
   href: string;
@@ -21,12 +22,9 @@ const HeaderNav = () => {
   return (
     <header className="absolute left-0 right-0 top-0 z-40">
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-64 py-32">
-        {/* Logo - underlined style from Figma */}
-        <Link
-          to="/"
-          className="font-semibold underline decoration-white/80 underline-offset-4 transition hover:decoration-white"
-        >
-          Patrick Lopes
+        {/* Logo */}
+        <Link to="/" className="transition hover:opacity-80">
+          <img src={logo} alt="Patrick Lopes" className="w-[200px]" />
         </Link>
 
         {/* Desktop Navigation Links */}
