@@ -13,7 +13,10 @@ import mobileIcon from "../assets/icons/mobile.svg";
 import targetIcon from "../assets/icons/target.svg";
 import shieldIcon from "../assets/icons/shield.svg";
 import lightningIcon from "../assets/icons/lightning.svg";
-
+import bridgeLinkIcon from "../assets/icons/bridge-link.svg";
+import rulesIcon from "../assets/icons/rules.svg";
+import scaleIcon from "../assets/icons/scale.svg";
+import rhythmIcon from "../assets/icons/rhythm.svg";
 /**
  * Maps icon names from siteData to imported SVG assets
  * Used by DesignPrinciplesSection and SolutionSection
@@ -23,6 +26,10 @@ export const featureIcons: Record<string, string> = {
   "sparkle-cursor": sparkleCursorIcon,
   "arrow-up-circle": arrowUpCircleIcon,
   "layout-grid": layoutGridIcon,
+  "bridge-link": bridgeLinkIcon,
+  rhythm: rhythmIcon,
+  scale: scaleIcon,
+  rules: rulesIcon,
   mobile: mobileIcon,
   // Solution/feature icons
   target: targetIcon,

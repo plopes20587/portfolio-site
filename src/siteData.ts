@@ -161,24 +161,28 @@ export const caseStudies: CaseStudy[] = [
     // 7. Design Principles
     designPrinciples: [
       {
-        icon: "target",
-        title: "Support temporary needs",
-        description: "Without encouraging long-term dependency",
+        icon: "bridge-link",
+        title: "Design for temporary needs, not commitments",
+        description:
+          "Customers faced short-term financial gaps, not abandoning service. The solution framed as a bridge, not a downgrade, helped them see it as support.",
       },
       {
-        icon: "shield",
+        icon: "rules",
         title: "Make eligibility and next steps clear",
-        description: "At every touchpoint",
+        description:
+          "Eligibility rules, pricing, and post-plan outcomes must be clear. Ambiguity increases anxiety and drop-off, so the design prioritized plain language and consistent messaging.",
       },
       {
-        icon: "lightning",
+        icon: "scale",
         title: "Design once, scale across channels",
-        description: "Ensuring consistent experiences",
+        description:
+          "The bridge plan needed to work across web, app, IVR, and care without parallel experiences. Patterns and messaging were designed to translate cleanly, ensuring customers received the same guidance.",
       },
       {
-        icon: "users",
-        title: "Preserve existing behaviors",
-        description: "Where possible to reduce learning cost",
+        icon: "rhythm",
+        title: "Preserve familiar behaviors",
+        description:
+          "This experience was added to a prepaid ecosystem with established habits. The design built on familiar refill and plan patterns to minimize learning costs and avoid friction during a stressful moment.",
       },
     ],
 

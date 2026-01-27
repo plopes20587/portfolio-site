@@ -22,7 +22,6 @@ type DesignPrinciplesSectionProps = {
  */
 const DesignPrinciplesSection = ({
   principles,
-  description = "Rather than redesigning the page wholesale, I anchored the work around a small set of principles that guided every decision.",
 }: DesignPrinciplesSectionProps) => {
   if (!principles || principles.length === 0) return null;
 
@@ -32,7 +31,6 @@ const DesignPrinciplesSection = ({
         {/* Section Header - max-width 650px, gap 8px */}
         <div className="flex max-w-[650px] flex-col gap-8">
           <h2>Design principles</h2>
-          <p>{description}</p>
         </div>
 
         {/* Principles Grid - 2x2 layout, 32px gap */}
@@ -57,7 +55,9 @@ const DesignPrinciplesSection = ({
 
                 {/* Text Content - 8px gap between title and description */}
                 <div className="flex flex-1 flex-col gap-8">
-                  <p className="text-body-lg font-semibold">{principle.title}</p>
+                  <p className="text-body-lg font-semibold">
+                    {principle.title}
+                  </p>
                   <p>{principle.description}</p>
                 </div>
               </div>
