@@ -154,7 +154,7 @@ All components have error handling that shows placeholders if images aren't foun
 
 ## Remaining work
 
-- [ ] Add Resume/CV page or download link
+- [x] Add Resume/CV page or download link
 - [ ] Mobile responsive refinements
 - [ ] Performance optimization
 - [x] Deploy to Render (deployed, SPA routing fix applied)
