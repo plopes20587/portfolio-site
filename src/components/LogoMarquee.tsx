@@ -34,12 +34,15 @@ const LogoMarquee = () => {
         {/* Animated marquee track */}
         <div className="flex w-max animate-marquee-slow gap-[48px]">
           {duplicatedLogos.map((logo, index) => (
-            <div key={`${logo.name}-${index}`} className="logo-marquee-card">
+            <div
+              key={`${logo.name}-${index}`}
+              className="w-[192px] bg-white/5 border border-white/10 rounded-[10px] flex items-center justify-center px-[22px] py-[32px]"
+            >
               <img
                 src={logo.path}
                 loading="lazy"
                 alt={logo.name}
-                className="h-auto max-h-[33px] w-full object-contain"
+                className="h-auto w-full object-contain"
                 onError={(e) => handleImageErrorTextFallback(e, logo.name)}
               />
             </div>

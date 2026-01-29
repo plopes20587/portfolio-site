@@ -4,6 +4,7 @@ import type { CaseStudy } from "../siteData";
 import { getProjectConfig } from "../lib/projectConfig";
 import { handleImageErrorHide } from "../lib/imageUtils";
 import { icons } from "../lib/iconMappings";
+import BulletList from "./BulletList";
 
 type CaseStudyCardProps = {
   study: CaseStudy;
@@ -80,21 +81,14 @@ const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
 
               {/* Metrics List - with checkmark icons */}
               {study.metrics && (
-                <div className="case-study-card-metrics-list gap-2">
-                  {study.metrics.map((metric, index) => (
-                    <div
-                      key={index}
-                      className="case-study-card-metric-item gap-2"
-                    >
-                      {/* Checkmark icon */}
-                      <img src={icons.selected} alt="" className="h-5 w-5" />
-                      {/* Metric text - 16px */}
-                      <span className="case-study-card-metric-text">
-                        {metric.value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+                <BulletList
+                  items={study.metrics.map((metric) => metric.value)}
+                  bulletStyle="checkmark"
+                  bulletColor="white"
+                  gap="gap-2"
+                  className="case-study-card-metrics-list"
+                  itemClassName="case-study-card-metric-item"
+                />
               )}
             </div>
 

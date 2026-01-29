@@ -1,7 +1,7 @@
 import { icons } from "../lib/iconMappings";
 
 type BulletStyle = "dot" | "checkmark";
-type BulletColor = "primary" | "cyan";
+type BulletColor = "primary" | "cyan" | "white";
 
 type BulletListProps = {
   items: string[];
@@ -9,7 +9,7 @@ type BulletListProps = {
   itemClassName?: string;
   /** Style of bullet: "dot" (default) or "checkmark" */
   bulletStyle?: BulletStyle;
-  /** Color of bullet: "primary" (purple, default) or "cyan" */
+  /** Color of bullet: "primary" (purple, default), "cyan", or "white" */
   bulletColor?: BulletColor;
   /** Custom gap between items (Tailwind gap class) */
   gap?: string;
@@ -32,14 +32,25 @@ const BulletList = ({
 
   const renderBullet = () => {
     if (bulletStyle === "checkmark") {
+      // Apply white filter to checkmark when bulletColor is white
+      const filterClass = bulletColor === "white" ? "brightness-0 invert" : "";
       return (
-        <img src={icons.selected} alt="" className="h-6 w-6 shrink-0" />
+        <img
+          src={icons.selected}
+          alt=""
+          className={`h-6 w-6 shrink-0 ${filterClass}`}
+        />
       );
     }
 
     // Default: dot bullet
+    // Use design system CSS variable for white, or Tailwind classes for other colors
     const bgColorClass =
-      bulletColor === "cyan" ? "bg-cyan" : "bg-primary";
+      bulletColor === "white"
+        ? "bg-[var(--color-elements-icons-default)]"
+        : bulletColor === "cyan"
+        ? "bg-cyan"
+        : "bg-primary";
 
     return (
       <span

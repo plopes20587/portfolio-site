@@ -837,19 +837,6 @@ button {
     background-color: rgba(255, 255, 255, 0.1);
   }
 
-  /* --- Logo Marquee Card --- */
-  .logo-marquee-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    height: 98px;
-    width: 192px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: rgba(255, 255, 255, 0.05);
-    padding: var(--spacing-32) var(--spacing-24);
-  }
 
   /* --- Bullet List Item --- */
   .bullet-list-item {
