@@ -20,7 +20,6 @@ const Hero = () => {
       iconSrc: icons.github,
       href: "https://github.com/plopes20587",
     },
-    { name: "Email", iconSrc: icons.email, href: "mailto:design@patlopes.com" },
   ];
 
   return (

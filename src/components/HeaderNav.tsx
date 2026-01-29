@@ -42,7 +42,7 @@ const HeaderNav = () => {
           ))}
 
           {/* CTA Button - using Figma design system */}
-          <a href="mailto:patrick@patricklopes.com" className="button-primary">
+          <a href="mailto:design@patlopes.com" className="button-primary">
             Lets talk
           </a>
         </nav>
