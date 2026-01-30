@@ -76,7 +76,7 @@ const Hero = () => {
       </div>
 
       {/* Hero Content - positioned per Figma: x=64, y=357 */}
-      <div className="relative z-10 mx-auto max-w-[1320px] px-[64px] pt-[357px]">
+      <div className="relative mx-auto max-w-[1320px] px-24 py-24 pt-[357px]">
         <div className="flex flex-col gap-[40px]">
           {/* Title Section */}
           <div className="flex flex-col gap-[16px]">

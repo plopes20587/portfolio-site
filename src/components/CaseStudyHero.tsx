@@ -27,14 +27,13 @@ const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
 
       {/* Container - Figma mobile: image first, then card. Desktop: card left, image right */}
       <div className="relative z-0 mx-auto flex max-w-[1320px] flex-col items-start gap-32 lg:flex-row lg:items-center">
-        {/* Image Wrapper - Figma mobile: comes first (order-1), desktop: comes second (order-2) */}
-        {/* Figma mobile: h-[558px] w-[342px], desktop: h-[650px] w-[554px] */}
-        <div className="relative order-1 flex h-[558px] w-full items-center justify-center p-[10px] lg:order-2 lg:h-[650px] lg:w-[554px]">
+        {/* Image Wrapper - Full width on mobile and desktop */}
+        <div className="relative order-1 flex w-full items-center justify-center lg:order-2">
           {heroImage ? (
             <img
               src={heroImage}
               alt={`${study.title} project preview - phone mockups`}
-              className="h-auto max-h-full w-full max-w-full object-contain lg:max-h-[650px] lg:max-w-[554px]"
+              className="h-auto w-full"
               style={{
                 filter: "drop-shadow(0 25px 50px rgba(0, 0, 0, 0.4))",
               }}

@@ -152,7 +152,7 @@ const CaseStudyPage = () => {
           description={study.solution}
           cards={study.solutionCards}
           image={getImageSections(study, "after-solution")[0]}
-          metrics={study.solutionMetrics}
+          metrics={study.metrics}
         />
       )}
 

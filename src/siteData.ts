@@ -2,6 +2,7 @@
 import kfcBeforeImage1 from "./assets/images/kfc-pdp-redesign/kfcBeforeImage.png";
 import kfcBeforeImage2 from "./assets/images/kfc-pdp-redesign/kfcBeforeImage2.png";
 import kfcAfterSolution from "./assets/images/kfc-pdp-redesign/KFC after-solution.jpg";
+import stAfterSolution from "./assets/images/verizon-straight-talk-7day/ST after-solution.png";
 
 export type ImageItem = {
   src: string;
@@ -73,7 +74,6 @@ export type CaseStudy = {
   // 8. The Solution
   solution?: string;
   solutionCards?: SolutionCard[];
-  solutionMetrics?: { label: string; value: string }[];
 };
 
 // Contact email - centralized for easy updates
@@ -97,15 +97,31 @@ export const caseStudies: CaseStudy[] = [
     metrics: [
       {
         label: "bridge plan redemptions shortly after launch",
-        value: "100k+ bridge plan redemptions",
+        value: "100k+",
       },
       {
         label: "unique customers used the plan, with strong repeat usage",
-        value: "40k+ unique customers",
+        value: "40k+",
       },
       {
         label: "bridge plans purchased on average",
-        value: "2.3 bridge plans on average purchased",
+        value: "2.3",
+      },
+    ],
+    imageSections: [
+      {
+        sectionLabel: "THE SOLUTION",
+        heading: "The Bridge Plan Experience",
+        layout: "single",
+        placement: "after-solution",
+        images: [
+          {
+            src: stAfterSolution,
+            alt: "Straight Talk 7-Day Bridge Plan interface showing the plan selection and checkout flow",
+            caption:
+              "The bridge plan experience provides clear eligibility, pricing, and next-step messaging across all channels",
+          },
+        ],
       },
     ],
 
@@ -209,20 +225,6 @@ export const caseStudies: CaseStudy[] = [
           "The experience was designed to work across digital and assisted channels, allowing customers to access the plan through the path most convenient to them.",
       },
     ],
-    solutionMetrics: [
-      {
-        label: "bridge plan redemptions shortly after launch",
-        value: "100k+",
-      },
-      {
-        label: "unique customers used the plan, with strong repeat usage",
-        value: "40k+",
-      },
-      {
-        label: "bridge plans purchased on average",
-        value: "2.3",
-      },
-    ],
   },
   {
     // 1. Hero Section
@@ -234,15 +236,15 @@ export const caseStudies: CaseStudy[] = [
     metrics: [
       {
         label: "task success rate across all platforms",
-        value: "88% task success rate",
+        value: "88%",
       },
       {
         label: "reduction in average task completion time",
-        value: "20% reduction in average task completion time",
+        value: "20%",
       },
       {
         label: "of participants reported higher satisfaction",
-        value: "90% of participants reported higher satisfaction",
+        value: "90%",
       },
     ],
     imageSections: [
@@ -378,20 +380,6 @@ export const caseStudies: CaseStudy[] = [
           "A stronger visual hierarchy improved feedback, making it easier for users to review selections before checkout.",
       },
     ],
-    solutionMetrics: [
-      {
-        label: "task rate success across all platforms",
-        value: "88%",
-      },
-      {
-        label: "reduction in average task completion time",
-        value: "20%",
-      },
-      {
-        label: "of participants reported higher satisfaction",
-        value: "90%",
-      },
-    ],
   },
   {
     // 1. Hero Section
@@ -401,12 +389,9 @@ export const caseStudies: CaseStudy[] = [
       "Redesigning the e-commerce experience to improve product discovery, clarify product information, and streamline the purchase flow.",
     tags: ["Retail", "E-Commerce", "Beauty & Cosmetics"],
     metrics: [
-      { label: "conversions within 6 months", value: "82K conversions" },
-      { label: "in revenue impact post launch", value: "$7.2M in revenue" },
-      {
-        label: "from top-performing product",
-        value: "$540K from the top-performing product",
-      },
+      { label: "conversions within 6 months", value: "82K" },
+      { label: "in revenue impact post launch", value: "$7.2M" },
+      { label: "from top-performing product", value: "$540K" },
     ],
 
     // 2. Project Metadata
@@ -484,14 +469,6 @@ export const caseStudies: CaseStudy[] = [
           "A consistent design system that ensures visual coherence and speeds up future development.",
       },
     ],
-    solutionMetrics: [
-      { label: "conversions within 6 months", value: "82K" },
-      { label: "in revenue impact post launch", value: "$7.2M" },
-      {
-        label: "from the top-performing product",
-        value: "$540K ",
-      },
-    ],
   },
   {
     // 1. Hero Section
@@ -501,14 +478,11 @@ export const caseStudies: CaseStudy[] = [
       "Improving Cellebrite's website to make complex offerings easier to understand and navigate.",
     tags: ["Public Safety & Forensics", "B2B"],
     metrics: [
-      { label: "increase in page views", value: "26% increase in page views" },
-      {
-        label: "reduction in bounce rate",
-        value: "21% reduction in bounce rate",
-      },
+      { label: "increase in page views", value: "26%" },
+      { label: "reduction in bounce rate", value: "21%" },
       {
         label: "improvement in engagement",
-        value: "Significant improvement in engagement",
+        value: "Significant",
       },
     ],
 
@@ -585,13 +559,6 @@ export const caseStudies: CaseStudy[] = [
         title: "Clearer Paths to Information",
         description:
           "Improved navigation and CTAs that make it easy for visitors to find what they need.",
-      },
-    ],
-    solutionMetrics: [
-      { label: "increase in page views", value: "26%" },
-      {
-        label: "reduction in bounce rate",
-        value: "21%",
       },
     ],
   },

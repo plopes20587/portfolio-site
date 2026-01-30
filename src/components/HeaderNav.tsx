@@ -20,7 +20,7 @@ const HeaderNav = () => {
 
   return (
     <header className="absolute left-0 right-0 top-0 z-40">
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-64 py-32">
+      <div className="mx-auto flex max-w-[1320px] items-center justify-between px-24 py-24">
         {/* Logo */}
         <Link to="/" className="transition hover:opacity-80">
           <img src={logo} alt="Patrick Lopes" className="w-[200px]" />

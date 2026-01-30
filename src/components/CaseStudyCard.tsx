@@ -80,7 +80,7 @@ const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
               {/* Metrics List - with checkmark icons */}
               {study.metrics && (
                 <BulletList
-                  items={study.metrics.map((metric) => metric.value)}
+                  items={study.metrics.map((metric) => `${metric.value} ${metric.label}`)}
                   bulletStyle="checkmark"
                   bulletColor="white"
                   gap="gap-2"
