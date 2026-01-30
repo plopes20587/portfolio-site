@@ -24,7 +24,7 @@ const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
     >
       <Link
         to={`/case/${study.slug}`}
-        className="case-study-card group relative flex h-full max-w-[635px] flex-col overflow-hidden rounded-[24px] shadow-lg aspect-[635/775]"
+        className="case-study-card group relative flex h-full max-w-[635px] flex-col overflow-hidden rounded-[24px] shadow-lg md:aspect-[635/775]"
         style={
           {
             "--case-study-gradient-from": config.gradientFrom,
