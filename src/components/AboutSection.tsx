@@ -14,21 +14,21 @@ const AboutSection = () => {
   const aboutStats: AboutStat[] = [
     {
       iconSrc: icons["years-experience"],
-      value: "12+",
+      value: "10+",
       label: "Years of Experience",
       gridArea: "1 / 1",
       iconColor: "default",
     },
     {
       iconSrc: icons["projects-completed"],
-      value: "150+",
+      value: "50+",
       label: "Projects Delivered",
       gridArea: "1 / 2",
       iconColor: "default",
     },
     {
       iconSrc: icons["happy-clients"],
-      value: "50+",
+      value: "20+",
       label: "Happy Clients",
       gridArea: "2 / 1",
       iconColor: "default",
