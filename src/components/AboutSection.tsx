@@ -57,15 +57,15 @@ const AboutSection = () => {
       {/* Two Column Layout */}
       <div className="grid items-start gap-[var(--spacing-40)] md:grid-cols-2">
         {/* Profile Image with Purple Background Effect */}
-        <div className="relative inline-grid h-[710px] w-full items-start justify-items-start">
+        <div className="relative inline-grid w-full max-w-[571px] items-start justify-items-start">
           {/* Purple Background Layer */}
           <div
-            className="col-[1] row-[1] ml-[11px] mt-[12px] h-[668px] w-[571px] rounded-[var(--radius-16)] bg-[var(--color-primary)]"
+            className="col-[1] row-[1] ml-[11px] mt-[12px] aspect-[571/668] w-full rounded-[var(--radius-16)] bg-[var(--color-primary)]"
             style={{ gridColumn: 1, gridRow: 1 }}
           />
           {/* Image Layer with Shadow */}
           <div
-            className="col-[1] row-[1] ml-0 mt-0 h-[668px] w-[571px] overflow-hidden rounded-[var(--radius-16)] shadow-[5px_5px_5px_3px_rgba(6,22,22,0.25)]"
+            className="col-[1] row-[1] ml-0 mt-0 aspect-[571/668] w-full overflow-hidden rounded-[var(--radius-16)] shadow-[5px_5px_5px_3px_rgba(6,22,22,0.25)]"
             style={{ gridColumn: 1, gridRow: 1 }}
           >
             <img
