@@ -24,7 +24,7 @@ const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
     >
       <Link
         to={`/case/${study.slug}`}
-        className="case-study-card group relative flex h-full max-w-[517px] flex-col overflow-hidden rounded-[24px] shadow-lg"
+        className="case-study-card group relative flex h-full max-w-[635px] flex-col overflow-hidden rounded-[24px] shadow-lg aspect-[635/775]"
         style={
           {
             "--case-study-gradient-from": config.gradientFrom,
@@ -42,31 +42,29 @@ const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
 
         {/* Card Content */}
         <div className="relative z-10 flex h-full flex-col">
-          {/* Project Image - centered with horizontal padding matching Figma */}
-          <div className="flex w-full items-center justify-center overflow-hidden px-[104px] py-0">
-            <div className="aspect-square w-full">
-              {config.thumbnail ? (
-                <img
-                  src={config.thumbnail}
-                  alt={`${study.title} mockup`}
-                  className="h-full w-full object-contain"
-                  loading="lazy"
-                  onError={handleImageErrorHide}
-                />
-              ) : (
-                <div className="flex h-full w-full items-center justify-center rounded-lg bg-surface-card-border">
-                  <span className="text-sm text-white/30">Mockup Image</span>
-                </div>
-              )}
-            </div>
+          {/* Project Image - full width, 415px height per Figma */}
+          <div className="case-study-card-image-container">
+            {config.thumbnail ? (
+              <img
+                src={config.thumbnail}
+                alt={`${study.title} mockup`}
+                className="case-study-card-image"
+                loading="lazy"
+                onError={handleImageErrorHide}
+              />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center rounded-lg bg-surface-card-border">
+                <span className="text-sm text-white/30">Mockup Image</span>
+              </div>
+            )}
           </div>
 
-          {/* Project Content - matches Figma structure */}
-          <div className="flex flex-1 flex-col justify-between gap-[40px]">
+          {/* Project Content - matches Figma structure with 12px gap from image */}
+          <div className="case-study-card-content">
             {/* Project Container - groups TopContent and ListItems with gap-24 */}
-            <div className="case-study-card-project-container gap-6">
+            <div className="case-study-card-project-container">
               {/* Top Content: Category, Title, Description */}
-              <div className="case-study-card-top-content gap-2">
+              <div className="case-study-card-top-content">
                 {/* Category Tag - H4 style: 14px, bold, uppercase */}
                 {categoryTag && (
                   <p className="case-study-card-category">{categoryTag}</p>

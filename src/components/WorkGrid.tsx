@@ -16,7 +16,7 @@ const WorkGrid = () => {
       {/* Card Grid - 1 column mobile, 2 columns tablet+ */}
       <div className="mx-auto mt-12 grid max-w-[1050px] auto-rows-fr items-stretch justify-items-center gap-40 md:mt-[90px] lg:grid-cols-2">
         {caseStudies.map((study) => (
-          <div key={study.slug} className="flex w-full max-w-[517px]">
+          <div key={study.slug} className="flex w-full max-w-[635px]">
             <CaseStudyCard study={study} />
           </div>
         ))}

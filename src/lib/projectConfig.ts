@@ -1,6 +1,6 @@
 // Import project thumbnail images
 import kfcThumbnail from "../assets/images/kfc-pdp-redesign/KFC Thumbnail.png";
-import verizonThumbnail from "../assets/images/verizon-straight-talk-7day/ST-thumbnail.jpg";
+import verizonThumbnail from "../assets/images/verizon-straight-talk-7day/ST Thumbnail.png";
 import cellebriteThumbnail from "../assets/images/cellebrite-website/Cellebrite Thumbnail.png";
 import senegenceThumbnail from "../assets/images/senegence-redesign/SeneGence Thumbnail.png";
 
@@ -78,10 +78,9 @@ export const getProjectThumbnail = (slug: string): string => {
 /**
  * Get project gradient colors by slug
  */
-export const getProjectGradient = (slug: string): { from: string; to: string } => {
+export const getProjectGradient = (
+  slug: string,
+): { from: string; to: string } => {
   const config = getProjectConfig(slug);
   return { from: config.gradientFrom, to: config.gradientTo };
 };
-
-
-

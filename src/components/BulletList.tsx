@@ -38,7 +38,7 @@ const BulletList = ({
         <img
           src={icons.selected}
           alt=""
-          className={`h-6 w-6 shrink-0 ${filterClass}`}
+          className={`h-5 w-5 shrink-0 ${filterClass}`}
         />
       );
     }
@@ -64,7 +64,7 @@ const BulletList = ({
       {items.map((item, index) => (
         <li
           key={`item-${index}`}
-          className={`flex items-start gap-8 ${itemClassName}`}
+          className={`flex items-start gap-2 ${itemClassName}`}
         >
           {renderBullet()}
           <span className="text-white/80">{item}</span>
