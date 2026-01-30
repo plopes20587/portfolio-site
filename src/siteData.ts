@@ -77,7 +77,7 @@ export type CaseStudy = {
 };
 
 // Contact email - centralized for easy updates
-const CONTACT_EMAIL = "mailto:patrick@patricklopes.com";
+const CONTACT_EMAIL = "mailto:design@patlopes.com";
 
 export const siteMeta = {
   title: "Patrick Lopes · Senior Product Designer",
