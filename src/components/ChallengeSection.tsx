@@ -17,25 +17,6 @@ const ChallengeSection = ({ challenge }: ChallengeSectionProps) => {
           style={{ backgroundColor: "var(--color-role-card-bg)" }}
         >
           <div className="flex w-full max-w-[1080px] items-center gap-48">
-            {/* Large question mark icon */}
-            <div
-              className="flex shrink-0 items-center justify-center"
-              style={{
-                width: "var(--question-mark-container-width)",
-                height: "var(--question-mark-container-height)",
-              }}
-            >
-              <p
-                className="font-display"
-                style={{
-                  fontSize: "var(--icon-size-question-mark)",
-                  lineHeight: "var(--icon-size-question-mark-line-height)",
-                  color: "var(--color-question-mark)",
-                }}
-              >
-                ?
-              </p>
-            </div>
             {/* Content */}
             <div className="flex flex-1 flex-col gap-24">
               <h4>THE CHALLENGE</h4>
