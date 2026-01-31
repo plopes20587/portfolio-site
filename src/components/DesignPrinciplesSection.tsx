@@ -29,7 +29,7 @@ const DesignPrinciplesSection = ({
     <SectionWrapper maxWidth="1320" padding="large">
       <div className="flex w-full flex-col gap-48">
         {/* Section Header - max-width 650px, gap 8px */}
-        <div className="flex max-w-[650px] flex-col gap-8">
+        <div className="flex w-full flex-col items-center gap-8">
           <h2>Design principles</h2>
         </div>
 
