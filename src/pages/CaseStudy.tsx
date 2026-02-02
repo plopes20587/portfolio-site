@@ -19,8 +19,18 @@ import { getImageSections } from "../lib/caseStudyHelpers";
 
 const CaseStudyPage = () => {
   const { slug } = useParams<{ slug: string }>();
+
+  // Add debugging (remove after issue is resolved)
+  console.log('CaseStudy loaded with slug:', slug);
+  console.log('Available case studies:', caseStudies.map(s => s.slug));
+
   const studyIndex = caseStudies.findIndex((item) => item.slug === slug);
+
+  console.log('Study index found:', studyIndex);
+
   const study = studyIndex !== -1 ? caseStudies[studyIndex] : null;
+
+  console.log('Study object:', study ? 'found' : 'null');
 
   // Get previous and next projects for navigation
   const previousProject =
@@ -52,6 +62,9 @@ const CaseStudyPage = () => {
   };
 
   if (!study) {
+    // Log for debugging before showing NotFound
+    console.error('Case study not found for slug:', slug);
+    console.error('Available slugs:', caseStudies.map(s => s.slug));
     return <NotFound />;
   }
 
