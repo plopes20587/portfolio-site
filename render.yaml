@@ -7,3 +7,7 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
+      - key: VITE_ANALYTICS_ID
+        value: G-YXDGTNWLHW
+      - key: VITE_ANALYTICS_TYPE
+        value: google

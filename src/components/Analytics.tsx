@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 /**
  * Analytics component for tracking page views
@@ -13,15 +14,19 @@ import { useEffect } from "react";
  * VITE_ANALYTICS_TYPE=google
  */
 
-// Extend Window interface for Google Analytics
+// Extend Window interface for Google Analytics and Plausible
 declare global {
   interface Window {
     dataLayer: unknown[];
     gtag?: (...args: unknown[]) => void;
+    plausible?: (event: string) => void;
   }
 }
 
 const Analytics = () => {
+  const location = useLocation();
+
+  // Initialize analytics once on app mount
   useEffect(() => {
     const analyticsId = import.meta.env.VITE_ANALYTICS_ID;
     const analyticsType = import.meta.env.VITE_ANALYTICS_TYPE || "google";
@@ -57,6 +62,28 @@ const Analytics = () => {
       document.head.appendChild(script);
     }
   }, []);
+
+  // Track route changes in SPA
+  useEffect(() => {
+    const analyticsId = import.meta.env.VITE_ANALYTICS_ID;
+    const analyticsType = import.meta.env.VITE_ANALYTICS_TYPE || "google";
+
+    if (!analyticsId) {
+      return;
+    }
+
+    // Google Analytics: Send page view on route change
+    if (analyticsType === "google" && window.gtag) {
+      window.gtag("config", analyticsId, {
+        page_path: location.pathname + location.search,
+      });
+    }
+
+    // Plausible: Send page view on route change
+    if (analyticsType === "plausible" && window.plausible) {
+      window.plausible("pageview");
+    }
+  }, [location.pathname, location.search]);
 
   return null;
 };
