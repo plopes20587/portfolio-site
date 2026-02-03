@@ -53,11 +53,13 @@ const Analytics = () => {
     if (analyticsType === "google") {
       // Check if script already exists (prevents duplicate loading in React Strict Mode)
       const existingScript = document.querySelector(
-        `script[src*="googletagmanager.com/gtag/js"]`
+        `script[src*="googletagmanager.com/gtag/js"]`,
       );
 
       if (existingScript) {
-        console.log("[Analytics] GA script already loaded, skipping initialization");
+        console.log(
+          "[Analytics] GA script already loaded, skipping initialization",
+        );
         return;
       }
 
@@ -79,6 +81,16 @@ const Analytics = () => {
 
       script1.onload = () => {
         console.log("[Analytics] GA script loaded successfully");
+
+        // Debug: Check if GA cookies are being set
+        setTimeout(() => {
+          const gaCookies = document.cookie.split(';')
+            .filter(c => c.trim().startsWith('_ga'));
+          console.log("[Analytics] GA cookies found:", gaCookies.length);
+          if (gaCookies.length === 0) {
+            console.warn("[Analytics] No GA cookies detected - tracking may be blocked");
+          }
+        }, 2000);
       };
 
       script1.onerror = () => {
@@ -93,7 +105,7 @@ const Analytics = () => {
     if (analyticsType === "plausible") {
       // Check if script already exists
       const existingScript = document.querySelector(
-        `script[src*="plausible.io/js/script.js"]`
+        `script[src*="plausible.io/js/script.js"]`,
       );
 
       if (existingScript) {
