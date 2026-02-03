@@ -62,13 +62,8 @@ const Analytics = () => {
       }
 
       console.log("[Analytics] Loading Google Analytics script...");
-      // Load gtag script
-      const script1 = document.createElement("script");
-      script1.async = true;
-      script1.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsId}`;
-      document.head.appendChild(script1);
 
-      // Initialize gtag
+      // Initialize dataLayer and gtag immediately
       window.dataLayer = window.dataLayer || [];
       function gtag(...args: unknown[]) {
         window.dataLayer.push(args);
@@ -76,6 +71,21 @@ const Analytics = () => {
       window.gtag = gtag;
       gtag("js", new Date());
       gtag("config", analyticsId);
+
+      // Load gtag script
+      const script1 = document.createElement("script");
+      script1.async = true;
+      script1.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsId}`;
+
+      script1.onload = () => {
+        console.log("[Analytics] GA script loaded successfully");
+      };
+
+      script1.onerror = () => {
+        console.error("[Analytics] Failed to load GA script - may be blocked");
+      };
+
+      document.head.appendChild(script1);
       console.log("[Analytics] Google Analytics initialized");
     }
 
