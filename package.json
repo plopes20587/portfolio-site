@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "serve": "serve dist -l 10000 -c serve.json"
+    "serve": "serve -s dist -l 10000"
   },
   "dependencies": {
     "clsx": "^2.1.1",
