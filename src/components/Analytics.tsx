@@ -31,12 +31,37 @@ const Analytics = () => {
     const analyticsId = import.meta.env.VITE_ANALYTICS_ID;
     const analyticsType = import.meta.env.VITE_ANALYTICS_TYPE || "google";
 
+    console.log("[Analytics] Initializing...");
+    console.log("[Analytics] ID:", analyticsId);
+    console.log("[Analytics] Type:", analyticsType);
+
+    // Expose to window for debugging in production
+    if (typeof window !== "undefined") {
+      (window as any).__ANALYTICS_CONFIG__ = {
+        id: analyticsId,
+        type: analyticsType,
+        configured: !!analyticsId,
+      };
+    }
+
     if (!analyticsId) {
+      console.warn("[Analytics] No analytics ID found - tracking disabled");
       return; // Analytics not configured
     }
 
     // Google Analytics 4
     if (analyticsType === "google") {
+      // Check if script already exists (prevents duplicate loading in React Strict Mode)
+      const existingScript = document.querySelector(
+        `script[src*="googletagmanager.com/gtag/js"]`
+      );
+
+      if (existingScript) {
+        console.log("[Analytics] GA script already loaded, skipping initialization");
+        return;
+      }
+
+      console.log("[Analytics] Loading Google Analytics script...");
       // Load gtag script
       const script1 = document.createElement("script");
       script1.async = true;
@@ -51,10 +76,21 @@ const Analytics = () => {
       window.gtag = gtag;
       gtag("js", new Date());
       gtag("config", analyticsId);
+      console.log("[Analytics] Google Analytics initialized");
     }
 
     // Plausible Analytics
     if (analyticsType === "plausible") {
+      // Check if script already exists
+      const existingScript = document.querySelector(
+        `script[src*="plausible.io/js/script.js"]`
+      );
+
+      if (existingScript) {
+        console.log("[Analytics] Plausible script already loaded, skipping");
+        return;
+      }
+
       const script = document.createElement("script");
       script.defer = true;
       script.setAttribute("data-domain", analyticsId);
@@ -72,11 +108,16 @@ const Analytics = () => {
       return;
     }
 
+    console.log("[Analytics] Route changed to:", location.pathname);
+
     // Google Analytics: Send page view on route change
     if (analyticsType === "google" && window.gtag) {
+      console.log("[Analytics] Sending pageview to GA");
       window.gtag("config", analyticsId, {
         page_path: location.pathname + location.search,
       });
+    } else {
+      console.log("[Analytics] gtag not available yet");
     }
 
     // Plausible: Send page view on route change
