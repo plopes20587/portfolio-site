@@ -76,8 +76,18 @@ const Analytics = () => {
         window.dataLayer.push(args);
       }
       window.gtag = gtag;
+
+      // Grant consent explicitly (GA4 consent mode)
+      gtag("consent", "default", {
+        ad_storage: "granted",
+        analytics_storage: "granted",
+      });
+
       gtag("js", new Date());
-      gtag("config", analyticsId);
+      gtag("config", analyticsId, {
+        send_page_view: true,
+        cookie_flags: "SameSite=None;Secure",
+      });
 
       // Load gtag script
       const script1 = document.createElement("script");
@@ -90,11 +100,13 @@ const Analytics = () => {
         // Debug: Check if GA cookies are being set
         setTimeout(() => {
           const gaCookies = document.cookie
-            .split(';')
-            .filter(c => c.trim().startsWith('_ga'));
+            .split(";")
+            .filter((c) => c.trim().startsWith("_ga"));
           console.log("[Analytics] GA cookies found:", gaCookies.length);
           if (gaCookies.length === 0) {
-            console.warn("[Analytics] No GA cookies detected - tracking may be blocked");
+            console.warn(
+              "[Analytics] No GA cookies detected - tracking may be blocked",
+            );
           }
         }, 2000);
       };
