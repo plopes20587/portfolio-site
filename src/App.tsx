@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import HomePage from "./pages/Home";
 import ScrollToTop from "./components/ScrollToTop";
+import Analytics from "./components/Analytics";
 
 // Lazy load case study page for code splitting
 const CaseStudyPage = lazy(() => import("./pages/CaseStudy"));
@@ -10,6 +11,7 @@ const CaseStudyPage = lazy(() => import("./pages/CaseStudy"));
 function App() {
   return (
     <BrowserRouter>
+      <Analytics />
       <ScrollToTop />
       <Layout>
         <Suspense
