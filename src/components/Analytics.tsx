@@ -20,6 +20,11 @@ declare global {
     dataLayer: unknown[];
     gtag?: (...args: unknown[]) => void;
     plausible?: (event: string) => void;
+    __ANALYTICS_CONFIG__?: {
+      id: string | undefined;
+      type: string;
+      configured: boolean;
+    };
   }
 }
 
@@ -37,7 +42,7 @@ const Analytics = () => {
 
     // Expose to window for debugging in production
     if (typeof window !== "undefined") {
-      (window as any).__ANALYTICS_CONFIG__ = {
+      window.__ANALYTICS_CONFIG__ = {
         id: analyticsId,
         type: analyticsType,
         configured: !!analyticsId,
@@ -84,7 +89,8 @@ const Analytics = () => {
 
         // Debug: Check if GA cookies are being set
         setTimeout(() => {
-          const gaCookies = document.cookie.split(';')
+          const gaCookies = document.cookie
+            .split(';')
             .filter(c => c.trim().startsWith('_ga'));
           console.log("[Analytics] GA cookies found:", gaCookies.length);
           if (gaCookies.length === 0) {
