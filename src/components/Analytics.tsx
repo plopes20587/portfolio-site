@@ -77,17 +77,8 @@ const Analytics = () => {
       }
       window.gtag = gtag;
 
-      // Grant consent explicitly (GA4 consent mode)
-      gtag("consent", "default", {
-        ad_storage: "granted",
-        analytics_storage: "granted",
-      });
-
       gtag("js", new Date());
-      gtag("config", analyticsId, {
-        send_page_view: true,
-        cookie_flags: "SameSite=None;Secure",
-      });
+      gtag("config", analyticsId);
 
       // Load gtag script
       const script1 = document.createElement("script");
