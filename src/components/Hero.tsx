@@ -92,7 +92,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-              className="max-w-[792px]"
+              className="max-w-[570px]"
             >
               Good design happens when the experience speaks the customer's
               language. With the right balance of structure, research, and a bit
