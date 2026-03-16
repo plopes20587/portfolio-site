@@ -3,6 +3,7 @@ import kfcBeforeImage1 from "./assets/images/kfc-pdp-redesign/kfcBeforeImage.png
 import kfcBeforeImage2 from "./assets/images/kfc-pdp-redesign/kfcBeforeImage2.png";
 import kfcAfterSolution from "./assets/images/kfc-pdp-redesign/KFC after-solution.jpg";
 import stAfterSolution from "./assets/images/verizon-straight-talk-7day/ST after-solution.png";
+import sgAfterSolution from "./assets/images/senegence-redesign/SeneGence after-solution.png";
 
 export type ImageItem = {
   src: string;
@@ -392,6 +393,22 @@ export const caseStudies: CaseStudy[] = [
       { label: "conversions within 6 months", value: "82K" },
       { label: "in revenue impact post launch", value: "$7.2M" },
       { label: "from top-performing product", value: "$540K" },
+    ],
+    imageSections: [
+      {
+        sectionLabel: "THE SOLUTION",
+        heading: "The Redesigned Checkout Experience",
+        layout: "single",
+        placement: "after-solution",
+        images: [
+          {
+            src: sgAfterSolution,
+            alt: "SeneGence redesigned checkout experience showing a streamlined cart summary, clear pricing, and confident purchase confirmation",
+            caption:
+              "The redesigned checkout flow clarifies pricing, reduces friction at review, and builds trust with consistent patterns across devices.",
+          },
+        ],
+      },
     ],
 
     // 2. Project Metadata
