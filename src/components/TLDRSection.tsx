@@ -23,7 +23,7 @@ const TLDRSection = ({ items }: TLDRSectionProps) => {
     >
       <div className="w-full max-w-[1320px] px-6 md:px-[60px]">
         <div className="flex flex-col items-center">
-          <div className="flex w-full max-w-[650px] items-start gap-16">
+          <div className="flex w-full items-start gap-16">
             {/* TL;DR Badge - 48x48 circular pill with secondary styling */}
             <div
               className="flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-24"
