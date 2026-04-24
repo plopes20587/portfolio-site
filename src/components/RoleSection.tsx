@@ -27,7 +27,7 @@ const RoleSection = ({
           className={`flex w-full max-w-[1094px] flex-col items-center gap-48 ${hasContributions ? "lg:flex-row lg:items-stretch" : ""}`}
         >
           {/* Left Column - My Role Content */}
-          <div className="flex min-h-px min-w-px flex-1 flex-col gap-48">
+          <div className="flex min-w-px flex-1 flex-col gap-48">
             <div className="flex w-full flex-col gap-8">
               <h3>My role</h3>
               <p className="min-w-full">{roleDescription}</p>
@@ -37,7 +37,7 @@ const RoleSection = ({
           {/* Right Column - Core Contributions Card */}
           {hasContributions && (
             <div
-              className="flex min-h-px min-w-px flex-1 flex-col gap-24 overflow-clip rounded-16 border p-[33px]"
+              className="flex min-w-px flex-1 flex-col gap-24 overflow-clip rounded-16 border p-[33px]"
               style={{
                 backgroundColor: "var(--color-tldr-section-bg)",
                 borderColor: "var(--color-tldr-section-border)",

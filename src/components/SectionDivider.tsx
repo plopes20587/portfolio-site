@@ -3,7 +3,7 @@
 
 const SectionDivider = () => {
   return (
-    <div className="relative h-[128px] w-full">
+    <div className="relative w-full py-16">
       {/* Centered horizontal gradient divider line - fades from transparent to purple in center */}
       <div 
         className="section-divider-line"

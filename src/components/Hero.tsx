@@ -23,7 +23,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative min-h-[1052px] overflow-hidden bg-ink">
+    <section className="relative overflow-hidden bg-ink md:min-h-screen">
       {/* Background with gradients, starfield, and meteors */}
       <div className="absolute inset-0">
         {/* Bottom-right purple/pink/blue galaxy glow - from Figma */}
@@ -76,7 +76,7 @@ const Hero = () => {
       </div>
 
       {/* Hero Content - positioned per Figma: x=64, y=357 */}
-      <div className="relative mx-auto max-w-[1320px] px-24 py-24 pt-[357px]">
+      <div className="relative mx-auto max-w-[1320px] px-24 pt-[80px] pb-[80px] md:pt-[357px] md:pb-24">
         <div className="flex flex-col gap-[40px]">
           {/* Title Section */}
           <div className="flex flex-col gap-[16px]">
@@ -106,7 +106,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="flex h-[50px] items-start"
+            className="flex items-start"
           >
             <a
               href="mailto:patrick@patricklopes.com"
@@ -122,7 +122,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-            className="flex h-[48px] gap-[16px]"
+            className="flex gap-[16px]"
           >
             {socialLinks.map((social) => (
               <a

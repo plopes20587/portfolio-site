@@ -16,7 +16,7 @@ const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
   const gradient = getProjectGradient(study.slug);
 
   return (
-    <section className="relative z-0 min-h-[660px] overflow-hidden bg-ink px-24 py-32 md:px-60">
+    <section className="relative z-0 min-h-screen overflow-hidden bg-ink px-24 py-32 md:px-60">
       {/* Background gradient accent */}
       <div
         className="pointer-events-none absolute right-0 top-0 h-full w-1/2 opacity-20"
@@ -41,7 +41,7 @@ const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
               fetchPriority="high"
             />
           ) : (
-            <div className="flex h-[400px] items-center justify-center bg-surface-card">
+            <div className="flex aspect-video w-full items-center justify-center bg-surface-card">
               <span className="text-text-body/30">Project Image</span>
             </div>
           )}

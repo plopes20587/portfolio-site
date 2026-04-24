@@ -63,7 +63,7 @@ const HeaderNav = () => {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="bg-ink/95 absolute left-0 right-0 top-full border-t border-surface-card-border backdrop-blur-md md:hidden">
+        <div className="absolute left-0 right-0 top-full min-h-screen border-t border-surface-card-border bg-panel md:hidden">
           <nav className="flex flex-col px-24 py-24 md:px-64">
             {navLinks.map((link) => (
               <a
@@ -73,7 +73,7 @@ const HeaderNav = () => {
                 target={link.download ? "_blank" : undefined}
                 rel={link.download ? "noopener noreferrer" : undefined}
                 onClick={() => setMobileMenuOpen(false)}
-                className="border-b border-surface-card-border py-4 font-medium transition-colors hover:text-white/80"
+                className="border-b border-surface-card-border py-16 font-medium transition-colors hover:text-white/80"
               >
                 {link.label}
               </a>

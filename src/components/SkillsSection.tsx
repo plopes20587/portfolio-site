@@ -55,7 +55,7 @@ const SkillsSection = () => {
         </div>
 
         {/* Skills Grid - responsive: 1 col mobile, 2 cols tablet, 4 cols desktop */}
-        <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-24">
+        <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-24">
           {techStack.map((stack) => (
             <div
               key={stack.name}
@@ -80,7 +80,7 @@ const SkillsSection = () => {
                 {stack.items.map((item) => (
                   <div
                     key={item}
-                    className="flex h-[24px] items-center gap-8"
+                    className="flex items-center gap-8"
                   >
                     {/* Gradient Bullet */}
                     <div

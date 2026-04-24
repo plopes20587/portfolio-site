@@ -16,7 +16,7 @@ const duplicatedLogos = [...logos, ...logos];
 
 const LogoMarquee = () => {
   return (
-    <section className="px-0 py-[100px]">
+    <section className="px-0 py-[60px] md:py-[100px]">
       {/* Section Title - centered, H2 style from Figma */}
       <div className="flex w-full items-center justify-center">
         <h2 className={SECTION_HEADING_BASE}>
