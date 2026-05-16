@@ -943,18 +943,12 @@ button {
   .case-study-card-image-container {
     position: relative;
     width: 100%;
-    height: 180px;
+    aspect-ratio: 635 / 300;
     flex-shrink: 0;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  @media (min-width: 768px) {
-    .case-study-card-image-container {
-      height: 300px;
-    }
   }
 
   /* Case Study Card Image - Scales to fill container while maintaining aspect ratio */
