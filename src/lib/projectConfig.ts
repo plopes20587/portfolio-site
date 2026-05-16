@@ -35,26 +35,26 @@ const DEFAULT_CONFIG: ProjectConfig = {
  */
 export const projectConfigs: Record<string, ProjectConfig> = {
   "kfc-pdp-redesign": {
-    gradientFrom: "#541db9",
-    gradientTo: "#7f5af0",
+    gradientFrom: "#191230",
+    gradientTo: "#7F5AF0",
     gridPatternUrl: "/images/grid-pattern.png",
     thumbnail: kfcThumbnail,
   },
   "verizon-straight-talk-7day": {
-    gradientFrom: "#00D084",
-    gradientTo: "#00B875",
+    gradientFrom: "#064E3B",
+    gradientTo: "#10B981",
     gridPatternUrl: "/images/grid-pattern.png",
     thumbnail: verizonThumbnail,
   },
   "cellebrite-website": {
-    gradientFrom: "#ffbe51",
-    gradientTo: "#b44d08",
+    gradientFrom: "#7C2D12",
+    gradientTo: "#F97316",
     gridPatternUrl: "/images/grid-pattern.png",
     thumbnail: cellebriteThumbnail,
   },
   "senegence-redesign": {
-    gradientFrom: "#29B6EF",
-    gradientTo: "#19B4E6",
+    gradientFrom: "#002A30",
+    gradientTo: "#00D3F2",
     gridPatternUrl: "/images/grid-pattern.png",
     thumbnail: senegenceThumbnail,
   },
