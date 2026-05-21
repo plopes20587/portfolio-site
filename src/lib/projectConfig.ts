@@ -3,6 +3,9 @@ import kfcThumbnail from "../assets/images/kfc-pdp-redesign/KFC Thumbnail.png";
 import verizonThumbnail from "../assets/images/verizon-straight-talk-7day/ST Thumbnail.png";
 import cellebriteThumbnail from "../assets/images/cellebrite-website/Cellebrite Thumbnail.png";
 import senegenceThumbnail from "../assets/images/senegence-redesign/SeneGence Thumbnail.png";
+import verizonHeroImage from "../assets/images/verizon-straight-talk-7day/ST-7Day-CaseStudyHero.png";
+import kfcHeroImage from "../assets/images/kfc-pdp-redesign/KFC-CaseStudyHero.png";
+import senegenceHeroImage from "../assets/images/senegence-redesign/SG-CaseStudyHero.png";
 
 /**
  * Project configuration type
@@ -15,8 +18,10 @@ export type ProjectConfig = {
   gradientTo: string;
   /** Grid pattern overlay image URL */
   gridPatternUrl: string;
-  /** Project thumbnail image */
+  /** Project thumbnail image — used by CaseStudyCard */
   thumbnail: string;
+  /** Hero image — used by CaseStudyHero. Falls back to thumbnail if not set */
+  heroImage?: string;
 };
 
 /**
@@ -39,12 +44,14 @@ export const projectConfigs: Record<string, ProjectConfig> = {
     gradientTo: "#7F5AF0",
     gridPatternUrl: "/images/grid-pattern.png",
     thumbnail: kfcThumbnail,
+    heroImage: kfcHeroImage,
   },
   "verizon-straight-talk-7day": {
     gradientFrom: "#064E3B",
     gradientTo: "#10B981",
     gridPatternUrl: "/images/grid-pattern.png",
     thumbnail: verizonThumbnail,
+    heroImage: verizonHeroImage,
   },
   "cellebrite-website": {
     gradientFrom: "#7C2D12",
@@ -57,6 +64,7 @@ export const projectConfigs: Record<string, ProjectConfig> = {
     gradientTo: "#00D3F2",
     gridPatternUrl: "/images/grid-pattern.png",
     thumbnail: senegenceThumbnail,
+    heroImage: senegenceHeroImage,
   },
 };
 
@@ -69,10 +77,19 @@ export const getProjectConfig = (slug: string): ProjectConfig => {
 };
 
 /**
- * Get project thumbnail by slug
+ * Get project thumbnail by slug — for use in CaseStudyCard
  */
 export const getProjectThumbnail = (slug: string): string => {
   return getProjectConfig(slug).thumbnail;
+};
+
+/**
+ * Get project hero image by slug — for use in CaseStudyHero.
+ * Falls back to thumbnail when no dedicated heroImage is configured.
+ */
+export const getProjectHeroImage = (slug: string): string => {
+  const config = getProjectConfig(slug);
+  return config.heroImage ?? config.thumbnail;
 };
 
 /**

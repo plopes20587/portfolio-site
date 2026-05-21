@@ -1,5 +1,5 @@
 import type { CaseStudy } from "../siteData";
-import { getProjectThumbnail, getProjectGradient } from "../lib/projectConfig";
+import { getProjectHeroImage, getProjectGradient } from "../lib/projectConfig";
 import { hasItems } from "../lib/helpers";
 
 type CaseStudyHeroProps = {
@@ -12,11 +12,11 @@ type CaseStudyHeroProps = {
  * Matches Figma design node 1870:1423 with purple card, cyan tags, and left-bordered description
  */
 const CaseStudyHero = ({ study }: CaseStudyHeroProps) => {
-  const heroImage = getProjectThumbnail(study.slug);
+  const heroImage = getProjectHeroImage(study.slug);
   const gradient = getProjectGradient(study.slug);
 
   return (
-    <section className="relative z-0 min-h-screen overflow-hidden bg-ink px-24 py-32 md:px-60">
+    <section className="relative z-0 overflow-hidden bg-ink px-24 py-32 md:px-60">
       {/* Background gradient accent */}
       <div
         className="pointer-events-none absolute right-0 top-0 h-full w-1/2 opacity-20"
