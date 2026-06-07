@@ -3,12 +3,15 @@ import kfcBeforeImage1 from "./assets/images/kfc-pdp-redesign/kfcBeforeImage.png
 import kfcBeforeImage2 from "./assets/images/kfc-pdp-redesign/kfcBeforeImage2.png";
 import kfcAfterSolution from "./assets/images/kfc-pdp-redesign/KFC after-solution.jpg";
 import stAfterSolution from "./assets/images/verizon-straight-talk-7day/ST after-solution.png";
+import stPrototypeVideo from "./assets/images/verizon-straight-talk-7day/ST-Prototype.mp4";
+import stMobileMockup from "./assets/images/verizon-straight-talk-7day/ST-Mobile-Mockup.png";
 import sgAfterSolution from "./assets/images/senegence-redesign/SeneGence after-solution.png";
 
 export type ImageItem = {
   src: string;
   alt: string;
   caption?: string;
+  type?: "image" | "video";
 };
 
 export type ImageSection = {
@@ -21,6 +24,8 @@ export type ImageSection = {
     | "after-process"
     | "after-solution"
     | "before-results";
+  customPadding?: string;
+  imageMaxWidth?: string;
 };
 
 export type ProblemBreakdownItem = {
@@ -110,6 +115,35 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     imageSections: [
+      {
+        sectionLabel: "PROTOTYPE",
+        heading: "The Bridge Plan in Motion",
+        layout: "single",
+        placement: "after-problem",
+        images: [
+          {
+            src: stPrototypeVideo,
+            alt: "Mobile prototype walking through the Straight Talk 7-Day Bridge Plan flow",
+            caption:
+              "Mobile prototype of the 7-day Bridge Plan selection and checkout flow",
+            type: "video",
+          },
+        ],
+      },
+      {
+        layout: "single",
+        placement: "after-process",
+        customPadding: "px-24 pt-0 pb-80 md:px-60",
+        imageMaxWidth: "max-w-[1146px]",
+        images: [
+          {
+            src: stMobileMockup,
+            alt: "Final mobile presentation mockup of the Straight Talk 7-Day Bridge Plan experience",
+            caption:
+              "Final mobile design of the 7-day Bridge Plan experience",
+          },
+        ],
+      },
       {
         sectionLabel: "THE SOLUTION",
         heading: "The Bridge Plan Experience",

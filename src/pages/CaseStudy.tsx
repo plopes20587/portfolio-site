@@ -57,6 +57,8 @@ const CaseStudyPage = () => {
         layout={section.layout}
         sectionLabel={section.sectionLabel}
         heading={section.heading}
+        customPadding={section.customPadding}
+        imageMaxWidth={section.imageMaxWidth}
       />
     ));
   };
@@ -158,6 +160,9 @@ const CaseStudyPage = () => {
 
       {/* 8. Design Principles */}
       <DesignPrinciplesSection principles={study.designPrinciples || []} />
+
+      {/* 8b. Design artifacts (e.g., final mobile mockup) between principles and solution */}
+      {renderImageSections("after-process")}
 
       {/* 9. The Solution - New card-based layout */}
       {hasItems(study.solutionCards) && (

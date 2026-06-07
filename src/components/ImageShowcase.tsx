@@ -12,6 +12,8 @@ type ImageShowcaseProps = {
   layout?: "single" | "side-by-side" | "grid";
   sectionLabel?: string;
   heading?: string;
+  customPadding?: string;
+  imageMaxWidth?: string;
 };
 
 const ImageShowcase = ({
@@ -19,6 +21,8 @@ const ImageShowcase = ({
   layout = "single",
   sectionLabel,
   heading,
+  customPadding,
+  imageMaxWidth,
 }: ImageShowcaseProps) => {
   if (!images || images.length === 0) return null;
 
@@ -30,7 +34,7 @@ const ImageShowcase = ({
         : "flex flex-col gap-6";
 
   return (
-    <SectionWrapper maxWidth="1320" padding="large">
+    <SectionWrapper maxWidth="1320" padding="large" customPadding={customPadding}>
       {/* Optional Section Header */}
       {heading && (
         <SectionHeader
@@ -45,7 +49,9 @@ const ImageShowcase = ({
         {images.map((image, index) => (
           <figure
             key={`${image.src}-${index}`}
-            className="group overflow-hidden rounded-[16px] border border-white/10 bg-surface-card"
+            className={`group overflow-hidden rounded-[16px] border border-white/10 bg-surface-card ${
+              imageMaxWidth ? `mx-auto w-full ${imageMaxWidth}` : ""
+            }`}
           >
             <div className="overflow-hidden">
               <img

@@ -1,8 +1,4 @@
-type ImageItem = {
-  src: string;
-  alt: string;
-  caption?: string;
-};
+import type { ImageItem } from "../siteData";
 
 type ProblemImageGalleryProps = {
   images: ImageItem[];
@@ -21,19 +17,35 @@ type ProblemImageGalleryProps = {
 const ProblemImageGallery = ({ images }: ProblemImageGalleryProps) => {
   if (!images || images.length === 0) return null;
 
+  const isSingle = images.length === 1;
+  const figureWidthClass = isSingle ? "" : "md:w-auto md:max-w-[50%]";
+
   return (
     <div className="flex w-full flex-col items-center gap-48 md:flex-row md:items-start md:justify-center md:gap-[70px]">
       {images.map((image, index) => (
         <figure
           key={`problem-image-${index}`}
-          className="flex w-full flex-col items-center gap-16 md:w-auto md:max-w-[50%]"
+          className={`flex w-full flex-col items-center gap-16 ${figureWidthClass}`}
         >
-          <img
-            src={image.src}
-            alt={image.alt}
-            className="h-auto w-full max-w-full object-contain"
-            loading="lazy"
-          />
+          {image.type === "video" ? (
+            <video
+              src={image.src}
+              aria-label={image.alt}
+              className="h-auto w-full max-w-full object-contain"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+          ) : (
+            <img
+              src={image.src}
+              alt={image.alt}
+              className="h-auto w-full max-w-full object-contain"
+              loading="lazy"
+            />
+          )}
           {image.caption && (
             <figcaption className="text-center">
               <p className="text-body text-text-body-500">{image.caption}</p>
