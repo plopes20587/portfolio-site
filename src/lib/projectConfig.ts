@@ -1,11 +1,12 @@
 // Import project thumbnail images
 import kfcThumbnail from "../assets/images/kfc-pdp-redesign/KFC Thumbnail.png";
 import verizonThumbnail from "../assets/images/verizon-straight-talk-7day/ST Thumbnail.png";
-import cellebriteThumbnail from "../assets/images/cellebrite-website/Cellebrite Thumbnail.png";
-import senegenceThumbnail from "../assets/images/senegence-redesign/SeneGence Thumbnail.png";
+import cellebriteThumbnail from "../assets/images/cellebrite-website/Cellebrite-CardThumbnail.png";
+import senegenceThumbnail from "../assets/images/senegence-redesign/SG-CardThumbnail.png";
 import verizonHeroImage from "../assets/images/verizon-straight-talk-7day/ST-7Day-CaseStudyHero.png";
 import kfcHeroImage from "../assets/images/kfc-pdp-redesign/KFC-CaseStudyHero.png";
 import senegenceHeroImage from "../assets/images/senegence-redesign/SG-CaseStudyHero.png";
+import cellebriteHeroImage from "../assets/images/cellebrite-website/Cellebrite-CaseStudyHero.png";
 
 /**
  * Project configuration type
@@ -58,6 +59,7 @@ export const projectConfigs: Record<string, ProjectConfig> = {
     gradientTo: "#F97316",
     gridPatternUrl: "/images/grid-pattern.png",
     thumbnail: cellebriteThumbnail,
+    heroImage: cellebriteHeroImage,
   },
   "senegence-redesign": {
     gradientFrom: "#002A30",
