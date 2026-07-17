@@ -16,6 +16,8 @@ type SolutionSectionProps = {
   image?: ImageSection;
   /** Metrics to display at the bottom */
   metrics?: Metric[];
+  /** Optional context line shown above the metrics row */
+  metricsSubtitle?: string;
 };
 
 /**
@@ -31,6 +33,7 @@ const SolutionSection = ({
   cards,
   image,
   metrics,
+  metricsSubtitle,
 }: SolutionSectionProps) => {
   if (!cards || cards.length === 0) return null;
 
@@ -83,13 +86,21 @@ const SolutionSection = ({
 
         {/* Metrics Row - Display independently of image */}
         {metrics && metrics.length > 0 && (
-          <div className="flex w-full flex-col items-center justify-center gap-32 md:flex-row">
-            {metrics.map((metric, index) => (
-              <div key={`metric-${index}`} className="solution-metric">
-                <p className="text-h4 font-bold">{metric.value}</p>
-                <p className="text-text-body-500">{metric.label}</p>
-              </div>
-            ))}
+          <div className="flex w-full flex-col items-center justify-center gap-16">
+            {/* Optional subtitle before metrics for additional context */}
+            {metricsSubtitle && (
+              <p className="text-body-md mb-4 text-center font-medium text-text-body-500">
+                {metricsSubtitle}
+              </p>
+            )}
+            <div className="flex w-full flex-col items-center justify-center gap-32 md:flex-row">
+              {metrics.map((metric, index) => (
+                <div key={`metric-${index}`} className="solution-metric">
+                  <p className="text-h4 font-bold">{metric.value}</p>
+                  <p className="text-text-body-500">{metric.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>

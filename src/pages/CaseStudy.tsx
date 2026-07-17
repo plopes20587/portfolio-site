@@ -13,6 +13,7 @@ import NotFound from "../components/NotFound";
 import ProblemImageGallery from "../components/ProblemImageGallery";
 import RoleSection from "../components/RoleSection";
 import ChallengeSection from "../components/ChallengeSection";
+import ApproachSection from "../components/ApproachSection";
 import DesignPrinciplesSection from "../components/DesignPrinciplesSection";
 import SolutionSection from "../components/SolutionSection";
 import { getImageSections } from "../lib/caseStudyHelpers";
@@ -158,7 +159,8 @@ const CaseStudyPage = () => {
         </SectionWrapper>
       )}
 
-      {/* 8. Design Principles */}
+      {/* 8. Approach (new) / Design Principles (legacy, until all studies migrate) */}
+      <ApproachSection steps={study.approach || []} />
       <DesignPrinciplesSection principles={study.designPrinciples || []} />
 
       {/* 8b. Design artifacts (e.g., final mobile mockup) between principles and solution */}
@@ -171,6 +173,7 @@ const CaseStudyPage = () => {
           cards={study.solutionCards}
           image={getImageSections(study, "after-solution")[0]}
           metrics={study.metrics}
+          metricsSubtitle={study.metricsSubtitle}
         />
       )}
 
