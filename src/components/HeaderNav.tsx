@@ -81,7 +81,7 @@ const HeaderNav = () => {
 
             {/* CTA Button */}
             <a
-              href="mailto:patrick@patricklopes.com"
+              href="mailto:design@patlopes.com"
               onClick={() => setMobileMenuOpen(false)}
               className="button-primary mt-6"
             >

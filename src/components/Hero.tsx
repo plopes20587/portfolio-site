@@ -109,7 +109,7 @@ const Hero = () => {
             className="flex items-start"
           >
             <a
-              href="mailto:patrick@patricklopes.com"
+              href="mailto:design@patlopes.com"
               className="button-primary h-[50px]"
             >
               Lets talk
