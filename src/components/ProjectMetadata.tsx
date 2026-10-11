@@ -1,4 +1,4 @@
-import type { CaseStudy } from "../siteData";
+import type { CaseStudy } from "../types";
 import SectionWrapper from "./SectionWrapper";
 import { icons } from "../lib/iconMappings";
 
@@ -25,8 +25,6 @@ const ProjectMetadata = ({ study }: ProjectMetadataProps) => {
 
   return (
     <SectionWrapper
-      maxWidth="1320"
-      customPadding="px-24 py-80 md:px-60"
       centerContent={false}
       className="flex items-center justify-center border-y border-surface-card-border bg-metadata-bg"
     >

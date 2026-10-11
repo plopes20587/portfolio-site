@@ -1,7 +1,6 @@
 type SectionWrapperProps = {
   children: React.ReactNode;
-  maxWidth?: "900" | "1100" | "1320";
-  padding?: "small" | "large";
+  /** Replaces the default "px-24 py-80 md:px-60" padding */
   customPadding?: string;
   className?: string;
   id?: string;
@@ -14,36 +13,21 @@ type SectionWrapperProps = {
  */
 const SectionWrapper = ({
   children,
-  maxWidth = "1320",
-  padding = "large",
-  customPadding,
+  customPadding = "px-24 py-80 md:px-60",
   className = "",
   id,
   centerContent = true,
 }: SectionWrapperProps) => {
-  const paddingClass = customPadding
-    ? customPadding
-    : padding === "large"
-      ? "px-24 py-80 md:px-60"
-      : "px-16 py-48 md:px-40";
-
-  const maxWidthClass =
-    maxWidth === "1320"
-      ? "max-w-[1320px]"
-      : maxWidth === "1100"
-        ? "max-w-[1100px]"
-        : "max-w-[900px]";
-
-  const containerClass = centerContent
-    ? `mx-auto ${maxWidthClass}`
-    : `m-0 ${maxWidthClass}`;
+  const marginClass = centerContent ? "mx-auto" : "m-0";
 
   return (
     <section
       id={id}
-      className={`flex flex-col items-center justify-start ${paddingClass} ${className}`}
+      className={`flex flex-col items-center justify-start ${customPadding} ${className}`}
     >
-      <div className={`flex w-full flex-col gap-48 ${containerClass}`}>
+      <div
+        className={`flex w-full max-w-[1320px] flex-col gap-48 ${marginClass}`}
+      >
         {children}
       </div>
     </section>

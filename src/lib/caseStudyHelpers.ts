@@ -1,4 +1,4 @@
-import type { CaseStudy, ImageSection } from "../siteData";
+import type { CaseStudy, ImageSection } from "../types";
 
 /**
  * Get image sections by placement
@@ -7,12 +7,10 @@ import type { CaseStudy, ImageSection } from "../siteData";
  * @returns Array of image sections matching the placement
  */
 export const getImageSections = (
-  study: CaseStudy | null,
+  study: CaseStudy,
   placement: ImageSection["placement"],
 ): ImageSection[] => {
-  if (!study?.imageSections) return [];
-  return study.imageSections.filter(
+  return (study.imageSections ?? []).filter(
     (section) => section.placement === placement,
   );
 };
-

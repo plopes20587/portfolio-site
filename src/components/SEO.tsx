@@ -2,78 +2,54 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { caseStudies, siteMeta } from "../siteData";
 
+/** Find a <meta> tag by attribute (e.g. property="og:title"), creating it if missing, then set its content. */
+const upsertMetaTag = (
+  attribute: "name" | "property",
+  key: string,
+  content: string,
+) => {
+  let tag = document.querySelector(`meta[${attribute}="${key}"]`);
+  if (!tag) {
+    tag = document.createElement("meta");
+    tag.setAttribute(attribute, key);
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute("content", content);
+};
+
 /**
  * SEO component that updates meta tags and structured data dynamically
  * Handles both homepage and case study pages
  */
 const SEO = () => {
-  const location = useLocation();
-  const pathname = location.pathname;
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    // Get current page data
-    let title = siteMeta.title;
-    let description = siteMeta.description;
-    const ogImage = siteMeta.ogImage || "/og.png";
+    const slug = pathname.match(/^\/case\/(.+)$/)?.[1];
+    const study = slug
+      ? caseStudies.find((item) => item.slug === slug)
+      : undefined;
+
+    const title = study ? `${study.title} · ${siteMeta.title}` : siteMeta.title;
+    const description = study?.blurb || siteMeta.description;
+    const ogImage = siteMeta.ogImage;
     const url = window.location.href;
 
-    // Check if this is a case study page
-    const caseStudyMatch = pathname.match(/^\/case\/(.+)$/);
-    if (caseStudyMatch) {
-      const slug = caseStudyMatch[1];
-      const study = caseStudies.find((s) => s.slug === slug);
-      if (study) {
-        title = `${study.title} · ${siteMeta.title}`;
-        description = study.blurb || description;
-      }
-    }
-
-    // Update meta tags
     document.title = title;
+    upsertMetaTag("name", "description", description);
 
-    // Update or create meta description
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement("meta");
-      metaDescription.setAttribute("name", "description");
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute("content", description);
+    upsertMetaTag("property", "og:title", title);
+    upsertMetaTag("property", "og:description", description);
+    upsertMetaTag("property", "og:image", ogImage);
+    upsertMetaTag("property", "og:url", url);
+    upsertMetaTag("property", "og:type", "website");
 
-    // Update OpenGraph tags
-    const updateOGTag = (property: string, content: string) => {
-      let tag = document.querySelector(`meta[property="${property}"]`);
-      if (!tag) {
-        tag = document.createElement("meta");
-        tag.setAttribute("property", property);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute("content", content);
-    };
+    upsertMetaTag("name", "twitter:card", "summary_large_image");
+    upsertMetaTag("name", "twitter:title", title);
+    upsertMetaTag("name", "twitter:description", description);
+    upsertMetaTag("name", "twitter:image", ogImage);
 
-    updateOGTag("og:title", title);
-    updateOGTag("og:description", description);
-    updateOGTag("og:image", ogImage);
-    updateOGTag("og:url", url);
-    updateOGTag("og:type", "website");
-
-    // Update Twitter Card tags
-    const updateTwitterTag = (name: string, content: string) => {
-      let tag = document.querySelector(`meta[name="${name}"]`);
-      if (!tag) {
-        tag = document.createElement("meta");
-        tag.setAttribute("name", name);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute("content", content);
-    };
-
-    updateTwitterTag("twitter:card", "summary_large_image");
-    updateTwitterTag("twitter:title", title);
-    updateTwitterTag("twitter:description", description);
-    updateTwitterTag("twitter:image", ogImage);
-
-    // Add structured data (JSON-LD)
+    // Structured data (JSON-LD): a CreativeWork for case studies, a Person for everything else
     let structuredData = document.querySelector(
       'script[type="application/ld+json"]',
     );
@@ -83,24 +59,25 @@ const SEO = () => {
       document.head.appendChild(structuredData);
     }
 
-    const jsonLd = {
-      "@context": "https://schema.org",
-      "@type": caseStudyMatch ? "CreativeWork" : "Person",
-      name: caseStudyMatch
-        ? caseStudies.find((s) => s.slug === caseStudyMatch[1])?.title || title
-        : "Patrick Lopes",
-      jobTitle: "Senior Product Designer",
-      description: description,
-      url: url,
-      image: ogImage,
-      ...(caseStudyMatch && {
-        "@type": "CreativeWork",
-        creator: {
-          "@type": "Person",
-          name: "Patrick Lopes",
-        },
-      }),
-    };
+    const author = { "@type": "Person", name: "Patrick Lopes" };
+    const jsonLd = study
+      ? {
+          "@context": "https://schema.org",
+          "@type": "CreativeWork",
+          name: study.title,
+          description,
+          url,
+          image: ogImage,
+          creator: author,
+        }
+      : {
+          "@context": "https://schema.org",
+          ...author,
+          jobTitle: "Senior Product Designer",
+          description,
+          url,
+          image: ogImage,
+        };
 
     structuredData.textContent = JSON.stringify(jsonLd);
   }, [pathname]);

@@ -1,15 +1,11 @@
-// Section divider component matching Figma design
-// Height: 128px with a centered gradient line that fades from transparent to purple in the center
-
+// Horizontal gradient line between home page sections, fading from
+// transparent to purple at the center (styles in .section-divider-line)
 const SectionDivider = () => {
   return (
     <div className="relative w-full py-16">
-      {/* Centered horizontal gradient divider line - fades from transparent to purple in center */}
-      <div 
-        className="section-divider-line"
-      />
+      <div className="section-divider-line" />
     </div>
-  )
-}
+  );
+};
 
-export default SectionDivider
+export default SectionDivider;

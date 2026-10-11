@@ -1,79 +1,33 @@
 import { useParams } from "react-router-dom";
-import { motion } from "framer-motion";
 import { caseStudies } from "../siteData";
 import { hasItems, hasValue } from "../lib/helpers";
+import { getImageSections } from "../lib/caseStudyHelpers";
 import CaseStudyHero from "../components/CaseStudyHero";
 import ProjectMetadata from "../components/ProjectMetadata";
-import ContentSection from "../components/ContentSection";
 import TLDRSection from "../components/TLDRSection";
-import ProjectNavigation from "../components/ProjectNavigation";
-import ImageShowcase from "../components/ImageShowcase";
-import SectionWrapper from "../components/SectionWrapper";
-import NotFound from "../components/NotFound";
-import ProblemImageGallery from "../components/ProblemImageGallery";
 import RoleSection from "../components/RoleSection";
 import ChallengeSection from "../components/ChallengeSection";
+import ProblemSection from "../components/ProblemSection";
 import ApproachSection from "../components/ApproachSection";
 import DesignPrinciplesSection from "../components/DesignPrinciplesSection";
+import ImageShowcase from "../components/ImageShowcase";
 import SolutionSection from "../components/SolutionSection";
-import { getImageSections } from "../lib/caseStudyHelpers";
+import ProjectNavigation from "../components/ProjectNavigation";
+import NotFound from "../components/NotFound";
 
 const CaseStudyPage = () => {
   const { slug } = useParams<{ slug: string }>();
-
-  // Add debugging (remove after issue is resolved)
-  console.log('CaseStudy loaded with slug:', slug);
-  console.log('Available case studies:', caseStudies.map(s => s.slug));
-
   const studyIndex = caseStudies.findIndex((item) => item.slug === slug);
 
-  console.log('Study index found:', studyIndex);
+  if (studyIndex === -1) return <NotFound />;
 
-  const study = studyIndex !== -1 ? caseStudies[studyIndex] : null;
-
-  console.log('Study object:', study ? 'found' : 'null');
-
-  // Get previous and next projects for navigation
-  const previousProject =
-    studyIndex > 0 ? caseStudies[studyIndex - 1] : undefined;
-  const nextProject =
-    studyIndex < caseStudies.length - 1
-      ? caseStudies[studyIndex + 1]
-      : undefined;
-
-  // Helper to render image sections by placement
-  const renderImageSections = (
-    placement:
-      | "after-problem"
-      | "after-process"
-      | "after-solution"
-      | "before-results",
-  ) => {
-    if (!study) return null;
-    const sections = getImageSections(study, placement);
-    return sections.map((section, index) => (
-      <ImageShowcase
-        key={`${placement}-${index}`}
-        images={section.images}
-        layout={section.layout}
-        sectionLabel={section.sectionLabel}
-        heading={section.heading}
-        customPadding={section.customPadding}
-        imageMaxWidth={section.imageMaxWidth}
-      />
-    ));
-  };
-
-  if (!study) {
-    // Log for debugging before showing NotFound
-    console.error('Case study not found for slug:', slug);
-    console.error('Available slugs:', caseStudies.map(s => s.slug));
-    return <NotFound />;
-  }
+  const study = caseStudies[studyIndex];
+  const previousProject = caseStudies[studyIndex - 1];
+  const nextProject = caseStudies[studyIndex + 1];
 
   return (
     <div className="min-h-screen bg-ink">
-      {/* 1. Hero Section */}
+      {/* 1. Hero */}
       <CaseStudyHero study={study} />
 
       {/* 2. Project Metadata */}
@@ -95,78 +49,32 @@ const CaseStudyPage = () => {
         <ChallengeSection challenge={study.challenge} />
       )}
 
-      {/* 6. The Problem - Combined with Images */}
+      {/* 6. The Problem, with after-problem images */}
       {hasItems(study.problemBreakdown) && (
-        <SectionWrapper
-          maxWidth="1320"
-          padding="large"
-          className="justify-center"
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col items-center justify-start gap-48"
-          >
-            {/* Problem Section Header */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex w-[650px] max-w-full flex-col items-center gap-8 text-center"
-            >
-              <h2>The problem</h2>
-            </motion.div>
-
-            {/* Problem Cards - flex layout with equal heights */}
-            <div className="flex w-full flex-col gap-32 md:flex-row md:items-stretch">
-              {study.problemBreakdown.map((item, index) => (
-                <motion.div
-                  key={`${item.title}-${index}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.1,
-                    ease: "easeOut",
-                  }}
-                  className="solution-card"
-                >
-                  {/* Card Content */}
-                  <p className="text-body-lg font-semibold">{item.title}</p>
-                  <p>{item.description}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Images Section */}
-            {study &&
-              getImageSections(study, "after-problem").map((section, index) => (
-                <motion.div
-                  key={`after-problem-${index}`}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                >
-                  <ProblemImageGallery images={section.images} />
-                </motion.div>
-              ))}
-          </motion.div>
-        </SectionWrapper>
+        <ProblemSection
+          items={study.problemBreakdown}
+          imageSections={getImageSections(study, "after-problem")}
+        />
       )}
 
-      {/* 8. Approach (new) / Design Principles (legacy, until all studies migrate) */}
-      <ApproachSection steps={study.approach || []} />
-      <DesignPrinciplesSection principles={study.designPrinciples || []} />
+      {/* 7. Approach, or Design Principles for studies not yet migrated */}
+      <ApproachSection steps={study.approach ?? []} />
+      <DesignPrinciplesSection principles={study.designPrinciples ?? []} />
 
-      {/* 8b. Design artifacts (e.g., final mobile mockup) between principles and solution */}
-      {renderImageSections("after-process")}
+      {/* 7b. Design artifacts (e.g. final mobile mockup) before the solution */}
+      {getImageSections(study, "after-process").map((section, index) => (
+        <ImageShowcase
+          key={`after-process-${index}`}
+          images={section.images}
+          layout={section.layout}
+          sectionLabel={section.sectionLabel}
+          heading={section.heading}
+          customPadding={section.customPadding}
+          imageMaxWidth={section.imageMaxWidth}
+        />
+      ))}
 
-      {/* 9. The Solution - New card-based layout */}
+      {/* 8. The Solution + metrics */}
       {hasItems(study.solutionCards) && (
         <SolutionSection
           description={study.solution}
@@ -177,20 +85,7 @@ const CaseStudyPage = () => {
         />
       )}
 
-      {/* 9b. The Solution - Legacy bullet list layout (for case studies without solutionCards) */}
-      {!hasItems(study.solutionCards) && hasValue(study.solution) && (
-        <>
-          <SectionWrapper maxWidth="900" padding="large">
-            <ContentSection heading="The Solution">
-              <p className="mb-6">{study.solution}</p>
-            </ContentSection>
-          </SectionWrapper>
-          {/* Images after solution section */}
-          {renderImageSections("after-solution")}
-        </>
-      )}
-
-      {/* Project Navigation - Previous/Next */}
+      {/* Previous / Next project */}
       <ProjectNavigation
         previousProject={previousProject}
         nextProject={nextProject}

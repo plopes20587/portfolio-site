@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import type { CaseStudy } from "../siteData";
+import type { CaseStudy } from "../types";
 import { getProjectConfig } from "../lib/projectConfig";
 import { handleImageErrorHide } from "../lib/imageUtils";
 import { icons } from "../lib/iconMappings";

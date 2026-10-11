@@ -36,6 +36,10 @@ const HeroStarfieldCanvas = () => {
     let animationFrame: number
     let meteors: Meteor[] = []
     let stars: Star[] = []
+    // Canvas size in CSS pixels, refreshed on resize so the animation loop
+    // never has to measure layout (getBoundingClientRect) every frame
+    let width = 0
+    let height = 0
     
     // Meteor angle calculation: ~22.6 degrees for natural diagonal movement
     // tg(α) = x / y -> α = arctg(x / y)
@@ -80,7 +84,9 @@ const HeroStarfieldCanvas = () => {
     }
 
     const resize = () => {
-      const { width, height } = canvas.getBoundingClientRect()
+      const canvasRect = canvas.getBoundingClientRect()
+      width = canvasRect.width
+      height = canvasRect.height
       const scale = window.devicePixelRatio || 1
       canvas.width = width * scale
       canvas.height = height * scale
@@ -97,8 +103,8 @@ const HeroStarfieldCanvas = () => {
       context.fill()
     }
 
-    // Draw a meteor with glowing tail
-    const drawMeteor = (meteor: Meteor) => {
+    // Draw a meteor with glowing tail at the given (faded) opacity
+    const drawMeteor = (meteor: Meteor, opacity: number) => {
       // Calculate meteor head position
       const headX = meteor.x
       const headY = meteor.y
@@ -110,9 +116,9 @@ const HeroStarfieldCanvas = () => {
       // Create gradient for the meteor tail
       const gradient = context.createLinearGradient(tailX, tailY, headX, headY)
       gradient.addColorStop(0, `rgba(255, 255, 255, 0)`)
-      gradient.addColorStop(0.3, `rgba(200, 180, 255, ${meteor.opacity * 0.3})`)
-      gradient.addColorStop(0.7, `rgba(180, 160, 255, ${meteor.opacity * 0.6})`)
-      gradient.addColorStop(1, `rgba(255, 255, 255, ${meteor.opacity})`)
+      gradient.addColorStop(0.3, `rgba(200, 180, 255, ${opacity * 0.3})`)
+      gradient.addColorStop(0.7, `rgba(180, 160, 255, ${opacity * 0.6})`)
+      gradient.addColorStop(1, `rgba(255, 255, 255, ${opacity})`)
       
       // Draw meteor tail
       context.beginPath()
@@ -126,7 +132,7 @@ const HeroStarfieldCanvas = () => {
       // Draw glowing head
       context.beginPath()
       context.arc(headX, headY, 1.5, 0, Math.PI * 2)
-      context.fillStyle = `rgba(255, 255, 255, ${meteor.opacity})`
+      context.fillStyle = `rgba(255, 255, 255, ${opacity})`
       context.shadowBlur = 8
       context.shadowColor = 'rgba(180, 160, 255, 0.8)'
       context.fill()
@@ -139,7 +145,6 @@ const HeroStarfieldCanvas = () => {
       const deltaTime = lastTime ? currentTime - lastTime : 16
       lastTime = currentTime
       
-      const { width, height } = canvas.getBoundingClientRect()
       context.clearRect(0, 0, width, height)
 
       // Draw background stars with subtle twinkle
@@ -175,7 +180,7 @@ const HeroStarfieldCanvas = () => {
         
         // Draw meteor if visible
         if (meteor.x < width + 100 && meteor.y < height + 100 && currentOpacity > 0.05) {
-          drawMeteor({ ...meteor, opacity: currentOpacity })
+          drawMeteor(meteor, currentOpacity)
         }
         
         // Reset meteor when it goes off screen

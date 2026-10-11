@@ -43,7 +43,7 @@ const SkillsSection = () => {
   ];
 
   return (
-    <SectionWrapper id="skills" maxWidth="1320" padding="large">
+    <SectionWrapper id="skills">
       <div className="flex flex-col gap-40">
         {/* Header */}
         <div className="flex w-full flex-col items-center gap-16">

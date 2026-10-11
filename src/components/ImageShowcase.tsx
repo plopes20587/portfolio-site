@@ -1,15 +1,10 @@
+import type { ImageItem, ImageSection } from "../types";
 import SectionWrapper from "./SectionWrapper";
 import SectionHeader from "./SectionHeader";
 
-type ImageItem = {
-  src: string;
-  alt: string;
-  caption?: string;
-};
-
 type ImageShowcaseProps = {
   images: ImageItem[];
-  layout?: "single" | "side-by-side" | "grid";
+  layout?: ImageSection["layout"];
   sectionLabel?: string;
   heading?: string;
   customPadding?: string;
@@ -34,7 +29,7 @@ const ImageShowcase = ({
         : "flex flex-col gap-6";
 
   return (
-    <SectionWrapper maxWidth="1320" padding="large" customPadding={customPadding}>
+    <SectionWrapper customPadding={customPadding}>
       {/* Optional Section Header */}
       {heading && (
         <SectionHeader
@@ -62,10 +57,8 @@ const ImageShowcase = ({
               />
             </div>
             {image.caption && (
-              <figcaption className="border-t border-white/10 bg-ink-900/50 px-6 py-4">
-                <p className="text-h4-small text-white/70">
-                  {image.caption}
-                </p>
+              <figcaption className="bg-ink-900/50 border-t border-white/10 px-6 py-4">
+                <p className="text-h4-small text-white/70">{image.caption}</p>
               </figcaption>
             )}
           </figure>

@@ -1,4 +1,4 @@
-import type { CaseStudy } from "../siteData";
+import type { CaseStudy } from "../types";
 import { getProjectHeroImage, getProjectGradient } from "../lib/projectConfig";
 import { hasItems } from "../lib/helpers";
 

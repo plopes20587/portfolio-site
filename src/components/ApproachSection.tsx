@@ -1,5 +1,5 @@
 import SectionWrapper from "./SectionWrapper";
-import type { ApproachStep } from "../siteData";
+import type { ApproachStep } from "../types";
 
 type ApproachSectionProps = {
   steps: ApproachStep[];
@@ -14,7 +14,7 @@ const ApproachSection = ({ steps }: ApproachSectionProps) => {
   if (!steps || steps.length === 0) return null;
 
   return (
-    <SectionWrapper maxWidth="1320" padding="large">
+    <SectionWrapper>
       <div className="flex w-full flex-col gap-48">
         {/* Section Header */}
         <div className="flex w-full flex-col items-center gap-8">

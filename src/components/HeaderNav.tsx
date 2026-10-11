@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { icons } from "../lib/iconMappings";
 import logo from "../assets/images/logo.png";
+import { CONTACT_EMAIL } from "../siteData";
 
 type NavLink = {
   href: string;
@@ -9,14 +10,20 @@ type NavLink = {
   download?: boolean;
 };
 
+const navLinks: NavLink[] = [
+  { href: "#work", label: "Work" },
+  { href: "#about", label: "About" },
+  { href: "/Patrick%20Lopes%20Resume.pdf", label: "Resume", download: true },
+];
+
+/** Download links (the resume) also open in a new tab */
+const getLinkAttributes = (link: NavLink) =>
+  link.download
+    ? { download: true, target: "_blank", rel: "noopener noreferrer" }
+    : {};
+
 const HeaderNav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const navLinks: NavLink[] = [
-    { href: "#work", label: "Work" },
-    { href: "#about", label: "About" },
-    { href: "/Patrick%20Lopes%20Resume.pdf", label: "Resume", download: true },
-  ];
 
   return (
     <header className="absolute left-0 right-0 top-0 z-40">
@@ -32,17 +39,14 @@ const HeaderNav = () => {
             <a
               key={link.href}
               href={link.href}
-              download={link.download || undefined}
-              target={link.download ? "_blank" : undefined}
-              rel={link.download ? "noopener noreferrer" : undefined}
+              {...getLinkAttributes(link)}
               className="font-medium transition-colors hover:text-white/80"
             >
               {link.label}
             </a>
           ))}
 
-          {/* CTA Button - using Figma design system */}
-          <a href="mailto:design@patlopes.com" className="button-primary">
+          <a href={CONTACT_EMAIL} className="button-primary">
             Let's talk
           </a>
         </nav>
@@ -69,9 +73,7 @@ const HeaderNav = () => {
               <a
                 key={link.href}
                 href={link.href}
-                download={link.download || undefined}
-                target={link.download ? "_blank" : undefined}
-                rel={link.download ? "noopener noreferrer" : undefined}
+                {...getLinkAttributes(link)}
                 onClick={() => setMobileMenuOpen(false)}
                 className="border-b border-surface-card-border py-16 font-medium transition-colors hover:text-white/80"
               >
@@ -81,11 +83,11 @@ const HeaderNav = () => {
 
             {/* CTA Button */}
             <a
-              href="mailto:design@patlopes.com"
+              href={CONTACT_EMAIL}
               onClick={() => setMobileMenuOpen(false)}
               className="button-primary mt-6"
             >
-              Lets talk
+              Let's talk
             </a>
           </nav>
         </div>

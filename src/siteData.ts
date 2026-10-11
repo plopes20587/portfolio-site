@@ -6,101 +6,15 @@ import stAfterSolution from "./assets/images/verizon-straight-talk-7day/ST after
 import stPrototypeVideo from "./assets/images/verizon-straight-talk-7day/ST-Prototype.mp4";
 import stMobileMockup from "./assets/images/verizon-straight-talk-7day/ST-Mobile-Mockup.png";
 import sgAfterSolution from "./assets/images/senegence-redesign/SeneGence after-solution.png";
-
-export type ImageItem = {
-  src: string;
-  alt: string;
-  caption?: string;
-  type?: "image" | "video";
-};
-
-export type ImageSection = {
-  sectionLabel?: string;
-  heading?: string;
-  layout?: "single" | "side-by-side" | "grid";
-  images: ImageItem[];
-  placement:
-    | "after-problem"
-    | "after-process"
-    | "after-solution"
-    | "before-results";
-  customPadding?: string;
-  imageMaxWidth?: string;
-};
-
-export type ProblemBreakdownItem = {
-  icon: "target" | "shield" | "lightning" | "alert" | "chart" | "users";
-  title: string;
-  description: string;
-};
-
-export type DesignPrinciple = {
-  icon: string;
-  title: string;
-  description: string;
-};
-
-export type ApproachStep = {
-  title: string;
-  /** Each string renders as its own paragraph */
-  paragraphs: string[];
-};
-
-export type SolutionCard = {
-  icon: "target" | "shield" | "lightning";
-  title: string;
-  description: string;
-};
-
-export type CaseStudy = {
-  // 1. Hero Section
-  slug: string;
-  title: string;
-  blurb: string;
-  tags?: string[];
-  metrics?: { label: string; value: string }[];
-  // Optional context line shown above the metrics row in SolutionSection.
-  // Omit it and no subtitle renders for that case study.
-  metricsSubtitle?: string;
-  imageSections?: ImageSection[];
-
-  // 2. Project Metadata
-  role?: string;
-  client?: string;
-  timeline?: string;
-  platform?: string;
-
-  // 3. TL;DR
-  tldr?: string[];
-
-  // 4. My Role + Core Contributions
-  roleDescription?: string;
-  coreContributions?: string[];
-
-  // 5. The Challenge
-  challenge?: string;
-
-  // 6. The Problem
-  problemBreakdown?: ProblemBreakdownItem[];
-
-  // 7. Approach (replaces Design Principles as case studies are rewritten)
-  approach?: ApproachStep[];
-
-  // 7b. Design Principles (legacy — remove once all case studies use Approach)
-  designPrinciples?: DesignPrinciple[];
-
-  // 8. The Solution
-  solution?: string;
-  solutionCards?: SolutionCard[];
-};
+import type { CaseStudy } from "./types";
 
 // Contact email - centralized for easy updates
-const CONTACT_EMAIL = "mailto:design@patlopes.com";
+export const CONTACT_EMAIL = "mailto:design@patlopes.com";
 
 export const siteMeta = {
   title: "Patrick Lopes · Senior Product Designer",
   description:
-    "Senior product designer with ten years of shopping experiences and customer journeys, for brands like Verizon, KFC, and SeneGence. I own problems from first sketch to launch.",
+    "Senior product designer with ten years designing shopping experiences and customer journeys for brands like Verizon, KFC, and SeneGence. I own problems from first sketch to launch.",
   ogImage: "/og.png",
 };
 
@@ -111,7 +25,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Straight Talk",
     blurb:
       "A short-term plan for prepaid customers a few days short of payday, framed as a bridge rather than a downgrade, so they could stay connected without committing to a full monthly plan.",
-    tags: ["B2C", "eCommerce", "Customer Journeys"],
+    tags: ["B2C", "E-Commerce", "Customer Journeys"],
     metrics: [
       {
         label: "bridge plan redemptions in the first three months",
@@ -134,9 +48,6 @@ export const caseStudies: CaseStudy[] = [
       "Launched July 2025. Results cover the first three months, through late September.",
     imageSections: [
       {
-        sectionLabel: "PROTOTYPE",
-        heading: "The Bridge Plan in Motion",
-        layout: "single",
         placement: "after-problem",
         images: [
           {
@@ -163,16 +74,11 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
       {
-        sectionLabel: "THE SOLUTION",
-        heading: "The Bridge Plan Experience",
-        layout: "single",
         placement: "after-solution",
         images: [
           {
             src: stAfterSolution,
             alt: "Straight Talk 7-Day Bridge Plan interface showing the plan selection and checkout flow",
-            caption:
-              "The bridge plan experience provides clear eligibility, pricing, and next-step messaging across all channels",
           },
         ],
       },
@@ -208,19 +114,16 @@ export const caseStudies: CaseStudy[] = [
     // 6. The Problem
     problemBreakdown: [
       {
-        icon: "target",
         title: "No Short-Term Option",
         description:
           "Nothing sat between a full monthly plan and losing service. All or nothing.",
       },
       {
-        icon: "shield",
         title: "Eligibility and Pricing Were Hard to Explain",
         description:
           "Who qualified, what it cost, and what happened after the plan ended were all easy to get wrong. Ambiguity meant drop-off.",
       },
       {
-        icon: "lightning",
         title: "Present, But Not Promoted",
         description:
           "The plan had to be there for the customers who needed it without competing with the primary plans.",
@@ -303,9 +206,6 @@ export const caseStudies: CaseStudy[] = [
     ],
     imageSections: [
       {
-        sectionLabel: "THE PROBLEM",
-        heading: "Before: The Original PDP",
-        layout: "side-by-side",
         placement: "after-problem",
         images: [
           {
@@ -319,16 +219,11 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
       {
-        sectionLabel: "THE SOLUTION",
-        heading: "The Redesigned PDP",
-        layout: "single",
         placement: "after-solution",
         images: [
           {
             src: kfcAfterSolution,
             alt: "KFC Mobile Mockup showing the redesigned product detail page",
-            caption:
-              "The new PDP features clear customization steps, visible key options, and real-time feedback",
           },
         ],
       },
@@ -364,19 +259,16 @@ export const caseStudies: CaseStudy[] = [
     // 6. The Problem
     problemBreakdown: [
       {
-        icon: "target",
         title: "Overwhelming Layout on Mobile",
         description:
-          "The layout improved by reducing image dominance and highlighting details.",
+          "The product image took over the mobile screen, pushing meal details and options below the fold.",
       },
       {
-        icon: "shield",
         title: "Fragmented Customization Flow",
         description:
-          "Sauce customization options were limited to one, making the flow confusing.",
+          "Sauce choices were split across repeated sections, so customers made the same kind of choice more than once.",
       },
       {
-        icon: "lightning",
         title: "Unclear Feedback Before Checkout",
         description:
           "Users struggled to understand their selections before checkout, causing confusion and drop-off.",
@@ -389,25 +281,25 @@ export const caseStudies: CaseStudy[] = [
         icon: "sparkle-cursor",
         title: "Reduce decision friction",
         description:
-          "Streamlining user flows to minimize cognitive load and hesitation at critical interaction points.",
+          "Every extra step between picking a meal and checking out was a chance to drop off, so each one had to earn its place.",
       },
       {
         icon: "arrow-up-circle",
         title: "Surface key choices earlier",
         description:
-          "Prioritizing primary actions and essential data to reduce time-to-value for operators.",
+          "Customization options moved up the page so customers could see what they could change before scrolling.",
       },
       {
         icon: "layout-grid",
         title: "Preserve familiar patterns",
         description:
-          "Leveraging established mental models to flatten the learning curve for experienced users.",
+          "Customers already knew how KFC ordering worked, so the redesign kept the familiar patterns and fixed what got in the way.",
       },
       {
         icon: "mobile",
         title: "Optimize for mobile first",
         description:
-          "Ensuring critical command functions are accessible and responsive on portable field devices.",
+          "Mobile was where the layout broke down, so key options and the price had to fit on the first screen.",
       },
     ],
 
@@ -438,27 +330,22 @@ export const caseStudies: CaseStudy[] = [
   {
     // 1. Hero Section
     slug: "senegence-redesign",
-    title: "SENEGENCE",
+    title: "SeneGence",
     blurb:
       "Redesigning the e-commerce experience to improve product discovery, clarify product information, and streamline the purchase flow.",
     tags: ["Retail", "E-Commerce", "Beauty & Cosmetics"],
     metrics: [
       { label: "conversions within 6 months", value: "82K" },
-      { label: "in revenue impact post launch", value: "$7.2M" },
+      { label: "in revenue within 6 months of launch", value: "$7.2M" },
       { label: "from top-performing product", value: "$540K" },
     ],
     imageSections: [
       {
-        sectionLabel: "THE SOLUTION",
-        heading: "The Redesigned Checkout Experience",
-        layout: "single",
         placement: "after-solution",
         images: [
           {
             src: sgAfterSolution,
             alt: "SeneGence redesigned checkout experience showing a streamlined cart summary, clear pricing, and confident purchase confirmation",
-            caption:
-              "The redesigned checkout flow clarifies pricing, reduces friction at review, and builds trust with consistent patterns across devices.",
           },
         ],
       },
@@ -467,13 +354,13 @@ export const caseStudies: CaseStudy[] = [
     // 2. Project Metadata
     role: "Lead Product Designer",
     client: "SeneGence International",
-    timeline: "6 Months",
+    timeline: "6 months",
     platform: "E-Commerce Web & Mobile",
 
     // 3. TL;DR
     tldr: [
-      "Increased conversions after launch",
-      "Generated meaningful post-launch revenue",
+      "82K conversions within six months of launch",
+      "$7.2M in revenue over the same period",
       "Improved consistency across devices",
     ],
 
@@ -494,27 +381,21 @@ export const caseStudies: CaseStudy[] = [
     // 6. The Problem
     problemBreakdown: [
       {
-        icon: "target",
         title: "Difficult Product Discovery",
         description:
           "Customers struggled to find products due to poor navigation structure and overwhelming category pages.",
       },
       {
-        icon: "shield",
         title: "Unclear Product Information",
         description:
           "Product pages lacked clear differentiation, making it hard for customers to understand what they were buying.",
       },
       {
-        icon: "lightning",
         title: "Inconsistent Experience",
         description:
           "The site lacked visual consistency across pages, creating friction and reducing trust during the purchase flow.",
       },
     ],
-
-    // 7. Design Principles
-    // (none for this case study)
 
     // 8. The Solution
     solution:
@@ -543,29 +424,25 @@ export const caseStudies: CaseStudy[] = [
   {
     // 1. Hero Section
     slug: "cellebrite-website",
-    title: "CELLEBRITE",
+    title: "Cellebrite",
     blurb:
       "Improving Cellebrite's website to make complex offerings easier to understand and navigate.",
     tags: ["Public Safety & Forensics", "B2B"],
     metrics: [
       { label: "increase in page views", value: "26%" },
-      { label: "reduction in bounce rate", value: "21%" },
-      {
-        label: "improvement in engagement",
-        value: "Significant",
-      },
+      { label: "reduction in bounce rate", value: "62%" },
     ],
 
     // 2. Project Metadata
     role: "Senior Product Designer",
     client: "Cellebrite",
-    timeline: "3 Months",
+    timeline: "3 months",
     platform: "Corporate Website",
 
     // 3. TL;DR
     tldr: [
       "Increased page views by 26%",
-      "Reduced bounce rate by 21%",
+      "Reduced bounce rate by 62%",
       "Improved content clarity and navigation",
     ],
 
@@ -586,27 +463,21 @@ export const caseStudies: CaseStudy[] = [
     // 6. The Problem
     problemBreakdown: [
       {
-        icon: "target",
         title: "Cluttered Information Architecture",
         description:
           "Years of content additions had created a confusing site structure that made it difficult for visitors to find what they needed.",
       },
       {
-        icon: "shield",
         title: "Complex Product Messaging",
         description:
           "Technical product descriptions were difficult to understand, causing visitors to leave before grasping the value proposition.",
       },
       {
-        icon: "lightning",
         title: "Poor Visual Hierarchy",
         description:
-          "Pages lacked clear focal points and call-to-actions, leading to high bounce rates and low engagement.",
+          "Pages lacked clear focal points and calls to action, leading to high bounce rates and low engagement.",
       },
     ],
-
-    // 7. Design Principles
-    // (none for this case study)
 
     // 8. The Solution
     solution:

@@ -39,7 +39,7 @@ const DEFAULT_CONFIG: ProjectConfig = {
  * Centralized project configuration mapping
  * Single source of truth for all project styling and assets
  */
-export const projectConfigs: Record<string, ProjectConfig> = {
+const projectConfigs: Record<string, ProjectConfig> = {
   "kfc-pdp-redesign": {
     gradientFrom: "#191230",
     gradientTo: "#7F5AF0",
@@ -76,13 +76,6 @@ export const projectConfigs: Record<string, ProjectConfig> = {
  */
 export const getProjectConfig = (slug: string): ProjectConfig => {
   return projectConfigs[slug] || DEFAULT_CONFIG;
-};
-
-/**
- * Get project thumbnail by slug — for use in CaseStudyCard
- */
-export const getProjectThumbnail = (slug: string): string => {
-  return getProjectConfig(slug).thumbnail;
 };
 
 /**

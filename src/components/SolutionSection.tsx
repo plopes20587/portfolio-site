@@ -1,11 +1,6 @@
 import SectionWrapper from "./SectionWrapper";
-import type { SolutionCard, ImageSection } from "../siteData";
+import type { SolutionCard, ImageSection, Metric } from "../types";
 import { getIconSrc } from "../lib/iconMappings";
-
-type Metric = {
-  label: string;
-  value: string;
-};
 
 type SolutionSectionProps = {
   /** Description text below the heading */
@@ -23,10 +18,10 @@ type SolutionSectionProps = {
 /**
  * Solution Section component matching Figma node 1867:1284
  * Displays:
- * - Centered header with "OUTCOME" label and "The Solution" heading
- * - 3 solution cards in a horizontal row with icons
- * - Large image showcase
- * - 3 metrics at the bottom
+ * - Centered "The Solution" heading with optional description
+ * - Solution cards in a horizontal row with icons
+ * - Optional showcase image
+ * - Optional metrics row with a context subtitle
  */
 const SolutionSection = ({
   description,
@@ -38,7 +33,7 @@ const SolutionSection = ({
   if (!cards || cards.length === 0) return null;
 
   return (
-    <SectionWrapper maxWidth="1320" padding="large">
+    <SectionWrapper>
       <div className="flex w-full flex-col items-center gap-48">
         {/* Section Header - Centered */}
         <div className="flex max-w-[646px] flex-col items-center gap-8 text-center">
@@ -72,15 +67,12 @@ const SolutionSection = ({
 
         {/* Image Showcase */}
         {image && image.images.length > 0 && (
-          <div className="flex w-full flex-col items-center gap-12 md:gap-16">
-            {/* Image Container */}
-            <div className="overflow-hidden rounded-16 border border-elements-pills-secondary-border">
-              <img
-                src={image.images[0].src}
-                alt={image.images[0].alt}
-                className="h-auto max-h-[860px] w-full max-w-[1146px] object-cover"
-              />
-            </div>
+          <div className="overflow-hidden rounded-16 border border-elements-pills-secondary-border">
+            <img
+              src={image.images[0].src}
+              alt={image.images[0].alt}
+              className="h-auto max-h-[860px] w-full max-w-[1146px] object-cover"
+            />
           </div>
         )}
 
@@ -89,7 +81,7 @@ const SolutionSection = ({
           <div className="flex w-full flex-col items-center justify-center gap-16">
             {/* Optional subtitle before metrics for additional context */}
             {metricsSubtitle && (
-              <p className="text-body-md mb-4 text-center font-medium text-text-body-500">
+              <p className="mb-4 text-center font-medium text-text-body-500">
                 {metricsSubtitle}
               </p>
             )}

@@ -1,4 +1,4 @@
-import type { ImageItem } from "../siteData";
+import type { ImageItem } from "../types";
 
 type ProblemImageGalleryProps = {
   images: ImageItem[];

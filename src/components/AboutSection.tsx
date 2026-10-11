@@ -6,8 +6,6 @@ type AboutStat = {
   iconSrc: string;
   value: string;
   label: string;
-  gridArea: string;
-  iconColor?: "royal-purple" | "cyan" | "default";
 };
 
 const AboutSection = () => {
@@ -16,39 +14,26 @@ const AboutSection = () => {
       iconSrc: icons["years-experience"],
       value: "10+",
       label: "Years designing products",
-      gridArea: "1 / 1",
-      iconColor: "default",
     },
     {
       iconSrc: icons["bridge-link"],
       value: "~97K",
       label: "Verizon bridge plan redemptions in 3 months",
-      gridArea: "1 / 2",
-      iconColor: "default",
     },
     {
       iconSrc: icons["arrow-up-circle"],
       value: "$7.2M",
       label: "SeneGence e-commerce revenue in 6 months",
-      gridArea: "2 / 1",
-      iconColor: "default",
     },
     {
       iconSrc: icons.lightning,
       value: "20%",
       label: "Less time to complete a KFC order",
-      gridArea: "2 / 2",
-      iconColor: "default",
     },
   ];
 
   return (
-    <SectionWrapper
-      id="about"
-      maxWidth="1320"
-      padding="large"
-      className="py-[var(--spacing-80)]"
-    >
+    <SectionWrapper id="about">
       {/* Section Header */}
       <div className="mb-[var(--spacing-40)] text-center">
         <h2>About me</h2>
@@ -107,27 +92,19 @@ const AboutSection = () => {
           </div>
 
           {/* Stats Grid */}
-          <div className="grid h-full w-full grid-cols-[repeat(2,_minmax(0px,_1fr))] grid-rows-[repeat(2,_fit-content(100%))] gap-[var(--spacing-24)]">
+          <div className="grid w-full grid-cols-2 gap-[var(--spacing-24)]">
             {aboutStats.map((stat) => (
               <div
                 key={stat.label}
                 className="flex flex-row items-center gap-[var(--spacing-16)] rounded-[var(--radius-16)] border border-solid border-[var(--color-elements-pills-primary-border)] bg-[var(--color-elements-pills-primary-background)] p-[var(--spacing-24)]"
-                style={{ gridArea: stat.gridArea }}
               >
                 {/* Icon Container */}
                 <div className="flex size-[48px] shrink-0 items-center justify-center rounded-full border border-solid border-[var(--color-elements-pills-primary-border)] bg-[var(--color-transparent-royal-purple-25)]">
+                  {/* Decorative: the label next to it already says what the stat is */}
                   <img
                     src={stat.iconSrc}
-                    alt={stat.label}
-                    className="size-[24px]"
-                    style={{
-                      filter:
-                        stat.iconColor === "cyan"
-                          ? "brightness(0) saturate(100%) invert(79%) sepia(45%) saturate(1234%) hue-rotate(130deg) brightness(95%) contrast(95%)"
-                          : stat.iconColor === "default"
-                            ? "brightness(0) saturate(100%) invert(100%)"
-                            : "brightness(0) saturate(100%) invert(48%) sepia(95%) saturate(1779%) hue-rotate(235deg) brightness(97%) contrast(93%)",
-                    }}
+                    alt=""
+                    className="size-[24px] brightness-0 invert"
                   />
                 </div>
                 {/* Stat Text - value stacked over label, right of the icon */}

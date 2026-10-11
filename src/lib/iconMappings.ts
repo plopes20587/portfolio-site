@@ -14,12 +14,8 @@ import targetIcon from "../assets/icons/target.svg";
 import shieldIcon from "../assets/icons/shield.svg";
 import lightningIcon from "../assets/icons/lightning.svg";
 import bridgeLinkIcon from "../assets/icons/bridge-link.svg";
-import rulesIcon from "../assets/icons/rules.svg";
-import scaleIcon from "../assets/icons/scale.svg";
-import rhythmIcon from "../assets/icons/rhythm.svg";
 
 // UI icons
-import checkIcon from "../assets/icons/check.svg";
 import selectedIcon from "../assets/icons/selected.svg";
 import closeIcon from "../assets/icons/close.svg";
 import menuIcon from "../assets/icons/menu.svg";
@@ -31,13 +27,9 @@ import arrowRightIcon from "../assets/icons/arrow-right.svg";
 import githubIcon from "../assets/icons/github.svg";
 import linkedinIcon from "../assets/icons/linkedin.svg";
 import instagramIcon from "../assets/icons/instagram.svg";
-import emailIcon from "../assets/icons/email.svg";
 
-// Stats/metrics icons
+// Stats icons
 import yearsExperienceIcon from "../assets/icons/years-experience.svg";
-import projectsCompletedIcon from "../assets/icons/projects-completed.svg";
-import happyClientsIcon from "../assets/icons/happy-clients.svg";
-import productsLaunchedIcon from "../assets/icons/products-launched.svg";
 
 // Role/process icons
 import roleIcon from "../assets/icons/role.svg";
@@ -64,15 +56,11 @@ export const icons: Record<string, string> = {
 
   // Solution/feature icons
   "bridge-link": bridgeLinkIcon,
-  rhythm: rhythmIcon,
-  scale: scaleIcon,
-  rules: rulesIcon,
   target: targetIcon,
   shield: shieldIcon,
   lightning: lightningIcon,
 
   // UI icons
-  check: checkIcon,
   selected: selectedIcon,
   close: closeIcon,
   menu: menuIcon,
@@ -84,13 +72,9 @@ export const icons: Record<string, string> = {
   github: githubIcon,
   linkedin: linkedinIcon,
   instagram: instagramIcon,
-  email: emailIcon,
 
-  // Stats/metrics icons
+  // Stats icons
   "years-experience": yearsExperienceIcon,
-  "projects-completed": projectsCompletedIcon,
-  "happy-clients": happyClientsIcon,
-  "products-launched": productsLaunchedIcon,
 
   // Role/process icons
   role: roleIcon,
@@ -104,9 +88,6 @@ export const icons: Record<string, string> = {
   development: developmentIcon,
   "ai-stack": aiStackIcon,
 };
-
-// Legacy alias for backward compatibility
-export const featureIcons = icons;
 
 /**
  * Get the icon source URL for a given icon name

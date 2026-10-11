@@ -1,24 +1,15 @@
 import SectionWrapper from "./SectionWrapper";
-import type { DesignPrinciple } from "../siteData";
+import type { DesignPrinciple } from "../types";
 import { getIconSrc } from "../lib/iconMappings";
 
 type DesignPrinciplesSectionProps = {
   principles: DesignPrinciple[];
-  /** Optional description text below the heading */
-  description?: string;
 };
 
 /**
- * Component for displaying design principles in a 2x2 grid layout
- * Uses dark cards with cyan accent colors, matching Figma design
- *
- * Figma tokens mapped to CSS variables:
- * - Card border: --color-elements-pills-secondary-border (rgba(0,211,242,0.25))
- * - Card bg: rgba(15,23,43,0.4) - custom value from Figma
- * - Icon container bg: --color-elements-pills-secondary-border
- * - Border radius: --radius-16 (card), --radius-8 (icon container)
- * - Gap: 20px (icon-to-text), 32px (grid gap)
- * - Padding: 25px (Figma) → 24px (using --spacing-24)
+ * Legacy design principles 2x2 grid, kept for case studies that have not
+ * moved to ApproachSection yet. Card styles live in index.css
+ * (.design-principle-card-secondary, .design-principle-icon-container).
  */
 const DesignPrinciplesSection = ({
   principles,
@@ -26,14 +17,13 @@ const DesignPrinciplesSection = ({
   if (!principles || principles.length === 0) return null;
 
   return (
-    <SectionWrapper maxWidth="1320" padding="large">
+    <SectionWrapper>
       <div className="flex w-full flex-col gap-48">
-        {/* Section Header - max-width 650px, gap 8px */}
         <div className="flex w-full flex-col items-center gap-8">
           <h2>Design principles</h2>
         </div>
 
-        {/* Principles Grid - 2x2 layout, 32px gap */}
+        {/* Principles Grid - 2x2 on desktop */}
         <div className="grid w-full grid-cols-1 gap-48 md:grid-cols-2">
           {principles.map((principle, index) => {
             const iconSrc = getIconSrc(principle.icon);

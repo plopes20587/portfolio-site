@@ -18,10 +18,7 @@ const RoleSection = ({
   const hasContributions = coreContributions && coreContributions.length > 0;
 
   return (
-    <SectionWrapper
-      maxWidth="1320"
-      customPadding="px-6 py-80 md:px-60"
-    >
+    <SectionWrapper customPadding="px-6 py-80 md:px-60">
       <div className="flex w-full items-center justify-center">
         <div
           className={`flex w-full max-w-[1094px] flex-col items-center gap-48 ${hasContributions ? "lg:flex-row lg:items-stretch" : ""}`}

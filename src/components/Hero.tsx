@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import HeroStarfieldCanvas from "./HeroStarfieldCanvas";
 import Meteors from "./meteors";
 import { icons } from "../lib/iconMappings";
+import { CONTACT_EMAIL } from "../siteData";
 
 const Hero = () => {
   const socialLinks = [
@@ -76,7 +77,7 @@ const Hero = () => {
       </div>
 
       {/* Hero Content - positioned per Figma: x=64, y=357 */}
-      <div className="relative mx-auto max-w-[1320px] px-24 pt-[80px] pb-[80px] md:pt-[357px] md:pb-24">
+      <div className="relative mx-auto max-w-[1320px] px-24 pb-[80px] pt-[80px] md:pb-24 md:pt-[357px]">
         <div className="flex flex-col gap-[40px]">
           {/* Title Section */}
           <div className="flex flex-col gap-[16px]">
@@ -109,10 +110,7 @@ const Hero = () => {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             className="flex items-start"
           >
-            <a
-              href="mailto:design@patlopes.com"
-              className="button-primary h-[50px]"
-            >
+            <a href={CONTACT_EMAIL} className="button-primary h-[50px]">
               Let's talk
               <img src={icons["arrow-right"]} alt="" className="h-5 w-5" />
             </a>

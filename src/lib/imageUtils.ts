@@ -7,7 +7,9 @@
  * Error handler that hides the image on error
  * Useful when a fallback UI is already present
  */
-export const handleImageErrorHide = (e: React.SyntheticEvent<HTMLImageElement, Event>): void => {
+export const handleImageErrorHide = (
+  e: React.SyntheticEvent<HTMLImageElement, Event>,
+): void => {
   e.currentTarget.style.display = "none";
 };
 
@@ -18,7 +20,7 @@ export const handleImageErrorHide = (e: React.SyntheticEvent<HTMLImageElement, E
 export const handleImageErrorTextFallback = (
   e: React.SyntheticEvent<HTMLImageElement, Event>,
   fallbackText: string,
-  textClassName = "text-sm font-medium text-white/80"
+  textClassName = "text-sm font-medium text-white/80",
 ): void => {
   e.currentTarget.style.display = "none";
   const text = document.createElement("span");
@@ -26,7 +28,3 @@ export const handleImageErrorTextFallback = (
   text.textContent = fallbackText;
   e.currentTarget.parentElement?.appendChild(text);
 };
-
-
-
-

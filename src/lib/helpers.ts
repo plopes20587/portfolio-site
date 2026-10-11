@@ -19,16 +19,3 @@ export const hasItems = <T>(array: T[] | undefined | null): array is T[] => {
 export const hasValue = <T>(value: T | undefined | null): value is T => {
   return value !== undefined && value !== null && value !== "";
 };
-
-/**
- * Check if at least one of the provided values exists
- * @param values - Values to check
- * @returns true if at least one value is truthy
- */
-export const hasAny = (...values: unknown[]): boolean => {
-  return values.some((value) => hasValue(value));
-};
-
-
-
-
