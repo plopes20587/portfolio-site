@@ -15,28 +15,28 @@ const AboutSection = () => {
     {
       iconSrc: icons["years-experience"],
       value: "10+",
-      label: "Years of Experience",
+      label: "Years designing products",
       gridArea: "1 / 1",
       iconColor: "default",
     },
     {
-      iconSrc: icons["projects-completed"],
-      value: "50+",
-      label: "Projects Delivered",
+      iconSrc: icons["bridge-link"],
+      value: "~97K",
+      label: "Verizon bridge plan redemptions in 3 months",
       gridArea: "1 / 2",
       iconColor: "default",
     },
     {
-      iconSrc: icons["happy-clients"],
-      value: "20+",
-      label: "Happy Clients",
+      iconSrc: icons["arrow-up-circle"],
+      value: "$7.2M",
+      label: "SeneGence e-commerce revenue in 6 months",
       gridArea: "2 / 1",
       iconColor: "default",
     },
     {
-      iconSrc: icons["products-launched"],
-      value: "20+",
-      label: "Products Launched",
+      iconSrc: icons.lightning,
+      value: "20%",
+      label: "Less time to complete a KFC order",
       gridArea: "2 / 2",
       iconColor: "default",
     },
@@ -51,7 +51,7 @@ const AboutSection = () => {
     >
       {/* Section Header */}
       <div className="mb-[var(--spacing-40)] text-center">
-        <h2>a bit About me</h2>
+        <h2>About me</h2>
       </div>
 
       {/* Two Column Layout */}
@@ -82,25 +82,26 @@ const AboutSection = () => {
           {/* Bio Text */}
           <div className="flex flex-col gap-4">
             <p>
-              I'm a senior product designer with a focus on e-commerce and
-              digital shopping. Over the past ten years, I've worked on product
-              pages, checkout flows, and customer journeys for brands like
-              Verizon, KFC, and SeneGence.
+              Right now I'm at Verizon, designing how customers across its value
+              brands shop, pay, and get back on track when money is tight.
+              Before that I was a lead product designer at Photon, where I
+              redesigned KFC's ordering flow and SeneGence's e-commerce
+              platform.
             </p>
             <br />
             <div>
               <p className="mb-0">
-                I like keeping things simple. My approach usually starts with
-                understanding how people shop or move through a flow, then
-                figuring out how to make that experience feel smoother and more
-                predictable. AI has become a helpful part of my workflow. It
-                lets me explore directions faster, play with variations, and get
-                clearer on what will actually help users.
+                I start by mapping how people move through a flow today, before
+                I redesign anything. After that, most of the work is tradeoffs.
+                A plan the business doesn't want to promote but some customers
+                really need. A legal label someone wants moved off the main
+                screen. The job is making those calls and getting the team
+                behind them. I also mentor junior designers.
               </p>
               <br />
               <p>
-                When I'm not working, I'm probably traveling, working remotely
-                somewhere warm, or finding a good coffee spot.
+                When I'm not designing, I'm probably traveling, working remotely
+                from somewhere warm, training MMA or playing video games.
               </p>
             </div>
           </div>
@@ -110,11 +111,11 @@ const AboutSection = () => {
             {aboutStats.map((stat) => (
               <div
                 key={stat.label}
-                className="flex flex-col items-start gap-[var(--spacing-8)] rounded-[var(--radius-16)] border border-solid border-[var(--color-elements-pills-primary-border)] bg-[var(--color-elements-pills-primary-background)] p-[var(--spacing-24)]"
+                className="flex flex-row items-center gap-[var(--spacing-16)] rounded-[var(--radius-16)] border border-solid border-[var(--color-elements-pills-primary-border)] bg-[var(--color-elements-pills-primary-background)] p-[var(--spacing-24)]"
                 style={{ gridArea: stat.gridArea }}
               >
                 {/* Icon Container */}
-                <div className="flex size-[48px] items-center justify-center rounded-full border border-solid border-[var(--color-elements-pills-primary-border)] bg-[var(--color-transparent-royal-purple-25)]">
+                <div className="flex size-[48px] shrink-0 items-center justify-center rounded-full border border-solid border-[var(--color-elements-pills-primary-border)] bg-[var(--color-transparent-royal-purple-25)]">
                   <img
                     src={stat.iconSrc}
                     alt={stat.label}
@@ -129,14 +130,17 @@ const AboutSection = () => {
                     }}
                   />
                 </div>
-                {/* Stat Value */}
-                <p className="text-[20px] font-semibold leading-[var(--line-height-body)] text-[var(--color-text-body)]">
-                  {stat.value}
-                </p>
-                {/* Stat Label */}
-                <p className="text-[16px] leading-[var(--line-height-body)] text-[var(--color-text-body)]">
-                  {stat.label}
-                </p>
+                {/* Stat Text - value stacked over label, right of the icon */}
+                <div className="flex flex-col gap-[var(--spacing-4)]">
+                  {/* Stat Value */}
+                  <p className="text-[20px] font-semibold leading-[var(--line-height-body)] text-[var(--color-text-body)]">
+                    {stat.value}
+                  </p>
+                  {/* Stat Label */}
+                  <p className="text-[16px] leading-[var(--line-height-body)] text-[var(--color-text-body)]">
+                    {stat.label}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

@@ -94,10 +94,11 @@ const Hero = () => {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
               className="max-w-[570px]"
             >
-              Good design happens when the experience speaks the customer's
-              language. With the right balance of structure, research, and a bit
-              of AI in the early stages, the journey becomes smoother and easier
-              to follow.
+              Give me a clear problem and no set path, and I'll own it through
+              launch. I've spent ten years designing shopping experiences and
+              customer journeys, mostly the moments where people make a decision
+              and pay. I've worked as a design lead, and I write enough React to
+              ship my own work.
             </motion.p>
           </div>
 
@@ -112,7 +113,7 @@ const Hero = () => {
               href="mailto:design@patlopes.com"
               className="button-primary h-[50px]"
             >
-              Lets talk
+              Let's talk
               <img src={icons["arrow-right"]} alt="" className="h-5 w-5" />
             </a>
           </motion.div>

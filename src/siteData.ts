@@ -100,7 +100,7 @@ const CONTACT_EMAIL = "mailto:design@patlopes.com";
 export const siteMeta = {
   title: "Patrick Lopes · Senior Product Designer",
   description:
-    "Senior Product Designer focused on e-commerce and digital experiences. Crafting product pages, checkout flows, and customer journeys with clarity and a calm layer of AI support.",
+    "Senior product designer with ten years of shopping experiences and customer journeys, for brands like Verizon, KFC, and SeneGence. I own problems from first sketch to launch.",
   ogImage: "/og.png",
 };
 
@@ -636,6 +636,6 @@ export const caseStudies: CaseStudy[] = [
 
 export const footerCta = {
   headline: "Let's Connect",
-  body: "Feel free to reach out for any collab work, remote opportunities or to just talk about design.",
-  action: { label: "Get in touch", href: CONTACT_EMAIL },
+  body: "Hiring a senior product designer, or have a project in mind? Send me an email. I'm open to remote roles and happy to talk shop.",
+  action: { label: "Email me", href: CONTACT_EMAIL },
 };

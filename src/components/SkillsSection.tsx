@@ -48,9 +48,10 @@ const SkillsSection = () => {
         {/* Header */}
         <div className="flex w-full flex-col items-center gap-16">
           <h2 className={SECTION_HEADING_BASE}>Tech Stack</h2>
-          <p className="max-w-[741px] text-center">
-            My toolkit spans design, development, and AI—enabling me to bring
-            ideas to life from concept to code
+          <p className="text-center">
+            What I use day to day. Figma for most of the design work, code when
+            a prototype needs to feel real, and AI to try more directions before
+            I commit to one.
           </p>
         </div>
 
@@ -78,10 +79,7 @@ const SkillsSection = () => {
               {/* Skills List */}
               <div className="flex flex-col gap-8">
                 {stack.items.map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-center gap-8"
-                  >
+                  <div key={item} className="flex items-center gap-8">
                     {/* Gradient Bullet */}
                     <div
                       className={`h-[6px] w-[6px] rounded-full ${stack.bulletGradient}`}
