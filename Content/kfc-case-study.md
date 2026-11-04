@@ -2,11 +2,11 @@
 
 ## Overview
 
-As KFC’s digital menu expanded, the product detail page became a bottleneck in the ordering flow. Small usability issues compounded at scale, slowing decision-making and creating uncertainty right before checkout. This work focused on simplifying that moment without disrupting familiar patterns or existing systems.
+As KFC's digital menu expanded, the product detail page became a bottleneck in the ordering flow. Small usability issues compounded at scale, slowing decision-making and creating uncertainty right before checkout. This work focused on simplifying that moment without disrupting familiar patterns or existing systems.
 
-**Role:** Product Designer  
-**Client:** KFC (via Photon)  
-**Timeline:** 6 months  
+**Role:** Product Designer
+**Client:** KFC (via Photon)
+**Timeline:** 6 months
 **Platforms:** Desktop, Mobile Web, App
 
 ---
@@ -15,13 +15,14 @@ As KFC’s digital menu expanded, the product detail page became a bottleneck in
 
 - 88 percent task success across platforms
 - 20 percent reduction in average task completion time
+- 40 percent improvement in usability in testing
 - Improved clarity and confidence in a high-volume customization flow
 
 ---
 
 ## My Role
 
-## I owned the UX design for the product detail page redesign end-to-end, from framing the problem through defining the solution and validating it through usability testing. I worked closely with product managers, engineers, and stakeholders to align on priorities, navigate technical constraints, and make tradeoffs that balanced customer needs with business goals across desktop, mobile web, and app.
+I owned the UX design for the product detail page redesign end-to-end, from framing the problem through defining the solution and validating it through usability testing. I worked closely with product managers, engineers, and stakeholders to align on priorities, navigate technical constraints, and make tradeoffs that balanced customer needs with business goals across desktop, mobile web, and app.
 
 ### Core Contributions
 
@@ -97,4 +98,5 @@ _Addresses: Unclear Feedback Before Checkout_
 
 - 88 percent task success rate across all platforms
 - 20 percent reduction in average task completion time
+- 40 percent improvement in usability in testing
 - 90 percent of participants reported higher satisfaction

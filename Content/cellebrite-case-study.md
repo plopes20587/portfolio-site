@@ -4,19 +4,19 @@
 
 Redesigning a complex B2B SaaS marketing site to improve content clarity, reduce bounce, and better communicate product value to enterprise audiences.
 
-Cellebrite’s website had grown dense and difficult to navigate, making it hard for users to understand offerings or find relevant information. This work focused on clarifying content hierarchy and improving wayfinding without disrupting existing business messaging.
+Cellebrite's website had grown dense and difficult to navigate, making it hard for users to understand offerings or find relevant information. This work focused on clarifying content hierarchy and improving wayfinding without disrupting existing business messaging.
 
-**Role:** UX Designer  
-**Client:** Cellebrite  
-**Timeline:** 4 months  
+**Role:** UX Designer
+**Client:** Cellebrite
+**Timeline:** 4 months
 **Platforms:** Desktop, Mobile Web
 
 ---
 
 ## TL;DR
 
-- 25%+ increase in page views
-- 60%+ reduction in bounce rate
+- 26 percent increase in page views
+- 62 percent reduction in bounce rate
 - Clearer product messaging and improved navigation
 
 I led the UX redesign, working closely with stakeholders to simplify structure and improve how complex information was presented.
@@ -31,7 +31,7 @@ I owned the UX design for the Cellebrite website redesign, from problem framing 
 
 ## The Problem
 
-As Cellebrite’s product portfolio expanded, the website became harder to navigate and understand. User behavior and stakeholder feedback highlighted several issues impacting engagement.
+As Cellebrite's product portfolio expanded, the website became harder to navigate and understand. User behavior and stakeholder feedback highlighted several issues impacting engagement.
 
 ### 1. Overloaded Content Hierarchy
 
@@ -99,8 +99,8 @@ _Addresses: Lack of Consistency_
 
 ## Impact
 
-- 25%+ increase in page views
-- 60%+ reduction in bounce rate
+- 26 percent increase in page views
+- 62 percent reduction in bounce rate
 - Improved engagement across key pages
 
 The redesign improved how enterprise users consumed complex information while giving internal teams a scalable foundation for future growth.

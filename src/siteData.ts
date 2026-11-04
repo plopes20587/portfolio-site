@@ -200,6 +200,10 @@ export const caseStudies: CaseStudy[] = [
         value: "20%",
       },
       {
+        label: "improvement in usability in testing",
+        value: "40%",
+      },
+      {
         label: "of participants reported higher satisfaction",
         value: "90%",
       },
@@ -239,6 +243,7 @@ export const caseStudies: CaseStudy[] = [
     tldr: [
       "Improved task success to 88% across platforms",
       "Reduced average task completion time by 20%",
+      "Improved usability by 40% in testing",
       "Simplified a high-friction customization flow used at scale",
     ],
 
@@ -434,10 +439,10 @@ export const caseStudies: CaseStudy[] = [
     ],
 
     // 2. Project Metadata
-    role: "Senior Product Designer",
+    role: "UX Designer",
     client: "Cellebrite",
-    timeline: "3 months",
-    platform: "Corporate Website",
+    timeline: "4 months",
+    platform: "Desktop, Mobile Web",
 
     // 3. TL;DR
     tldr: [
