@@ -24,11 +24,11 @@ export const caseStudies: CaseStudy[] = [
     slug: "senegence-redesign",
     title: "SeneGence",
     blurb:
-      "Redesigning the e-commerce experience to improve product discovery, clarify product information, and streamline the purchase flow.",
+      "Redesigning an e-commerce platform for customers and distributors, simplifying navigation, product discovery, and checkout across web and mobile.",
     tags: ["E-Commerce", "Retail", "Beauty & Cosmetics"],
     metrics: [
-      { label: "conversions within 6 months", value: "82K" },
-      { label: "in revenue within 6 months of launch", value: "$7.2M" },
+      { label: "conversions within 6 months", value: "80K+" },
+      { label: "in revenue within 6 months of launch", value: "$7M+" },
       { label: "from top-performing product", value: "$540K" },
     ],
     imageSections: [
@@ -51,14 +51,14 @@ export const caseStudies: CaseStudy[] = [
 
     // 3. TL;DR
     tldr: [
-      "82K conversions within six months of launch",
-      "$7.2M in revenue over the same period",
+      "80K+ conversions within six months of launch",
+      "$7M+ in revenue over the same period, including $540K from the most popular product",
       "Improved consistency across devices",
     ],
 
     // 4. My Role + Core Contributions
     roleDescription:
-      "I led the product design for SeneGence's e-commerce redesign, focusing on improving product discovery, streamlining the purchase flow, and creating a consistent design system. I collaborated with stakeholders, developers, and the marketing team to deliver a responsive experience that drove measurable business results.",
+      "I led the redesign of SeneGence's e-commerce platform for customers and distributors, simplifying navigation, product discovery, and checkout across web and mobile. I collaborated with stakeholders, developers, and the marketing team, and removed checkout friction to drive measurable business results.",
     coreContributions: [
       "Reorganized product hierarchy and navigation",
       "Improved product pages for clarity and scannability",
@@ -438,7 +438,7 @@ export const caseStudies: CaseStudy[] = [
     ],
 
     // 2. Project Metadata
-    role: "UX Designer",
+    role: "UI/UX Designer",
     client: "Cellebrite",
     timeline: "4 months",
     platform: "Desktop, Mobile Web",
@@ -448,16 +448,18 @@ export const caseStudies: CaseStudy[] = [
       "Increased page views by 26%",
       "Reduced bounce rate by 62%",
       "Improved content clarity and navigation",
+      "Introduced a scalable design system that kept pages consistent",
     ],
 
     // 4. My Role + Core Contributions
     roleDescription:
-      "I led the redesign of Cellebrite's corporate website, focusing on simplifying complex product information and improving the overall user experience. I worked with product marketing, content strategists, and developers to create a clearer, more navigable site structure.",
+      "I redesigned Cellebrite's corporate website, refining content hierarchy and navigation to simplify complex product information. I ran stakeholder workshops and usability tests, and worked with product marketing, content strategists, and developers to create a clearer, more navigable site structure.",
     coreContributions: [
       "Reorganized content hierarchy for clarity",
       "Simplified layouts and reduced visual noise",
       "Created clearer paths to key information",
       "Improved messaging clarity across pages",
+      "Introduced a scalable design system that simplified future updates",
     ],
 
     // 5. The Challenge

@@ -22,7 +22,7 @@ const AboutSection = () => {
     },
     {
       iconSrc: icons["arrow-up-circle"],
-      value: "$7.2M",
+      value: "$7M+",
       label: "SeneGence e-commerce revenue in 6 months",
     },
     {
