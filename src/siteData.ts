@@ -267,7 +267,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Straight Talk",
     blurb:
       "A short-term plan for prepaid customers a few days short of payday, framed as a bridge rather than a downgrade, so they could stay connected without committing to a full monthly plan.",
-    tags: ["Plan Choice", "E-Commerce", "Customer Journeys"],
+    tags: ["Prepaid Wireless", "E-Commerce", "Customer Journeys"],
     metrics: [
       {
         label: "bridge plan redemptions in the first three months",
@@ -430,7 +430,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "cellebrite-website",
     title: "Cellebrite",
     blurb:
-      "Improving Cellebrite's website to make complex offerings easier to understand and navigate.",
+      "Redesigning a dense B2B marketing site, restructuring content hierarchy and navigation so enterprise users could understand complex forensics offerings and find what they needed.",
     tags: ["Marketing Site", "Public Safety & Forensics", "B2B"],
     metrics: [
       { label: "increase in page views", value: "26%" },

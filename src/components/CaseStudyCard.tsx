@@ -6,6 +6,10 @@ import { handleImageErrorHide } from "../lib/imageUtils";
 import { icons } from "../lib/iconMappings";
 import BulletList from "./BulletList";
 
+// Cards show a preview of results; the full list lives on the case study page.
+// Capping keeps card heights close, since the grid sizes rows to the tallest card.
+const MAX_CARD_METRICS = 3;
+
 type CaseStudyCardProps = {
   study: CaseStudy;
 };
@@ -80,7 +84,9 @@ const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
               {/* Metrics List - with checkmark icons */}
               {study.metrics && (
                 <BulletList
-                  items={study.metrics.map((metric) => `${metric.value} ${metric.label}`)}
+                  items={study.metrics
+                    .slice(0, MAX_CARD_METRICS)
+                    .map((metric) => `${metric.value} ${metric.label}`)}
                   bulletStyle="checkmark"
                   bulletColor="white"
                   gap="gap-2"
