@@ -6,7 +6,7 @@ Redesigning a direct-to-consumer e-commerce experience to simplify navigation, r
 
 SeneGence’s existing site had grown organically over time, resulting in inconsistent navigation, mismatched mobile and desktop experiences, and a checkout flow that created unnecessary barriers. This work focused on modernizing the shopping experience while preserving the needs of a multi-audience commerce model.
 
-**Role:** Product Designer  
+**Role:** Senior Product Designer, project lead (promoted to Lead Product Designer after this project)  
 **Client:** SeneGence  
 **Timeline:** 6 months  
 **Platforms:** Desktop, Mobile Web

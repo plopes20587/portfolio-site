@@ -4,7 +4,7 @@
 
 As KFC's digital menu expanded, the product detail page became a bottleneck in the ordering flow. Small usability issues compounded at scale, slowing decision-making and creating uncertainty right before checkout. This work focused on simplifying that moment without disrupting familiar patterns or existing systems.
 
-**Role:** Product Designer
+**Role:** Supporting Product Designer (user research and usability testing)
 **Client:** KFC (via Photon)
 **Timeline:** 6 months
 **Platforms:** Desktop, Mobile Web, App

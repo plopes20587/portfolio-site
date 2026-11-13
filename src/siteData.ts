@@ -164,27 +164,26 @@ export const caseStudies: CaseStudy[] = [
     ],
 
     // 2. Project Metadata
-    role: "Product Designer",
+    role: "Supporting Product Designer, Research and Testing",
     client: "KFC (via Photon)",
     timeline: "6 months",
     platform: "Desktop, Mobile Web, App",
 
     // 3. TL;DR
     tldr: [
-      "Improved task success to 88% across platforms",
+      "88% task success across platforms in usability testing",
       "Reduced average task completion time by 20%",
       "Improved usability by 40% in testing",
-      "Simplified a high-friction customization flow used at scale",
+      "I ran the research and unmoderated usability testing behind the redesign",
     ],
 
     // 4. My Role + Core Contributions
     roleDescription:
-      "I owned the UX design for the product detail page redesign end-to-end, from framing the problem through defining the solution and validating it through usability testing. I worked closely with product managers, engineers, and stakeholders to align on priorities, navigate technical constraints, and make tradeoffs that balanced customer needs with business goals across desktop, mobile web, and app.",
+      "I was a supporting product designer on the product detail page and customization redesign. I ran the user research and unmoderated usability testing, working with the design team, product managers, and engineers. My focus was understanding where customers struggled and checking whether the changes worked.",
     coreContributions: [
-      "Bringing key decisions into view earlier in the flow",
-      "Reducing repeated actions and redundant sections",
-      "Grouping related options to make choices easier to scan",
-      "Providing clearer feedback as users made selections",
+      "Synthesized app store reviews, chatbot logs, and customer feedback to find where customers struggled",
+      "Ran unmoderated usability testing across desktop, mobile web, and app",
+      "Turned findings into proposed design improvements and presented them to stakeholders",
     ],
 
     // 5. The Challenge
