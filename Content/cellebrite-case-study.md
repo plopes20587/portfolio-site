@@ -6,7 +6,7 @@ Redesigning a complex B2B SaaS marketing site to improve content clarity, reduce
 
 Cellebrite's website had grown dense and difficult to navigate, making it hard for users to understand offerings or find relevant information. This work focused on clarifying content hierarchy and improving wayfinding without disrupting existing business messaging.
 
-**Role:** UX Designer
+**Role:** UI/UX Designer
 **Client:** Cellebrite
 **Timeline:** 4 months
 **Platforms:** Desktop, Mobile Web
