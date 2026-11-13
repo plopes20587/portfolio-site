@@ -6,7 +6,7 @@ This document defines the language, tone, and positioning used across my portfol
 
 ## Core Positioning
 
-I’m a senior product designer focused on shopping experiences and customer journeys across B2C and B2B products. I solve messy, real‑world problems by simplifying complex systems, designing end‑to‑end flows, and balancing user needs with business constraints.
+I’m a senior product designer for consumer products, designing the moments where customers decide whether to commit: purchase, checkout, sign-up, plan choice. E-commerce is where most of my proof is, not the limit of what I do. I solve messy, real‑world problems by simplifying complex systems, designing end‑to‑end flows, and balancing user needs with business constraints. I’m aiming at consumer products in travel, gaming, entertainment, and e-commerce. Those are the direction, not experience I claim.
 
 I use modern tools — including AI — to think, explore, and ship faster, while still owning the judgment, craft, and final decisions.
 
@@ -29,13 +29,13 @@ I do **not** position myself as an AI engineer or ML specialist. I’m a product
 ## Portfolio Homepage Statement (Options)
 
 **Option 1**  
-I design intuitive shopping and account experiences for both consumers and businesses. I use modern tools — including AI — to explore ideas quickly and focus on solving the problems that matter most.
+I design the moments where customers decide whether to commit, from checkout to plan choice. I use modern tools, including AI, to explore ideas quickly and focus on the problems that matter most.
 
 **Option 2**  
-I’m a product designer who likes to move fast without cutting corners. From shopping flows to recovery journeys, I design clear, human‑centered experiences and use AI as a tool to iterate and ship efficiently.
+I’m a product designer who likes to move fast without cutting corners. From checkout flows to plan choice and account recovery, I design clear, human‑centered experiences and use AI as a tool to iterate and ship efficiently.
 
 **Option 3**  
-I design end‑to‑end customer journeys across B2C and B2B products. I use AI to support ideation and iteration, helping me move faster while staying grounded in thoughtful design decisions.
+I design end‑to‑end customer journeys for consumer products. I use AI to support ideation and iteration, helping me move faster while staying grounded in thoughtful design decisions.
 
 ---
 

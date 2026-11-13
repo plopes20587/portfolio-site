@@ -2,7 +2,7 @@
 
 ## Project
 
-Build a dark-mode-only portfolio site for Patrick Lopes using React, with a subtle starfield hero background, custom star cursor, hover effects, and an infinite looping logo marquee. Host on Render as a static site. Content should be conversational, confident, and focused on e-commerce and digital experiences. AI should be included as part of the workflow but not the main focus.
+Build a dark-mode-only portfolio site for Patrick Lopes using React, with a subtle starfield hero background, custom star cursor, hover effects, and an infinite looping logo marquee. Host on Render as a static site. Content should be conversational, confident, and focused on the moments where customers decide whether to commit, with e-commerce as the strongest proof. AI should be included as part of the workflow but not the main focus.
 
 ## Primary goals
 
@@ -22,7 +22,7 @@ Recruiters and hiring managers reviewing a senior product designer for e-commerc
 ### Positioning
 
 - Senior Product Designer with 10+ years of experience.
-- Core focus: e-commerce and digital experiences (product pages, checkout flows, customer journeys).
+- Core focus: consumer products at the moment a customer decides whether to commit (checkout, sign-up, plan choice). E-commerce is the strongest proof, not the boundary. Travel, gaming, and entertainment are direction only, never claimed experience.
 - Less emphasis on B2B platform language.
 - AI is part of the workflow (ideation, exploration, prototyping, refinement), but not the headline.
 
