@@ -44,7 +44,7 @@ export const caseStudies: CaseStudy[] = [
     ],
 
     // 2. Project Metadata
-    role: "Lead Product Designer",
+    role: "Senior Product Designer, Project Lead",
     client: "SeneGence International",
     timeline: "6 months",
     platform: "E-Commerce Web & Mobile",
