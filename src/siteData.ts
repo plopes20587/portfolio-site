@@ -14,18 +14,260 @@ export const CONTACT_EMAIL = "mailto:design@patlopes.com";
 export const siteMeta = {
   title: "Patrick Lopes · Senior Product Designer",
   description:
-    "Senior product designer with ten years designing shopping experiences and customer journeys for brands like Verizon, KFC, and SeneGence. I own problems from first sketch to launch.",
+    "Senior product designer with more than 10 years designing consumer products, from checkout to plan choice, for brands like KFC, SeneGence, and Verizon. I own problems from first sketch to launch.",
   ogImage: "/og.png",
 };
 
 export const caseStudies: CaseStudy[] = [
   {
     // 1. Hero Section
+    slug: "senegence-redesign",
+    title: "SeneGence",
+    blurb:
+      "Redesigning the e-commerce experience to improve product discovery, clarify product information, and streamline the purchase flow.",
+    tags: ["E-Commerce", "Retail", "Beauty & Cosmetics"],
+    metrics: [
+      { label: "conversions within 6 months", value: "82K" },
+      { label: "in revenue within 6 months of launch", value: "$7.2M" },
+      { label: "from top-performing product", value: "$540K" },
+    ],
+    imageSections: [
+      {
+        placement: "after-solution",
+        images: [
+          {
+            src: sgAfterSolution,
+            alt: "SeneGence redesigned checkout experience showing a streamlined cart summary, clear pricing, and confident purchase confirmation",
+          },
+        ],
+      },
+    ],
+
+    // 2. Project Metadata
+    role: "Senior Product Designer, Project Lead",
+    client: "SeneGence International",
+    timeline: "6 months",
+    platform: "E-Commerce Web & Mobile",
+
+    // 3. TL;DR
+    tldr: [
+      "82K conversions within six months of launch",
+      "$7.2M in revenue over the same period",
+      "Improved consistency across devices",
+    ],
+
+    // 4. My Role + Core Contributions
+    roleDescription:
+      "I led the product design for SeneGence's e-commerce redesign, focusing on improving product discovery, streamlining the purchase flow, and creating a consistent design system. I collaborated with stakeholders, developers, and the marketing team to deliver a responsive experience that drove measurable business results.",
+    coreContributions: [
+      "Reorganized product hierarchy and navigation",
+      "Improved product pages for clarity and scannability",
+      "Built reusable components for consistency",
+      "Created responsive patterns for cross-device experience",
+    ],
+
+    // 5. The Challenge
+    challenge:
+      "The existing site made it difficult for customers to browse products, understand differences, and complete purchases efficiently.",
+
+    // 6. The Problem
+    problemBreakdown: [
+      {
+        title: "Difficult Product Discovery",
+        description:
+          "Customers struggled to find products due to poor navigation structure and overwhelming category pages.",
+      },
+      {
+        title: "Unclear Product Information",
+        description:
+          "Product pages lacked clear differentiation, making it hard for customers to understand what they were buying.",
+      },
+      {
+        title: "Inconsistent Experience",
+        description:
+          "The site lacked visual consistency across pages, creating friction and reducing trust during the purchase flow.",
+      },
+    ],
+
+    // 8. The Solution
+    solution:
+      "The redesigned experience introduced a clearer structure with improved navigation, better product presentation, and consistent components across all devices.",
+    solutionCards: [
+      {
+        icon: "target",
+        title: "Scalable Navigation System",
+        description:
+          "A reorganized product hierarchy that makes browsing intuitive and helps customers find what they need quickly.",
+      },
+      {
+        icon: "shield",
+        title: "Improved Product Pages",
+        description:
+          "Clearer product presentation with better imagery, descriptions, and comparison features.",
+      },
+      {
+        icon: "lightning",
+        title: "Reusable Component Library",
+        description:
+          "A consistent design system that ensures visual coherence and speeds up future development.",
+      },
+    ],
+  },
+  {
+    // 1. Hero Section
+    slug: "kfc-pdp-redesign",
+    title: "KFC",
+    blurb:
+      "Simplifying the product detail page to reduce friction in the ordering flow, making customization faster and clearer without disrupting familiar patterns.",
+    tags: ["E-Commerce", "Food & Beverage", "B2C"],
+    metrics: [
+      {
+        label: "task success rate across all platforms",
+        value: "88%",
+      },
+      {
+        label: "reduction in average task completion time",
+        value: "20%",
+      },
+      {
+        label: "improvement in usability in testing",
+        value: "40%",
+      },
+      {
+        label: "of participants reported higher satisfaction",
+        value: "90%",
+      },
+    ],
+    imageSections: [
+      {
+        placement: "after-problem",
+        images: [
+          {
+            src: kfcBeforeImage1,
+            alt: "KFC mobile view showing image taking over entire screen real estate",
+          },
+          {
+            src: kfcBeforeImage2,
+            alt: "KFC mobile view showing repetitive sauce selection sections",
+          },
+        ],
+      },
+      {
+        placement: "after-solution",
+        images: [
+          {
+            src: kfcAfterSolution,
+            alt: "KFC Mobile Mockup showing the redesigned product detail page",
+          },
+        ],
+      },
+    ],
+
+    // 2. Project Metadata
+    role: "Supporting Product Designer, Research and Testing",
+    client: "KFC (via Photon)",
+    timeline: "6 months",
+    platform: "Desktop, Mobile Web, App",
+
+    // 3. TL;DR
+    tldr: [
+      "88% task success across platforms in usability testing",
+      "Reduced average task completion time by 20%",
+      "Improved usability by 40% in testing",
+      "I ran the research and unmoderated usability testing behind the redesign",
+    ],
+
+    // 4. My Role + Core Contributions
+    roleDescription:
+      "I was a supporting product designer on the product detail page and customization redesign. I ran the user research and unmoderated usability testing, working with the design team, product managers, and engineers. My focus was understanding where customers struggled and checking whether the changes worked.",
+    coreContributions: [
+      "Synthesized app store reviews, chatbot logs, and customer feedback to find where customers struggled",
+      "Ran unmoderated usability testing across desktop, mobile web, and app",
+      "Turned findings into proposed design improvements and presented them to stakeholders",
+    ],
+
+    // 5. The Challenge
+    challenge:
+      "New meal options and customization made the product detail page harder to use when customers needed clarity. Feedback highlighted three issues that slowed decision-making.",
+
+    // 6. The Problem
+    problemBreakdown: [
+      {
+        title: "Overwhelming Layout on Mobile",
+        description:
+          "The product image took over the mobile screen, pushing meal details and options below the fold.",
+      },
+      {
+        title: "Fragmented Customization Flow",
+        description:
+          "Sauce choices were split across repeated sections, so customers made the same kind of choice more than once.",
+      },
+      {
+        title: "Unclear Feedback Before Checkout",
+        description:
+          "Users struggled to understand their selections before checkout, causing confusion and drop-off.",
+      },
+    ],
+
+    // 7. Design Principles
+    designPrinciples: [
+      {
+        icon: "sparkle-cursor",
+        title: "Reduce decision friction",
+        description:
+          "Every extra step between picking a meal and checking out was a chance to drop off, so each one had to earn its place.",
+      },
+      {
+        icon: "arrow-up-circle",
+        title: "Surface key choices earlier",
+        description:
+          "Customization options moved up the page so customers could see what they could change before scrolling.",
+      },
+      {
+        icon: "layout-grid",
+        title: "Preserve familiar patterns",
+        description:
+          "Customers already knew how KFC ordering worked, so the redesign kept the familiar patterns and fixed what got in the way.",
+      },
+      {
+        icon: "mobile",
+        title: "Optimize for mobile first",
+        description:
+          "Mobile was where the layout broke down, so key options and the price had to fit on the first screen.",
+      },
+    ],
+
+    // 8. The Solution
+    solution:
+      "Instead of introducing new features, the solution focused on a targeted set of changes designed to remove friction while maintaining consistency with existing patterns.",
+    solutionCards: [
+      {
+        icon: "target",
+        title: "A More Balanced Mobile Layout",
+        description:
+          "The layout improved by reducing image dominance and highlighting details.",
+      },
+      {
+        icon: "shield",
+        title: "Simplified Customization in One Place",
+        description:
+          "Customization options are now clearer, enabling users to select without repeating steps.",
+      },
+      {
+        icon: "lightning",
+        title: "Clearer Feedback While Ordering",
+        description:
+          "A stronger visual hierarchy improved feedback, making it easier for users to review selections before checkout.",
+      },
+    ],
+  },
+  {
+    // 1. Hero Section
     slug: "verizon-straight-talk-7day",
     title: "Straight Talk",
     blurb:
       "A short-term plan for prepaid customers a few days short of payday, framed as a bridge rather than a downgrade, so they could stay connected without committing to a full monthly plan.",
-    tags: ["B2C", "E-Commerce", "Customer Journeys"],
+    tags: ["Plan Choice", "E-Commerce", "Customer Journeys"],
     metrics: [
       {
         label: "bridge plan redemptions in the first three months",
@@ -185,254 +427,11 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     // 1. Hero Section
-    slug: "kfc-pdp-redesign",
-    title: "KFC",
-    blurb:
-      "Simplifying the product detail page to reduce friction in the ordering flow, making customization faster and clearer without disrupting familiar patterns.",
-    tags: ["E-Commerce", "Food & Beverage", "B2C"],
-    metrics: [
-      {
-        label: "task success rate across all platforms",
-        value: "88%",
-      },
-      {
-        label: "reduction in average task completion time",
-        value: "20%",
-      },
-      {
-        label: "improvement in usability in testing",
-        value: "40%",
-      },
-      {
-        label: "of participants reported higher satisfaction",
-        value: "90%",
-      },
-    ],
-    imageSections: [
-      {
-        placement: "after-problem",
-        images: [
-          {
-            src: kfcBeforeImage1,
-            alt: "KFC mobile view showing image taking over entire screen real estate",
-          },
-          {
-            src: kfcBeforeImage2,
-            alt: "KFC mobile view showing repetitive sauce selection sections",
-          },
-        ],
-      },
-      {
-        placement: "after-solution",
-        images: [
-          {
-            src: kfcAfterSolution,
-            alt: "KFC Mobile Mockup showing the redesigned product detail page",
-          },
-        ],
-      },
-    ],
-
-    // 2. Project Metadata
-    role: "Product Designer",
-    client: "KFC (via Photon)",
-    timeline: "6 months",
-    platform: "Desktop, Mobile Web, App",
-
-    // 3. TL;DR
-    tldr: [
-      "Improved task success to 88% across platforms",
-      "Reduced average task completion time by 20%",
-      "Improved usability by 40% in testing",
-      "Simplified a high-friction customization flow used at scale",
-    ],
-
-    // 4. My Role + Core Contributions
-    roleDescription:
-      "I owned the UX design for the product detail page redesign end-to-end, from framing the problem through defining the solution and validating it through usability testing. I worked closely with product managers, engineers, and stakeholders to align on priorities, navigate technical constraints, and make tradeoffs that balanced customer needs with business goals across desktop, mobile web, and app.",
-    coreContributions: [
-      "Bringing key decisions into view earlier in the flow",
-      "Reducing repeated actions and redundant sections",
-      "Grouping related options to make choices easier to scan",
-      "Providing clearer feedback as users made selections",
-    ],
-
-    // 5. The Challenge
-    challenge:
-      "New meal options and customization made the product detail page harder to use when customers needed clarity. Feedback highlighted three issues that slowed decision-making.",
-
-    // 6. The Problem
-    problemBreakdown: [
-      {
-        title: "Overwhelming Layout on Mobile",
-        description:
-          "The product image took over the mobile screen, pushing meal details and options below the fold.",
-      },
-      {
-        title: "Fragmented Customization Flow",
-        description:
-          "Sauce choices were split across repeated sections, so customers made the same kind of choice more than once.",
-      },
-      {
-        title: "Unclear Feedback Before Checkout",
-        description:
-          "Users struggled to understand their selections before checkout, causing confusion and drop-off.",
-      },
-    ],
-
-    // 7. Design Principles
-    designPrinciples: [
-      {
-        icon: "sparkle-cursor",
-        title: "Reduce decision friction",
-        description:
-          "Every extra step between picking a meal and checking out was a chance to drop off, so each one had to earn its place.",
-      },
-      {
-        icon: "arrow-up-circle",
-        title: "Surface key choices earlier",
-        description:
-          "Customization options moved up the page so customers could see what they could change before scrolling.",
-      },
-      {
-        icon: "layout-grid",
-        title: "Preserve familiar patterns",
-        description:
-          "Customers already knew how KFC ordering worked, so the redesign kept the familiar patterns and fixed what got in the way.",
-      },
-      {
-        icon: "mobile",
-        title: "Optimize for mobile first",
-        description:
-          "Mobile was where the layout broke down, so key options and the price had to fit on the first screen.",
-      },
-    ],
-
-    // 8. The Solution
-    solution:
-      "Instead of introducing new features, the solution focused on a targeted set of changes designed to remove friction while maintaining consistency with existing patterns.",
-    solutionCards: [
-      {
-        icon: "target",
-        title: "A More Balanced Mobile Layout",
-        description:
-          "The layout improved by reducing image dominance and highlighting details.",
-      },
-      {
-        icon: "shield",
-        title: "Simplified Customization in One Place",
-        description:
-          "Customization options are now clearer, enabling users to select without repeating steps.",
-      },
-      {
-        icon: "lightning",
-        title: "Clearer Feedback While Ordering",
-        description:
-          "A stronger visual hierarchy improved feedback, making it easier for users to review selections before checkout.",
-      },
-    ],
-  },
-  {
-    // 1. Hero Section
-    slug: "senegence-redesign",
-    title: "SeneGence",
-    blurb:
-      "Redesigning the e-commerce experience to improve product discovery, clarify product information, and streamline the purchase flow.",
-    tags: ["Retail", "E-Commerce", "Beauty & Cosmetics"],
-    metrics: [
-      { label: "conversions within 6 months", value: "82K" },
-      { label: "in revenue within 6 months of launch", value: "$7.2M" },
-      { label: "from top-performing product", value: "$540K" },
-    ],
-    imageSections: [
-      {
-        placement: "after-solution",
-        images: [
-          {
-            src: sgAfterSolution,
-            alt: "SeneGence redesigned checkout experience showing a streamlined cart summary, clear pricing, and confident purchase confirmation",
-          },
-        ],
-      },
-    ],
-
-    // 2. Project Metadata
-    role: "Lead Product Designer",
-    client: "SeneGence International",
-    timeline: "6 months",
-    platform: "E-Commerce Web & Mobile",
-
-    // 3. TL;DR
-    tldr: [
-      "82K conversions within six months of launch",
-      "$7.2M in revenue over the same period",
-      "Improved consistency across devices",
-    ],
-
-    // 4. My Role + Core Contributions
-    roleDescription:
-      "I led the product design for SeneGence's e-commerce redesign, focusing on improving product discovery, streamlining the purchase flow, and creating a consistent design system. I collaborated with stakeholders, developers, and the marketing team to deliver a responsive experience that drove measurable business results.",
-    coreContributions: [
-      "Reorganized product hierarchy and navigation",
-      "Improved product pages for clarity and scannability",
-      "Built reusable components for consistency",
-      "Created responsive patterns for cross-device experience",
-    ],
-
-    // 5. The Challenge
-    challenge:
-      "The existing site made it difficult for customers to browse products, understand differences, and complete purchases efficiently.",
-
-    // 6. The Problem
-    problemBreakdown: [
-      {
-        title: "Difficult Product Discovery",
-        description:
-          "Customers struggled to find products due to poor navigation structure and overwhelming category pages.",
-      },
-      {
-        title: "Unclear Product Information",
-        description:
-          "Product pages lacked clear differentiation, making it hard for customers to understand what they were buying.",
-      },
-      {
-        title: "Inconsistent Experience",
-        description:
-          "The site lacked visual consistency across pages, creating friction and reducing trust during the purchase flow.",
-      },
-    ],
-
-    // 8. The Solution
-    solution:
-      "The redesigned experience introduced a clearer structure with improved navigation, better product presentation, and consistent components across all devices.",
-    solutionCards: [
-      {
-        icon: "target",
-        title: "Scalable Navigation System",
-        description:
-          "A reorganized product hierarchy that makes browsing intuitive and helps customers find what they need quickly.",
-      },
-      {
-        icon: "shield",
-        title: "Improved Product Pages",
-        description:
-          "Clearer product presentation with better imagery, descriptions, and comparison features.",
-      },
-      {
-        icon: "lightning",
-        title: "Reusable Component Library",
-        description:
-          "A consistent design system that ensures visual coherence and speeds up future development.",
-      },
-    ],
-  },
-  {
-    // 1. Hero Section
     slug: "cellebrite-website",
     title: "Cellebrite",
     blurb:
       "Improving Cellebrite's website to make complex offerings easier to understand and navigate.",
-    tags: ["Public Safety & Forensics", "B2B"],
+    tags: ["Marketing Site", "Public Safety & Forensics", "B2B"],
     metrics: [
       { label: "increase in page views", value: "26%" },
       { label: "reduction in bounce rate", value: "62%" },

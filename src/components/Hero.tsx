@@ -87,7 +87,7 @@ const Hero = () => {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="leading-none"
             >
-              PRODUCT DESIGNER
+              SENIOR PRODUCT DESIGNER
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 10 }}
@@ -96,10 +96,10 @@ const Hero = () => {
               className="max-w-[570px]"
             >
               Give me a clear problem and no set path, and I'll own it through
-              launch. I've spent ten years designing shopping experiences and
-              customer journeys, mostly the moments where people make a decision
-              and pay. I've worked as a design lead, and I write enough React to
-              ship my own work.
+              launch. I've spent more than 10 years designing consumer products,
+              mostly the moments where people decide whether to commit: buying,
+              signing up, choosing a plan. I've worked as a design lead, and I
+              write enough React to ship my own work.
             </motion.p>
           </div>
 

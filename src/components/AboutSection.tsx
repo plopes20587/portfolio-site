@@ -18,7 +18,7 @@ const AboutSection = () => {
     {
       iconSrc: icons["bridge-link"],
       value: "~97K",
-      label: "Verizon bridge plan redemptions in 3 months",
+      label: "Bridge plan redemptions in 3 months",
     },
     {
       iconSrc: icons["arrow-up-circle"],
@@ -28,7 +28,7 @@ const AboutSection = () => {
     {
       iconSrc: icons.lightning,
       value: "20%",
-      label: "Less time to complete a KFC order",
+      label: "Less task time in KFC usability testing",
     },
   ];
 
@@ -70,8 +70,8 @@ const AboutSection = () => {
               Right now I'm at Verizon, designing how customers across its value
               brands shop, pay, and get back on track when money is tight.
               Before that I was a lead product designer at Photon, where I
-              redesigned KFC's ordering flow and SeneGence's e-commerce
-              platform.
+              led SeneGence's e-commerce redesign and ran the research and
+              testing behind KFC's product page redesign.
             </p>
             <br />
             <div>
@@ -82,6 +82,11 @@ const AboutSection = () => {
                 really need. A legal label someone wants moved off the main
                 screen. The job is making those calls and getting the team
                 behind them. I also mentor junior designers.
+              </p>
+              <br />
+              <p className="mb-0">
+                Next, I want to bring that work to consumer products in travel,
+                gaming, entertainment, and e-commerce.
               </p>
               <br />
               <p>
